@@ -65,55 +65,49 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="pink-card group flex flex-col p-0 overflow-hidden cursor-pointer h-full"
+              className="pink-card group flex flex-col p-0 overflow-hidden cursor-pointer h-[450px] sm:h-[550px]"
             >
-              <div className="aspect-[4/3] overflow-hidden relative">
+              {/* Imagem - 80% do Card */}
+              <div className="h-[80%] w-full overflow-hidden relative border-b border-[#FF0054]/20">
                 {item.link ? (
                   <a href={item.link} target="_blank" rel="noreferrer" className="block w-full h-full">
                     <img 
                       src={item.img} 
                       alt={item.niche} 
-                      className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
+                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-[#0F0108] via-transparent to-transparent opacity-60 pointer-events-none" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
+                      <span className="py-3 px-6 rounded-xl bg-[#FF0054] text-white text-sm font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        Visualizar Site Completo
+                      </span>
+                    </div>
                   </a>
                 ) : (
-                  <>
+                  <div className="block w-full h-full relative">
                     <img 
                       src={item.img} 
                       alt={item.niche} 
-                      className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
+                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-[#0F0108] via-transparent to-transparent opacity-60 pointer-events-none" />
-                  </>
+                  </div>
                 )}
               </div>
 
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-black gradient-text leading-none uppercase tracking-tighter">
+              {/* Texto - 20% do Card */}
+              <div className="h-[20%] p-4 sm:p-5 flex flex-col justify-center bg-[#0F0108] z-10 relative">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl sm:text-2xl font-black gradient-text leading-none uppercase tracking-tighter truncate pr-2">
                      {item.niche}
                   </h3>
-                  <div className="w-10 h-10 rounded-full bg-[#FF0054] flex items-center justify-center text-white shadow-lg shadow-[#FF0054]/20 scale-90 group-hover:scale-100 transition-transform">
-                    <WhatsAppIcon size={20} />
+                  <div className="min-w-8 min-h-8 w-8 h-8 rounded-full bg-[#FF0054] flex items-center justify-center text-white shadow-lg shadow-[#FF0054]/20 scale-90 group-hover:scale-100 transition-transform">
+                    <WhatsAppIcon size={16} />
                   </div>
                 </div>
-                <p className="text-white/80 text-base font-medium leading-relaxed">
+                <p className="text-white/60 text-xs font-medium mt-1.5 line-clamp-2 leading-snug">
                   {item.desc}
                 </p>
-                <div className="mt-auto pt-6 flex flex-col gap-4">
-                  {item.link && (
-                    <a href={item.link} target="_blank" rel="noreferrer" className="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-bold text-center transition-colors">
-                      Visualizar Site Completo
-                    </a>
-                  )}
-                  <div className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-[#FF0054] to-[#A328D6]" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50">Modelo Verificado</span>
-                  </div>
-                </div>
               </div>
             </motion.div>
           ))}

@@ -96,16 +96,11 @@ export default function Portfolio() {
               </div>
 
               {/* Texto - 20% do Card */}
-              <div className="h-[20%] p-4 sm:p-5 flex flex-col justify-center bg-[#0F0108] z-10 relative">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl sm:text-2xl font-black gradient-text leading-none uppercase tracking-tighter truncate pr-2">
-                     {item.niche}
-                  </h3>
-                  <div className="min-w-8 min-h-8 w-8 h-8 rounded-full bg-[#FF0054] flex items-center justify-center text-white shadow-lg shadow-[#FF0054]/20 scale-90 group-hover:scale-100 transition-transform">
-                    <WhatsAppIcon size={16} />
-                  </div>
-                </div>
-                <p className="text-white/60 text-xs font-medium mt-1.5 line-clamp-2 leading-snug">
+              <div className="flex-1 p-4 sm:p-5 flex flex-col justify-center bg-[#0F0108] z-10 relative">
+                <h3 className="text-xl sm:text-2xl font-black gradient-text leading-none uppercase tracking-tighter">
+                   {item.niche}
+                </h3>
+                <p className="text-white/60 text-sm font-medium mt-2 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

@@ -3,6 +3,12 @@ import { WhatsAppIcon } from "./Icons";
 
 const NICHES = [
   { 
+    niche: "Dedetizadora", 
+    desc: "Design de alta conversão focado em gerar mais orçamentos para sua empresa de controle de pragas.", 
+    img: "/Dedetizadora.png",
+    link: "https://dedetizadora.duno.net.br/"
+  },
+  { 
     niche: "Veterinários", 
     desc: "Personalizamos este modelo com as cores e fotos da sua clínica pet em tempo recorde.", 
     img: "https://images.unsplash.com/photo-1576201836106-cf175821f00e?q=80&w=600" 
@@ -61,14 +67,28 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className="pink-card group flex flex-col p-0 overflow-hidden cursor-pointer h-full"
             >
-              <div className="aspect-video overflow-hidden relative">
-                <img 
-                  src={item.img} 
-                  alt={item.niche} 
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0F0108] to-transparent opacity-80" />
+              <div className="aspect-[4/3] overflow-hidden relative">
+                {item.link ? (
+                  <a href={item.link} target="_blank" rel="noreferrer" className="block w-full h-full">
+                    <img 
+                      src={item.img} 
+                      alt={item.niche} 
+                      className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0F0108] via-transparent to-transparent opacity-60 pointer-events-none" />
+                  </a>
+                ) : (
+                  <>
+                    <img 
+                      src={item.img} 
+                      alt={item.niche} 
+                      className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0F0108] via-transparent to-transparent opacity-60 pointer-events-none" />
+                  </>
+                )}
               </div>
 
               <div className="p-8 flex flex-col flex-1">
@@ -83,9 +103,16 @@ export default function Portfolio() {
                 <p className="text-white/80 text-base font-medium leading-relaxed">
                   {item.desc}
                 </p>
-                <div className="mt-auto pt-6 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-[#FF0054] to-[#A328D6]" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50">Modelo Verificado</span>
+                <div className="mt-auto pt-6 flex flex-col gap-4">
+                  {item.link && (
+                    <a href={item.link} target="_blank" rel="noreferrer" className="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-bold text-center transition-colors">
+                      Visualizar Site Completo
+                    </a>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-[#FF0054] to-[#A328D6]" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50">Modelo Verificado</span>
+                  </div>
                 </div>
               </div>
             </motion.div>

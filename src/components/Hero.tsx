@@ -65,13 +65,13 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="text-[40px] sm:text-[54px] md:text-[64px] lg:text-[72px] font-black leading-[1] tracking-[-0.04em] uppercase mb-6">
-            Site de <span className="gradient-text">Elite</span> <br />
-            por Apenas <br />
-            <span className="gradient-text">R$ 197/mês</span>
+            MÁQUINAS DE VENDAS PARA QUEM <span className="gradient-text">NÃO ACEITA PERDER</span> <br />
+            POR APENAS <br />
+            <span className="gradient-text">R$ 197/MÊS</span>
           </h1>
           
           <p className="text-sm md:text-base text-white/70 mb-10 max-w-lg leading-relaxed font-medium">
-            Escolha um dos nossos designs premium e nós personalizamos tudo com suas fotos e cores em tempo recorde. Performance de elite por um preço que cabe no seu negócio.
+            Pare de jogar dinheiro no lixo. Entregamos uma vitrine digital agressiva, testada e desenhada puramente para esmagar a sua concorrência e multiplicar os seus lucros.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">

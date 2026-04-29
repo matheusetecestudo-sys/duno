@@ -4,38 +4,48 @@ import { WhatsAppIcon } from "./Icons";
 const NICHES = [
   { 
     niche: "Dedetizadora", 
-    desc: "Design de alta conversão focado em gerar mais orçamentos para sua empresa de controle de pragas.", 
+    desc: "Pare de perder dinheiro para a concorrência. Uma máquina implacável de vendas projetada para exterminar objeções e dominar sua região.", 
     img: "/Dedetizadora.png",
     link: "https://dedetizadora.duno.net.br/"
   },
   { 
-    niche: "Veterinários", 
-    desc: "Personalizamos este modelo com as cores e fotos da sua clínica pet em tempo recorde.", 
-    img: "https://images.unsplash.com/photo-1576201836106-cf175821f00e?q=80&w=600" 
-  },
-  { 
     niche: "Advogados", 
-    desc: "Um design sóbrio e autoritário que adaptamos para o seu escritório jurídico.", 
+    desc: "Autoridade inquestionável. Posicione seu escritório como a única escolha lógica para clientes de alto padrão que não aceitam perder.", 
     img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=600" 
   },
   { 
-    niche: "Clínicas", 
-    desc: "Design clean e moderno pronto para receber a identidade visual do seu consultório.", 
+    niche: "Clínicas Médicas", 
+    desc: "Lotação máxima na sua agenda. Transformamos curiosos em pacientes premium desesperados e dispostos a pagar o seu preço.", 
     img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600" 
   },
   { 
-    niche: "Academia", 
-    desc: "Design de alta energia que customizamos para o seu método de treinamento.", 
+    niche: "Academias & Crossfit", 
+    desc: "Esmague a concorrência. Um design visceral que injeta adrenalina no seu prospecto e o força a passar o cartão agora mesmo.", 
     img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600" 
   },
   { 
-    niche: "Nutrição", 
-    desc: "Sua autoridade e consultas a um clique de distância com este modelo premium.", 
-    img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2340&auto=format&fit=crop" 
+    niche: "Estética & Beleza", 
+    desc: "Venda luxo, não apenas serviço. Uma vitrine digital predatória que atrai clientes desesperadas pelas suas mãos.", 
+    img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=600" 
   },
   { 
-    niche: "Restaurante", 
-    desc: "Modelo visual de dar água na boca adaptado para o cardápio do seu restaurante.", 
+    niche: "Odontologia", 
+    desc: "Sorrisos de alto valor. Posicione sua clínica no topo da pirâmide e pare de brigar por preço em tratamentos estéticos.", 
+    img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=600" 
+  },
+  { 
+    niche: "Imobiliárias", 
+    desc: "Feche contratos milionários. Vitrines agressivas que fazem o comprador sentir a urgência absoluta de investir imediatamente.", 
+    img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600" 
+  },
+  { 
+    niche: "Energia Solar", 
+    desc: "O mercado está explodindo e quem chega primeiro leva tudo. Uma landing page implacável para capturar os melhores leads da região.", 
+    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600" 
+  },
+  { 
+    niche: "Delivery Premium", 
+    desc: "Faça-os babar antes mesmo de pedir. Um layout agressivo que ativa o desejo primitivo e multiplica o ticket médio instantaneamente.", 
     img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=600" 
   }
 ];
@@ -50,10 +60,10 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
-            Escolha seu <span className="gradient-text">Modelo</span>
+            ESCOLHA SUA <span className="gradient-text">MÁQUINA DE VENDAS</span>
           </h2>
-          <p className="text-white/80 text-xl font-medium max-w-2xl mx-auto">
-            Selecione o design que mais gosta e nós cuidamos de toda a personalização para o seu negócio.
+          <p className="text-white/80 text-xl font-medium max-w-3xl mx-auto">
+            Pare de deixar dinheiro na mesa. Selecione a estrutura validada que vai engolir a concorrência e monopolizar o seu mercado.
           </p>
         </div>
 

@@ -26,7 +26,8 @@ const NICHES = [
   { 
     niche: "Estética & Beleza", 
     desc: "Venda luxo, não apenas serviço. Uma vitrine digital predatória que atrai clientes desesperadas pelas suas mãos.", 
-    img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=600" 
+    img: "/Estetica.png",
+    link: ""
   },
   { 
     niche: "Odontologia", 

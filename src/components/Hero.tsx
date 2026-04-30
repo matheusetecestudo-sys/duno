@@ -64,7 +64,7 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="text-[40px] sm:text-[54px] md:text-[64px] lg:text-[72px] font-black leading-[1] tracking-[-0.04em] uppercase mb-6">
+          <h1 className="text-[48px] sm:text-[64px] md:text-[86px] lg:text-[110px] font-black leading-[0.9] tracking-[-0.06em] uppercase mb-8">
             MÁQUINAS DE VENDAS PARA QUEM <span className="gradient-text">NÃO ACEITA PERDER</span> <br />
             POR APENAS <br />
             <span className="gradient-text">R$ 197/MÊS</span>

@@ -9,6 +9,12 @@ const NICHES = [
     link: "https://dedetizadora.duno.net.br/"
   },
   { 
+    niche: "Veterinários", 
+    desc: "Lotar a sua agenda com tutores apaixonados. Um site premium que transforma visitas em clientes fiéis e faz o seu consultório dominar a região.", 
+    img: "/Veterinaria.png",
+    link: ""
+  },
+  { 
     niche: "Advogados", 
     desc: "Autoridade inquestionável. Posicione seu escritório como a única escolha lógica para clientes de alto padrão que não aceitam perder.", 
     img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=600" 

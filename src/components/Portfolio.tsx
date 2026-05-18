@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { WhatsAppIcon } from "./Icons";
 
 const NICHES = [
   { 
@@ -59,44 +58,57 @@ const NICHES = [
 
 export default function Portfolio() {
   return (
-    <section id="portfólio" className="py-20 px-6 bg-black relative overflow-hidden">
+    <section id="portfólio" className="py-24 px-6 bg-[#050002] relative overflow-hidden">
       {/* Decorative Background */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#FF0054]/5 blur-[120px] rounded-full -z-10" />
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#A328D6]/5 blur-[120px] rounded-full -z-10" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(255,0,84,0.08),transparent_60%)] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(163,40,214,0.08),transparent_60%)] -z-10" />
 
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 uppercase tracking-tighter"
+          >
             ESCOLHA SUA <span className="gradient-text">MÁQUINA DE VENDAS</span>
-          </h2>
-          <p className="text-white/80 text-xl font-medium max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-white/60 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed"
+          >
             Pare de deixar dinheiro na mesa. Selecione a estrutura validada que vai engolir a concorrência e monopolizar o seu mercado.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {NICHES.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="pink-card group flex flex-col p-0 overflow-hidden cursor-pointer h-[450px] sm:h-[550px]"
+              className="relative group flex flex-col p-0 overflow-hidden cursor-pointer h-[480px] sm:h-[550px] rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(255,0,84,0.08)]"
             >
-              {/* Imagem - 80% do Card */}
-              <div className="h-[80%] w-full overflow-hidden relative border-b border-[#FF0054]/20">
+              {/* Imagem - 75% do Card */}
+              <div className="h-[75%] w-full overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050002] via-transparent to-transparent z-10 opacity-80" />
+                
                 {item.link ? (
                   <a href={item.link} target="_blank" rel="noreferrer" className="block w-full h-full">
                     <img 
                       src={item.img} 
                       alt={item.niche} 
-                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
+                      className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 filter grayscale-[40%] group-hover:grayscale-0 group-hover:object-bottom transition-all duration-[5000ms] ease-out"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
-                      <span className="py-3 px-6 rounded-xl bg-[#FF0054] text-white text-sm font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                        Visualizar Site Completo
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center backdrop-blur-[2px]">
+                      <span className="py-3.5 px-8 rounded-full bg-gradient-to-r from-[#FF0054] to-[#A328D6] text-white text-sm font-bold shadow-[0_0_30px_rgba(255,0,84,0.4)] transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        Visualizar Site
                       </span>
                     </div>
                   </a>
@@ -105,19 +117,20 @@ export default function Portfolio() {
                     <img 
                       src={item.img} 
                       alt={item.niche} 
-                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:object-bottom transition-all duration-[4000ms] ease-in-out"
+                      className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 filter grayscale-[40%] group-hover:grayscale-0 group-hover:object-bottom transition-all duration-[5000ms] ease-out"
                       loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none" />
                   </div>
                 )}
               </div>
 
-              {/* Texto - 20% do Card */}
-              <div className="flex-1 p-4 sm:p-5 flex flex-col justify-center bg-[#0F0108] z-10 relative">
-                <h3 className="text-xl sm:text-2xl font-black gradient-text leading-none uppercase tracking-tighter">
+              {/* Texto - 25% do Card */}
+              <div className="flex-1 p-6 flex flex-col justify-start bg-[#050002] z-10 relative border-t border-white/5 group-hover:border-white/10 transition-colors">
+                <h3 className="text-2xl font-black text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FF0054] group-hover:to-[#A328D6] leading-none uppercase tracking-tight transition-all duration-300">
                    {item.niche}
                 </h3>
-                <p className="text-white/60 text-sm font-medium mt-2 leading-relaxed">
+                <p className="text-white/50 group-hover:text-white/70 text-sm font-medium mt-3 leading-relaxed transition-colors duration-300">
                   {item.desc}
                 </p>
               </div>

@@ -8,6 +8,7 @@ import { Metrics, Problem, Solution } from "./components/MetricSections";
 import { Benefits, HowItWorks, Comparison } from "./components/InfoSections";
 import { Offer, FAQ, FinalCTA, Footer, WhatsAppButton } from "./components/MarketingElements";
 import { Logo } from "./components/Logo";
+import Location from "./components/Location";
 
 function LoadingScreen() {
   return (
@@ -73,6 +74,8 @@ export default function App() {
         <div id="faq">
           <FAQ />
         </div>
+
+        <Location />
 
         <FinalCTA />
       </main>

@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8"
+            className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8 animate-pulse"
           >
             <div className="flex -space-x-2">
               {[
@@ -60,11 +60,11 @@ export default function Hero() {
                 "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
                 "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200"
               ].map((src, i) => (
-                <img key={i} src={src} className="w-7 h-7 rounded-full border-2 border-black ring-2 ring-[#FF0054]/40 object-cover hover:scale-110 active:scale-95 duration-200 transition-all cursor-pointer" alt="User Verified" />
+                <img key={i} src={src} className="w-7 h-7 rounded-full border-2 border-black ring-2 ring-[#FF0054]/40 object-cover hover:scale-110 duration-200 transition-all cursor-pointer" alt="User Verified" />
               ))}
             </div>
-            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70">
-              Mais de <span className="gradient-text">200 projetos</span> premium
+            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.15em] text-white/90">
+              Mais de <span className="text-[#FF0054]">100 negócios locais</span> já contrataram
             </span>
           </motion.div>
 
@@ -74,25 +74,30 @@ export default function Hero() {
             <span className="gradient-text">R$ 197/mês</span>
           </h1>
           
-          <p className="text-sm md:text-base text-white/70 mb-8 md:mb-10 max-w-lg leading-relaxed font-medium">
-            Escolha um dos nossos designs premium e nós personalizamos tudo com suas fotos e cores em tempo recorde. Performance de elite por um preço que cabe no seu negócio.
+          <p className="text-sm md:text-base text-white/80 mb-8 md:mb-10 max-w-lg leading-relaxed font-bold">
+            Seu site profissional de alta performance já pronto e sem nenhuma taxa de criação. Escolha um dos nossos modelos de elite: nós personalizamos com seu logotipo, cores e fotos reais do seu negócio!
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
             <button 
               onClick={() => scrollTo('preço')}
-              className="premium-btn w-full sm:w-auto px-8 sm:px-10 py-4.5 sm:py-5 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-[0.15em] group flex items-center justify-center gap-2"
+              className="premium-btn w-full sm:w-auto px-8 sm:px-10 py-4.5 sm:py-5 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-[0.15em] group flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(255,0,84,0.3)] hover:shadow-[0_0_35px_rgba(255,0,84,0.55)] transition-all"
             >
               <span>Garantir meu site</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1.5 transition-transform" />
             </button>
             <button 
               onClick={() => scrollTo('portfólio')}
-              className="w-full sm:w-auto px-8 sm:px-10 py-4.5 sm:py-5 rounded-2xl text-xs sm:text-sm font-black border border-white/25 hover:bg-white/10 transition-all text-white/70 hover:text-white uppercase tracking-[0.15em]"
+              className="w-full sm:w-auto text-xs sm:text-sm font-black text-white hover:text-[#FF0054] underline underline-offset-8 decoration-[#FF0054]/40 hover:decoration-[#FF0054] transition-all py-3 px-2 text-center uppercase tracking-[0.15em]"
             >
-              Ver Portfolio
+              Conhecer Modelos Prontos →
             </button>
           </div>
+
+          <p className="text-white/60 text-xs font-bold mt-5 flex items-center gap-2 justify-center sm:justify-start">
+            <span className="w-2 h-2 rounded-full bg-[#00FF80] animate-pulse shrink-0" />
+            Vagas limitadas por cidade para garantir exclusividade local.
+          </p>
         </motion.div>
 
         {/* Right Side: Single 100% Premium Showcase Mockup */}
@@ -125,9 +130,9 @@ export default function Hero() {
               {/* Main Content Image - Occupies 100% of the container */}
               <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0004]">
                 <img 
-                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200" 
-                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 pointer-events-auto" 
-                  alt="Modelo de Site de Elite"
+                   src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200" 
+                  className="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 pointer-events-auto" 
+                  alt="Modelo de Site de Elite - Clínica Estética"
                 />
                 {/* Clean dark slope overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

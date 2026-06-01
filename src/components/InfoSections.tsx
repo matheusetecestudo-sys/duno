@@ -5,54 +5,77 @@ export function Benefits() {
   const benefits = [
     { 
       title: "<span class='gradient-text'>Identidade</span> Personalizada", 
-      desc: "Pegamos o template escolhido e adaptamos cores e imagens para ficarem idênticos à sua marca.", 
-      icon: Layout 
+      desc: "Adaptamos logotipo, cores e fotos de forma elegante para ficar com a cara única do seu negócio local.", 
+      icon: Layout,
+      featured: true
     },
     { 
-      title: "<span class='gradient-text'>Hospedagem</span> Inclusiva", 
-      desc: "Você não se preocupa com nada técnico. Servidor de alta velocidade já incluso na mensalidade.", 
-      icon: Headphones 
+      title: "<span class='gradient-text'>Hospedagem</span> Inclusa", 
+      desc: "Você não se preocupa com nada técnico. Servidor de alta velocidade e certificado de segurança inclusos.", 
+      icon: Headphones,
+      featured: false
     },
     { 
-      title: "<span class='gradient-text'>Edição</span> Ultra Veloz", 
-      desc: "Sua presença digital fica pronta em poucos dias, não meses. Foco total em agilidade.", 
-      icon: Edit3 
+      title: "<span class='gradient-text'>Pronto em</span> 48 Horas", 
+      desc: "Sua presença digital pronta para vender em tempo recorde, sem atrasos de agências convencionais.", 
+      icon: Edit3,
+      featured: false
     },
     { 
-      title: "<span class='gradient-text'>Suporte</span> Prioritário", 
-      desc: "Qualquer alteração ou dúvida, nossa equipe resolve rapidamente para você.", 
-      icon: RefreshCw 
+      title: "<span class='gradient-text'>Suporte</span> WhatsApp", 
+      desc: "Qualquer alteração ou dúvida, nossa equipe resolve rapidamente para você direto no WhatsApp.", 
+      icon: RefreshCw,
+      featured: false
     },
     { 
-      title: "<span class='gradient-text'>Preço</span> Imbatível", 
-      desc: "Design de agência de R$ 5k por uma fração do preço mensal. Sem custos escondidos.", 
-      icon: Clock 
+      title: "<span class='gradient-text'>Preço</span> Sem Pegadinhas", 
+      desc: "Site de alta agência de R$ 5k por apenas R$ 197 mensais. Sem taxa de adesão ou de criação.", 
+      icon: Clock,
+      featured: true
     },
     { 
       title: "<span class='gradient-text'>Foco</span> em Conversão", 
-      desc: "Nossos templates são testados para vender. Seu site será uma máquina de captar clientes.", 
-      icon: Rocket 
+      desc: "Modelos com botão de agendamento em 1 clique e botões de chamada rápida para explodir seus contatos.", 
+      icon: Rocket,
+      featured: true
     }
   ];
 
   return (
-    <section id="benefícios" className="py-20 px-6">
+    <section id="benefícios" className="py-20 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl lg:text-7xl font-black mb-16 text-center">
-          Vantagens <span className="gradient-text">Exclusivas</span>
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
+            Vantagens <span className="gradient-text">Exclusivas</span>
+          </h2>
+          <p className="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto font-bold leading-relaxed">
+            Entregamos tudo pronto de ponta a ponta. Você foca em atender seus clientes, nós cuidamos do design e da engenharia.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((b, i) => (
-            <div key={i} className="pink-card group transition-all">
-              <div className="w-16 h-16 rounded-full bg-[#FF0054] flex items-center justify-center text-white mb-8 shadow-lg shadow-[#FF0054]/20 group-hover:scale-110 transition-transform">
-                <b.icon size={30} strokeWidth={2.5} />
+            <div 
+              key={i} 
+              className={`pink-card group transition-all duration-300 relative border ${
+                b.featured 
+                  ? "border-[#FF0054]/50 bg-gradient-to-b from-[#0F0108] to-black shadow-[0_15px_40px_rgba(255,0,84,0.15)] scale-[1.02] ring-2 ring-[#FF0054]/20" 
+                  : "border-white/5 bg-[#0F0108]/40 hover:bg-[#0F0108]/80 hover:border-[#FF0054]/30"
+              }`}
+            >
+              {b.featured && (
+                <div className="absolute -top-3 right-6 px-3 py-1 bg-[#FF0054] text-[9px] font-black uppercase tracking-widest text-white rounded-full shadow-lg shadow-[#FF0054]/30">
+                  Destaque
+                </div>
+              )}
+              <div className="w-16 h-16 rounded-full bg-linear-to-tr from-[#FF0054] to-[#A328D6] flex items-center justify-center text-white mb-8 shadow-lg shadow-[#FF0054]/20 group-hover:scale-110 transition-transform">
+                <b.icon size={28} strokeWidth={2.5} />
               </div>
               <div>
                 <h3 
                   className="text-2xl font-black mb-4 leading-tight text-white normal-case tracking-tight"
                   dangerouslySetInnerHTML={{ __html: b.title }}
                 />
-                <p className="text-white/60 leading-relaxed font-medium text-[16px]">{b.desc}</p>
+                <p className="text-white/80 leading-relaxed font-semibold text-sm sm:text-base">{b.desc}</p>
               </div>
             </div>
           ))}
@@ -64,18 +87,39 @@ export function Benefits() {
 
 export function HowItWorks() {
   const steps = [
-    { title: "Escolha o modelo", desc: "Selecione o layout baseado no seu nicho.", icon: MousePointerClick },
-    { title: "Personalizamos", desc: "Adaptamos cores, logos e fotos do seu negócio.", icon: Zap },
-    { title: "Publicamos", desc: "Cuidamos de toda parte técnica e hospedagem.", icon: Rocket },
-    { title: "Receba contatos", desc: "O site começa a gerar leads diretamente no seu WhatsApp.", icon: TrendingUp },
+    { 
+      title: "Escolha o modelo", 
+      desc: "Selecione o modelo pronto ideal de alta performance para o seu nicho profissional.", 
+      icon: MousePointerClick 
+    },
+    { 
+      title: "Personalizamos em 48h", 
+      desc: "Nossa equipe adapta as cores, fotos, logotipo e textos reais do seu consultório ou clínica.", 
+      icon: Zap 
+    },
+    { 
+      title: "Publicamos o Site", 
+      desc: "Cuidamos de toda a infraestrutura: registro, domínio, hospedagem ultra veloz e certificado SSL.", 
+      icon: Rocket 
+    },
+    { 
+      title: "Atraia mais Clientes", 
+      desc: "O site começa a gerar contatos e clientes direto no seu WhatsApp. Daí em diante, pague apenas R$197/mês.", 
+      icon: TrendingUp 
+    },
   ];
 
   return (
-    <section id="como-funciona" className="py-20 px-6">
+    <section className="py-20 px-6 bg-linear-to-b from-black to-[#0F0108]/90">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-16 text-center">
-          Como <span className="gradient-text">funciona</span>
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4">
+            Como <span className="gradient-text">funciona</span>
+          </h2>
+          <p className="text-white/80 text-base sm:text-xl max-w-xl mx-auto font-bold tracking-tight">
+            Seu site de elite no ar em menos de 48 horas de forma 100% descomplicada e rápida.
+          </p>
+        </div>
         <div className="relative">
           {/* Connector Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#FF0054]/30 to-transparent" />
@@ -89,7 +133,7 @@ export function HowItWorks() {
                 <h3 className="text-xl font-black mb-4 uppercase tracking-tighter text-white">
                   <span className="gradient-text">{i + 1}.</span> {s.title}
                 </h3>
-                <p className="text-white/60 text-sm font-medium leading-relaxed">{s.desc}</p>
+                <p className="text-white/70 text-sm font-bold leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -101,7 +145,7 @@ export function HowItWorks() {
 
 export function Comparison() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 bg-black">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-16 text-center">
           Comprar vs <span className="gradient-text">Assinar</span>
@@ -109,13 +153,13 @@ export function Comparison() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-black rounded-[40px] overflow-hidden border-2 border-[#FF0054]/30 shadow-2xl">
           <div className="p-6 sm:p-12 lg:p-16 border-b md:border-b-0 md:border-r border-[#FF0054]/10">
-            <h3 className="text-2xl font-black mb-8 md:mb-12 text-white/40 tracking-tighter uppercase">TRADICIONAL</h3>
+            <h3 className="text-2xl font-black mb-8 md:mb-12 text-white/40 tracking-tighter uppercase">COMPRA TRADICIONAL</h3>
             <ul className="space-y-6 md:space-y-10">
               {[
-                { text: "Alto custo inicial (R$3k+)", bad: true },
+                { text: "Alto custo inicial (R$3.000+)", bad: true },
                 { text: "Demora meses para entregar", bad: true },
-                { text: "Risco de abandono", bad: true },
                 { text: "Manutenção por sua conta", bad: true },
+                { text: "Contratos longos e taxas ocultas", bad: true },
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 sm:gap-6 text-white/60 font-bold text-base md:text-lg">
                   <X className="text-red-500/80 shrink-0 w-5 h-5 md:w-6 md:h-6" />
@@ -127,15 +171,16 @@ export function Comparison() {
 
           <div className="bg-[#0F0108] p-6 sm:p-12 lg:p-16 relative">
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-12">
-              <h3 className="text-3xl font-black gradient-text tracking-tighter uppercase">DUNO</h3>
+              <h3 className="text-3xl font-black gradient-text tracking-tighter uppercase leading-none">DUNO (Locação de Site)</h3>
               <div className="px-4 py-1.5 rounded-xl bg-[#FF0054] text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-[0_0_15px_rgba(255,0,84,0.4)] md:animate-pulse">MELHOR ESCOLHA</div>
             </div>
             <ul className="space-y-6 md:space-y-10">
               {[
                 { text: "Apenas R$ 197 mensais", good: true },
-                { text: "Pronto em poucos dias", good: true },
-                { text: "Sem risco (cancela quando quiser)", good: true },
-                { text: "Técnico e suporte inclusos", good: true },
+                { text: "Pronto em menos de 48 horas", good: true },
+                { text: "Sem multa ou contrato de fidelidade", good: true },
+                { text: "Cancele a qualquer momento", good: true },
+                { text: "Suporte e Manutenção 100% inclusos", good: true },
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 sm:gap-6 text-white font-bold text-base md:text-lg group">
                   <Check className="text-[#00FF80] shrink-0 w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />

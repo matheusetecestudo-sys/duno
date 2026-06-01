@@ -108,37 +108,37 @@ export function Comparison() {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-black rounded-[40px] overflow-hidden border-2 border-[#FF0054]/30 shadow-2xl">
-          <div className="p-12 lg:p-16 border-r border-[#FF0054]/10">
-            <h3 className="text-2xl font-black mb-12 text-white/40 tracking-tighter uppercase">TRADICIONAL</h3>
-            <ul className="space-y-10">
+          <div className="p-6 sm:p-12 lg:p-16 border-b md:border-b-0 md:border-r border-[#FF0054]/10">
+            <h3 className="text-2xl font-black mb-8 md:mb-12 text-white/40 tracking-tighter uppercase">TRADICIONAL</h3>
+            <ul className="space-y-6 md:space-y-10">
               {[
                 { text: "Alto custo inicial (R$3k+)", bad: true },
                 { text: "Demora meses para entregar", bad: true },
                 { text: "Risco de abandono", bad: true },
                 { text: "Manutenção por sua conta", bad: true },
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-6 text-white/60 font-bold text-lg">
-                  <X className="text-red-500/80 shrink-0" size={24} />
+                <li key={i} className="flex items-center gap-4 sm:gap-6 text-white/60 font-bold text-base md:text-lg">
+                  <X className="text-red-500/80 shrink-0 w-5 h-5 md:w-6 md:h-6" />
                   <span>{item.text}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-[#0F0108] p-12 lg:p-16 relative">
-            <div className="flex justify-between items-start mb-12">
+          <div className="bg-[#0F0108] p-6 sm:p-12 lg:p-16 relative">
+            <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-12">
               <h3 className="text-3xl font-black gradient-text tracking-tighter uppercase">DUNO</h3>
-              <div className="px-5 py-2 rounded-xl bg-[#FF0054] text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-[0_0_20px_rgba(255,0,84,0.4)] animate-pulse">MELHOR ESCOLHA</div>
+              <div className="px-4 py-1.5 rounded-xl bg-[#FF0054] text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-[0_0_15px_rgba(255,0,84,0.4)] md:animate-pulse">MELHOR ESCOLHA</div>
             </div>
-            <ul className="space-y-10">
+            <ul className="space-y-6 md:space-y-10">
               {[
                 { text: "Apenas R$ 197 mensais", good: true },
                 { text: "Pronto em poucos dias", good: true },
                 { text: "Sem risco (cancela quando quiser)", good: true },
                 { text: "Técnico e suporte inclusos", good: true },
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-6 text-white font-bold text-lg group">
-                  <Check className="text-[#00FF80] shrink-0" size={24} strokeWidth={3} />
+                <li key={i} className="flex items-center gap-4 sm:gap-6 text-white font-bold text-base md:text-lg group">
+                  <Check className="text-[#00FF80] shrink-0 w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />
                   <span>{item.text}</span>
                 </li>
               ))}

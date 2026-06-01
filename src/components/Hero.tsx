@@ -1,10 +1,12 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { ShieldCheck, Play } from "lucide-react";
-import { WhatsAppIcon } from "./Icons";
+import { CheckCircle2, ShieldCheck, Zap, TrendingUp, ArrowRight } from "lucide-react";
+import { Logo } from "./Logo";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
   
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -14,142 +16,165 @@ export default function Hero() {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 overflow-hidden bg-[#050002]">
-      
-      {/* Background - Elevado com malha e gradientes vivos */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,0,84,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(163,40,214,0.15),transparent_50%)]" />
-        {/* Grid lines animadas sutis */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050002] to-transparent" />
+    <section ref={containerRef} className="relative min-h-[100dvh] lg:h-[100dvh] flex flex-col items-center justify-center px-6 pt-28 pb-16 lg:py-0 overflow-hidden bg-black animate-fadeIn">
+      {/* Background Gradients and Effects */}
+      <div className="absolute inset-0 -z-10 bg-black overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[100%] opacity-[0.08] grayscale pointer-events-none">
+          <img 
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=60&w=1600&auto=format&fit=crop" 
+            className="w-full h-full object-cover" 
+            alt="Hero Background"
+            loading="lazy"
+          />
+        </div>
+        
+        {/* Layered Overlays for Premium Contrast */}
+        <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black" />
+        
+        {/* Colorful glows and tech-grid overlay */}
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#FF0054]/15 blur-[160px] rounded-full pointer-events-none" />
+        <div className="absolute top-[20%] right-[-100px] w-[500px] h-[500px] bg-[#A328D6]/10 blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[10%] left-[20%] w-[450px] h-[450px] bg-[#FF0054]/10 blur-[130px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 pt-24 pb-12">
+      <div className="relative z-30 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
         
-        {/* Left: Content */}
+        {/* Left Side: Content */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-1 text-center lg:text-left z-20"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex-1 text-left w-full"
         >
-          {/* Badge premium */}
+          {/* Trust Badge / Pill */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(255,0,84,0.1)]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8"
           >
             <div className="flex -space-x-2">
               {[
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100",
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200",
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200"
               ].map((src, i) => (
-                <img key={i} src={src} className="w-7 h-7 rounded-full border-2 border-[#050002] object-cover" alt="User" />
+                <img key={i} src={src} className="w-7 h-7 rounded-full border-2 border-black ring-2 ring-[#FF0054]/40 object-cover hover:scale-110 active:scale-95 duration-200 transition-all cursor-pointer" alt="User Verified" />
               ))}
             </div>
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/80">
-              Mais de <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">200 projetos</span>
+            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70">
+              Mais de <span className="gradient-text">200 projetos</span> premium
             </span>
           </motion.div>
 
-          {/* H1 - Modernizado */}
-          <h1 className="text-[46px] sm:text-[60px] lg:text-[76px] xl:text-[88px] font-black leading-[0.9] tracking-[-0.03em] uppercase mb-8">
-            <span className="block text-white">Máquinas</span>
-            <span className="block gradient-text drop-shadow-[0_0_30px_rgba(255,0,84,0.3)]">de Vendas</span>
-            <span className="block text-[32px] sm:text-[40px] lg:text-[48px] text-white/40 mt-2">por R$ 197/mês</span>
+          <h1 className="text-[34px] xs:text-[40px] sm:text-[54px] md:text-[64px] lg:text-[72px] font-black leading-[1.05] sm:leading-[1] tracking-[-0.04em] uppercase mb-6">
+            Site de <span className="gradient-text">Elite</span> <br />
+            por Apenas <br />
+            <span className="gradient-text">R$ 197/mês</span>
           </h1>
-
-          <p className="text-lg md:text-xl text-white/60 mb-10 max-w-xl leading-relaxed font-medium mx-auto lg:mx-0">
-            Pare de perder clientes. Entregamos uma infraestrutura digital de luxo, projetada exclusivamente para dominar o seu mercado.
+          
+          <p className="text-sm md:text-base text-white/70 mb-8 md:mb-10 max-w-lg leading-relaxed font-medium">
+            Escolha um dos nossos designs premium e nós personalizamos tudo com suas fotos e cores em tempo recorde. Performance de elite por um preço que cabe no seu negócio.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <button 
               onClick={() => scrollTo('preço')}
-              className="group premium-btn w-full sm:w-auto px-10 py-4 rounded-full text-sm font-black uppercase tracking-[0.1em] flex items-center justify-center gap-3 overflow-hidden relative"
+              className="premium-btn w-full sm:w-auto px-8 sm:px-10 py-4.5 sm:py-5 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-[0.15em] group flex items-center justify-center gap-2"
             >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <WhatsAppIcon size={22} className="relative z-10" />
-              <span className="relative z-10">Garantir meu site</span>
+              <span>Garantir meu site</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1.5 transition-transform" />
             </button>
-            
             <button 
               onClick={() => scrollTo('portfólio')}
-              className="group w-full sm:w-auto px-10 py-4 rounded-full text-sm font-black border border-white/10 bg-white/[0.02] backdrop-blur-md hover:bg-white/[0.08] hover:border-white/20 transition-all text-white/80 hover:text-white uppercase tracking-[0.1em] flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-8 sm:px-10 py-4.5 sm:py-5 rounded-2xl text-xs sm:text-sm font-black border border-white/25 hover:bg-white/10 transition-all text-white/70 hover:text-white uppercase tracking-[0.15em]"
             >
-              <Play size={18} className="text-[#FF0054] group-hover:scale-110 transition-transform" />
-              Ver Portfólio
+              Ver Portfolio
             </button>
-          </div>
-
-          {/* Social proof bar - Mais sofisticado */}
-          <div className="mt-16 pt-8 border-t border-white/5 flex flex-wrap items-center gap-8 lg:gap-12 justify-center lg:justify-start">
-            {[
-              { label: "Sites Entregues", value: "200+" },
-              { label: "Satisfação", value: "98%" },
-              { label: "Lead Gen", value: "3x+" },
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center lg:items-start group">
-                <span className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-br from-white to-white/40 group-hover:to-white/80 transition-colors">{stat.value}</span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#FF0054] font-bold mt-1">{stat.label}</span>
-              </div>
-            ))}
           </div>
         </motion.div>
 
-        {/* Right: Preview Grid - Estilo Flutuante e 3D */}
+        {/* Right Side: Single 100% Premium Showcase Mockup */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="flex-1 relative hidden lg:block w-full"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="flex-1 w-full relative block mt-8 lg:mt-0"
         >
-          {/* Efeito de brilho de fundo */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(ellipse_at_center,rgba(255,0,84,0.15),rgba(163,40,214,0.15),transparent_70%)] blur-[80px] rounded-full -z-10" />
-
-          <div className="relative grid grid-cols-2 gap-5 max-w-[500px] ml-auto [perspective:1000px]" style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-12deg) rotateX(8deg)' }}>
-            {[
-              { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400", delay: 0 },
-              { src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400", delay: 0.1 },
-              { src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=400", delay: 0.2 },
-              { src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=400", delay: 0.3 }
-            ].map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 + img.delay }}
-                whileHover={{ scale: 1.05, translateZ: 30 }}
-                className={`rounded-2xl border border-white/10 overflow-hidden bg-[#050002]/80 backdrop-blur-md shadow-2xl ${i % 2 !== 0 ? 'mt-10' : ''}`}
-              >
-                <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent z-10 pointer-events-none opacity-50" />
-                <img src={img.src} className="w-full aspect-[4/5] object-cover opacity-70 hover:opacity-100 transition-opacity duration-500" alt="Template" />
-              </motion.div>
-            ))}
+          <div className="relative w-full max-w-[480px] lg:max-w-[540px] mx-auto lg:ml-auto group px-2 sm:px-0">
+            {/* Ambient Background Glow behind the mockup */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF0054] to-[#A328D6] rounded-[24px] opacity-20 blur-xl group-hover:opacity-35 group-hover:scale-102 transition-all duration-500 pointer-events-none" />
             
-            {/* Badge de Performance Flutuante */}
-            <motion.div 
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 1, type: "spring", stiffness: 200 }}
-              className="absolute -left-16 bottom-16 bg-[#050002]/90 backdrop-blur-xl border border-white/10 p-5 rounded-3xl flex items-center gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
-            >
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FF0054] to-[#A328D6] flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,0,84,0.4)]">
-                <ShieldCheck size={28} />
+            {/* The Main Device Window (Browser mockup) */}
+            <div className="relative border border-white/10 rounded-[22px] bg-black/80 backdrop-blur-md overflow-hidden shadow-[0_20px_50px_-15px_rgba(255,0,84,0.25)]">
+              {/* Browser bar */}
+              <div className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-3.5 bg-[#0F0108]/90 border-b border-white/5">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                </div>
+                <div className="px-3 sm:px-4 py-1 rounded-lg bg-white/[0.03] border border-white/5 text-[8px] sm:text-[9px] text-white/40 tracking-wider font-mono flex items-center gap-1.5 min-w-[140px] sm:min-w-[180px] justify-center">
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-500/85 animate-pulse" />
+                  duno.com.br/elite-dashboard
+                </div>
+                <div className="w-10 sm:w-12" />
               </div>
-              <div>
-                <span className="block text-xs font-black uppercase tracking-widest text-white/70">Performance</span>
-                <span className="block text-2xl font-black gradient-text mt-0.5">Score 99</span>
+
+              {/* Main Content Image - Occupies 100% of the container */}
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0004]">
+                <img 
+                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200" 
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 pointer-events-auto" 
+                  alt="Modelo de Site de Elite"
+                />
+                {/* Clean dark slope overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                
+                {/* Embedded Active Status */}
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:py-1 rounded-full bg-black/85 border border-[#FF0054]/30 backdrop-blur-md">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0054] animate-ping" />
+                  <span className="text-[8px] sm:text-[9px] font-black tracking-widest text-[#FF0054] uppercase">Site Ativo</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Overlapping Premium Stats / Badge 1 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="absolute -bottom-4 sm:-bottom-6 -left-1 sm:-left-6 bg-[#0F0108]/95 backdrop-blur-md border border-white/10 p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4 shadow-xl shadow-black/50 hover:scale-105 transition-all duration-300 z-25"
+            >
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#FF0054]/10 border border-[#FF0054]/20 flex items-center justify-center text-[#FF0054] shrink-0">
+                <TrendingUp size={16} className="sm:w-5 sm:h-5" />
+              </div>
+              <div className="text-left">
+                <p className="text-[8px] lg:text-[9px] font-black text-white/50 uppercase tracking-widest leading-none mb-1">Conversão</p>
+                <p className="text-xs sm:text-base font-black text-white leading-none">+324% Leads</p>
+              </div>
+            </motion.div>
+
+            {/* Overlapping Speed Badge 2 */}
+            <motion.div 
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="absolute -top-4 sm:-top-6 -right-1 sm:-right-6 bg-[#0F0108]/95 backdrop-blur-md border border-[#FF0054]/30 px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl flex items-center gap-2.5 sm:gap-3 shadow-xl shadow-black/50 hover:scale-105 transition-all duration-300 z-25"
+            >
+              <div className="flex flex-col items-end text-right">
+                <span className="text-[7px] sm:text-[8px] font-black text-[#FF0054] uppercase tracking-[0.15em] leading-none mb-0.5 sm:mb-1">PAGESPEED</span>
+                <span className="text-[10px] sm:text-xs font-black text-white leading-none">Alta Performance</span>
+              </div>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#FF0054]/50 flex items-center justify-center text-[10px] sm:text-xs font-black text-[#FF0054] shadow-[0_0_10px_rgba(255,0,84,0.2)]">
+                100
               </div>
             </motion.div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
 }
+

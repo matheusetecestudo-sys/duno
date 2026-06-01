@@ -72,15 +72,25 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4 relative z-10 mt-auto pt-6 border-t border-white/5">
-                <img 
-                  src={t.img} 
-                  alt={t.name} 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-[#FF0054]/20 shadow-2xl"
-                  loading="lazy"
-                />
+                <div className="relative">
+                  {/* Outer vibrant accent rings for elite contrast */}
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-[#FF0054] to-[#A328D6] opacity-60 group-hover:opacity-100 group-hover:scale-105 blur-sm transition-all duration-300" />
+                  <img 
+                    src={t.img} 
+                    alt={t.name} 
+                    className="w-14 h-14 rounded-full object-cover border-2 border-black relative z-10 shadow-2xl scale-95 group-hover:scale-100 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  {/* Small verified client check tag on avatar overlay */}
+                  <div className="absolute -bottom-1 -right-1 z-20 bg-[#00FF80] text-black w-5 h-5 rounded-full flex items-center justify-center border border-black shadow-md">
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 font-bold fill-none stroke-current" strokeWidth="4">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                </div>
                 <div>
-                  <h4 className="font-black gradient-text text-base leading-none mb-1">{t.name}</h4>
-                  <p className="text-xs text-white/40 font-bold uppercase tracking-widest">{t.company}</p>
+                  <h4 className="font-black text-white hover:text-[#FF0054] text-base leading-none mb-1.5 transition-colors">{t.name}</h4>
+                  <p className="text-[10px] text-white/50 font-black uppercase tracking-[0.14em]">{t.company}</p>
                 </div>
               </div>
             </motion.div>

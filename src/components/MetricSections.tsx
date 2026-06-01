@@ -112,14 +112,42 @@ export function Solution() {
         </div>
 
          <div className="flex-1 relative">
-          <div className="relative z-10 pink-card !p-4 md:rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
-             <img 
-               src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2340&auto=format&fit=crop" 
-               alt="Dashboard Solution" 
-               className="rounded-2xl shadow-2xl"
-               loading="lazy"
-             />
-             <div className="absolute -bottom-8 -left-8 pink-card !p-6 animate-float hidden md:flex items-center gap-4 shadow-3xl">
+          <div className="relative z-10 pink-card !p-5 md:rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl bg-gradient-to-tr from-[#0F0108] to-black border-2 border-[#FF0054]/30 rounded-[32px] overflow-hidden group">
+             {/* Tech Grid Background inside card */}
+             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,0,84,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,0,84,0.02)_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
+             
+             {/* Glowing light behind image */}
+             <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#FF0054]/15 blur-2xl rounded-full" />
+
+             {/* Minimalist device header */}
+             <div className="flex items-center gap-1.5 mb-4 pb-3 border-b border-white/5">
+                <div className="w-2 h-2 rounded-full bg-red-500/50" />
+                <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+                <div className="w-2 h-2 rounded-full bg-green-500/50" />
+                <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] ml-auto">ESTRUTURA DE ALTA COVERSÃO</span>
+             </div>
+
+             <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+               <img 
+                 src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200" 
+                 alt="Aesthetics of Elite Mobile and Web Site Construction" 
+                 className="rounded-xl shadow-2xl opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 w-full h-full object-cover"
+                 loading="lazy"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+             </div>
+
+             {/* Dynamic Float Badge inside card */}
+             <div className="absolute top-20 right-8 bg-[#0F0108]/95 backdrop-blur-md border border-[#FF0054]/40 px-3.5 py-2.5 rounded-2xl flex items-center gap-2.5 shadow-xl animate-float">
+                <span className="w-2 h-2 rounded-full bg-[#00FF80]" />
+                <div className="text-left leading-none">
+                  <p className="text-[8px] font-black text-[#FF0054] tracking-widest uppercase">PAGESPEED</p>
+                  <p className="text-xs font-black text-white">Excelente</p>
+                </div>
+             </div>
+
+             {/* Bottom visual overlay bar */}
+             <div className="absolute -bottom-8 -left-8 pink-card !p-6 animate-float hidden md:flex items-center gap-4 shadow-3xl border border-white/10 bg-black/90 backdrop-blur-md">
                 <div className="w-12 h-12 rounded-full bg-linear-to-br from-[#FF0054] to-[#A328D6] flex items-center justify-center text-white shadow-lg shadow-[#FF0054]/20">
                   <TrendingUp size={24} strokeWidth={2.5} />
                 </div>

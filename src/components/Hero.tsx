@@ -1,12 +1,9 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { useRef } from "react";
-import { CheckCircle2, ShieldCheck, Zap, TrendingUp, ArrowRight } from "lucide-react";
-import { Logo } from "./Logo";
+import { Zap, ArrowRight, Star } from "lucide-react";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
   
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -16,223 +13,220 @@ export default function Hero() {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[100dvh] lg:h-[100dvh] flex flex-col items-center justify-center px-6 pt-28 pb-16 lg:py-0 overflow-hidden bg-black animate-fadeIn">
-      {/* Background Gradients and Effects */}
-      <div className="absolute inset-0 -z-10 bg-black overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[100%] opacity-[0.08] grayscale pointer-events-none">
-          <img 
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=60&w=1600&auto=format&fit=crop" 
-            className="w-full h-full object-cover" 
-            alt="Hero Background"
-            loading="lazy"
-          />
-        </div>
+    <section 
+      ref={containerRef} 
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 xl:py-0 overflow-hidden bg-[#0a0a0a] text-white"
+    >
+      {/* Background Gradients and Effects per guidelines */}
+      <div className="absolute inset-0 -z-10 bg-[#0a0a0a] overflow-hidden">
+        {/* Subtle grid of points (radial gradient) */}
+        <div 
+          className="absolute inset-0 pointer-events-none" 
+          style={{
+            backgroundImage: "radial-gradient(rgba(233, 30, 140, 0.15) 1px, transparent 1px)",
+            backgroundSize: "24px 24px"
+          }}
+        />
         
-        {/* Layered Overlays for Premium Contrast */}
-        <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black" />
-        
-        {/* Colorful glows and tech-grid overlay */}
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#FF0054]/15 blur-[160px] rounded-full pointer-events-none" />
-        <div className="absolute top-[20%] right-[-100px] w-[500px] h-[500px] bg-[#A328D6]/10 blur-[140px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-[10%] left-[20%] w-[450px] h-[450px] bg-[#FF0054]/10 blur-[130px] rounded-full pointer-events-none" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+        {/* Glow Blobs */}
+        {/* Blob of luz rosa no canto superior direito */}
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#e91e8c]/15 blur-[120px] rounded-full pointer-events-none" />
+        {/* Blob de luz roxo no canto inferior esquerdo */}
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-[#7c3aed]/15 blur-[120px] rounded-full pointer-events-none" />
       </div>
 
-      <div className="relative z-30 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+      <div className="relative z-30 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 xl:gap-8 justify-between mt-12">
         
-        {/* Left Side: Content */}
+        {/* COLUNA ESQUERDA - 60% text content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 text-left w-full"
+          className="flex-1 text-left w-full lg:max-w-[55%] xl:max-w-[58%]"
         >
-          {/* Trust Badge / Pill */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8 animate-pulse"
-          >
-            <div className="flex -space-x-2">
-              {[
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200",
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200"
-              ].map((src, i) => (
-                <img key={i} src={src} className="w-7 h-7 rounded-full border-2 border-black ring-2 ring-[#FF0054]/40 object-cover hover:scale-110 duration-200 transition-all cursor-pointer" alt="User Verified" />
-              ))}
-            </div>
-            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.15em] text-white/90">
-              Mais de <span className="text-[#FF0054]">100 negócios locais</span> já contrataram
-            </span>
-          </motion.div>
+          {/* Badge topo (antes do headline) */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e91e8c]/10 border border-[#e91e8c]/30 text-[#e91e8c] text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
+            <Zap size={14} className="fill-[#e91e8c] text-[#e91e8c] animate-pulse" />
+            <span>⚡ Site no ar em até 48 horas</span>
+          </div>
 
-          <h1 className="text-[34px] xs:text-[40px] sm:text-[54px] md:text-[60px] lg:text-[68px] font-black leading-[1.05] sm:leading-[1] tracking-[-0.04em] uppercase mb-6 text-white text-left">
-            Seu concorrente <br />
-            já aparece no Google. <br />
-            <span className="gradient-text">Você ainda não.</span>
+          {/* Headline principal (H1, 72px bold 900) */}
+          <h1 className="text-4xl sm:text-6xl xl:text-[72px] font-black leading-[1.1] tracking-tight uppercase mb-6 text-white text-left">
+            Seu concorrente já aparece <br />
+            no Google. <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed]">Você ainda não.</span>
           </h1>
           
-          <p className="text-sm md:text-base text-white/80 mb-8 md:mb-10 max-w-lg leading-relaxed font-bold">
-            Receba um Site de Elite totalmente pronto e personalizado de graça em até 24h. Design de alta conversão adaptado com seu logo, cores e fotos reais, por apenas <strong className="text-[#FF0054]">R$ 197/mês</strong>. Sem taxas de criação. Sem fidelidade, cancele quando quiser.
+          {/* Subheadline (18px, cor secundária, max-width 520px) */}
+          <p className="text-base sm:text-lg text-[#a0a0a0] mb-8 max-w-[520px] leading-relaxed font-semibold">
+            Tenha um site profissional personalizado com sua marca, pronto em até 48h, por apenas R$197/mês. Sem contrato. Sem taxa de setup. Cancele quando quiser.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          {/* Bloco de CTAs */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
             <a 
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5511999999999?text=Olá!%20Vi%20o%20site%2520de%2520vocês%2520e%2520quero%2520garantir%2520meu%2520site%2520agora."
               target="_blank"
               rel="noopener noreferrer"
-              className="premium-btn w-full sm:w-auto px-8 sm:px-10 py-4.5 sm:py-5 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-[0.15em] group flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(255,0,84,0.3)] hover:shadow-[0_0_35px_rgba(255,0,84,0.55)] transition-all"
+              className="w-full sm:w-auto px-10 py-5 rounded-full text-[17px] font-black uppercase tracking-wider text-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-[0_0_30px_rgba(233,30,140,0.4)] hover:shadow-[0_0_45px_rgba(233,30,140,0.65)] hover:scale-[1.03] active:scale-95 transition-all duration-300 shrink-0 cursor-pointer"
             >
-              <span>Falar no WhatsApp e garantir minha vaga</span>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1.5 transition-transform" />
+              Quero meu site agora — Falar no WhatsApp
             </a>
             <button 
-              onClick={() => scrollTo('portfólio')}
-              className="w-full sm:w-auto text-xs sm:text-sm font-black text-white hover:text-[#FF0054] underline underline-offset-8 decoration-[#FF0054]/40 hover:decoration-[#FF0054] transition-all py-3 px-2 text-center uppercase tracking-[0.15em]"
+              onClick={() => scrollTo('modelos')}
+              className="w-full sm:w-auto px-10 py-5 rounded-full text-[17px] font-black text-white hover:text-[#e91e8c] uppercase tracking-wider text-center border-2 border-white hover:border-[#e91e8c] transition-all duration-300 bg-transparent shrink-0 cursor-pointer"
             >
-              Conhecer Modelos Prontos →
+              Ver modelos prontos
             </button>
           </div>
 
-          <p className="text-white/80 text-[11px] font-black uppercase tracking-wider mt-4 text-center sm:text-left flex items-center justify-center sm:justify-start gap-1.5">
-            <span>⭐ Mais de 100 negócios locais já contrataram e decolaram</span>
-          </p>
-
-          <p className="text-white/60 text-xs font-bold mt-3 flex items-center gap-2 justify-center sm:justify-start">
-            <span className="w-2 h-2 rounded-full bg-[#00FF80] animate-pulse shrink-0" />
-            Vagas limitadas por cidade: Apenas 1 site de elite por nicho profissional em cada região.
-          </p>
+          {/* Barra de prova social (margin-top 48px) */}
+          <div className="flex items-center gap-4 sm:gap-8 py-5 border-t border-b border-[#2a2a2a] max-w-lg mb-4 bg-[#111111]/30 px-6 rounded-2xl">
+            <div className="flex-1">
+              <span className="block text-2xl sm:text-[28px] font-black text-[#e91e8c] leading-none">+100</span>
+              <span className="text-[13px] font-medium text-[#a0a0a0]">Sites Criados</span>
+            </div>
+            <div className="h-10 w-[1px] bg-[#2a2a2a]" />
+            <div className="flex-1 text-center">
+              <span className="block text-2xl sm:text-[28px] font-black text-[#e91e8c] leading-none">+15</span>
+              <span className="text-[13px] font-medium text-[#a0a0a0]">Nichos Atendidos</span>
+            </div>
+            <div className="h-10 w-[1px] bg-[#2a2a2a]" />
+            <div className="flex-1 text-right">
+              <span className="block text-2xl sm:text-[28px] font-black text-[#e91e8c] leading-none">48h</span>
+              <span className="text-[13px] font-medium text-[#a0a0a0]">Pronto no Ar</span>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Right Side: Single 100% Premium Showcase Mockup */}
+        {/* COLUNA DIREITA - 40% visual mockup content with perspective rotation */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="flex-1 w-full relative block mt-8 lg:mt-0"
+          className="flex-1 w-full lg:max-w-[40%] xl:max-w-[38%] relative block mt-12 lg:mt-0"
         >
-          <div className="relative w-full max-w-[480px] lg:max-w-[540px] mx-auto lg:ml-auto group px-2 sm:px-0">
+          <div 
+            className="relative w-full max-w-[460px] mx-auto lg:ml-auto select-none"
+            style={{
+              transform: "perspective(1000px) rotateY(-5deg)",
+              filter: "drop-shadow(0 25px 50px rgba(0,0,0,0.8))"
+            }}
+          >
             {/* Ambient Background Glow behind the mockup */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF0054] to-[#A328D6] rounded-[24px] opacity-20 blur-xl group-hover:opacity-35 group-hover:scale-102 transition-all duration-500 pointer-events-none" />
-            
-            {/* The Main Device Window (Browser mockup) */}
-            <div className="relative border border-white/10 rounded-[22px] bg-black/80 backdrop-blur-md overflow-hidden shadow-[0_20px_50px_-15px_rgba(255,0,84,0.25)]">
-              {/* Browser bar */}
-              <div className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-3.5 bg-[#0b0106]/95 border-b border-white/5">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] rounded-[24px] opacity-20 blur-xl pointer-events-none" />
+
+            {/* MacBook Mockup */}
+            <div className="relative border border-[#2a2a2a] rounded-[16px] bg-[#1a1a1a] overflow-hidden shadow-2xl">
+              {/* Chrome/Barra superior do navegador */}
+              <div className="flex items-center justify-between px-4 py-3 bg-[#111111] border-b border-[#2a2a2a]">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                 </div>
-                <div className="px-3 sm:px-4 py-1 rounded-lg bg-white/[0.03] border border-white/5 text-[8px] sm:text-[9px] text-white/40 tracking-wider font-mono flex items-center gap-1.5 min-w-[140px] sm:min-w-[180px] justify-center">
-                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-500/85 animate-pulse" />
-                  dra-carolina-odonto.com.br
+                <div className="px-3 py-1 rounded bg-black/60 border border-[#2a2a2a] text-[9px] text-[#a0a0a0] font-mono flex items-center gap-1.5 justify-center w-[180px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                  clinicaporonicho.com.br
                 </div>
-                <div className="w-10 sm:w-12" />
+                <div className="w-8" />
               </div>
 
-              {/* Main Content Webpage Mockup - Code layout simulating our premium client sites */}
-              <div className="relative aspect-[16/11] overflow-hidden bg-[#0A0004] text-white p-4 flex flex-col justify-between font-sans">
-                {/* Simulated Dentist Landing Page navbar */}
-                <div className="flex justify-between items-center pb-2 border-b border-white/5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-black text-xs text-white uppercase tracking-tighter">Dra. Carolina</span>
-                    <span className="text-[7px] text-white/40 uppercase font-mono tracking-widest">ODONTOLOGIA</span>
+              {/* Conteúdo de elite simulando o site do nicho Odonto */}
+              <div className="relative aspect-[16/11] overflow-hidden bg-[#0a0a0a] text-white p-4 flex flex-col justify-between font-sans">
+                {/* Header */}
+                <div className="flex justify-between items-center pb-2 border-b border-[#2a2a2a]">
+                  <div className="flex items-center gap-1 text-left">
+                    <span className="font-black text-[10px] uppercase text-white tracking-widest">DUNO CLINIC</span>
                   </div>
-                  <div className="flex gap-2 text-[7px] text-white/50 font-bold">
-                    <span>Tratamentos</span>
-                    <span>Galeria</span>
+                  <div className="flex gap-2 text-[7px] text-[#a0a0a0] font-semibold">
+                    <span>Início</span>
+                    <span>Serviços</span>
+                    <span>Contato</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded-md bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-[7px] font-black uppercase">Agendar</span>
                 </div>
 
-                {/* Simulated Dentist Landing Page hero */}
-                <div className="grid grid-cols-12 gap-3 my-auto items-center">
-                  <div className="col-span-7 pr-1 text-left">
-                    <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-[#FF0054]/10 border border-[#FF0054]/30 text-[6px] sm:text-[7px] text-[#FF0054] font-black uppercase tracking-wider mb-2">
-                      Aparece no Google Maps Inclusivo
-                    </div>
-                    <h4 className="text-lg sm:text-2xl font-black text-white leading-tight uppercase tracking-tight mb-2">
-                      Seu Sorriso <br />
-                      <span className="text-[#FF0054]">Sua Assinatura</span>
-                    </h4>
-                    <p className="text-[7px] sm:text-[9px] text-white/70 leading-relaxed mb-3 font-semibold">
-                      Lentes de porcelana, facetas e implantes com consultório premium na Avenida Paulista. Atendimento particular de elite.
-                    </p>
-                    <div className="flex gap-1.5">
-                      <span className="px-2 py-1 rounded-md bg-[#25D366] text-white font-black text-[7px] uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-[#25D366]/20">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        Agendar via WhatsApp
-                      </span>
-                    </div>
+                {/* Hero Inside Mockup */}
+                <div className="my-auto text-left">
+                  <div className="inline-block px-1.5 py-0.5 rounded bg-[#e91e8c]/10 border border-[#e91e8c]/30 text-[6px] text-[#e91e8c] font-black uppercase tracking-wider mb-1.5">
+                    Estética de Alto Padrão
                   </div>
+                  <h4 className="text-xl font-black leading-tight mb-1 uppercase text-white">
+                    Seu bem-estar <br />
+                    <span className="text-[#e91e8c]">em boas mãos.</span>
+                  </h4>
+                  <p className="text-[8px] text-[#a0a0a0] leading-relaxed mb-3 font-medium max-w-[170px]">
+                    Atendimento humanizado com suporte especializado e infraestrutura de elite na sua região.
+                  </p>
                   
-                  {/* Portrait in dental uniform on the right */}
-                  <div className="col-span-5 relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0004] via-transparent to-transparent z-10" />
-                    <img 
-                      src="https://images.unsplash.com/photo-1594824813573-246434de83fb?q=80&w=400&auto=format&fit=crop"
-                      alt="Dra Carolina"
-                      className="w-full h-24 sm:h-28 object-cover object-top rounded-xl border border-white/15 bg-neutral-900 group-hover:scale-105 duration-700 transition-all shadow-xl"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                </div>
-
-                {/* Simulated Dentist Footer bar with high conversion local info */}
-                <div className="flex justify-between items-center pt-2 border-t border-white/5 text-[7px] text-white/50 font-bold uppercase">
-                  <span>📍 Av. Paulista, 1000 - Bela Vista</span>
-                  <span className="text-[#00FF80] flex items-center gap-1">
-                    <span className="w-1 h-1 rounded-full bg-[#00FF80] animate-ping" />
-                    Avaliação 5.0 ⭐⭐⭐⭐⭐
+                  {/* Floating Action Button inside client mockup */}
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#25D366] text-black font-black text-[7px] uppercase tracking-wider shadow-lg shadow-[#25D366]/20">
+                    <span className="w-1 h-1 rounded-full bg-white animate-ping" />
+                    Agendar Horário
                   </span>
                 </div>
 
-                {/* Embedded Active Status indicator */}
-                <div className="absolute bottom-11 right-4 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/90 border border-[#25D366]/40 backdrop-blur-md">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping" />
-                  <span className="text-[7px] font-black tracking-widest text-[#25D366] uppercase">Preview do Site</span>
+                {/* Footer simulation info */}
+                <div className="flex justify-between items-center pt-2 border-t border-[#2a2a2a] text-[7px] text-[#606060] font-bold uppercase">
+                  <span>📍 Atendimento VIP</span>
+                  <span className="text-[#25D366] flex items-center gap-1">
+                    Ativo ⭐⭐⭐⭐⭐
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Overlapping Premium Stats / Badge 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="absolute -bottom-4 sm:-bottom-6 -left-1 sm:-left-6 bg-[#0F0108]/95 backdrop-blur-md border border-white/10 p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4 shadow-xl shadow-black/50 hover:scale-105 transition-all duration-300 z-25"
-            >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#FF0054]/10 border border-[#FF0054]/20 flex items-center justify-center text-[#FF0054] shrink-0">
-                <TrendingUp size={16} className="sm:w-5 sm:h-5" />
+            {/* Overlapping iPhone mobile screen showing corresponding mobile design */}
+            <div className="absolute -bottom-10 -right-4 w-[140px] border-4 border-[#2a2a2a] rounded-[24px] bg-[#0a0a0a] overflow-hidden shadow-2xl z-20">
+              <div className="h-4 bg-[#111111] flex items-center justify-center relative">
+                <div className="w-12 h-2 rounded-full bg-black" />
               </div>
-              <div className="text-left">
-                <p className="text-[8px] lg:text-[9px] font-black text-white/50 uppercase tracking-widest leading-none mb-1">Conversão</p>
-                <p className="text-xs sm:text-base font-black text-white leading-none">+324% Contatos</p>
-              </div>
-            </motion.div>
+              <div className="aspect-[9/16] p-2 flex flex-col justify-between text-left">
+                <div className="flex justify-between items-center border-b border-white/5 pb-1">
+                  <span className="text-[6px] font-black tracking-widest text-[#e91e8c]">DUNO</span>
+                  <span className="text-[5px] bg-[#25D366]/10 text-[#25D366] px-1 py-0.2 rounded font-black">CHAT</span>
+                </div>
+                
+                <div className="my-auto">
+                  <h5 className="text-[11px] font-black text-white leading-tight uppercase mb-1">
+                    Design de <span className="text-[#e91e8c]">Elite</span>
+                  </h5>
+                  <p className="text-[5px] text-[#a0a0a0] leading-normal font-semibold mb-2">
+                    Adaptado 100% para carregar instantaneamente em celulares.
+                  </p>
+                  <span className="inline-block text-center w-full px-2 py-0.8 bg-[#25D366] text-black text-[5px] font-black rounded uppercase">
+                    Falar agora
+                  </span>
+                </div>
 
-            {/* Overlapping Speed Badge 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="absolute -top-4 sm:-top-6 -right-1 sm:-right-6 bg-[#0F0108]/95 backdrop-blur-md border border-[#FF0054]/30 px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl flex items-center gap-2.5 sm:gap-3 shadow-xl shadow-black/50 hover:scale-105 transition-all duration-300 z-25"
+                <div className="text-[4.5px] text-[#606060] font-bold uppercase text-center border-t border-white/5 pt-1">
+                  Celular Ultra Rápido
+                </div>
+              </div>
+            </div>
+
+            {/* Levitating Badge 1 (✓ 3 novos contatos hoje) - GREEN - upper left */}
+            <div 
+              className="absolute -top-6 -left-6 bg-black/90 border border-emerald-500/40 px-3.5 py-2.5 rounded-2xl flex items-center gap-2 shadow-2xl z-30 pointer-events-none animate-bounce"
+              style={{ animationDuration: "3.5s" }}
             >
-              <div className="flex flex-col items-end text-right">
-                <span className="text-[7px] sm:text-[8px] font-black text-[#FF0054] uppercase tracking-[0.15em] leading-none mb-0.5 sm:mb-1">DESEMPENHO</span>
-                <span className="text-[10px] sm:text-xs font-black text-white leading-none">Ultra Rápido 5G</span>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#FF0054]/50 flex items-center justify-center text-[10px] sm:text-xs font-black text-[#FF0054] shadow-[0_0_10px_rgba(255,0,84,0.2)]">
-                100
-              </div>
-            </motion.div>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse shrink-0" />
+              <span className="text-xs font-black text-[#25D366] uppercase tracking-wider">✓ 3 novos contatos hoje</span>
+            </div>
+
+            {/* Levitating Badge 2 (⭐ 4.9/5 avaliação média) - GOLD/YELLOW - lower left */}
+            <div 
+              className="absolute bottom-16 -left-12 bg-black/90 border border-yellow-500/40 px-3.5 py-2.5 rounded-2xl flex items-center gap-2 shadow-2xl z-30 pointer-events-none animate-bounce"
+              style={{ animationDuration: "5s", animationDelay: "1s" }}
+            >
+              <span className="text-yellow-400">⭐</span>
+              <span className="text-xs font-black text-white uppercase tracking-wider">4.9/5 avaliação média</span>
+            </div>
+
           </div>
         </motion.div>
+        
       </div>
     </section>
   );
 }
-

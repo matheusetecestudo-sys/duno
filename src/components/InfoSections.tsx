@@ -88,23 +88,23 @@ export function Benefits() {
 export function HowItWorks() {
   const steps = [
     { 
-      title: "Escolha o modelo", 
-      desc: "Selecione o modelo pronto ideal de alta performance para o seu nicho profissional.", 
+      title: "Escolha o modelo (5 min)", 
+      desc: "Selecione o design vencedor de alta conversão ideal para o seu nicho profissional em nosso catálogo.", 
       icon: MousePointerClick 
     },
     { 
-      title: "Personalizamos em 48h", 
-      desc: "Nossa equipe adapta as cores, fotos, logotipo e textos reais do seu consultório ou clínica.", 
+      title: "Customizamos em 24h", 
+      desc: "Nossa equipe adapta as cores, fotos reais, logotipo e textos do seu consultório ou clínica de forma ultra rápida.", 
       icon: Zap 
     },
     { 
-      title: "Publicamos o Site", 
-      desc: "Cuidamos de toda a infraestrutura: registro, domínio, hospedagem ultra veloz e certificado SSL.", 
+      title: "No ar em 48h totais", 
+      desc: "Cuidamos de toda a infraestrutura técnica: registro de domínio, hospedagem 5G e certificados de segurança inclusos.", 
       icon: Rocket 
     },
     { 
-      title: "Atraia mais Clientes", 
-      desc: "O site começa a gerar contatos e clientes direto no seu WhatsApp. Daí em diante, pague apenas R$197/mês.", 
+      title: "Atraia Clientes Diários", 
+      desc: "Seu site começa a gerar contatos e agendamentos diretos no seu WhatsApp. Daí em diante, pague apenas R$197/mês fixos.", 
       icon: TrendingUp 
     },
   ];
@@ -171,7 +171,7 @@ export function Comparison() {
 
           <div className="bg-[#0F0108] p-6 sm:p-12 lg:p-16 relative">
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-12">
-              <h3 className="text-3xl font-black gradient-text tracking-tighter uppercase leading-none">DUNO (Locação de Site)</h3>
+              <h3 className="text-3xl font-black gradient-text tracking-tighter uppercase leading-none">DUNO® (Locação de Site de Elite)</h3>
               <div className="px-4 py-1.5 rounded-xl bg-[#FF0054] text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-[0_0_15px_rgba(255,0,84,0.4)] md:animate-pulse">MELHOR ESCOLHA</div>
             </div>
             <ul className="space-y-6 md:space-y-10">

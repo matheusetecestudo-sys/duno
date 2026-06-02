@@ -65,11 +65,11 @@ export function Offer() {
             rel="noopener noreferrer"
             className="premium-btn w-full py-5 md:py-6 rounded-2xl md:rounded-3xl text-sm sm:text-lg md:text-xl group shadow-2xl flex items-center justify-center gap-2 md:gap-3 transition-colors uppercase font-black tracking-wide"
           >
-            <span>Quero meu site agora — começar hoje</span>
+            <span>Falar no WhatsApp e Garantir Minha Vaga</span>
             <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300 shrink-0" />
           </a>
           <p className="mt-6 text-white/50 text-xs font-bold tracking-tight">
-            Pagamento recorrente simples. Cancele e mude quando quiser.
+            Pagamento recorrente simples. Sem fidelidade, cancele quando quiser.
           </p>
         </div>
       </div>
@@ -83,19 +83,23 @@ export function FAQ() {
   const faqs = [
     { 
       q: "Posso cancelar a qualquer momento?", 
-      a: "Sim! Não temos contrato de fidelidade ou multa rescisória. Você paga a assinatura simples mensal e pode cancelar quando desejar, mantendo o controle total sobre o seu negócio." 
+      a: "Sim, absolutamente! Não trabalhamos com contratos de fidelidade de longo prazo, taxas ocultas ou multas rescisórias abusivas. A nossa proposta é garantir o seu resultado. Você paga a assinatura simples mensal de R$ 197 e pode solicitar o cancelamento a qualquer hora com apenas uma mensagem direta pelo nosso WhatsApp de suporte do cliente. Sem burocracia nenhuma." 
     },
     { 
       q: "Quanto tempo leva para o site ficar pronto?", 
-      a: "Nosso processo é extremamente ágil e descomplicado. Uma vez enviado o logotipo, fotos e informações básicas, nós adaptamos seu modelo escolhido em até 48 horas!" 
+      a: "Nosso processo é extremamente ágil e desenhado para quem tem pressa em vender. Uma vez contratado, nós enviamos as instruções pelo WhatsApp para você nos encaminhar sua logo, fotos reais e endereço. Nossa equipe de designers de elite realiza a customização completa em até 24 horas úteis, entregando o site 100% ativo e funcionando perfeitamente em no máximo 48 horas!" 
     },
     { 
-      q: "O site aparece no Google?", 
-      a: "Com certeza. Nossos modelos de elite são projetados desde o primeiro minuto seguindo as melhores práticas globais de SEO (otimização para buscas) e já vêm prontos para serem integrados ao Google Maps e Google Meu Negócio." 
+      q: "O site realmente aparece e se posiciona no Google?", 
+      a: "Com certeza. Nossos modelos de elite são projetados desde o primeiro minuto seguindo as melhores práticas globais de SEO (otimização para buscas) e indexação orgânica que o algoritmo do Google exige (títulos corretos, carregamento ultra rápido, design responsivo). Ele vem pronto e configurado para impulsionar suas chances de ranquear no topo das pesquisas e no Google Maps local." 
     },
     { 
-      q: "E se eu quiser trocar as fotos ou informações depois?", 
-      a: "Não se preocupe! Mudou de telefone, adicionou serviços ou quer renovar as fotos? Basta nos solicitar direto no suporte via WhatsApp que nós atualizamos seu site rapidamente para você. A manutenção periódica já está totalmente inclusa na sua assinatura." 
+      q: "E se eu precisar alterar fotos ou informações depois?", 
+      a: "Não se preocupe! Mudou de telefone, adicionou serviços ou quer renovar as fotos reais? Basta chamar a nossa equipe de suporte dedicada em nosso WhatsApp e nós atualizamos seu site rapidamente para você. Toda a manutenção preventiva e pequenas edições já estão 100% inclusas no valor da sua assinatura mensal de R$ 197." 
+    },
+    { 
+      q: "Preciso comprar domínio ou hospedagem por fora?", 
+      a: "Não precisa se preocupar com nada técnico! A hospedagem em servidores Cloud de altíssima velocidade (Amazon AWS/Google Cloud) e os certificados de segurança SSL (chave de criptografia) são inclusos no seu plano. Se você já tem um domínio próprio (.com.br ou .com), conectamos para você de graça. Se não tiver, nós gerenciamos e configuramos o seu domínio com extrema comodidade." 
     },
   ];
 
@@ -124,7 +128,7 @@ export function FAQ() {
                   animate={{ height: "auto", opacity: 1 }}
                   className="px-6 pb-8 text-white/80 leading-relaxed font-semibold text-sm sm:text-base"
                 >
-                  <div className="pt-4 border-t border-white/5">
+                  <div className="pt-4 border-t border-white/5 text-left">
                     {f.a}
                   </div>
                 </motion.div>
@@ -144,26 +148,29 @@ export function FinalCTA() {
        <motion.div 
          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
          transition={{ duration: 10, repeat: Infinity }}
-         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#7928CA]/10 blur-[150px] -z-10"
+         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#FF0054]/5 blur-[150px] -z-10"
        />
        
        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-black mb-10 uppercase tracking-tight">
             Pare de perder <br /> 
-            <span className="gradient-text">vendas hoje</span>
+            <span className="gradient-text font-black">clientes locais hoje</span>
           </h2>
           <p className="text-lg md:text-xl text-white/80 mb-12 font-bold max-w-2xl mx-auto leading-relaxed">
-            Junte-se a dezenas de empresas locais que já decolaram suas vendas com nossa estrutura rápida, prática e sem custos abusivos de desenvolvimento de agências.
+            Limitamos a apenas 1 vaga por nicho profissional em cada cidade para garantir exclusividade orgânica no Google Maps. Assuma sua vaga antes que seu concorrente assine o seu modelo favorito.
           </p>
           <a 
             href="https://wa.me/5511999999999"
             target="_blank"
             rel="noopener noreferrer"
-            className="premium-btn px-10 py-5 rounded-full text-lg uppercase font-black tracking-widest group flex items-center justify-center gap-2 max-w-sm mx-auto shadow-[0_0_30px_rgba(255,0,84,0.4)] hover:shadow-[0_0_40px_rgba(255,0,84,0.65)] transition-all"
+            className="premium-btn px-10 py-5 rounded-full text-lg uppercase font-black tracking-widest group flex items-center justify-center gap-2 max-w-md mx-auto shadow-[0_0_30px_rgba(255,0,84,0.4)] hover:shadow-[0_0_40px_rgba(255,0,84,0.65)] transition-all"
           >
-            <span>Começar Meu Site Agora</span>
+            <span>Falar no WhatsApp e Garantir Minha Vaga</span>
             <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform duration-300" />
           </a>
+          <p className="mt-6 text-white/45 text-xs font-bold uppercase tracking-wider">
+            🔒 Comprometimento Zero · Cancele ou Altere Quando Quiser sem Fidelidade ou Multas
+          </p>
         </div>
     </section>
   );
@@ -217,9 +224,9 @@ export function Footer() {
           <div className="md:col-span-4">
             <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] text-[#FF0054]">Contato</h4>
             <ul className="space-y-3 text-xs font-bold text-white/80">
-               <li className="hover:text-white transition-colors cursor-pointer">contato@duno.com.br</li>
-               <li className="text-white text-sm">+55 (11) 99999-9999</li>
-               <li className="text-[#FF0054]/60 font-medium">São Paulo, BR</li>
+               <li className="hover:text-white transition-colors cursor-pointer text-left">contato@duno.com.br</li>
+               <li className="text-white text-sm text-left">+55 (11) 99999-9999</li>
+               <li className="text-[#FF0054]/60 font-medium text-left">São Paulo, BR</li>
             </ul>
           </div>
 
@@ -253,20 +260,35 @@ export function Footer() {
 
 export function WhatsAppButton() {
   return (
-    <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] flex items-center justify-center pointer-events-auto">
-      {/* Visual pulse indicator around the floating WhatsApp badge */}
-      <span className="absolute inline-flex h-20 w-20 rounded-full bg-emerald-500/25 animate-ping pointer-events-none" />
+    <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[99999] flex items-center gap-3 pointer-events-auto select-none">
+      {/* Permanent visual pill for desktop screens to maximize conversion metrics */}
       <a 
         href="https://wa.me/5511999999999"
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-16 h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:scale-110 active:scale-95 transition-all group"
+        className="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/90 border border-[#25D366] text-white shadow-2xl backdrop-blur-md hover:scale-105 transition-transform"
       >
-        <div className="absolute -top-12 right-0 px-4 py-2 rounded-xl bg-black/90 border border-white/10 text-white text-xs font-black tracking-wide whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-          Falar com Consultor
-        </div>
-        <WhatsAppIcon size={34} />
+        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+        <span className="text-[10px] font-black uppercase tracking-wider text-white">Chamar no WhatsApp</span>
       </a>
+
+      <div className="relative flex items-center justify-center">
+        {/* Visual pulse indicator around the floating WhatsApp badge */}
+        <span className="absolute inline-flex h-20 w-20 rounded-full bg-[#25D366]/30 animate-ping pointer-events-none" />
+        <a 
+          href="https://wa.me/5511999999999"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative w-16 h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_10px_35px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-all group"
+          aria-label="Falar no WhatsApp"
+        >
+          {/* Mobile popup tooltip overlay */}
+          <div className="absolute -top-12 right-0 px-4 py-2 rounded-xl bg-black/95 border border-[#25D366]/30 text-white text-xs font-black tracking-wide whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none max-md:group-hover:opacity-100 uppercase">
+            Falar com Consultor
+          </div>
+          <WhatsAppIcon size={34} />
+        </a>
+      </div>
     </div>
   );
 }

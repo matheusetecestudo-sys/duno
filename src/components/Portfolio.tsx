@@ -95,17 +95,17 @@ export default function Portfolio() {
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
               onClick={() => setSelectedModel(item)}
-              className="pink-card group flex flex-col p-0 overflow-hidden cursor-pointer h-full border border-white/5 bg-[#0F0108]/60 hover:bg-[#0F0108]/90 hover:border-[#FF0054]/50 transition-all duration-300 rounded-3xl"
+              className="group flex flex-col overflow-hidden cursor-pointer h-full border border-white/10 hover:border-[#FF0054]/60 bg-gradient-to-b from-[#110108] to-black rounded-[32px] transition-all duration-300 relative shadow-[0_12px_45px_rgba(0,0,0,0.8)] hover:shadow-[0_0_35px_rgba(255,0,84,0.25)] hover:-translate-y-1"
             >
               <div className="aspect-video overflow-hidden relative">
                 {/* Visual Header Mock */}
                 <div className="absolute top-3 left-3 right-3 z-20 flex justify-between items-center">
-                  <span className="px-3 py-1 text-[9px] font-black tracking-widest text-[#FF0054] bg-black/70 backdrop-blur-md rounded-full border border-[#FF0054]/30 uppercase">
+                  <span className="px-3 py-1 text-[9px] font-black tracking-widest text-[#FF0054] bg-black/80 backdrop-blur-md rounded-full border border-[#FF0054]/30 uppercase">
                     {item.tag}
                   </span>
                   <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/85 backdrop-blur-md border border-[#00FF80]/40 text-[8px] font-black text-white">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#00FF80] animate-pulse" />
-                    PREVIEW ATIVO
+                    DEMO ATIVA
                   </div>
                 </div>
 
@@ -113,36 +113,36 @@ export default function Portfolio() {
                 <img 
                   src={item.img} 
                   alt={item.niche} 
-                  className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   loading="lazy"
                 />
                 
                 {/* Clean hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F0108] to-transparent opacity-95" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#110108] via-[#110108]/20 to-transparent opacity-95" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-xs">
                   <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF0054] text-white text-xs font-black uppercase tracking-widest shadow-lg shadow-[#FF0054]/30">
                     <Eye size={14} className="stroke-[3]" />
-                    <span>Ampliar Preview</span>
+                    <span>Ver Site Funcionando</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-center justify-between mb-3">
+              <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-4">
                   <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#FF0054] leading-none uppercase tracking-tighter transition-colors">
                      {item.niche}
                   </h3>
-                  <div className="w-10 h-10 rounded-full bg-[#FF0054]/10 group-hover:bg-[#FF0054] flex items-center justify-center text-[#FF0054] group-hover:text-white shadow-lg group-hover:shadow-[#FF0054]/20 transition-all duration-300">
-                    <ArrowRight size={20} className="stroke-[3] group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="w-10 h-10 rounded-full bg-white/5 group-hover:bg-[#FF0054] flex items-center justify-center text-white/50 group-hover:text-white shadow-lg group-hover:shadow-[#FF0054]/20 transition-all duration-300 shrink-0">
+                    <ArrowRight size={18} className="stroke-[3] group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </div>
 
                 {/* Niche What-It-Does description line in high-contrast highlighting */}
-                <p className="text-white text-sm sm:text-base font-black border-l-2 border-[#FF0054] pl-3 py-1.5 mb-4 bg-linear-to-r from-white/5 to-transparent">
+                <p className="text-white text-xs sm:text-sm font-black border-l-2 border-[#FF0054] pl-3 py-1.5 mb-4 bg-white/[0.02]">
                   {item.subtitle}
                 </p>
 
-                <p className="text-white/80 text-sm sm:text-base font-medium leading-relaxed mb-6">
+                <p className="text-white/70 text-xs sm:text-sm font-medium leading-relaxed mb-6">
                   {item.desc}
                 </p>
 
@@ -152,18 +152,18 @@ export default function Portfolio() {
                     e.stopPropagation();
                     setSelectedModel(item);
                   }}
-                  className="mt-auto w-full py-3 rounded-2xl bg-white/5 border border-white/15 hover:border-[#FF0054]/50 text-white hover:text-[#FF0054] text-xs font-black uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
+                  className="mt-auto w-full py-4 rounded-2xl bg-[#FF0054] hover:bg-[#FF0054]/90 text-white text-xs font-black uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(255,0,84,0.3)] hover:shadow-[0_8px_25px_rgba(255,0,84,0.5)]"
                 >
-                  <span>Ver Demonstração</span>
-                  <Eye size={14} />
+                  <span>Ver Modelo Completo</span>
+                  <Eye size={14} className="stroke-[3]" />
                 </button>
 
-                <div className="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+                <div className="mt-6 pt-5 border-t border-white/5 flex items-center justify-between text-[10px]">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#00FF80]" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#00FF80]">Garantia Duno</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#00FF80] animate-pulse" />
+                    <span className="font-black uppercase tracking-[0.2em] text-[#00FF80]">Suporte Incluso</span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-white">SCORE {item.stats.speed}/100</span>
+                  <span className="font-mono font-bold text-white/50">PAGE SPEED: <strong className="text-white">{item.stats.speed}/100</strong></span>
                 </div>
               </div>
             </motion.div>

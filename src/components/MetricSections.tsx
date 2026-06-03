@@ -13,6 +13,7 @@ import {
   Sparkles,
   Search
 } from "lucide-react";
+import { StyledIcon } from "./StyledIcon";
 
 // SEÇÃO 3 — DOR ("Você está perdendo vendas")
 export function Problem() {
@@ -67,12 +68,7 @@ export function Problem() {
                 viewport={{ once: true }}
                 className="flex flex-col gap-6 p-8 rounded-[16px] border border-[#2a2a2a] bg-[#1a1a1a] hover:border-[#e91e8c]/60 hover:scale-[1.02] transition-all duration-300"
               >
-                <div 
-                  className="w-[48px] h-[48px] rounded-full flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: `${p.color}15`, border: `1px solid ${p.color}30` }}
-                >
-                  <IconComponent size={24} style={{ color: p.color }} strokeWidth={2} />
-                </div>
+                <StyledIcon icon={IconComponent} size={24} containerSize={56} className="mb-2" />
                 <div>
                   <h3 className="text-xl font-bold mb-3 text-white">
                     {p.title}
@@ -92,13 +88,37 @@ export function Problem() {
 
 // SEÇÃO 4 — SOLUÇÃO ("Site de Elite")
 export function Solution() {
-  const bulletPoints = [
-    { title: "Botão de WhatsApp fixo e visível", icon: MessageSquareCode },
-    { title: "Formulário de agendamento online", icon: CalendarDays },
-    { title: "Otimizado para aparecer no Google (SEO)", icon: Search },
-    { title: "Google Maps integrado", icon: MapPin },
-    { title: "100% adaptado para celular", icon: Smartphone },
-    { title: "Personalizado com sua logo, cores e fotos", icon: Sparkles }
+  const features = [
+    { 
+      title: "WhatsApp de Alta Conversão", 
+      desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para o seu bolso.", 
+      icon: MessageSquareCode 
+    },
+    { 
+      title: "Agendamento Prático", 
+      desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços com facilidade e credibilidade.", 
+      icon: CalendarDays 
+    },
+    { 
+      title: "Otimizado para o Google", 
+      desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), maximizando as chances do seu negócio liderar buscas locais.", 
+      icon: Search 
+    },
+    { 
+      title: "Localização Inteligente", 
+      desc: "Google Maps interativo integrado para que seus potenciais clientes tracem rotas diretas até o seu endereço físico com um só clique.", 
+      icon: MapPin 
+    },
+    { 
+      title: "Design Mobile-First", 
+      desc: "Interface ultra-fluida e responsiva, desenvolvida sob medida para carregar velozmente até nas conexões 3G e 4G mais instáveis.", 
+      icon: Smartphone 
+    },
+    { 
+      title: "100% Personalizado", 
+      desc: "Nossa equipe adapta todo o layout com sua própria marca: logotipo, paleta de cores e fotografias do seu negócio real.", 
+      icon: Sparkles 
+    }
   ];
 
   return (
@@ -107,139 +127,67 @@ export function Solution() {
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute left-[-100px] top-[10%] w-[400px] h-[400px] bg-[#7c3aed]/5 blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-        
-        {/* COLUNA ESQUERDA: Persuasive text */}
-        <div className="text-left">
-          <div className="text-[#e91e8c] text-[12px] font-black tracking-[0.2em] uppercase mb-4">
-            A SOLUÇÃO
-          </div>
-          
-          <h2 className="text-3xl md:text-[48px] font-black mb-6 uppercase tracking-tight text-white leading-tight">
-            Um site profissional <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed]">feito para o seu negócio</span>
-          </h2>
-          
-          <p className="text-[#a0a0a0] text-[17px] mb-10 leading-relaxed font-semibold">
-            Nós criamos, personalizamos e colocamos no ar. Você só precisa responder os clientes que vão chegar.
-          </p>
-          
-          {/* List of 6 features */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {bulletPoints.map((item, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.08, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3"
-              >
-                <div className="w-6 h-6 rounded-full bg-[#e91e8c]/15 border border-[#e91e8c]/30 flex items-center justify-center text-[#e91e8c] shrink-0">
-                  <Check size={14} className="stroke-[3]" />
-                </div>
-                <span className="font-bold text-[16px] text-white">{item.title}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Badge de destaque (margin-top 32px) */}
-          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] rounded-[12px] py-4 px-6 shadow-lg shadow-[#e91e8c]/20 max-w-md">
-            <Clock size={20} className="text-white shrink-0" />
-            <span className="font-bold text-white text-[16px]">Seu site no ar em até 48 horas</span>
-          </div>
+      <div className="max-w-7xl w-full mx-auto relative z-10 text-center">
+        <div className="text-[#e91e8c] text-[12px] font-black tracking-[0.2em] uppercase mb-4 animate-pulse">
+          A SOLUÇÃO
         </div>
+        
+        <h2 className="text-3xl md:text-[54px] font-black mb-6 uppercase tracking-tight text-white leading-tight">
+          Um site profissional <br />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed]">feito para o seu negócio vender</span>
+        </h2>
+        
+        <p className="text-[#a0a0a0] text-[17px] md:text-[19px] max-w-[720px] mx-auto leading-relaxed font-semibold mb-16">
+          Nós criamos, personalizamos e colocamos seu modelo de elite no ar em até 48 horas. Veja toda a estrutura inclusa, construída sem peso e otimizada para conversão:
+        </p>
 
-        {/* COLUNA DIREITA: veterinary site mockup with annotations */}
-        <div className="relative w-full max-w-[500px] lg:max-w-none mx-auto select-none">
-          {/* Main Showcase wrapper with gradient border styling */}
-          <div className="relative p-[1.5px] bg-gradient-to-tr from-[#e91e8c]/50 to-[#7c3aed]/50 rounded-[24px] overflow-visible shadow-2xl">
-            
-            {/* Embedded interactive-look mockup of a vet clinic */}
-            <div className="bg-[#0a0a0a] rounded-[22.5px] p-4 flex flex-col justify-between aspect-[4/3] relative">
-              
-              {/* Browser window header */}
-              <div className="flex items-center justify-between pb-3 border-b border-white/5 mb-3">
-                <div className="flex gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-red-400/80" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-400/80" />
-                  <div className="w-2 h-2 rounded-full bg-green-400/80" />
-                </div>
-                <span className="text-[8px] font-mono text-[#606060] tracking-wider leading-none">bichofeliz-veterinaria.com.br</span>
-                <div className="w-8" />
-              </div>
-
-              {/* Vet site simulation layout */}
-              <div className="flex-1 bg-[#111111] rounded-xl border border-white/5 p-4 flex flex-col justify-between text-left relative overflow-hidden">
-                <div className="absolute inset-0 bg-radial-gradient from-[#e91e8c]/5 to-transparent pointer-events-none" />
-                
-                {/* Simulated Dentist Landing Page navbar */}
-                <div className="flex justify-between items-center pb-2 border-b border-white/5 text-[7px] text-white/50 font-bold uppercase">
-                  <span>🐾 BICHO FELIZ HOSPIVAL</span>
-                  <div className="flex gap-1.5 font-bold">
-                    <span>Espaços</span>
-                    <span>Vacinas</span>
+        {/* Beautiful Modern Grid Layout without images */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          {features.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.05, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="group relative p-[1px] rounded-[20px] bg-[#2a2a2a] hover:bg-gradient-to-tr hover:from-[#e91e8c]/50 hover:to-[#7c3aed]/50 transition-all duration-300"
+              >
+                <div className="bg-[#161616] h-full p-8 rounded-[19px] flex flex-col gap-5 justify-between relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#e91e8c]/5 to-transparent blur-xl rounded-full" />
+                  <div>
+                    <div className="mb-6">
+                      <StyledIcon icon={Icon} size={24} containerSize={56} />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-[#a0a0a0] text-sm leading-relaxed font-medium">{item.desc}</p>
+                  </div>
+                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-bold text-[#e91e8c] uppercase tracking-wider">
+                    <span>100% Incluso</span>
+                    <span className="opacity-0 group-hover:opacity-100 text-emerald-500 transition-opacity duration-300 flex items-center gap-1">✓ Integrado</span>
                   </div>
                 </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
-                <div className="my-auto">
-                  <span className="text-[6px] text-emerald-400 font-bold uppercase tracking-widest block mb-1">🏥 Aberto 24 Horas</span>
-                  <h4 className="text-lg font-black text-white uppercase leading-none tracking-tight mb-1">
-                    Cuidado Puro <br />
-                    Para Seu Pet
-                  </h4>
-                  <p className="text-[7px] text-[#a0a0a0] leading-relaxed max-w-[170px] mb-2 font-medium">
-                    Serviço hospitalar com infraestrutura completa para banhos, hotelaria, exames de imagem e consultas veterinárias especializadas.
-                  </p>
-                  
-                  {/* WhatsApp button inside mockup */}
-                  <span id="mockup-whatsapp-btn" className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#25D366] text-black font-black text-[6px] uppercase tracking-wider shadow-md">
-                    Iniciar Atendimento via WhatsApp
-                  </span>
-                </div>
-
-                {/* Local Maps widget simulated */}
-                <div id="mockup-maps-widget" className="grid grid-cols-2 gap-2 border-t border-white/5 pt-2 items-center">
-                  <span className="text-[6px] text-[#606060] font-black uppercase">📍 AV. PAULISTA, 450 · SÃO PAULO</span>
-                  <span id="mockup-agendamento-btn" className="text-center px-1.5 py-0.5 rounded bg-transparent border border-[#e91e8c] text-[#e91e8c] text-[5px] font-black uppercase">
-                    Agendar online
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* ANNOTATIVE LABELS AND POINTER LINES */}
-            
-            {/* Annotation 1: WhatsApp Badge */}
-            <div className="absolute -top-10 -right-6 lg:-right-10 bg-white border border-[#2a2a2a] rounded-lg px-2.5 py-1 flex items-center gap-1.5 shadow-xl animate-float z-30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] shrink-0" />
-              <span className="text-[10px] font-black text-black uppercase tracking-wider">WhatsApp</span>
-            </div>
-            {/* SVG Connector for WhatsApp */}
-            <svg className="absolute -top-4 right-6 w-16 h-12 pointer-events-none z-20 overflow-visible text-[#e91e8c] opacity-60">
-              <line x1="0" y1="0" x2="60" y2="45" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-            </svg>
-
-            {/* Annotation 2: Agendamento Badge */}
-            <div className="absolute bottom-16 -right-16 bg-white border border-[#2a2a2a] rounded-lg px-2.5 py-1 flex items-center gap-1.5 shadow-xl animate-float z-30" style={{ animationDelay: "1s" }}>
-              <span className="text-[#e91e8c] text-xs">📅</span>
-              <span className="text-[10px] font-black text-black uppercase tracking-wider">Agendamento</span>
-            </div>
-            {/* SVG Connector for Agendamento */}
-            <svg className="absolute bottom-16 right-0 w-16 h-8 pointer-events-none z-20 overflow-visible text-[#e91e8c] opacity-60">
-              <line x1="60" y1="0" x2="0" y2="20" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-            </svg>
-
-            {/* Annotation 3: Mapa Badge */}
-            <div className="absolute -bottom-6 -left-4 bg-white border border-[#2a2a2a] rounded-lg px-2.5 py-1 flex items-center gap-1.5 shadow-xl animate-float z-30" style={{ animationDelay: "2s" }}>
-              <span className="text-blue-500">📍</span>
-              <span className="text-[10px] font-black text-black uppercase tracking-wider">Mapa</span>
-            </div>
-            {/* SVG Connector for Mapa */}
-            <svg className="absolute -bottom-2 left-10 w-16 h-8 pointer-events-none z-20 overflow-visible text-[#e91e8c] opacity-60">
-              <line x1="0" y1="10" x2="40" y2="-10" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-            </svg>
-
+        {/* Real hosting, no maintenance, high performance cards below */}
+        <div className="mt-16 inline-flex flex-wrap items-center justify-center gap-6 bg-[#161616] border border-[#2a2a2a] rounded-[20px] p-6 shadow-xl max-w-3xl mx-auto">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-xs font-black text-white uppercase tracking-wider">Tráfego Ilimitado</span>
+          </div>
+          <div className="w-[1px] h-4 bg-[#2a2a2a] hidden sm:block" />
+          <div className="flex items-center gap-3">
+            <Check size={16} className="text-[#e91e8c] stroke-[3]" />
+            <span className="text-xs font-black text-white uppercase tracking-wider">Hospedagem de Alta Resposta AWS</span>
+          </div>
+          <div className="w-[1px] h-4 bg-[#2a2a2a] hidden sm:block" />
+          <div className="flex items-center gap-3">
+            <Clock size={16} className="text-[#7c3aed]" />
+            <span className="text-xs font-black text-white uppercase tracking-wider">No ar em 48 Horas</span>
           </div>
         </div>
 

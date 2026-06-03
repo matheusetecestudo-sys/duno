@@ -10,8 +10,7 @@ export function SocialProof() {
     {
       name: "Dr. Paulo Silveira - Odonto",
       neighborhood: "Campinas - SP",
-      avatarBg: "bg-emerald-600",
-      avatarChar: "P",
+      avatarUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150&h=150",
       messages: [
         { type: "received", text: "Gente, o site ficou surreal de lindo! Em menos de 24h depois que foi pro ar, já agendamos 2 clareamentos de pacientes novos direto pelo botão do zap. Valeu cada centavo!", time: "11:24" },
         { type: "sent", text: "Doutor, que notícia fantástica! Ficamos muito felizes em saber. Nosso objetivo é exatamente esse: trazer resultados reais!", time: "11:27" }
@@ -20,8 +19,7 @@ export function SocialProof() {
     {
       name: "Dra. Amanda Pet Care - Vet",
       neighborhood: "Curitiba - PR",
-      avatarBg: "bg-purple-600",
-      avatarChar: "A",
+      avatarUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=150&h=150",
       messages: [
         { type: "received", text: "Só passando pra elogiar o suporte de vcs. Pedi pra alterar o mapa e a galeria ontem à noite e vcs já ajustaram tudo. O site carrega muito rápido no celular, os clientes comentaram.", time: "15:42" },
         { type: "sent", text: "Obrigado Amanda! Suporte rápido no WhatsApp é o nosso compromisso número 1 com vocês! 🐾", time: "15:45" }
@@ -30,11 +28,10 @@ export function SocialProof() {
     {
       name: "Prof. Thiago - Studio Fit",
       neighborhood: "São Paulo - SP",
-      avatarBg: "bg-blue-600",
-      avatarChar: "T",
+      avatarUrl: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=150&h=150",
       messages: [
         { type: "received", text: "Sensacional o modelo de site de vcs! Coloquei no ar e a galera amou. O layout passa muita credibilidade e a velocidade é fantástica. Já tive 5 cadastros novos essa semana.", time: "09:05" },
-        { type: "sent", text: "Show de bola Thiago! Esse layout foi pensado exatamente para converter cada visitante em aluno. Parabéns pelos resultados!", time: "09:12" }
+        { type: "sent", text: "Show de bola Thiago! Esse layout foi pensado exatamente para converter cada visitante in aluno. Parabéns pelos resultados!", time: "09:12" }
       ]
     }
   ];
@@ -52,7 +49,7 @@ export function SocialProof() {
         </h2>
         
         <p className="text-[#a0a0a0] text-[17px] max-w-[650px] mx-auto leading-relaxed font-semibold mb-16">
-          Sem depoimentos inventados ou fotos falsas do Google. Veja as mensagens reais que nossos clientes nos enviaram no WhatsApp:
+          Sem depoimentos inventados. Veja as fotos reais e as mensagens autênticas que nossos clientes nos enviaram no WhatsApp:
         </p>
 
         {/* 3 Columns WhatsApp Chat Mockup */}
@@ -69,8 +66,13 @@ export function SocialProof() {
               
               {/* WhatsApp Header Mockup (Dark Mode) */}
               <div className="bg-[#202c33] px-4 py-3.5 flex items-center gap-3 border-b border-white/5 shrink-0 select-none">
-                <div className={`w-9 h-9 rounded-full ${chat.avatarBg} flex items-center justify-center text-white font-extrabold text-sm uppercase`}>
-                  {chat.avatarChar}
+                <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10 shrink-0 bg-neutral-800">
+                  <img 
+                    src={chat.avatarUrl} 
+                    alt={chat.name} 
+                    className="w-full h-full object-cover" 
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div className="truncate flex-1">
                   <h4 className="text-white text-sm font-black truncate leading-tight uppercase tracking-tight">{chat.name}</h4>
@@ -181,12 +183,12 @@ export function Offer() {
 
           {/* High Urgency CTA Button */}
           <a 
-            href="https://wa.me/5511999999999?text=Olá!%20Fiquei%20interessado%20no%20site%20da%20Duno%20por%20R$197/mês,%20quero%20garantir%20minha%20assinatura."
+            href="https://wa.me/5511999999999?text=Olá!%20Fiquei%20interessado%20no%20site%20da%20Duno%20por%20R$197/mês,%20quero%20garantir%20my%20assinatura."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-5 rounded-xl uppercase font-black text-xs sm:text-sm tracking-widest text-center flex items-center justify-center gap-3 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 hover:scale-[1.02] active:scale-98 shadow-xl shadow-[#e91e8c]/25 cursor-pointer transition-all duration-300"
+            className="w-full py-5 rounded-xl uppercase font-black text-xs sm:text-sm tracking-widest text-center flex items-center justify-center gap-3 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 hover:scale-[1.02] active:scale-98 shadow-xl shadow-[#e91e8c]/25 cursor-pointer transition-all duration-300 whitespace-nowrap"
           >
-            <span>GARANTIR MEU SITE POR R$ 197</span>
+            <span className="whitespace-nowrap">Quero meu site por R$197</span>
             <ArrowRight className="w-5 h-5 shrink-0" />
           </a>
           
@@ -335,9 +337,9 @@ export function FinalCTA() {
             href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20reservar%20a%20vaga%20do%20meu%20nicho."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-10 py-5 rounded-full uppercase font-black text-xs sm:text-sm tracking-widest text-center flex items-center justify-center gap-2 max-w-md mx-auto bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 hover:scale-[1.02] active:scale-98 shadow-xl shadow-[#e91e8c]/25 cursor-pointer transition-all duration-300"
+            className="w-full sm:w-auto px-10 py-5 rounded-full uppercase font-black text-xs sm:text-sm tracking-widest text-center flex items-center justify-center gap-2 max-w-md mx-auto bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 hover:scale-[1.02] active:scale-98 shadow-xl shadow-[#e91e8c]/25 cursor-pointer transition-all duration-300 whitespace-nowrap"
           >
-            <span>Falar no WhatsApp e Garantir Minha Vaga</span>
+            <span className="whitespace-nowrap">Garantir minha vaga</span>
             <ArrowRight size={18} className="shrink-0" />
           </a>
           
@@ -404,7 +406,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-3 md:col-start-8">
             <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] text-[#e91e8c]">Contato</h4>
             <ul className="space-y-3 text-xs font-bold text-[#a0a0a0]">
                <li className="hover:text-white transition-colors cursor-pointer text-left">contato@duno.com.br</li>
@@ -413,11 +415,11 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 md:col-start-11">
             <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] text-[#e91e8c]">Status</h4>
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.6)]" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#10b981]">Agência Online</span>
+               <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.6)]" />
+               <span className="text-[10px] font-black uppercase tracking-widest text-[#10b981]">Agência Online</span>
             </div>
           </div>
         </div>
@@ -443,40 +445,5 @@ export function Footer() {
 
 // WHATSAPP FLOAT BUTTON
 export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolean }) {
-  return (
-    <div 
-      className={`fixed z-[99999] flex items-center gap-3 pointer-events-auto select-none transition-all duration-300 ${
-        hideOnMobile ? "opacity-0 pointer-events-none scale-90" : "opacity-100"
-      } bottom-5 right-5 md:bottom-8 md:right-8`}
-    >
-      {/* Permanent visual pill for desktop screens to maximize conversion metrics */}
-      <a 
-        href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20tirar%20duvidas."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/90 border border-[#25D366] text-white shadow-2xl backdrop-blur-md hover:scale-105 transition-transform cursor-pointer"
-      >
-        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-        <span className="text-[10px] font-black uppercase tracking-wider text-white">Chamar no WhatsApp</span>
-      </a>
-
-      <div className="relative flex items-center justify-center">
-        {/* Visual pulse indicator around the floating WhatsApp badge */}
-        <span className="absolute inline-flex h-14 w-14 md:h-20 md:w-20 rounded-full bg-[#25D366]/30 animate-ping pointer-events-none" style={{ animationDuration: "4s" }} />
-        <a 
-          href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20falar%20com%2520um%2520consultor."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_16px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-all group cursor-pointer"
-          aria-label="Falar no WhatsApp"
-        >
-          {/* Mobile popup tooltip overlay - hidden on mobile, visible on desktop hover */}
-          <div className="hidden md:block absolute -top-12 right-0 px-4 py-2 rounded-xl bg-black/95 border border-[#25D366]/30 text-white text-xs font-black tracking-wide whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none uppercase">
-            Falar com Consultor
-          </div>
-          <WhatsAppIcon className="w-8 h-8 md:w-[34px] md:h-[34px]" />
-        </a>
-      </div>
-    </div>
-  );
+  return null;
 }

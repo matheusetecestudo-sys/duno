@@ -28,10 +28,17 @@ import {
   Landmark, 
   Heart, 
   Award,
-  ChevronDown
+  ChevronDown,
+  MessageSquareCode,
+  CalendarDays,
+  MessageCircle,
+  Users,
+  TrendingUp,
+  DollarSign
 } from "lucide-react";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./Icons";
+import { StyledIcon } from "./StyledIcon";
 
 // ----------------------------------------------------------------------
 // CUSTOM STYLES & SUB-INTERACTIVE WRAPPERS FOR MOBILE
@@ -108,19 +115,19 @@ const CHATS = [
   {
     name: "Dr. Paulo S.",
     role: "Dentista - Campinas",
-    avatarChar: "P",
+    avatarUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150&h=150",
     text: "Gente, o site ficou surreal de lindo! Em menos de 24h depois que foi pro ar, já agendamos 2 clareamentos de pacientes novos direto pelo zap. Valeu!"
   },
   {
     name: "Amanda Vet",
     role: "Pet Care - Curitiba",
-    avatarChar: "A",
+    avatarUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=150&h=150",
     text: "Pedi pra alterar o mapa e a galeria ontem à noite e vocês já ajustaram tudo. O site carrega muito rápido no celular, os clientes sempre elogiam."
   },
   {
     name: "Prof. Thiago",
     role: "Studio Fit - SP",
-    avatarChar: "T",
+    avatarUrl: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=150&h=150",
     text: "Sensacional o modelo de site de vcs! Coloquei no ar e a galera amou. O layout passa muita credibilidade e já tive 5 cadastros novos essa semana!"
   }
 ];
@@ -208,11 +215,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%2520da%2520Duno%2520e%2520quero%2520garantir%2520um%2520site%2520profissional%2520em%252048h."
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#25D366] text-black font-black uppercase text-[12px] tracking-wide h-[40px] px-4 rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(37,211,102,0.4)] active:scale-95 transition-all outline-none"
+            className="bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white font-black uppercase text-[12px] tracking-wide h-[40px] px-4 rounded-full flex items-center gap-2 shadow-md shadow-[#e91e8c]/20 active:scale-95 transition-all outline-none"
             style={{ minHeight: "40px" }}
           >
-            <WhatsAppIcon size={14} />
-            <span>WhatsApp</span>
+            <ArrowRight size={14} className="text-white" />
+            <span className="text-white">WhatsApp</span>
           </a>
         </div>
       </div>
@@ -220,22 +227,20 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           HERO MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="relative px-5 pt-[130px] pb-10 flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative px-5 pt-[130px] pb-12 flex flex-col items-center justify-center overflow-hidden">
         {/* Decorative backdrop elements */}
         <div className="absolute top-1/4 right-0 w-[200px] h-[200px] bg-[#e91e8c]/10 blur-[60px] rounded-full pointer-events-none" />
         <div className="absolute bottom-10 left-0 w-[200px] h-[200px] bg-[#7c3aed]/10 blur-[60px] rounded-full pointer-events-none" />
         
         {/* Badge topo */}
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#e91e8c]/10 border border-[#e91e8c]/30 text-[#e91e8c] text-[12px] font-black uppercase tracking-wider mb-6">
+        <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#e91e8c]/10 border border-[#e91e8c]/30 text-[#e91e8c] text-[12px] font-black uppercase tracking-wider mb-8">
           <Zap size={11} className="fill-[#e91e8c] text-[#e91e8c] animate-pulse" />
-          <span>⚡ Pronto em até 48 horas</span>
+          <span>⚡ Site no ar em até 48 horas</span>
         </div>
 
         {/* Headline */}
-        <h1 className="text-[34px] font-black leading-[1.05] tracking-tight uppercase text-center mb-5 text-white">
-          Seu concorrente <br />
-          já aparece no Google. <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] filter drop-shadow-[0_2px_10px_rgba(233,30,140,0.15)]">Você ainda não.</span>
+        <h1 className="font-h1-mobile mb-6 text-white text-center px-1">
+          Seu concorrente já aparece no Google. <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] filter drop-shadow-[0_2px_10px_rgba(233,30,140,0.15)] block mt-2">Você ainda não.</span>
         </h1>
 
         {/* Subheadline (16px) */}
@@ -249,18 +254,20 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             href="https://wa.me/5511999999999?text=Olá!%20Vi%20o%20site%2520de%2520vocês%2520e%2520quero%2520garantir%2520meu%2520site%2520no%2520ar%2520em%252048h."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-[52px] rounded-full text-[15px] font-black uppercase tracking-widest text-center flex items-center justify-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-[0_4px_20px_rgba(233,30,140,0.4)] active:scale-95 transition-transform"
+            className="w-full h-[52px] rounded-full text-[14px] font-black uppercase tracking-widest text-center flex items-center justify-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-[0_4px_20px_rgba(233,30,140,0.4)] active:scale-95 transition-transform gap-2 whitespace-nowrap"
             style={{ minHeight: "48px" }}
           >
-            Quero meu site agora →
+            <span className="text-white whitespace-nowrap">Quero meu site</span>
+            <ArrowRight size={16} className="text-white bg-transparent shrink-0" />
           </a>
           
           <button
             onClick={() => scrollToMobile("modelos-carrossel")}
-            className="w-full h-[52px] rounded-full text-[15px] font-black text-white hover:text-[#e91e8c] uppercase tracking-widest border border-white/50 bg-transparent active:bg-white/5 transition-colors"
+            className="w-full h-[52px] rounded-full text-[14px] font-black text-white hover:text-[#e91e8c] uppercase tracking-widest border border-white/50 bg-transparent active:bg-white/5 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
             style={{ minHeight: "48px" }}
           >
-            Ver modelos prontos
+            <span className="text-white whitespace-nowrap">Ver modelos</span>
+            <ArrowRight size={16} className="text-white bg-transparent shrink-0" />
           </button>
         </div>
 
@@ -381,62 +388,67 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           DOR MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#0a0a0a]">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-none mb-3 text-white">
-          Você está perdendo <br />
-          <span className="text-[#e91e8c]">vendas</span>
+      <section className="py-20 px-5 bg-[#0a0a0a] relative flex flex-col items-center">
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-4 text-white">
+          Você está <span className="text-[#e91e8c] italic font-black">perdendo vendas</span>
         </h2>
         
-        <p className="text-[15px] text-[#a0a0a0] font-semibold text-center max-w-[300px] mx-auto mb-10 leading-relaxed">
-          Sem presença digital de elite na rede local, seus pacientes vão para o concorrente.
+        <p className="text-[15px] text-[#a0a0a0] font-semibold text-center max-w-[360px] mx-auto mb-12 leading-relaxed">
+          A falta de presença digital está custando clientes reais para o seu negócio. Todo dia.
         </p>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4.5 w-full">
           {[
             {
               title: "Sem site, sem confiança",
-              desc: "Quem pesquisa seu serviço no celular e não te encontra, deduz que você não existe.",
+              desc: "Quando um cliente pesquisa sua clínica e não acha nada, ele vai direto para o concorrente que aparece no Google. Simples assim.",
               icon: XCircle,
               color: "#ef4444"
             },
             {
               title: "Refém das indicações",
-              desc: "Parar de crescer porque a indicação travou. Garanta novos chats gerados todo dia.",
-              icon: Search,
+              desc: "Depender só de indicação é arriscado. Um mês bom, um mês ruim. Com um site, você atrai clientes novos todos os dias, no piloto automático.",
+              icon: Users,
               color: "#f97316"
             },
             {
-              title: "Concorrente no topo",
-              desc: "Enquanto você dorme, ele aparece na frente no Google. Esse cliente que clicou lá era seu.",
-              icon: Target,
+              title: "Concorrente na sua frente",
+              desc: "Enquanto você não tem site, seu concorrente aparece no topo do Google quando alguém busca pelo seu serviço na sua cidade. Esse cliente era seu.",
+              icon: TrendingUp,
               color: "#e91e8c"
             },
             {
-              title: "Custo altíssimo por aí",
-              desc: "Agências cobrando R$5.000 + taxas em layouts pesados. Na Duno você inicia com segurança.",
-              icon: Tag,
+              title: "Agência cobrou caro e não entregou",
+              desc: "R$3.000, R$5.000 ou mais, meses de espera e um site que ninguém sabe usar. Você merece uma opção melhor do que isso.",
+              icon: DollarSign,
               color: "#7c3aed"
             }
           ].map((item, i) => {
             const Icon = item.icon;
             return (
-              <div 
+              <motion.div 
                 key={i}
-                className="p-5 rounded-2xl border border-[#202020] bg-[#111]/80 hover:border-[#e91e8c]/50 transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="p-6 rounded-[16px] border border-[#2a2a2a] bg-[#1a1a1a] hover:border-[#e91e8c]/60 hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
               >
-                <div className="flex items-center gap-3.5 mb-2">
-                  <div 
-                    className="w-[36px] h-[36px] rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: `${item.color}20`, border: `1px solid ${item.color}40` }}
-                  >
-                    <Icon size={18} style={{ color: item.color }} />
-                  </div>
-                  <h3 className="text-[16px] font-black text-white uppercase tracking-tight">{item.title}</h3>
+                <div 
+                  className="w-[44px] h-[44px] rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: `${item.color}15`, border: `1px solid ${item.color}30` }}
+                >
+                  <Icon size={20} style={{ color: item.color }} strokeWidth={2} />
                 </div>
-                <p className="text-[#a0a0a0] text-[14px] leading-relaxed font-semibold pl-[50px]">
-                  {item.desc}
-                </p>
-              </div>
+                <div>
+                  <h3 className="text-[17px] font-black text-white uppercase tracking-tight mb-2 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#a0a0a0] text-[14px] leading-relaxed font-semibold">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
             );
           })}
         </div>
@@ -445,67 +457,101 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           SOLUÇÃO MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#111] border-t border-b border-[#202020]">
-        <div className="text-center mb-10">
-          <span className="text-[#e91e8c] text-[11px] font-black tracking-[0.2em] uppercase block mb-2">A SOLUÇÃO</span>
-          <h2 className="text-[32px] font-black uppercase tracking-tight leading-[1.05] mb-4">
-            Site profissional <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed]">adaptado para você</span>
+      <section className="py-20 px-5 bg-[#111111] border-t border-b border-[#202020] relative overflow-hidden flex flex-col items-center">
+        {/* Background visual glosses */}
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#e91e8c]/5 blur-[90px] rounded-full pointer-events-none" />
+        <div className="absolute left-[-50px] top-[10%] w-[300px] h-[300px] bg-[#7c3aed]/5 blur-[90px] rounded-full pointer-events-none" />
+
+        <div className="text-center mb-10 relative z-10 w-full">
+          <div className="text-[#e91e8c] text-[11px] font-black tracking-[0.2em] uppercase mb-4 animate-pulse">
+            A SOLUÇÃO
+          </div>
+          
+          <h2 className="text-[24px] min-[375px]:text-[30px] font-black mb-6 uppercase tracking-tight text-white leading-tight">
+            Um site profissional <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] block mt-1">feito para seu negócio vender</span>
           </h2>
-          <p className="text-[15px] text-[#a0a0a0] font-semibold leading-relaxed max-w-[320px] mx-auto">
-            Nós customizamos e entregamos tudo pronto em tempo recorde de 48h.
+          
+          <p className="text-[#a0a0a0] text-[15px] max-w-[340px] mx-auto leading-relaxed font-semibold">
+            Nós criamos, personalizamos e colocamos seu modelo de elite no ar em até 48 horas. Veja toda a estrutura inclusa, construída para conversão rápida:
           </p>
         </div>
 
-        {/* 2x3 Grid for layout density */}
-        <div className="grid grid-cols-2 gap-3.5 mb-8">
+        {/* Beautiful Stacked Cards of features in Mobile - No Images! */}
+        <div className="w-full space-y-4 relative z-10 max-w-sm mb-10">
           {[
-            { text: "Botão WhatsApp fixo", icon: MessageSquare },
-            { text: "Agendamento simples", icon: Calendar },
-            { text: "SEO focado em Google", icon: Search },
-            { text: "Google Maps local", icon: MapPin },
-            { text: "Leve para 4G/Cellular", icon: Smartphone },
-            { text: "Paletas e fotos suas", icon: Sparkles }
-          ].map((item, i) => {
+            { 
+              title: "WhatsApp de Conversão", 
+              desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
+              icon: MessageSquareCode 
+            },
+            { 
+              title: "Agendamento Prático", 
+              desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
+              icon: CalendarDays 
+            },
+            { 
+              title: "Otimizado para Google", 
+              desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
+              icon: Search 
+            },
+            { 
+              title: "Google Maps Integrado", 
+              desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
+              icon: MapPin 
+            },
+            { 
+              title: "Design Mobile-First", 
+              desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
+              icon: Smartphone 
+            },
+            { 
+              title: "100% Personalizado", 
+              desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
+              icon: Sparkles 
+            }
+          ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div 
-                key={i}
-                className="p-4 rounded-xl border border-white/5 bg-[#0a0a0a] flex flex-col justify-between aspect-square"
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.05, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="relative p-[1px] rounded-[16px] bg-[#2a2a2a] active:bg-gradient-to-tr active:from-[#e91e8c]/30 active:to-[#7c3aed]/30 transition-all text-left"
               >
-                <div className="w-8 h-8 rounded-lg bg-[#e91e8c]/15 border border-[#e91e8c]/30 flex items-center justify-center text-[#e91e8c] mb-3">
-                  <Icon size={16} strokeWidth={2.5} />
+                <div className="bg-[#161616] p-6 rounded-[15px] flex flex-col gap-4 relative overflow-hidden">
+                  <div className="flex items-center gap-4">
+                    <StyledIcon icon={Icon} size={20} containerSize={44} />
+                    <h3 className="text-base font-bold text-white tracking-tight">{item.title}</h3>
+                  </div>
+                  <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
+                  <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#e91e8c]">
+                    <span>Ativo na Assinatura</span>
+                    <span className="text-emerald-500">✓ Incluso</span>
+                  </div>
                 </div>
-                <span className="text-[13px] font-black text-white leading-tight uppercase tracking-tight">{item.text}</span>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* Full-width 48h Badge */}
-        <div className="w-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] rounded-xl p-4 flex items-center justify-center gap-3 shadow-lg mb-8">
-          <Clock size={18} className="text-white shrink-0 animate-pulse" />
-          <span className="font-extrabold text-[#ffffff] text-[14px] uppercase tracking-wider">Lançamento no ar em até 48 horas</span>
-        </div>
-
-        {/* Vet template simulation image with embedded elements */}
-        <div className="w-full relative rounded-xl border border-white/10 overflow-hidden bg-black select-none aspect-video">
-          <img 
-            src="https://images.unsplash.com/photo-1581888227599-779811939961?q=80&w=600" 
-            alt="Showcase" 
-            className="w-full h-full object-cover opacity-60"
-            loading="lazy"
-            referrerPolicy="no-referrer"
-          />
-          {/* Subtle info badges overlay to increase visual appeal */}
-          <div className="absolute inset-x-0 bottom-0 top-0 bg-gradient-to-t from-black via-transparent to-transparent flex flex-col justify-end p-4">
-            <div className="flex justify-between items-center bg-black/80 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10">
-              <span className="text-[9px] font-black tracking-widest text-[#25D366] flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping" />
-                CONTATOS ATIVOS HOJE
-              </span>
-              <span className="text-[9px] font-mono text-white/50">PAGE 100/100</span>
-            </div>
+        {/* Info Highlights Badge list */}
+        <div className="w-full max-w-sm bg-[#161616] p-5 border border-[#2a2a2a] rounded-[16px] text-center space-y-3 relative z-10 shadow-lg">
+          <div className="flex items-center justify-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] font-black uppercase tracking-wider text-white">Acessos e Tráfego Ilimitado</span>
+          </div>
+          <div className="h-[1px] bg-[#2a2a2a] w-1/2 mx-auto" />
+          <div className="flex items-center justify-center gap-2">
+            <Check size={14} className="text-[#e91e8c] stroke-[3]" />
+            <span className="text-[11px] font-black uppercase tracking-wider text-white">Servidor Dedicado AWS</span>
+          </div>
+          <div className="h-[1px] bg-[#2a2a2a] w-1/2 mx-auto" />
+          <div className="flex items-center justify-center gap-2">
+            <Clock size={14} className="text-[#7c3aed]" />
+            <span className="text-[11px] font-black uppercase tracking-wider text-white">No ar em até 48 horas</span>
           </div>
         </div>
       </section>
@@ -514,9 +560,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           COMO FUNCIONA MOBILE (Timeline Vertical)
           ---------------------------------------------------------------------- */}
       <section className="py-16 px-5 bg-[#0a0a0a]">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-none mb-3 text-white">
-          Como funciona <br />
-          <span className="text-[#e91e8c]">em 48 horas</span>
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white">
+          Como funciona <span className="text-[#e91e8c]">em 48 horas</span>
         </h2>
         
         <p className="text-[15px] text-[#a0a0a0] font-semibold text-center mb-12 max-w-[300px] mx-auto leading-relaxed">
@@ -584,35 +629,67 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       </section>
 
       {/* ----------------------------------------------------------------------
-          VANTAGENS MOBILE (Grid 2x3 Density)
+          VANTAGENS MOBILE
           ---------------------------------------------------------------------- */}
       <section className="py-16 px-5 bg-[#111] border-y border-[#202020]">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-none mb-10 text-white">
-          Por que somos <br />
-          <span className="text-[#e91e8c]">diferentes</span>
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
+            Por que mais de 100 negócios <span className="text-[#e91e8c]">escolhem a gente</span>
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 gap-4.5">
           {[
-            { title: "Personalizado", desc: "Identidade visual 100% fiel à sua.", icon: Palette },
-            { title: "Pronto em 48h", desc: "Velocidade extrema de elite.", icon: Zap },
-            { title: "Sem Fidelidade", desc: "Cancele quando quiser.", icon: Unlock },
-            { title: "Suporte Imediato", desc: "ZAP direto com humano.", icon: MessageSquare },
-            { title: "Sem taxas", desc: "Apenas R$197 simples fixos.", icon: Tag },
-            { title: "Foco Conversão", desc: "Criado para virar contato.", icon: Target }
+            { 
+              title: "Totalmente Personalizado", 
+              desc: "Sua logo, suas cores, suas fotos. Nenhum cliente vai saber que é um modelo — parece feito do zero para você.", 
+              icon: Palette,
+              badgeColor: "bg-[#e91e8c]/15 text-[#e91e8c] border-[#e91e8c]/30"
+            },
+            { 
+              title: "Pronto em 48 Horas", 
+              desc: "Enquanto uma agência levaria 60 dias, você já está recebendo clientes. Dois dias. Não dois meses.", 
+              icon: Zap,
+              badgeColor: "bg-yellow-500/15 text-yellow-400 border-yellow-500/30"
+            },
+            { 
+              title: "Sem Fidelidade", 
+              desc: "Sem multa, sem contrato mínimo. Se em algum mês não quiser continuar, é só avisar. Sem enrolação.", 
+              icon: Unlock,
+              badgeColor: "bg-[#25D366]/15 text-[#25D366] border-[#25D366]/30"
+            },
+            { 
+              title: "Suporte por WhatsApp", 
+              desc: "Quer trocar uma foto? Atualizar um texto? Manda mensagem. Respondemos em até 2 horas em dias úteis.", 
+              icon: MessageCircle,
+              badgeColor: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30"
+            },
+            { 
+              title: "Sem Letras Miúdas", 
+              desc: "R$197/mês é R$197/mês. Sem cobranças escondidas, sem renovação automática surpresa, sem taxa de cancelamento.", 
+              icon: Tag,
+              badgeColor: "bg-purple-500/15 text-purple-400 border-purple-500/30"
+            },
+            { 
+              title: "Feito para Converter", 
+              desc: "Cada botão, cada seção e cada texto foi pensado para transformar visitante em contato. Não é só bonito — funciona.", 
+              icon: Target,
+              badgeColor: "bg-[#e91e8c]/15 text-[#e91e8c] border-[#e91e8c]/30"
+            }
           ].map((item, i) => {
-            const Icon = item.icon;
+            const AdvantageIcon = item.icon;
             return (
               <div 
-                key={i}
-                className="p-4 bg-[#0a0a0a] border border-white/5 rounded-xl flex flex-col justify-between text-left aspect-square"
+                key={i} 
+                className="p-6 rounded-[16px] border border-[#2a2a2a] bg-[#1a1a1a]/80 relative overflow-hidden group hover:border-[#e91e8c]/40 transition-all duration-300 flex flex-col gap-4 text-left"
               >
-                <div className="w-8 h-8 rounded-full bg-[#e91e8c]/10 border border-[#e91e8c]/30 flex items-center justify-center text-[#e91e8c]">
-                  <Icon size={16} strokeWidth={2.5} />
-                </div>
+                {/* Icon Wrapper badge */}
+                <StyledIcon icon={AdvantageIcon} size={20} containerSize={44} />
                 <div>
-                  <h3 className="text-[13px] font-black text-white uppercase mb-1 leading-none tracking-tight">{item.title}</h3>
-                  <p className="text-[#a0a0a0] text-[10px] font-medium leading-tight line-clamp-2">
+                  <h3 className="text-[17px] font-black text-white uppercase tracking-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#a0a0a0] leading-relaxed font-semibold text-xs sm:text-sm">
                     {item.desc}
                   </p>
                 </div>
@@ -626,9 +703,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           ANTES E DEPOIS MOBILE (Vertical Stack with divider)
           ---------------------------------------------------------------------- */}
       <section className="py-16 px-5 bg-[#0a0a0a]">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-[1.05] mb-10 text-white">
-          A diferença <br />
-          <span className="text-[#e91e8c]">de um site útil</span>
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-[1.05] mb-10 text-white">
+          A diferença <span className="text-[#e91e8c]">de um site útil</span>
         </h2>
 
         <div className="flex flex-col gap-6">
@@ -675,9 +751,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           MODELOS MOBILE (Horizontal Snap Carrossel with Right Gradient Mask)
           ---------------------------------------------------------------------- */}
       <section id="modelos-carrossel" className="py-16 bg-[#111] border-y border-[#202020] relative">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-none mb-3 text-white px-5">
-          Escolha seu modelo <br />
-          <span className="text-[#e91e8c]">do seu nicho</span>
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
+          Escolha seu modelo <span className="text-[#e91e8c]">do seu nicho</span>
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-8 max-w-[320px] mx-auto px-5">
@@ -766,9 +841,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             href="https://wa.me/5511999999999?text=Olá!%20Não%20achei%20minha%20profissão%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%20meu%2520segmento."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-5 py-2.5 bg-[#e91e8c] text-white text-xs font-black uppercase rounded-lg tracking-wider"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[11px] min-[360px]:text-xs font-black uppercase rounded-lg tracking-wider active:scale-95 transition-transform whitespace-nowrap shadow-md shadow-[#e91e8c]/15"
           >
-            Falar com designer
+            <span className="text-white whitespace-nowrap">Falar com designer</span>
+            <ArrowRight size={11} className="stroke-[3] text-white shrink-0" />
           </a>
         </div>
       </section>
@@ -777,9 +853,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           DEPOIMENTOS MOBILE (WhatsApp-styled carousel cards)
           ---------------------------------------------------------------------- */}
       <section className="py-16 bg-[#0a0a0a] border-b border-[#202020] relative">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-none mb-3 text-white px-5">
-          Sucesso real na <br />
-          <span className="text-[#e91e8c]">tela do WhatsApp</span>
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
+          Sucesso real na <span className="text-[#e91e8c]">tela do WhatsApp</span>
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-10 max-w-[320px] mx-auto px-5">
@@ -806,8 +881,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               >
                 {/* Header WA styled */}
                 <div className="bg-[#202c33] p-3.5 flex items-center gap-2.5 border-b border-white/5 select-none text-left">
-                  <div className="w-8 h-8 rounded-full bg-linear-to-tr from-[#e91e8c] to-[#7c3aed] flex items-center justify-center text-white text-xs font-black">
-                    {item.avatarChar}
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 shrink-0 bg-neutral-800">
+                    <img 
+                      src={item.avatarUrl} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover" 
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                   <div className="flex-1 truncate">
                     <h4 className="text-white text-xs font-black leading-none uppercase truncate">{item.name}</h4>
@@ -848,9 +928,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           ---------------------------------------------------------------------- */}
       <section className="py-16 px-5 bg-[#111] border-b border-[#202020]">
         <div className="text-center mb-10">
-          <h2 className="text-[32px] font-black uppercase tracking-tight leading-none mb-3">
-            O comparativo <br />
-            <span className="text-[#e91e8c]">de valor único</span>
+          <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-3">
+            O comparativo <span className="text-[#e91e8c]">de valor único</span>
           </h2>
           <p className="text-[14px] text-neutral-400 font-bold uppercase tracking-widest text-center">
             Compare antes de tomar decisão
@@ -890,9 +969,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 href="https://wa.me/5511999999999?text=Olá!%20Fiquei%20interessado%20no%20plano%20de%20R$197/mês%20da%20Duno."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 rounded-xl uppercase text-[12px] font-black tracking-widest text-center flex items-center justify-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-lg"
+                className="w-full py-3.5 rounded-xl uppercase text-[12px] font-black tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-lg cursor-pointer"
               >
-                Ativar Plano →
+                <span className="text-white">Ativar Plano</span>
+                <ArrowRight size={14} className="text-white" />
               </a>
             </div>
           </div>
@@ -959,8 +1039,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           {/* Preço de alta conversão */}
           <div className="py-4 border-b border-white/5 mb-6">
             <span className="text-neutral-500 text-xs font-extrabold uppercase select-none tracking-widest block mb-2">VALOR DA ASSINATURA</span>
-            <h2 className="text-[60px] leading-none font-black tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-[#25D366] to-[#10b981] font-mono">
-              R$ 197<span className="text-lg lowercase font-sans text-neutral-400 font-semibold font-display">/mês</span>
+            <h2 className="text-[44px] min-[370px]:text-[60px] leading-none font-black tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-[#25D366] to-[#10b981] font-mono">
+              R$ 197<span className="text-sm min-[370px]:text-lg lowercase font-sans text-neutral-400 font-semibold font-display">/mês</span>
             </h2>
           </div>
 
@@ -1003,10 +1083,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             href="https://wa.me/5511999999999?text=Olá!%20Li%20os%20detalhes%20da%20assinatura%20de%20R$197%20mensais%20e%20quero%20fazer%20minha%20reserva."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-[54px] rounded-xl uppercase text-[14px] font-black tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-xl max-w-sm mx-auto"
+            className="w-full h-[54px] rounded-xl uppercase text-[13px] min-[360px]:text-[14px] font-black tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-xl max-w-sm mx-auto whitespace-nowrap"
             style={{ minHeight: "48px" }}
           >
-            <span>Falar no WhatsApp →</span>
+            <span className="text-white whitespace-nowrap">Falar no WhatsApp</span>
+            <ArrowRight size={16} className="text-white shrink-0" />
           </a>
         </div>
       </section>
@@ -1015,9 +1096,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           FAQ MOBILE
           ---------------------------------------------------------------------- */}
       <section className="py-16 px-5 bg-[#0a0a0a] border-t border-[#202020]">
-        <h2 className="text-[32px] font-black uppercase text-center tracking-tight leading-none mb-10 text-white">
-          Dúvidas <br />
-          <span className="text-[#e91e8c]">Frequentes</span>
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-10 text-white">
+          Dúvidas <span className="text-[#e91e8c]">Frequentes</span>
         </h2>
 
         <div className="space-y-4 text-left">
@@ -1084,10 +1164,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             href="https://wa.me/5511999999999?text=Olá!%20Li%20o%20FAQ%20da%2520Duno%2520mas%2520ainda%2520tenho%2520uma%2520duvida%2520especifica."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4.5 rounded-xl border border-[#25D366] text-[#25D366] text-xs font-black uppercase tracking-wider text-center flex items-center justify-center gap-2"
+            className="w-full py-4.5 rounded-xl border border-[#25D366] bg-[#25D366]/10 text-white hover:bg-[#25D366]/20 text-xs font-black uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
           >
-            <WhatsAppIcon size={14} />
-            <span>Tirar outra dúvida</span>
+            <ArrowRight size={14} className="text-white" />
+            <span className="text-white">Tirar outra dúvida</span>
           </a>
         </div>
       </section>
@@ -1096,9 +1176,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SOBRE / CONFIANÇA MOBILE
           ---------------------------------------------------------------------- */}
       <section className="py-16 px-5 bg-[#111] border-y border-[#202020] text-center">
-        <h2 className="text-[32px] font-black uppercase tracking-tight leading-none mb-4">
-          Cuidado local <br />
-          <span className="text-[#e91e8c]">em boas mãos</span>
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4">
+          Cuidado local <span className="text-[#e91e8c]">em boas mãos</span>
         </h2>
         
         <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-10 max-w-[320px] mx-auto">
@@ -1122,8 +1201,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   <Icon size={16} />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-black uppercase text-white leading-tight mb-1">{v.t}</h4>
-                  <p className="text-[8px] text-neutral-500 font-bold leading-normal">{v.text}</p>
+                  <h4 className="text-[11px] min-[370px]:text-[12px] font-black uppercase text-white leading-tight mb-1">{v.t}</h4>
+                  <p className="text-[9px] min-[370px]:text-[10px] text-neutral-500 font-bold leading-normal">{v.text}</p>
                 </div>
               </div>
             );
@@ -1139,10 +1218,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         
         <div className="relative z-10">
-          <h2 className="text-[36px] font-black uppercase leading-[1.05] tracking-tight text-white mb-6">
-            Pare de perder <br />
-            clientes locais <br />
-            <span className="italic">hoje</span>
+          <h2 className="text-[24px] min-[375px]:text-[30px] font-black uppercase leading-[1.05] tracking-tight text-white mb-6">
+            Pare de perder clientes locais <span className="italic">hoje</span>
           </h2>
 
           <p className="text-[14px] text-neutral-200 font-bold mb-10 max-w-[300px] mx-auto leading-relaxed">
@@ -1153,10 +1230,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%2520da%2520Duno%2520e%2520quero%2520garantir%2520minha%2520vaga%2520para%2520meu%2520nicho."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 px-6 rounded-full bg-white text-black text-[15px] font-black uppercase tracking-wider shadow-xl flex items-center justify-center gap-1 max-w-[300px] mx-auto"
+            className="w-full py-4 px-6 rounded-full bg-[#0a0a0a] border border-white/20 text-white text-[13px] min-[360px]:text-[14px] font-black uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 max-w-[300px] mx-auto active:scale-95 transition-transform whitespace-nowrap"
             style={{ minHeight: "48px" }}
           >
-            <span>Falar no WhatsApp e Garantir Minha Vaga</span>
+            <span className="text-white whitespace-nowrap">Garantir minha vaga</span>
+            <ArrowRight size={16} className="text-white shrink-0" />
           </a>
 
           {/* Social Proof metrics below */}
@@ -1272,10 +1350,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 href={`https://wa.me/5511999999999?text=Olá!%20Gostei%20do%20modelo%20para%20${selectedModel.niche}%20e%20quero%20esse%20para%20minha%20clínica.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black text-center uppercase rounded-xl flex items-center justify-center gap-2 tracking-widest"
+                className="w-full py-3.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[11px] min-[360px]:text-xs font-black text-center uppercase rounded-xl flex items-center justify-center gap-2 tracking-widest whitespace-nowrap"
               >
-                <span>Garantir este modelo</span>
-                <ArrowRight size={12} className="stroke-[3]" />
+                <span className="whitespace-nowrap">Quero este modelo</span>
+                <ArrowRight size={12} className="stroke-[3] shrink-0" />
               </a>
             </motion.div>
           </motion.div>

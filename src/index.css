@@ -49,6 +49,11 @@
   @apply bg-clip-text text-transparent bg-linear-to-r from-[#FF0054] to-[#A328D6] py-1;
 }
 
+.font-h1-mobile {
+  font-family: var(--font-display);
+  @apply text-[34px] min-[370px]:text-[40px] font-black leading-[1.05] tracking-tight uppercase text-center;
+}
+
 .premium-btn {
   @apply bg-linear-to-r from-[#FF0054] to-[#A328D6] text-white shadow-[0_10px_30px_rgba(255,0,84,0.3)] hover:shadow-[0_15px_40px_rgba(163,40,214,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 font-bold cursor-pointer;
 }

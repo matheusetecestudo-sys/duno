@@ -14,8 +14,10 @@ import {
   CheckCircle,
   X,
   Check,
-  Award
+  Award,
+  ArrowRight
 } from "lucide-react";
+import { StyledIcon } from "./StyledIcon";
 
 // SEÇÃO 5 — COMO FUNCIONA
 export function HowItWorks() {
@@ -85,8 +87,8 @@ export function HowItWorks() {
                 </span>
 
                 {/* Central Icon */}
-                <div className="w-[80px] h-[80px] rounded-2xl bg-[#111111] border border-[#2a2a2a] group-hover:border-[#e91e8c] flex items-center justify-center text-[#e91e8c] mb-6 shadow-xl relative transition-transform group-hover:scale-105 duration-300">
-                  <Icon size={40} className="text-[#e91e8c] stroke-[1.8]" />
+                <div className="mb-6">
+                  <StyledIcon icon={Icon} size={36} containerSize={80} />
                 </div>
 
                 <h3 className="text-lg font-black text-white uppercase tracking-wide text-center mb-2">
@@ -181,8 +183,8 @@ export function Benefits() {
                 className="p-8 rounded-[16px] border border-[#2a2a2a] bg-[#1a1a1a] relative overflow-hidden group hover:border-[#e91e8c]/40 hover:shadow-[0_0_20px_rgba(233,30,140,0.15)] hover:scale-[1.02] transition-all duration-300"
               >
                 {/* Icon Inside circle wrapper with custom class variable */}
-                <div className={`w-[40px] h-[40px] rounded-full flex items-center justify-center mb-6 border ${b.badgeColor} shrink-0`}>
-                  <AdvantageIcon size={20} className="stroke-[2.5]" />
+                <div className="mb-6">
+                  <StyledIcon icon={AdvantageIcon} size={24} containerSize={52} />
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">
@@ -388,9 +390,10 @@ export function Comparison() {
                   href="https://wa.me/5511999999999?text=Olá!%20Fiquei%20interessado%20na%20locação%20de%20sites%20por%20R$197/mês."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4.5 rounded-xl uppercase font-black tracking-widest text-xs text-center flex items-center justify-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 hover:scale-103 active:scale-97 transition-all cursor-pointer shadow-lg shadow-[#e91e8c]/25"
+                  className="w-full py-4.5 rounded-xl uppercase font-black tracking-widest text-xs text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 hover:scale-103 active:scale-97 transition-all cursor-pointer shadow-lg shadow-[#e91e8c]/25 whitespace-nowrap"
                 >
-                  Quero esse →
+                  <span className="text-white whitespace-nowrap">Quero esse</span>
+                  <ArrowRight size={14} className="text-white shrink-0" />
                 </a>
               </div>
             </div>

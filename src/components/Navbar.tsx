@@ -70,10 +70,10 @@ export default function Navbar() {
             href="https://wa.me/5511999999999?text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20quero%20saber%20mais%20sobre%20a%20locação%20de%20site."
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#25D366] hover:brightness-110 text-black font-black uppercase tracking-wider py-2.5 px-6 rounded-[50px] text-xs flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,211,102,0.3)] transition-all scale-100 hover:scale-[1.03] active:scale-95 group cursor-pointer"
+            className="bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white font-black uppercase tracking-wider py-2.5 px-6 rounded-[50px] text-xs flex items-center justify-center gap-2 shadow-md shadow-[#e91e8c]/25 transition-all scale-100 hover:scale-[1.03] active:scale-95 group cursor-pointer"
           >
-            <WhatsAppIcon size={16} className="text-black" />
-            <span>Falar no WhatsApp</span>
+            <ArrowRight size={16} className="text-white" />
+            <span className="text-white">Falar no WhatsApp</span>
           </a>
           
           <button 

@@ -10,45 +10,9 @@ import { Offer, FAQ, AboutTrust, FinalCTA, Footer, WhatsAppButton, SocialProof }
 import { Logo } from "./components/Logo";
 import MobileVersion from "./components/MobileVersion";
 
-function LoadingScreen() {
-  return (
-    <motion.div
-      exit={{ opacity: 0, scale: 1.1 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center p-6"
-    >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative mb-8"
-      >
-        <div className="absolute inset-0 bg-[#FF0080] blur-[40px] opacity-20 animate-pulse" />
-        <Logo className="scale-150 relative z-10" />
-      </motion.div>
-      <div className="w-32 h-0.5 bg-white/5 rounded-full overflow-hidden relative">
-        <motion.div
-          initial={{ left: "-100%" }}
-          animate={{ left: "100%" }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 bg-linear-to-r from-transparent via-[#FF0080] to-transparent"
-        />
-      </div>
-    </motion.div>
-  );
-}
-
 export default function App() {
-  const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [priceInView, setPriceInView] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 850);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -62,11 +26,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-premium text-white selection:bg-[#FF0054]/30 selection:text-white">
-      <AnimatePresence mode="wait">
-        {loading && <LoadingScreen />}
-      </AnimatePresence>
-
-      {!loading && isMobile ? (
+      {isMobile ? (
         <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col items-center">
           <MobileVersion onPriceInView={(visible) => setPriceInView(visible)} />
           <WhatsAppButton hideOnMobile={priceInView} />

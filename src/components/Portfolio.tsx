@@ -137,7 +137,7 @@ export default function Portfolio() {
                 {/* Visual click overlay */}
                 <div className="absolute inset-x-0 bottom-0 top-[18px] bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-90" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
-                  <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#e91e8c] text-white text-xs font-black uppercase tracking-widest shadow-xl">
+                  <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-[#e91e8c]/20">
                     <Eye size={14} className="stroke-[3]" />
                     <span>Abrir Demonstração</span>
                   </div>
@@ -170,9 +170,10 @@ export default function Portfolio() {
                     e.stopPropagation();
                     handleOpenDemo(item);
                   }}
-                  className="mt-auto w-full py-3.5 rounded-xl text-center bg-transparent border border-[#e91e8c] text-[#e91e8c] hover:bg-[#e91e8c] hover:text-white text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer"
+                  className="mt-auto w-full py-3.5 rounded-xl text-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 hover:brightness-110 shadow-md shadow-[#e91e8c]/15"
                 >
-                  Ver demonstração
+                  <span className="text-white">Ver demonstração</span>
+                  <ArrowRight size={14} className="text-white" />
                 </button>
 
                 {/* Card footer details with PageSpeed */}
@@ -198,9 +199,10 @@ export default function Portfolio() {
             href="https://wa.me/5511999999999?text=Olá!%20Não%20encontrei%20meu%20nicho%20nos%20modelos%20prontos%20e%20gostaria%20de%20um%20personalizado."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 bg-[#e91e8c] hover:bg-[#7c3aed] text-white text-xs font-black rounded-xl uppercase tracking-widest transition-all scale-100 hover:scale-[1.03] active:scale-95 text-center whitespace-nowrap cursor-pointer shadow-lg shadow-[#e91e8c]/25"
+            className="px-6 py-3.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black rounded-xl uppercase tracking-widest transition-all scale-100 hover:scale-[1.03] active:scale-95 text-center whitespace-nowrap cursor-pointer shadow-lg shadow-[#e91e8c]/25 flex items-center justify-center gap-2"
           >
-            Falar com a Equipe
+            <span className="text-white">Falar com a Equipe</span>
+            <ArrowRight size={14} className="text-white" />
           </a>
         </div>
 
@@ -292,10 +294,10 @@ export default function Portfolio() {
                       href={`https://wa.me/5511999999999?text=Olá!%20Adorei%20o%20modelo%20da%20Duno%20para%20${selectedModel.niche},%20quero%20esse%20para%20mim.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 shadow-lg shadow-[#e91e8c]/25 cursor-pointer"
+                      className="w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 shadow-lg shadow-[#e91e8c]/25 cursor-pointer whitespace-nowrap"
                     >
-                      <span>Quero esse modelo</span>
-                      <ArrowRight size={14} className="stroke-[3]" />
+                      <span className="whitespace-nowrap">Quero esse modelo</span>
+                      <ArrowRight size={14} className="stroke-[3] shrink-0" />
                     </a>
                   </div>
 

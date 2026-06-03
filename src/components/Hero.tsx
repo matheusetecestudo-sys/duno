@@ -68,15 +68,17 @@ export default function Hero() {
               href="https://wa.me/5511999999999?text=Olá!%20Vi%20o%20site%2520de%2520vocês%2520e%2520quero%2520garantir%2520meu%2520site%2520agora."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-10 py-5 rounded-full text-[17px] font-black uppercase tracking-wider text-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-[0_0_30px_rgba(233,30,140,0.4)] hover:shadow-[0_0_45px_rgba(233,30,140,0.65)] hover:scale-[1.03] active:scale-95 transition-all duration-300 shrink-0 cursor-pointer"
+              className="w-full sm:w-auto px-10 py-5 rounded-full text-[17px] font-black uppercase tracking-wider text-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-[0_0_30px_rgba(233,30,140,0.4)] hover:shadow-[0_0_45px_rgba(233,30,140,0.65)] hover:scale-[1.03] active:scale-95 transition-all duration-300 shrink-0 cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
             >
-              Quero meu site agora — Falar no WhatsApp
+              <span className="text-white whitespace-nowrap">Quero meu site</span>
+              <ArrowRight size={18} className="text-white shrink-0" />
             </a>
             <button 
               onClick={() => scrollTo('modelos')}
-              className="w-full sm:w-auto px-10 py-5 rounded-full text-[17px] font-black text-white hover:text-[#e91e8c] uppercase tracking-wider text-center border-2 border-white hover:border-[#e91e8c] transition-all duration-300 bg-transparent shrink-0 cursor-pointer"
+              className="w-full sm:w-auto px-10 py-5 rounded-full text-[17px] font-black text-white hover:text-[#e91e8c] uppercase tracking-wider text-center border-2 border-white hover:border-[#e91e8c] transition-all duration-300 bg-transparent shrink-0 cursor-pointer flex items-center justify-center gap-2 group whitespace-nowrap"
             >
-              Ver modelos prontos
+              <span className="text-white whitespace-nowrap">Ver modelos</span>
+              <ArrowRight size={18} className="text-white transition-transform group-hover:translate-x-1 shrink-0" />
             </button>
           </div>
 

@@ -10,6 +10,7 @@ import {
   ChevronRight, 
   XCircle, 
   Clock, 
+  Coins,
   MapPin, 
   Calendar, 
   Smartphone, 
@@ -34,11 +35,15 @@ import {
   MessageCircle,
   Users,
   TrendingUp,
-  DollarSign
+  DollarSign,
+  Menu,
+  Package
 } from "lucide-react";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./Icons";
 import { StyledIcon } from "./StyledIcon";
+import RevealSection from "./RevealSection";
+import Counter from "./Counter";
 
 // ----------------------------------------------------------------------
 // CUSTOM STYLES & SUB-INTERACTIVE WRAPPERS FOR MOBILE
@@ -142,11 +147,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [selectedModel, setSelectedModel] = useState<NicheItem | null>(null);
   const [isCompExpanded, setIsCompExpanded] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const priceRef = useRef<HTMLDivElement>(null);
 
   // Smooth scroll helper
   const scrollToMobile = (id: string) => {
+    setIsMenuOpen(false);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -176,158 +183,177 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           NAVBAR MOBILE (includes emergency countdown bar above)
           ---------------------------------------------------------------------- */}
       <div className="fixed top-0 left-0 right-0 z-[999] max-w-[430px] mx-auto">
-        {/* Barra de urgência superior */}
-        <div className="h-[36px] bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] flex items-center overflow-hidden relative select-none">
-          <style>{`
-            @keyframes mobileMarquee {
-              0% { transform: translateX(0%); }
-              100% { transform: translateX(-50%); }
-            }
-            .mobile-marquee-wrap {
-              display: flex;
-              width: max-content;
-              animation: mobileMarquee 15s linear infinite;
-            }
-          `}</style>
-          <div className="mobile-marquee-wrap whitespace-nowrap">
-            <span className="text-[13px] font-bold text-white px-2">
-              ⚡ Site no ar em 48h · Apenas 1 vaga por nicho por cidade •&nbsp;
-            </span>
-            <span className="text-[13px] font-bold text-white px-2">
-              ⚡ Site no ar em 48h · Apenas 1 vaga por nicho por cidade •&nbsp;
-            </span>
-            <span className="text-[13px] font-bold text-white px-2">
-              ⚡ Site no ar em 48h · Apenas 1 vaga por nicho por cidade •&nbsp;
-            </span>
-          </div>
-        </div>
-
         {/* Home header */}
-        <div className="h-[64px] bg-[#0a0a0af2] backdrop-blur-md border-b border-[#e91e8c]/20 px-4 flex items-center justify-between">
+        <div className="h-[64px] bg-[#020202e0] backdrop-blur-md border-b border-[#f0134d]/20 px-4 flex items-center justify-between relative">
           <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => {
+              setIsMenuOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="focus:outline-none shrink-0"
           >
             <Logo size="sm" />
           </button>
 
-          <a
-            href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%2520da%2520Duno%2520e%2520quero%2520garantir%2520um%2520site%2520profissional%2520em%252048h."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white font-black uppercase text-[12px] tracking-wide h-[40px] px-4 rounded-full flex items-center gap-2 shadow-md shadow-[#e91e8c]/20 active:scale-95 transition-all outline-none"
-            style={{ minHeight: "40px" }}
-          >
-            <ArrowRight size={14} className="text-white" />
-            <span className="text-white">WhatsApp</span>
-          </a>
+          <div className="flex items-center gap-2">
+            {/* Hamburger Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-[#f0134d] transition-colors focus:outline-none focus:ring-1 focus:ring-[#f0134d]"
+              aria-label="Menu"
+            >
+              {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
+
+        {/* Animated Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <>
+              {/* Backing backdrop with subtle blur to close the menu on click */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMenuOpen(false)}
+                className="fixed inset-0 top-[64px] bg-black/60 backdrop-blur-md z-[997] max-w-[430px] mx-auto"
+              />
+
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="absolute top-[64px] inset-x-0 bg-[#0c0c0cf9] border-b border-[#f0134d]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
+                    Navegação Exclusiva
+                  </span>
+                  <p className="text-xs text-neutral-400 font-semibold">
+                    Selecione uma seção para navegar com fluidez:
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-2.5 border-t border-white/5 pt-4">
+                  {[
+                    { number: "01", label: "Como Funciona", target: "como-funciona-mobile", badge: "48 Horas", desc: "Seu site pronto em tempo recorde" },
+                    { number: "02", label: "Vantagens", target: "beneficios-mobile", badge: "Alta Conversão", desc: "Por que nos escolher faz a diferença" },
+                    { number: "03", label: "Modelos", target: "modelos-carrossel", badge: "Seu Nicho", desc: "Layouts validados para vendas" },
+                    { number: "04", label: "FAQ", target: "faq-mobile", badge: "Suporte", desc: "Tire todas as suas dúvidas" },
+                  ].map((link, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => scrollToMobile(link.target)}
+                      className="w-full flex items-center justify-between p-3 rounded-xl bg-white/[0.01] border border-white/5 text-left text-[13px] font-black text-white hover:text-[#f0134d] active:bg-[#f0134d]/5 transition-all uppercase tracking-wide group outline-none"
+                    >
+                      <div className="flex items-center gap-3.5">
+                        <span className="text-xs font-mono font-bold text-[#f0134d]">
+                          {link.number}
+                        </span>
+                        <div className="flex flex-col">
+                          <span className="font-black text-white group-hover:text-[#f0134d] transition-colors leading-none mb-1">
+                            {link.label}
+                          </span>
+                          <span className="text-[9px] text-neutral-500 font-medium lowercase tracking-normal leading-none">
+                            {link.desc}
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-[8px] font-bold px-2 py-0.5 rounded bg-white/5 text-neutral-400 group-hover:bg-[#f0134d]/10 group-hover:text-[#f0134d] transition-colors font-mono">
+                        {link.badge}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="bg-[#111111] border border-white/5 p-4 rounded-xl flex items-center justify-between mt-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+                    <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Agência Online ativa</span>
+                  </div>
+                  <a
+                    href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[9px] font-black uppercase tracking-widest text-[#f0134d] hover:underline"
+                  >
+                    Contato imediato →
+                  </a>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* ----------------------------------------------------------------------
           HERO MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="relative px-5 pt-[130px] pb-12 flex flex-col items-center justify-center overflow-hidden">
-        {/* Decorative backdrop elements */}
-        <div className="absolute top-1/4 right-0 w-[200px] h-[200px] bg-[#e91e8c]/10 blur-[60px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-10 left-0 w-[200px] h-[200px] bg-[#7c3aed]/10 blur-[60px] rounded-full pointer-events-none" />
+      <section className="relative w-full px-5 pt-[95px] pb-14 flex flex-col items-center justify-start overflow-hidden bg-[#0a0a0a]">
+        {/* Horizontal banner image integrated seamlessly into the background style of this section on Mobile */}
+        <div 
+          className="absolute inset-x-0 top-0 w-full h-[220px] min-[375px]:h-[240px] min-[414px]:h-[260px] bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-45"
+          style={{ 
+            backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/main/img03desktop.png')",
+          }}
+        />
         
-        {/* Badge topo */}
-        <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#e91e8c]/10 border border-[#e91e8c]/30 text-[#e91e8c] text-[12px] font-black uppercase tracking-wider mb-8">
-          <Zap size={11} className="fill-[#e91e8c] text-[#e91e8c] animate-pulse" />
-          <span>⚡ Site no ar em até 48 horas</span>
+        {/* Gradient transition to blend the background banner into the dark layout color */}
+        <div className="absolute inset-x-0 top-0 h-[220px] min-[375px]:h-[240px] min-[414px]:h-[260px] bg-gradient-to-b from-transparent via-[#0a0a0a]/35 to-[#0a0a0a] pointer-events-none z-[1]" />
+
+        {/* Glow behind mobile header */}
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#f0134d]/5 blur-[80px] rounded-full pointer-events-none z-0" />
+
+        {/* 1. Header Badge with Avatar group exactly like yesterday morning */}
+        <div className="relative z-10 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#12020a]/90 border border-[#f0134d]/45 text-white text-xs font-extrabold tracking-wide mb-6 shadow-[0_0_15px_rgba(240,19,77,0.25)]">
+          <div className="flex -space-x-1.5">
+            <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80" alt="1" />
+            <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80" alt="2" />
+            <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80" alt="3" />
+            <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt="4" />
+          </div>
+          <span className="text-[#f0134d] font-black tracking-widest uppercase text-[10px]">⚡ Seu site no ar completo em 48h</span>
         </div>
 
-        {/* Headline */}
-        <h1 className="font-h1-mobile mb-6 text-white text-center px-1">
-          Seu concorrente já aparece no Google. <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] filter drop-shadow-[0_2px_10px_rgba(233,30,140,0.15)] block mt-2">Você ainda não.</span>
+        {/* 3. Headline with highlighting from Print 3 */}
+        <h1 className="relative z-10 font-black mb-4 text-white text-center px-1 text-2xl min-[370px]:text-3xl uppercase tracking-tight leading-tight text-glow">
+          Seu site de alta conversão <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] block mt-1.5 font-black">sem complicação</span>
         </h1>
 
-        {/* Subheadline (16px) */}
-        <p className="text-[16px] text-[#a0a0a0] text-center mb-8 font-semibold leading-relaxed max-w-[340px]">
-          Site profissional personalizado com sua marca, pronto em 48h, por R$197/mês. Sem contrato, sem multa.
+        {/* 4. Subheadline */}
+        <p className="relative z-10 text-[13px] min-[370px]:text-[14px] text-[#b3b3b3] text-center mb-7 font-semibold leading-relaxed max-w-[340px]">
+          Um site de elite completo, ultra-veloz, 100% otimizado para celulares e integrado ao WhatsApp por apenas R$197/mês.
         </p>
 
-        {/* CTAs Blocks */}
-        <div className="w-full flex flex-col gap-3.5 px-1 pb-10">
+        {/* 5. CTAs Blocks */}
+        <div className="relative z-10 w-full max-w-[340px] flex flex-col gap-3 px-1.5 pb-2 text-center items-center">
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Vi%20o%20site%2520de%2520vocês%2520e%2520quero%2520garantir%2520meu%2520site%2520no%2520ar%2520em%252048h."
+            href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-[52px] rounded-full text-[14px] font-black uppercase tracking-widest text-center flex items-center justify-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-[0_4px_20px_rgba(233,30,140,0.4)] active:scale-95 transition-transform gap-2 whitespace-nowrap"
+            className="gold-premium-btn w-full"
             style={{ minHeight: "48px" }}
           >
-            <span className="text-white whitespace-nowrap">Quero meu site</span>
-            <ArrowRight size={16} className="text-white bg-transparent shrink-0" />
+            <span className="text-black whitespace-nowrap font-black">Quero meu site</span>
+            <ArrowRight size={15} />
           </a>
-          
           <button
-            onClick={() => scrollToMobile("modelos-carrossel")}
-            className="w-full h-[52px] rounded-full text-[14px] font-black text-white hover:text-[#e91e8c] uppercase tracking-widest border border-white/50 bg-transparent active:bg-white/5 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+            onClick={() => scrollToMobile("beneficios-mobile")}
+            className="w-full h-[52px] rounded-full text-[13px] font-black text-white hover:text-[#f0134d] uppercase tracking-widest border-2 border-white/20 bg-black/45 backdrop-blur-sm active:bg-white/5 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
             style={{ minHeight: "48px" }}
           >
-            <span className="text-white whitespace-nowrap">Ver modelos</span>
-            <ArrowRight size={16} className="text-white bg-transparent shrink-0" />
+            <span className="text-white whitespace-nowrap font-black">Ver vantagens</span>
+            <ArrowRight size={15} className="text-white bg-transparent shrink-0" />
           </button>
-        </div>
-
-        {/* Barra de prova social (3 itens em linha) */}
-        <div className="w-full grid grid-cols-3 py-4 border-y border-[#202020] bg-neutral-950/40 rounded-xl px-2">
-          <div className="text-center">
-            <span className="block text-[20px] font-black text-[#e91e8c]">+100</span>
-            <span className="text-[11px] font-medium text-[#707070] uppercase">Sites</span>
-          </div>
-          <div className="border-l border-[#202020] text-center">
-            <span className="block text-[20px] font-black text-[#e91e8c]">+15</span>
-            <span className="text-[11px] font-medium text-[#707070] uppercase">Nichos</span>
-          </div>
-          <div className="border-l border-[#202020] text-center">
-            <span className="block text-[20px] font-black text-[#e91e8c]">48h</span>
-            <span className="text-[11px] font-medium text-[#707070] uppercase">Pronto</span>
-          </div>
-        </div>
-
-        {/* Lightweight iPhone Showcase Frame mockup */}
-        <div className="w-full max-w-[280px] mt-10 relative">
-          <div className="absolute inset-x-0 -bottom-2 top-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] rounded-[24px] opacity-15 blur-lg pointer-events-none" />
-          <div className="relative border-4 border-[#252525] rounded-[32px] bg-[#0c0c0c] overflow-hidden shadow-2xl">
-            {/* Notch */}
-            <div className="h-4 bg-[#111] flex items-center justify-center">
-              <div className="w-16 h-2 rounded-full bg-black" />
-            </div>
-            
-            {/* Internal site simulator */}
-            <div className="p-3.5 aspect-[9/16] flex flex-col justify-between text-left">
-              <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-[8px] font-black tracking-widest text-[#e91e8c]">DUNO CLINIC</span>
-                <span className="text-[6px] bg-[#25D366]/15 text-[#25D366] px-1.5 py-0.5 rounded font-black">CHAT ATIVO</span>
-              </div>
-              
-              <div className="my-auto py-4">
-                <span className="text-[7px] text-emerald-400 font-extrabold uppercase tracking-widest block mb-1">🏥 Estética de Elite</span>
-                <h5 className="text-[16px] font-black text-white leading-tight uppercase mb-1.5">
-                  Design que <br />gera <span className="text-[#e91e8c]">orçamentos</span>
-                </h5>
-                <p className="text-[8px] text-[#a0a0a0] leading-relaxed font-semibold mb-3">
-                  Páginas instantâneas otimizadas 100% para celular com agendamento direto.
-                </p>
-                <div className="inline-block text-center w-full py-2 bg-[#25D366] text-black text-[8px] font-black rounded-lg uppercase tracking-wider">
-                  Agendar Consulta
-                </div>
-              </div>
-
-              <div className="text-[6px] text-neutral-600 font-bold uppercase text-center border-t border-white/5 pt-2">
-                Celulares Android & iPhone
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* ----------------------------------------------------------------------
           BARRA DE NICHOS MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="bg-[#111] border-y border-[#202020] py-4 overflow-hidden select-none relative">
+      <section className="bg-[#0a0a0a] border-y border-[#202020]/20 py-4 overflow-hidden select-none relative">
         <style>{`
           @keyframes nicheMarquee {
             0% { transform: translateX(0); }
@@ -388,9 +414,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           DOR MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-20 px-5 bg-[#0a0a0a] relative flex flex-col items-center">
+      <RevealSection>
+        <section className="py-20 px-5 bg-[#0a0a0a] relative flex flex-col items-center">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-4 text-white">
-          Você está <span className="text-[#e91e8c] italic font-black">perdendo vendas</span>
+          Você está <span className="gradient-text italic font-black">perdendo vendas</span>
         </h2>
         
         <p className="text-[15px] text-[#a0a0a0] font-semibold text-center max-w-[360px] mx-auto mb-12 leading-relaxed">
@@ -400,31 +427,42 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         <div className="flex flex-col gap-4.5 w-full">
           {[
             {
-              title: "Sem site, sem confiança",
-              desc: "Quando um cliente pesquisa sua clínica e não acha nada, ele vai direto para o concorrente que aparece no Google. Simples assim.",
-              icon: XCircle,
-              color: "#ef4444"
+              title: (
+                <span>
+                  Sem site, <span className="text-[#f0134d] font-black">sem confiança</span>
+                </span>
+              ),
+              desc: "Quando um cliente pesquisa sua marca ou serviço e não acha nada sobre você, ele vai direto para o concorrente que aparece de forma profissional no Google. Simples assim.",
+              iconName: "XCircle"
             },
             {
-              title: "Refém das indicações",
-              desc: "Depender só de indicação é arriscado. Um mês bom, um mês ruim. Com um site, você atrai clientes novos todos os dias, no piloto automático.",
-              icon: Users,
-              color: "#f97316"
+              title: (
+                <span>
+                  Refém das <span className="text-[#f0134d] font-black">indicações</span>
+                </span>
+              ),
+              desc: "Depender só de indicação boca a boca é arriscado. Um mês maravilhoso, um mês vazio. Com um site de alto padrão, você atrai novos clientes interessados todos os dias no automático.",
+              iconName: "Users"
             },
             {
-              title: "Concorrente na sua frente",
-              desc: "Enquanto você não tem site, seu concorrente aparece no topo do Google quando alguém busca pelo seu serviço na sua cidade. Esse cliente era seu.",
-              icon: TrendingUp,
-              color: "#e91e8c"
+              title: (
+                <span>
+                  Concorrente na <span className="text-[#f0134d] font-black">sua frente</span>
+                </span>
+              ),
+              desc: "Enquanto você adia ter sua página profissional, seu concorrente aparece no topo do Google quando as pessoas buscam na sua região. Esse novo cliente que ligou para ele era para ser seu.",
+              iconName: "TrendingUp"
             },
             {
-              title: "Agência cobrou caro e não entregou",
-              desc: "R$3.000, R$5.000 ou mais, meses de espera e um site que ninguém sabe usar. Você merece uma opção melhor do que isso.",
-              icon: DollarSign,
-              color: "#7c3aed"
+              title: (
+                <span>
+                  Agência cobrou <span className="text-[#f0134d] font-black">caro</span> e não entregou
+                </span>
+              ),
+              desc: "R$ 3.000, R$ 5.000 ou mais por meses a fio de espera e no final entregaram um painel complexo que ninguém consegue editar. Você merece ter uma solução ágil, completa e acessível hoje.",
+              iconName: "DollarSign"
             }
           ].map((item, i) => {
-            const Icon = item.icon;
             return (
               <motion.div 
                 key={i}
@@ -432,19 +470,16 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-[16px] border border-[#2a2a2a] bg-[#1a1a1a] hover:border-[#e91e8c]/60 hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
+                className="p-6 pb-7 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
               >
-                <div 
-                  className="w-[44px] h-[44px] rounded-full flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: `${item.color}15`, border: `1px solid ${item.color}30` }}
-                >
-                  <Icon size={20} style={{ color: item.color }} strokeWidth={2} />
+                <div className="flex justify-start">
+                  <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="!mx-0 !my-0 shrink-0" />
                 </div>
                 <div>
                   <h3 className="text-[17px] font-black text-white uppercase tracking-tight mb-2 leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-[#a0a0a0] text-[14px] leading-relaxed font-semibold">
+                  <p className="text-[#a0a0a0] text-[13px] sm:text-[14px] leading-relaxed font-semibold">
                     {item.desc}
                   </p>
                 </div>
@@ -453,23 +488,25 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           })}
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           SOLUÇÃO MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-20 px-5 bg-[#111111] border-t border-b border-[#202020] relative overflow-hidden flex flex-col items-center">
+      <RevealSection>
+        <section className="py-20 px-5 bg-[#0a0a0a] border-t border-b border-[#202020]/20 relative overflow-hidden flex flex-col items-center">
         {/* Background visual glosses */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#e91e8c]/5 blur-[90px] rounded-full pointer-events-none" />
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/5 blur-[90px] rounded-full pointer-events-none" />
         <div className="absolute left-[-50px] top-[10%] w-[300px] h-[300px] bg-[#7c3aed]/5 blur-[90px] rounded-full pointer-events-none" />
 
         <div className="text-center mb-10 relative z-10 w-full">
-          <div className="text-[#e91e8c] text-[11px] font-black tracking-[0.2em] uppercase mb-4 animate-pulse">
+          <div className="text-[#f0134d] text-[11px] font-black tracking-[0.2em] uppercase mb-4 animate-pulse">
             A SOLUÇÃO
           </div>
           
           <h2 className="text-[24px] min-[375px]:text-[30px] font-black mb-6 uppercase tracking-tight text-white leading-tight">
             Um site profissional <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] block mt-1">feito para seu negócio vender</span>
+            <span className="gradient-text block mt-1">feito para seu negócio vender</span>
           </h2>
           
           <p className="text-[#a0a0a0] text-[15px] max-w-[340px] mx-auto leading-relaxed font-semibold">
@@ -478,40 +515,63 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </div>
 
         {/* Beautiful Stacked Cards of features in Mobile - No Images! */}
-        <div className="w-full space-y-4 relative z-10 max-w-sm mb-10">
+        <div className="w-full space-y-4  relative z-10 max-w-sm mb-10">
           {[
             { 
-              title: "WhatsApp de Conversão", 
+              title: (
+                <span>
+                  WhatsApp de <span className="text-[#f0134d] font-black">Alta Conversão</span>
+                </span>
+              ), 
               desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
-              icon: MessageSquareCode 
+              iconName: "MessageSquare" 
             },
             { 
-              title: "Agendamento Prático", 
+              title: (
+                <span>
+                  Agendamento <span className="text-[#f0134d] font-black">Prático</span>
+                </span>
+              ), 
               desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
-              icon: CalendarDays 
+              iconName: "CalendarDays" 
             },
             { 
-              title: "Otimizado para Google", 
+              title: (
+                <span>
+                  Otimizado para <span className="text-[#f0134d] font-black">Google</span>
+                </span>
+              ), 
               desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
-              icon: Search 
+              iconName: "Search" 
             },
             { 
-              title: "Google Maps Integrado", 
+              title: (
+                <span>
+                  Google <span className="text-[#f0134d] font-black">Maps Integrado</span>
+                </span>
+              ), 
               desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
-              icon: MapPin 
+              iconName: "MapPin" 
             },
             { 
-              title: "Design Mobile-First", 
+              title: (
+                <span>
+                  Design <span className="text-[#f0134d] font-black">Mobile-First</span>
+                </span>
+              ), 
               desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
-              icon: Smartphone 
+              iconName: "Smartphone" 
             },
             { 
-              title: "100% Personalizado", 
+              title: (
+                <span>
+                  100% <span className="text-[#f0134d] font-black">Personalizado</span>
+                </span>
+              ), 
               desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
-              icon: Sparkles 
+              iconName: "Sparkles" 
             }
           ].map((item, idx) => {
-            const Icon = item.icon;
             return (
               <motion.div
                 key={idx}
@@ -519,18 +579,17 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="relative p-[1px] rounded-[16px] bg-[#2a2a2a] active:bg-gradient-to-tr active:from-[#e91e8c]/30 active:to-[#7c3aed]/30 transition-all text-left"
+                className="p-6 pb-7 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
               >
-                <div className="bg-[#161616] p-6 rounded-[15px] flex flex-col gap-4 relative overflow-hidden">
-                  <div className="flex items-center gap-4">
-                    <StyledIcon icon={Icon} size={20} containerSize={44} />
-                    <h3 className="text-base font-bold text-white tracking-tight">{item.title}</h3>
-                  </div>
-                  <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
-                  <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#e91e8c]">
-                    <span>Ativo na Assinatura</span>
-                    <span className="text-emerald-500">✓ Incluso</span>
-                  </div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
+                <div className="flex items-center gap-4">
+                  <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="shrink-0 !mx-0 !my-0" />
+                  <h3 className="text-[15px] font-black text-white tracking-tight leading-snug">{item.title}</h3>
+                </div>
+                <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
+                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#f0134d] mt-1">
+                  <span>Ativo na Assinatura</span>
+                  <span>✓ Incluso</span>
                 </div>
               </motion.div>
             );
@@ -545,23 +604,25 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </div>
           <div className="h-[1px] bg-[#2a2a2a] w-1/2 mx-auto" />
           <div className="flex items-center justify-center gap-2">
-            <Check size={14} className="text-[#e91e8c] stroke-[3]" />
+            <Check size={14} className="text-[#f0134d] stroke-[3]" />
             <span className="text-[11px] font-black uppercase tracking-wider text-white">Servidor Dedicado AWS</span>
           </div>
           <div className="h-[1px] bg-[#2a2a2a] w-1/2 mx-auto" />
           <div className="flex items-center justify-center gap-2">
-            <Clock size={14} className="text-[#7c3aed]" />
+            <Clock size={14} className="text-[#f0134d]" />
             <span className="text-[11px] font-black uppercase tracking-wider text-white">No ar em até 48 horas</span>
           </div>
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           COMO FUNCIONA MOBILE (Timeline Vertical)
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#0a0a0a]">
+      <RevealSection id="como-funciona-mobile">
+        <section id="como-funciona-mobile" className="py-16 px-5 bg-[#0a0a0a]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white">
-          Como funciona <span className="text-[#e91e8c]">em 48 horas</span>
+          Como funciona <span className="gradient-text">em 48 horas</span>
         </h2>
         
         <p className="text-[15px] text-[#a0a0a0] font-semibold text-center mb-12 max-w-[300px] mx-auto leading-relaxed">
@@ -571,7 +632,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         {/* Vertical Timeline container */}
         <div className="relative pl-4 space-y-8">
           {/* Timeline continuous connector line */}
-          <div className="absolute top-4 bottom-4 left-[30px] w-[2px] bg-gradient-to-b from-[#e91e8c] via-[#7c3aed] to-emerald-500 z-0" />
+          <div className="absolute top-4 bottom-4 left-[30px] w-[2px] bg-gradient-to-b from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] z-0" />
 
           {[
             {
@@ -601,14 +662,14 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           ].map((item, i) => (
             <div key={i} className="flex gap-4 relative z-10 items-start">
               {/* Timeline circle badge */}
-              <div className="w-[32px] h-[32px] rounded-full bg-gradient-to-tr from-[#e91e8c] to-[#7c3aed] flex items-center justify-center text-white text-[12px] font-black shrink-0 relative shadow-lg">
+              <div className="w-[32px] h-[32px] rounded-full bg-gradient-to-tr from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] flex items-center justify-center text-white text-[12px] font-black shrink-0 relative shadow-lg">
                 {item.step}
               </div>
               
               <div className="flex-1 bg-[#111]/90 border border-white/5 rounded-2xl p-4 text-left">
                 <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
                   <h3 className="text-[15px] font-black text-white uppercase tracking-tight">{item.title}</h3>
-                  <span className="px-2 py-0.5 rounded bg-[#e91e8c]/15 text-[#e91e8c] text-[9px] font-black uppercase border border-[#e91e8c]/30">
+                  <span className="px-2 py-0.5 rounded bg-[#f0134d]/15 text-[#f0134d] text-[9px] font-black uppercase border border-[#f0134d]/30">
                     {item.time}
                   </span>
                 </div>
@@ -621,72 +682,93 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </div>
 
         {/* Wide assurance banner */}
-        <div className="mt-12 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] p-4 text-center rounded-xl">
+        <div className="mt-12 bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] p-4 text-center rounded-xl">
           <p className="text-white text-[12px] font-black uppercase tracking-wider">
-            Sem contrato garantido · Sem fidelidade rescindível
+            Sem Contrato de Fidelidade · Sem Taxa de Cancelamento
           </p>
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           VANTAGENS MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#111] border-y border-[#202020]">
+      <RevealSection id="beneficios-mobile">
+        <section id="beneficios-mobile" className="py-16 px-5 bg-[#0a0a0a] border-y border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
-            Por que mais de 100 negócios <span className="text-[#e91e8c]">escolhem a gente</span>
+            Vantagens exclusivas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">da nossa assinatura</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-4.5">
+        <div className="grid grid-cols-1 gap-5">
           {[
             { 
-              title: "Totalmente Personalizado", 
-              desc: "Sua logo, suas cores, suas fotos. Nenhum cliente vai saber que é um modelo — parece feito do zero para você.", 
-              icon: Palette,
-              badgeColor: "bg-[#e91e8c]/15 text-[#e91e8c] border-[#e91e8c]/30"
+              title: (
+                <span>
+                  Totalmente <span className="text-[#f0134d] font-black">Personalizado</span>
+                </span>
+              ), 
+              desc: "Sua logo, suas cores, suas fotos. Nenhum cliente vai achar que é um modelo genérico — parece feito do zero para você.", 
+              iconName: "Palette"
             },
             { 
-              title: "Pronto em 48 Horas", 
-              desc: "Enquanto uma agência levaria 60 dias, você já está recebendo clientes. Dois dias. Não dois meses.", 
-              icon: Zap,
-              badgeColor: "bg-yellow-500/15 text-yellow-400 border-yellow-500/30"
+              title: (
+                <span>
+                  Pronto em <span className="text-[#f0134d] font-black">48 Horas</span>
+                </span>
+              ), 
+              desc: "Enquanto uma agência levaria 60 dias, você já está recebendo cliques de novos clientes. Dois dias de prazo.", 
+              iconName: "Clock"
             },
             { 
-              title: "Sem Fidelidade", 
-              desc: "Sem multa, sem contrato mínimo. Se em algum mês não quiser continuar, é só avisar. Sem enrolação.", 
-              icon: Unlock,
-              badgeColor: "bg-[#25D366]/15 text-[#25D366] border-[#25D366]/30"
+              title: (
+                <span>
+                  Sem <span className="text-[#f0134d] font-black">Fidelidade</span>
+                </span>
+              ), 
+              desc: "Sem multa de rescisão, sem contrato mínimo. Se em algum mês não quiser continuar ativo, basta nos avisar.", 
+              iconName: "Unlock"
             },
             { 
-              title: "Suporte por WhatsApp", 
-              desc: "Quer trocar uma foto? Atualizar um texto? Manda mensagem. Respondemos em até 2 horas em dias úteis.", 
-              icon: MessageCircle,
-              badgeColor: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30"
+              title: (
+                <span>
+                  Suporte por <span className="text-[#f0134d] font-black">WhatsApp</span>
+                </span>
+              ), 
+              desc: "Quer trocar uma foto? Atualizar um texto? Manda uma mensagem. Respondemos com agilidade e eficiência.", 
+              iconName: "MessageCircle"
             },
             { 
-              title: "Sem Letras Miúdas", 
-              desc: "R$197/mês é R$197/mês. Sem cobranças escondidas, sem renovação automática surpresa, sem taxa de cancelamento.", 
-              icon: Tag,
-              badgeColor: "bg-purple-500/15 text-purple-400 border-purple-500/30"
+              title: (
+                <span>
+                  Sem <span className="text-[#f0134d] font-black">Letras Miúdas</span>
+                </span>
+              ), 
+              desc: "R$ 197/mês fixos. Sem taxas extras ou custos ocultos, sem surpresas desagradáveis na fatura.", 
+              iconName: "Coins"
             },
             { 
-              title: "Feito para Converter", 
-              desc: "Cada botão, cada seção e cada texto foi pensado para transformar visitante em contato. Não é só bonito — funciona.", 
-              icon: Target,
-              badgeColor: "bg-[#e91e8c]/15 text-[#e91e8c] border-[#e91e8c]/30"
+              title: (
+                <span>
+                  Feito para <span className="text-[#f0134d] font-black">Converter</span>
+                </span>
+              ), 
+              desc: "Cada botão, seção e texto foi otimizado para transformar visitante em contato real no seu WhatsApp.", 
+              iconName: "Target"
             }
           ].map((item, i) => {
-            const AdvantageIcon = item.icon;
             return (
               <div 
                 key={i} 
-                className="p-6 rounded-[16px] border border-[#2a2a2a] bg-[#1a1a1a]/80 relative overflow-hidden group hover:border-[#e91e8c]/40 transition-all duration-300 flex flex-col gap-4 text-left"
+                className="p-6 pb-7 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
               >
                 {/* Icon Wrapper badge */}
-                <StyledIcon icon={AdvantageIcon} size={20} containerSize={44} />
+                <div className="flex justify-start">
+                  <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="shrink-0 !mx-0 !my-0" />
+                </div>
                 <div>
-                  <h3 className="text-[17px] font-black text-white uppercase tracking-tight mb-2">
+                  <h3 className="text-[17px] font-black text-white uppercase tracking-tight mb-2 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-[#a0a0a0] leading-relaxed font-semibold text-xs sm:text-sm">
@@ -698,13 +780,15 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           })}
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           ANTES E DEPOIS MOBILE (Vertical Stack with divider)
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#0a0a0a]">
+      <RevealSection id="diferenca-mobile">
+        <section id="diferenca-mobile" className="py-16 px-5 bg-[#0a0a0a]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-[1.05] mb-10 text-white">
-          A diferença <span className="text-[#e91e8c]">de um site útil</span>
+          A diferença <span className="gradient-text">de um site útil</span>
         </h2>
 
         <div className="flex flex-col gap-6">
@@ -725,7 +809,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
           {/* Connected arrow banner */}
           <div className="flex items-center justify-center">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#e91e8c] to-[#7c3aed] flex items-center justify-center shadow-lg transform rotate-90">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] flex items-center justify-center shadow-lg transform rotate-90">
               <ArrowRight size={16} className="text-white" />
             </div>
           </div>
@@ -746,13 +830,86 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </div>
         </div>
       </section>
+      </RevealSection>
+
+      {/* ----------------------------------------------------------------------
+          SHOWCASE DE DESIGN EXCLUSIVO MOBILE
+          ---------------------------------------------------------------------- */}
+      <RevealSection>
+        <section className="py-16 px-5 bg-[#0a0a0a] border-t border-[#202020]/20 relative flex flex-col items-center overflow-hidden">
+        {/* Subtle glow light */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] bg-[#f0134d]/5 blur-[70px] rounded-full pointer-events-none" />
+
+        <div className="relative z-10 w-full text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#f0134d]/15 border border-[#f0134d]/30 text-[#f0134d] text-[11px] font-black uppercase tracking-wider mb-5">
+            <span>💎 Design Exclusivo & Persuasivo</span>
+          </div>
+
+          <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4">
+            Layouts de elite para <span className="gradient-text">converter visitantes</span>
+          </h2>
+
+          <p className="text-neutral-400 text-[14px] font-semibold leading-relaxed mb-8 max-w-[340px] mx-auto text-center">
+            Não fazemos sites genéricos ou amadores. Cada pixel é desenhado de forma milimétrica para garantir que seu negócio transmita autoridade máxima instantaneamente.
+          </p>
+
+          {/* Elegant aligned feature cards (removed image container as requested) */}
+          <div className="grid grid-cols-1 gap-4.5 w-full max-w-[340px] mx-auto text-left">
+            {[
+              {
+                title: (
+                  <span>
+                    Neuromarketing de <span className="text-[#f0134d] font-black">Elite</span>
+                  </span>
+                ),
+                desc: "Texto persuasivo escrito por especialistas focado em conversão e vendas locais.",
+                iconName: "Target"
+              },
+              {
+                title: (
+                  <span>
+                    Velocidade <span className="text-[#f0134d] font-black">Ultra Rápida</span>
+                  </span>
+                ),
+                desc: "Site otimizado sob regras rígidas de SEO para carregar de forma instantânea.",
+                iconName: "Zap"
+              },
+              {
+                title: (
+                  <span>
+                    Design <span className="text-[#f0134d] font-black">Responsivo</span>
+                  </span>
+                ),
+                desc: "Adaptado perfeitamente para qualquer tamanho ou orientação de tela móvel.",
+                iconName: "Layout"
+              }
+            ].map((v, i) => {
+              return (
+                <div 
+                  key={i} 
+                  className="p-5 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] flex items-start gap-4 hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
+                >
+                  <StyledIcon iconName={v.iconName} size={18} containerSize={40} flat={true} className="shrink-0 !mx-0 !my-0" />
+                  <div>
+                    <h3 className="text-[15px] font-black text-white uppercase tracking-tight mb-1.5 leading-tight">{v.title}</h3>
+                    <p className="text-[#a0a0a0] text-xs font-semibold leading-relaxed">{v.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           MODELOS MOBILE (Horizontal Snap Carrossel with Right Gradient Mask)
           ---------------------------------------------------------------------- */}
-      <section id="modelos-carrossel" className="py-16 bg-[#111] border-y border-[#202020] relative">
+      <RevealSection id="modelos-carrossel">
+        <section id="modelos-carrossel" className="py-16 bg-[#0a0a0a] border-y border-[#202020]/20 relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
-          Escolha seu modelo <span className="text-[#e91e8c]">do seu nicho</span>
+          Escolha seu modelo <span className="gradient-text">do seu nicho</span>
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-8 max-w-[320px] mx-auto px-5">
@@ -795,7 +952,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-2.5 right-2.5 bg-black/80 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#e91e8c] uppercase border border-[#e91e8c]/30">
+                  <div className="absolute top-2.5 right-2.5 bg-black/80 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#f0134d] uppercase border border-[#f0134d]/30">
                     {item.tag}
                   </div>
                 </div>
@@ -804,7 +961,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 <div className="p-4 text-left flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-lg font-black text-white leading-none uppercase mb-2">{item.niche}</h3>
-                    <div className="text-[11px] font-semibold text-[#e91e8c] line-clamp-1 mb-2.5">{item.highlight}</div>
+                    <div className="text-[11px] font-semibold text-[#f0134d] line-clamp-1 mb-2.5">{item.highlight}</div>
                     <p className="text-xs text-[#a0a0a0] leading-relaxed line-clamp-3 mb-4 font-semibold">
                       {item.desc}
                     </p>
@@ -812,7 +969,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   
                   <button
                     onClick={() => setSelectedModel(item)}
-                    className="w-full py-2.5 rounded-lg border border-[#e91e8c] text-[#e91e8c] text-[11px] font-black uppercase tracking-wider"
+                    className="w-full py-2.5 rounded-lg border border-[#f0134d] text-[#f0134d] text-[11px] font-black uppercase tracking-wider"
                   >
                     Ver detalhes
                   </button>
@@ -827,7 +984,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           {MOBILE_NICHES.map((_, i) => (
             <div 
               key={i} 
-              className={`h-1.5 rounded-full transition-all duration-300 ${portfolioIndex === i ? "w-4 bg-[#e91e8c]" : "w-1.5 bg-neutral-700"}`} 
+              className={`h-1.5 rounded-full transition-all duration-300 ${portfolioIndex === i ? "w-4 bg-[#f0134d]" : "w-1.5 bg-neutral-700"}`} 
             />
           ))}
         </div>
@@ -838,23 +995,25 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             Deseja outro segmento? Customizamos para seu nicho local gratuitamente.
           </p>
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Não%20achei%20minha%20profissão%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%20meu%2520segmento."
+            href="https://wa.me/5511999999999?text=Olá!%20Não%20achei%20minha%20profissão%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%2520meu%252520segmento."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[11px] min-[360px]:text-xs font-black uppercase rounded-lg tracking-wider active:scale-95 transition-transform whitespace-nowrap shadow-md shadow-[#e91e8c]/15"
+            className="gold-premium-btn !h-11 !text-[11px] !px-5"
           >
-            <span className="text-white whitespace-nowrap">Falar com designer</span>
-            <ArrowRight size={11} className="stroke-[3] text-white shrink-0" />
+            <span className="whitespace-nowrap">Falar com designer</span>
+            <ArrowRight size={11} className="stroke-[3] shrink-0" />
           </a>
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           DEPOIMENTOS MOBILE (WhatsApp-styled carousel cards)
           ---------------------------------------------------------------------- */}
-      <section className="py-16 bg-[#0a0a0a] border-b border-[#202020] relative">
+      <RevealSection id="depoimentos-mobile">
+        <section id="depoimentos-mobile" className="py-16 bg-[#0a0a0a] border-b border-[#202020] relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
-          Sucesso real na <span className="text-[#e91e8c]">tela do WhatsApp</span>
+          Sucesso real na <span className="gradient-text">tela do WhatsApp</span>
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-10 max-w-[320px] mx-auto px-5">
@@ -917,19 +1076,21 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           {CHATS.map((_, i) => (
             <div 
               key={i} 
-              className={`h-1.5 rounded-full transition-all duration-300 ${testimonialIndex === i ? "w-4 bg-[#e91e8c]" : "w-1.5 bg-neutral-700"}`} 
+              className={`h-1.5 rounded-full transition-all duration-300 ${testimonialIndex === i ? "w-4 bg-[#f0134d]" : "w-1.5 bg-neutral-700"}`} 
             />
           ))}
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           COMPARATIVO MOBILE (Highlight Duno first)
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#111] border-b border-[#202020]">
+      <RevealSection id="comparativo-mobile">
+        <section id="comparativo-mobile" className="py-16 px-5 bg-[#0a0a0a] border-b border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-3">
-            O comparativo <span className="text-[#e91e8c]">de valor único</span>
+            O melhor <span className="gradient-text">custo-benefício</span>
           </h2>
           <p className="text-[14px] text-neutral-400 font-bold uppercase tracking-widest text-center">
             Compare antes de tomar decisão
@@ -938,13 +1099,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         <div className="flex flex-col gap-6">
           {/* Card Duno (Primário e Destacado) */}
-          <div className="border-2 border-[#e91e8c] rounded-[20px] bg-[#0a0a0a] overflow-hidden shadow-[0_4px_30px_rgba(233,30,140,0.25)]">
-            <div className="bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] p-3 text-center">
-              <span className="text-white text-[11px] font-black uppercase tracking-widest block">★ PLANO EXCLUSIVO DUNO</span>
+          <div className="border-2 border-[#f0134d] rounded-[20px] bg-[#0a0a0a] overflow-hidden shadow-[0_4px_30px_rgba(240,19,77,0.25)]">
+            <div className="bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] p-3 text-center">
+              <span className="text-white text-[11px] font-black uppercase tracking-widest block">★ INDICADO PARA SEU NEGÓCIO</span>
             </div>
             
             <div className="p-5 text-left">
-              <span className="text-[10px] text-[#707070] font-black uppercase tracking-widest block mb-1">CUSTO DO TRABALHO</span>
+              <span className="text-[10px] text-[#707070] font-black uppercase tracking-widest block mb-1">ASSINATURA DUNO®</span>
               <p className="text-[34px] font-black text-[#25D366] font-mono leading-none flex items-baseline gap-1 mb-6">
                 R$ 197<span className="text-xs text-neutral-400 lowercase font-semibold font-sans">/mês</span>
               </p>
@@ -966,13 +1127,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               </ul>
 
               <a
-                href="https://wa.me/5511999999999?text=Olá!%20Fiquei%20interessado%20no%20plano%20de%20R$197/mês%20da%20Duno."
+                href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 rounded-xl uppercase text-[12px] font-black tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-lg cursor-pointer"
+                className="gold-premium-btn w-full text-xs"
               >
-                <span className="text-white">Ativar Plano</span>
-                <ArrowRight size={14} className="text-white" />
+                <span>Quero meu site</span>
+                <ArrowRight size={14} />
               </a>
             </div>
           </div>
@@ -1028,26 +1189,28 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           )}
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           PREÇO + CTA MOBILE (Includes special intersection handle)
           ---------------------------------------------------------------------- */}
-      <section ref={priceRef} id="preco-mobile" className="py-16 px-5 bg-[#0a0a0a]">
-        <div className="w-full p-5 rounded-2xl border-2 border-[#e91e8c]/30 bg-[#111] text-center shadow-xl">
-          <span className="text-[#e91e8c] text-[10px] font-black tracking-[0.2em] uppercase block mb-2">QUERO COMECAR HOJE</span>
+      <RevealSection id="preco-mobile">
+        <section ref={priceRef} id="preco-mobile" className="py-16 px-5 bg-[#0a0a0a]">
+        <div className="w-full p-5 rounded-2xl border-2 border-[#f0134d]/30 bg-[#111] text-center shadow-xl">
+          <span className="text-[#f0134d] text-[10px] font-black tracking-[0.2em] uppercase block mb-2">QUERO COMECAR HOJE</span>
           
           {/* Preço de alta conversão */}
           <div className="py-4 border-b border-white/5 mb-6">
-            <span className="text-neutral-500 text-xs font-extrabold uppercase select-none tracking-widest block mb-2">VALOR DA ASSINATURA</span>
+            <span className="text-neutral-500 text-xs font-extrabold uppercase select-none tracking-widest block mb-2">ASSINATURA DE ELITE</span>
             <h2 className="text-[44px] min-[370px]:text-[60px] leading-none font-black tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-[#25D366] to-[#10b981] font-mono">
-              R$ 197<span className="text-sm min-[370px]:text-lg lowercase font-sans text-neutral-400 font-semibold font-display">/mês</span>
+              <Counter value={197} prefix="R$ " /><span className="text-sm min-[370px]:text-lg lowercase font-sans text-neutral-400 font-semibold font-display">/mês</span>
             </h2>
           </div>
 
           {/* 3 pills wrapping */}
           <div className="flex flex-wrap gap-1.5 justify-center mb-6">
-            {["Sem setup", "Sem fidelidade", "Cancele quando quiser"].map((pill, i) => (
-              <span key={i} className="px-2.5 py-1 text-[9px] font-black bg-[#e91e8c]/15 text-[#e91e8c] border border-[#e91e8c]/20 uppercase rounded-full">
+            {["Ativação em 48h", "Alterações Inclusas", "Sem Fidelidade"].map((pill, i) => (
+              <span key={i} className="px-2.5 py-1 text-[9px] font-black bg-[#f0134d]/15 text-[#f0134d] border border-[#f0134d]/20 uppercase rounded-full">
                 {pill}
               </span>
             ))}
@@ -1056,12 +1219,12 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           {/* List of included in 1 column */}
           <ul className="space-y-3 text-left mb-8 px-1">
             {[
-              "Hospedagem dedicada Cloud ultrarrápida",
-              "SSL de proteção ativo (cadeado)",
-              "Imagens e design otimizados incluídos",
-              "Suporte ilimitado direto por WhatsApp",
-              "Mudança de textos/fotos livremente",
-              "Exclusividade no seu bairro local"
+              "Hospedagem inclusa de alta resposta AWS",
+              "Manutenção técnica completa sem preocupações",
+              "Alterações ilimitadas inclusas no plano",
+              "Certificado de segurança SSL criptografado incluso",
+              "Zero contrato de fidelidade ou multas de cancelamento",
+              "Suporte imediato de elite feito direto pelo WhatsApp"
             ].map((benefit, i) => (
               <li key={i} className="flex items-start gap-2.5 text-xs font-bold text-white">
                 <Check className="text-[#25D366] shrink-0 mt-0.5 stroke-[3] w-4 h-4" />
@@ -1071,33 +1234,35 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </ul>
 
           {/* Scarcity Note Container */}
-          <div className="bg-red-950/20 border border-red-500/20 p-4 rounded-xl text-left mb-6 flex items-start gap-2.5">
-            <span className="text-base text-red-500">⚠️</span>
-            <p className="text-[11px] font-bold text-red-100 leading-normal">
-              Garantimos apenas <strong>1 profissional por nicho na sua microrregião</strong>. Se o seu concorrente do mesmo bairro assinar primeiro, não poderemos te atender.
+          <div className="bg-emerald-950/20 border border-emerald-500/20 p-4 rounded-xl text-left mb-6 flex items-start gap-2.5">
+            <span className="text-base text-emerald-500">★</span>
+            <p className="text-[11px] font-bold text-emerald-100 leading-normal">
+              Garanta o posicionamento digital da sua marca com a Duno. Deixe a parte técnica conosco e foque somente nas vendas.
             </p>
           </div>
 
           {/* Bottom Stickyable Action Trigger */}
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Li%20os%20detalhes%20da%20assinatura%20de%20R$197%20mensais%20e%20quero%20fazer%20minha%20reserva."
+            href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-[54px] rounded-xl uppercase text-[13px] min-[360px]:text-[14px] font-black tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white shadow-xl max-w-sm mx-auto whitespace-nowrap"
+            className="gold-premium-btn w-full max-w-sm mx-auto"
             style={{ minHeight: "48px" }}
           >
-            <span className="text-white whitespace-nowrap">Falar no WhatsApp</span>
-            <ArrowRight size={16} className="text-white shrink-0" />
+            <span>Quero meu site</span>
+            <ArrowRight size={16} className="shrink-0" />
           </a>
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           FAQ MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#0a0a0a] border-t border-[#202020]">
+      <RevealSection id="faq-mobile">
+        <section id="faq-mobile" className="py-16 px-5 bg-[#0a0a0a] border-t border-[#202020]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-10 text-white">
-          Dúvidas <span className="text-[#e91e8c]">Frequentes</span>
+          Dúvidas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Frequentes</span>
         </h2>
 
         <div className="space-y-4 text-left">
@@ -1140,7 +1305,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 >
                   <span className="font-extrabold text-[14px] text-white pr-4">{item.q}</span>
                   {isOpen ? (
-                    <div className="w-7 h-7 rounded-full bg-[#e91e8c] flex items-center justify-center text-white shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-[#f0134d] flex items-center justify-center text-white shrink-0">
                       <Minus size={12} strokeWidth={3} />
                     </div>
                   ) : (
@@ -1171,13 +1336,15 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </a>
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           SOBRE / CONFIANÇA MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-16 px-5 bg-[#111] border-y border-[#202020] text-center">
-        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4">
-          Cuidado local <span className="text-[#e91e8c]">em boas mãos</span>
+      <RevealSection>
+        <section className="py-16 px-5 bg-[#0a0a0a] border-y border-[#202020]/20 text-center">
+        <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
+          Cuidado local em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">boas mãos</span>
         </h2>
         
         <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-10 max-w-[320px] mx-auto">
@@ -1187,54 +1354,78 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         {/* 3 seals in line */}
         <div className="flex gap-2 justify-between">
           {[
-            { t: "Nacional de verdade", text: "Suporte 100% PT-BR", icon: Landmark },
-            { t: "Foco total em CRO", text: "Design para vender", icon: Award },
-            { t: "Sem Robôs", text: "Atendimento humano", icon: Heart }
+            { 
+              t: (
+                <span>
+                  Nacional de <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">verdade</span>
+                </span>
+              ), 
+              text: "Suporte 100% PT-BR", 
+              iconName: "Landmark" 
+            },
+            { 
+              t: (
+                <span>
+                  Foco em <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">CRO</span>
+                </span>
+              ), 
+              text: "Design para vender", 
+              iconName: "Award" 
+            },
+            { 
+              t: (
+                <span>
+                  Sem <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">Robôs</span>
+                </span>
+              ), 
+              text: "Atendimento humano", 
+              iconName: "Heart" 
+            }
           ].map((v, i) => {
-            const Icon = v.icon;
             return (
               <div 
                 key={i}
-                className="p-3 rounded-xl bg-[#0a0a0a] border border-white/5 text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square"
+                className="p-3.5 pb-4 rounded-[16px] bg-[#2a0518] border-2 border-[#f0134d] text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square select-none hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
               >
-                <div className="w-8 h-8 rounded-full bg-[#e91e8c]/15 text-[#e91e8c] flex items-center justify-center mx-auto mb-2">
-                  <Icon size={16} />
+                <div className="flex justify-center mb-1">
+                  <StyledIcon iconName={v.iconName} size={16} containerSize={36} flat={true} className="mx-auto shrink-0" />
                 </div>
                 <div>
-                  <h4 className="text-[11px] min-[370px]:text-[12px] font-black uppercase text-white leading-tight mb-1">{v.t}</h4>
-                  <p className="text-[9px] min-[370px]:text-[10px] text-neutral-500 font-bold leading-normal">{v.text}</p>
+                  <h4 className="text-[10px] min-[370px]:text-[11px] font-black uppercase leading-tight mb-1 text-white w-fit mx-auto">{v.t}</h4>
+                  <p className="text-[9px] text-[#a0a0a0] font-bold leading-normal">{v.text}</p>
                 </div>
               </div>
             );
           })}
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           CTA FINAL MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="py-20 px-5 bg-gradient-to-b from-[#e91e8c] to-[#7c3aed] text-center relative overflow-hidden">
+      <RevealSection>
+        <section className="py-20 px-5 bg-[#0a0a0a] border-t border-[#202020] text-center relative overflow-hidden">
         {/* Background gloss overlay decoration */}
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#e91e8c]/5 pointer-events-none" />
         
         <div className="relative z-10">
-          <h2 className="text-[24px] min-[375px]:text-[30px] font-black uppercase leading-[1.05] tracking-tight text-white mb-6">
-            Pare de perder clientes locais <span className="italic">hoje</span>
+          <h2 className="text-[24px] min-[375px]:text-[30px] font-black uppercase leading-[1.05] tracking-tight mb-6 text-white">
+            Pare de perder <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">clientes locais hoje</span>
           </h2>
 
-          <p className="text-[14px] text-neutral-200 font-bold mb-10 max-w-[300px] mx-auto leading-relaxed">
+          <p className="text-[14px] text-neutral-400 font-bold mb-10 max-w-[300px] mx-auto leading-relaxed">
             Nós conectamos os clientes até o seu WhatsApp. Garanta a sua vaga local exclusiva antes do seu concorrente.
           </p>
 
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%2520da%2520Duno%2520e%2520quero%2520garantir%2520minha%2520vaga%2520para%2520meu%2520nicho."
+            href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 px-6 rounded-full bg-[#0a0a0a] border border-white/20 text-white text-[13px] min-[360px]:text-[14px] font-black uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 max-w-[300px] mx-auto active:scale-95 transition-transform whitespace-nowrap"
-            style={{ minHeight: "48px" }}
+            className="gold-premium-btn w-full max-w-[300px] mx-auto text-xs sm:text-sm"
           >
-            <span className="text-white whitespace-nowrap">Garantir minha vaga</span>
-            <ArrowRight size={16} className="text-white shrink-0" />
+            <span>Quero meu site de elite</span>
+            <ArrowRight size={16} className="shrink-0" />
           </a>
 
           {/* Social Proof metrics below */}
@@ -1244,23 +1435,24 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 <Star key={s} size={14} className="fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <p className="text-neutral-100 text-xs font-black uppercase tracking-widest leading-none">4.9/5 Estrelas · Satisfação Plena</p>
+            <p className="text-neutral-400 text-xs font-black uppercase tracking-widest leading-none">4.9/5 Estrelas · Satisfação Plena</p>
           </div>
         </div>
       </section>
+      </RevealSection>
 
       {/* ----------------------------------------------------------------------
           RODAPÉ MOBILE
           ---------------------------------------------------------------------- */}
-      <footer className="py-12 px-5 bg-[#0c0c0c] border-t-2 border-[#e91e8c] text-center">
+      <footer className="py-12 px-5 bg-[#0c0c0c] border-t-2 border-[#f0134d] text-center">
         <Logo size="sm" className="justify-center mb-6" />
         
         <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-6 max-w-[320px] mx-auto">
-          Tenha um site de elite por uma assinatura justa de apenas R$197/mês. Escolha seu modelo, nós personalizamos em 48h e você escala seus orçamentos no seu WhatsApp.
+          Sediada no Brasil, a Duno é especializada em construir landing pages de alta resposta para médicos, consultórios e prestadores de serviços por assinatura mensal.
         </p>
 
         {/* Links Navigation Row */}
-        <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center mb-10 text-xs font-black uppercase tracking-widest text-[#e91e8c]">
+        <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center mb-10 text-xs font-black uppercase tracking-widest text-[#f0134d]">
           {["Como funciona", "Preço", "Apoio"].map((tab) => (
             <button key={tab} className="focus:outline-none" onClick={() => scrollToMobile(tab === "Como funciona" ? "como-funciona" : tab === "Preço" ? "preco-mobile" : "faq")}>
               {tab}
@@ -1305,12 +1497,12 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               initial={{ scale: 0.9, y: 15, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 15, opacity: 0 }}
-              className="relative w-full max-w-[340px] bg-[#111] border border-[#e91e8c]/30 rounded-2xl overflow-hidden shadow-2xl p-6 text-left"
+              className="relative w-full max-w-[340px] bg-[#111] border border-[#f0134d]/30 rounded-2xl overflow-hidden shadow-2xl p-6 text-left"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
               <div className="flex justify-between items-center mb-6">
-                <span className="text-[9px] font-black text-[#e91e8c] uppercase tracking-widest">Nicho verificado</span>
+                <span className="text-[9px] font-black text-[#f0134d] uppercase tracking-widest">Nicho verificado</span>
                 <button 
                   onClick={() => setSelectedModel(null)} 
                   className="w-7 h-7 bg-white/5 rounded-full flex items-center justify-center text-white/60 focus:outline-none"
@@ -1320,12 +1512,12 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-2">
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
                 {selectedModel.niche}
               </h3>
 
               {/* Tag and Subtitle highlighted */}
-              <div className="px-3 py-1.5 rounded bg-[#e91e8c]/10 text-[11px] font-black text-[#e91e8c] border border-[#e91e8c]/20 mb-4 inline-block">
+              <div className="px-3 py-1.5 rounded bg-[#f0134d]/10 text-[11px] font-black text-[#f0134d] border border-[#f0134d]/20 mb-4 inline-block">
                 {selectedModel.highlight}
               </div>
 
@@ -1350,7 +1542,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 href={`https://wa.me/5511999999999?text=Olá!%20Gostei%20do%20modelo%20para%20${selectedModel.niche}%20e%20quero%20esse%20para%20minha%20clínica.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[11px] min-[360px]:text-xs font-black text-center uppercase rounded-xl flex items-center justify-center gap-2 tracking-widest whitespace-nowrap"
+                className="gold-premium-btn w-full text-xs"
               >
                 <span className="whitespace-nowrap">Quero este modelo</span>
                 <ArrowRight size={12} className="stroke-[3] shrink-0" />

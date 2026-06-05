@@ -81,9 +81,9 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto">
         
         {/* H2 Title */}
-        <h2 className="text-3xl md:text-[48px] font-black mb-4 uppercase tracking-tight text-white leading-tight">
+        <h2 className="text-3xl md:text-[48px] font-black mb-4 uppercase tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
           Escolha seu modelo <br />
-          <span className="text-[#e91e8c]">do seu segmento</span>
+          do seu segmento
         </h2>
         
         {/* Validated Direct-Response Subtitle */}
@@ -147,7 +147,7 @@ export default function Portfolio() {
               {/* CARD DATA */}
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex items-center justify-between gap-4 mb-4">
-                  <h3 className="text-2xl font-black text-white group-hover:text-[#e91e8c] leading-none uppercase tracking-tight transition-colors">
+                  <h3 className="text-2xl font-black leading-none uppercase tracking-tight transition-colors bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
                      {item.niche}
                   </h3>
                   <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#e91e8c] flex items-center justify-center text-white/55 group-hover:text-white transition-all duration-300 shrink-0">
@@ -199,10 +199,10 @@ export default function Portfolio() {
             href="https://wa.me/5511999999999?text=Olá!%20Não%20encontrei%20meu%20nicho%20nos%20modelos%20prontos%20e%20gostaria%20de%20um%20personalizado."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black rounded-xl uppercase tracking-widest transition-all scale-100 hover:scale-[1.03] active:scale-95 text-center whitespace-nowrap cursor-pointer shadow-lg shadow-[#e91e8c]/25 flex items-center justify-center gap-2"
+            className="gold-premium-btn !h-11 !text-xs !px-5"
           >
-            <span className="text-white">Falar com a Equipe</span>
-            <ArrowRight size={14} className="text-white" />
+            <span>Falar com a Equipe</span>
+            <ArrowRight size={14} className="shrink-0" />
           </a>
         </div>
 
@@ -263,7 +263,7 @@ export default function Portfolio() {
                       </button>
                     </div>
 
-                    <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-4">
+                    <h3 className="text-3xl font-black uppercase tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
                       {selectedModel.niche}
                     </h3>
                     
@@ -294,7 +294,7 @@ export default function Portfolio() {
                       href={`https://wa.me/5511999999999?text=Olá!%20Adorei%20o%20modelo%20da%20Duno%20para%20${selectedModel.niche},%20quero%20esse%20para%20mim.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest text-center flex items-center justify-center gap-2 bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white hover:brightness-110 shadow-lg shadow-[#e91e8c]/25 cursor-pointer whitespace-nowrap"
+                      className="gold-premium-btn w-full text-xs sm:text-sm"
                     >
                       <span className="whitespace-nowrap">Quero esse modelo</span>
                       <ArrowRight size={14} className="stroke-[3] shrink-0" />

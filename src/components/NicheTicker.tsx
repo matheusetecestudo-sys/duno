@@ -18,7 +18,7 @@ export default function NicheTicker() {
   const marqueeItems = [...items, ...items, ...items, ...items];
 
   return (
-    <section className="bg-[#111111] border-t border-b border-[#2a2a2a] py-6 relative overflow-hidden select-none">
+    <section className="bg-[#0a0a0a] border-t border-b border-[#2a2a2a] py-6 relative overflow-hidden select-none">
       {/* Self-contained responsive CSS animation for infinite marquee movement */}
       <style>{`
         @keyframes marquee {
@@ -45,8 +45,8 @@ export default function NicheTicker() {
         {/* Marquee viewport container */}
         <div className="flex-1 overflow-hidden relative w-full pt-1">
           {/* Subtle horizontal fade-out borders on sides */}
-          <div className="absolute top-0 bottom-0 left-0 w-12 bg-gradient-to-r from-[#111111] to-transparent z-15 pointer-events-none" />
-          <div className="absolute top-0 bottom-0 right-0 w-12 bg-gradient-to-l from-[#111111] to-transparent z-15 pointer-events-none" />
+          <div className="absolute top-0 bottom-0 left-0 w-12 bg-gradient-to-r from-[#0a0a0a] to-transparent z-15 pointer-events-none" />
+          <div className="absolute top-0 bottom-0 right-0 w-12 bg-gradient-to-l from-[#0a0a0a] to-transparent z-15 pointer-events-none" />
 
           {/* Marquee Track */}
           <div className="animate-marquee-scroller py-1">

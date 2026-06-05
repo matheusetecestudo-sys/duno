@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import NicheTicker from "./components/NicheTicker";
 import { Problem, Solution } from "./components/MetricSections";
-import { Benefits, HowItWorks, BeforeAfter, Comparison } from "./components/InfoSections";
-import Portfolio from "./components/Portfolio";
-import { Offer, FAQ, AboutTrust, FinalCTA, Footer, WhatsAppButton, SocialProof } from "./components/MarketingElements";
+import { Benefits, HowItWorks, BeforeAfter, Comparison, ProductShowcase } from "./components/InfoSections";
+import { Offer, FAQ, AboutTrust, FinalCTA, Footer, WhatsAppButton } from "./components/MarketingElements";
 import { Logo } from "./components/Logo";
 import MobileVersion from "./components/MobileVersion";
+import { PortfolioSkeleton, SocialProofSkeleton } from "./components/Skeletons";
+import RevealSection from "./components/RevealSection";
+
+const Portfolio = lazy(() => import("./components/Portfolio"));
+const SocialProof = lazy(() => import("./components/MarketingElements").then(m => ({ default: m.SocialProof })));
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -24,71 +28,101 @@ export default function App() {
     return () => window.removeEventListener("resize", checkViewport);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add("dark");
+  }, []);
+
   return (
-    <div className="min-h-screen bg-premium text-white selection:bg-[#FF0054]/30 selection:text-white">
+    <div className="min-h-screen bg-premium text-white selection:bg-[#e91e8c]/30 selection:text-white">
       {isMobile ? (
         <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col items-center">
-          <MobileVersion onPriceInView={(visible) => setPriceInView(visible)} />
-          <WhatsAppButton hideOnMobile={priceInView} />
+          <MobileVersion 
+            onPriceInView={(visible) => setPriceInView(visible)} 
+          />
+          <WhatsAppButton hideOnMobile={false} />
         </div>
       ) : (
         <>
           <Navbar />
           
           <main>
-            {/* Seção 1: Hero */}
+            {/* Seção 1: Hero - has built-in instant entry on mount animations */}
             <Hero />
             
             {/* Seção 2: Barra de logos/nichos (Nova) */}
-            <NicheTicker />
+            <RevealSection>
+              <NicheTicker />
+            </RevealSection>
             
             {/* Seção 3: Dor */}
-            <Problem />
+            <RevealSection>
+              <Problem />
+            </RevealSection>
             
             {/* Seção 4: Solução */}
-            <Solution />
+            <RevealSection>
+              <Solution />
+            </RevealSection>
             
             {/* Seção 5: Como funciona */}
-            <div id="como-funciona">
+            <RevealSection id="como-funciona">
               <HowItWorks />
-            </div>
+            </RevealSection>
     
             {/* Seção 6: Vantagens Exclusivas */}
-            <div id="vantagens">
+            <RevealSection id="vantagens">
               <Benefits />
-            </div>
+            </RevealSection>
     
             {/* Seção 7: Comparativo antes/depois (Nova) */}
-            <BeforeAfter />
+            <RevealSection>
+              <BeforeAfter />
+            </RevealSection>
+    
+            {/* Seção 7.5: Showcase dos Layouts Premium */}
+            <RevealSection>
+              <ProductShowcase />
+            </RevealSection>
     
             {/* Seção 8: Modelos / escolha seu nicho */}
-            <div id="modelos">
-              <Portfolio />
-            </div>
+            <RevealSection id="modelos">
+              <Suspense fallback={<PortfolioSkeleton />}>
+                <Portfolio />
+              </Suspense>
+            </RevealSection>
     
             {/* Seção 9: Depoimentos */}
-            <div id="depoimentos">
-              <SocialProof />
-            </div>
+            <RevealSection id="depoimentos">
+              <Suspense fallback={<SocialProofSkeleton />}>
+                <SocialProof />
+              </Suspense>
+            </RevealSection>
     
             {/* Seção 10: Comprar vs Assinar (comparativo 3 colunas) */}
-            <Comparison />
+            <RevealSection>
+              <Comparison />
+            </RevealSection>
     
             {/* Seção 11: Preço */}
-            <div id="preco">
+            <RevealSection id="preco">
               <Offer />
-            </div>
+            </RevealSection>
     
             {/* Seção 12: FAQ */}
-            <div id="faq">
+            <RevealSection id="faq">
               <FAQ />
-            </div>
+            </RevealSection>
     
             {/* Seção 13: Seção de Confiança / Sobre (Nova) */}
-            <AboutTrust />
+            <RevealSection>
+              <AboutTrust />
+            </RevealSection>
     
             {/* Seção 14: CTA final */}
-            <FinalCTA />
+            <RevealSection>
+              <FinalCTA />
+            </RevealSection>
           </main>
     
           {/* Seção 15: Footer e WhatsApp flutuante */}

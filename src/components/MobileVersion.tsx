@@ -295,38 +295,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]"
         style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
       >
-        {/* ---- FULL-HEIGHT BACKGROUND SLIDESHOW CSS ---- */}
-        <style>{`
-          @keyframes heroBgFadeIn {
-            0%   { opacity: 0; }
-            8%   { opacity: 1; }
-            42%  { opacity: 1; }
-            50%  { opacity: 0; }
-            100% { opacity: 0; }
-          }
-          @keyframes heroBgFadeIn2 {
-            0%   { opacity: 0; }
-            50%  { opacity: 0; }
-            58%  { opacity: 1; }
-            92%  { opacity: 1; }
-            100% { opacity: 0; }
-          }
-          .hero-bg-slide-1 { animation: heroBgFadeIn  10s ease-in-out infinite; }
-          .hero-bg-slide-2 { animation: heroBgFadeIn2 10s ease-in-out infinite; }
-        `}</style>
-
-        {/* Slide 1 — Mobile Cards Showcase */}
+        {/* Background Image — Mobile Cards Showcase */}
         <div
-          className="hero-bg-slide-1 absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
           style={{
             backgroundImage: "url('/img-mobile-showcase.png')",
-          }}
-        />
-        {/* Slide 2 — Desktop Layouts Showcase */}
-        <div
-          className="hero-bg-slide-2 absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
-          style={{
-            backgroundImage: "url('/img-desktop-showcase.png')",
           }}
         />
 
@@ -348,7 +321,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80" alt="3" />
             <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt="4" />
           </div>
-          <span className="text-[#f0134d] font-black tracking-widest uppercase text-[10px]">⚡ Seu site no ar completo em 48h</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black tracking-widest uppercase text-[10px]">⚡ Seu site no ar completo em 48h</span>
         </div>
 
         {/* 2. Headline — full gradient on both lines, matching desktop style */}
@@ -482,7 +455,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {
               title: (
                 <span>
-                  Sem site, <span className="text-[#f0134d] font-black">sem confiança</span>
+                  Sem site, <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">sem confiança</span>
                 </span>
               ),
               desc: "Quando um cliente pesquisa sua marca ou serviço e não acha nada sobre você, ele vai direto para o concorrente que aparece de forma profissional no Google. Simples assim.",
@@ -491,7 +464,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {
               title: (
                 <span>
-                  Refém das <span className="text-[#f0134d] font-black">indicações</span>
+                  Refém das <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">indicações</span>
                 </span>
               ),
               desc: "Depender só de indicação boca a boca é arriscado. Um mês maravilhoso, um mês vazio. Com um site de alto padrão, você atrai novos clientes interessados todos os dias no automático.",
@@ -500,7 +473,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {
               title: (
                 <span>
-                  Concorrente na <span className="text-[#f0134d] font-black">sua frente</span>
+                  Concorrente na <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">sua frente</span>
                 </span>
               ),
               desc: "Enquanto você adia ter sua página profissional, seu concorrente aparece no topo do Google quando as pessoas buscam na sua região. Esse novo cliente que ligou para ele era para ser seu.",
@@ -509,7 +482,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {
               title: (
                 <span>
-                  Agência cobrou <span className="text-[#f0134d] font-black">caro</span> e não entregou
+                  Agência cobrou <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">caro</span> e não entregou
                 </span>
               ),
               desc: "R$ 3.000, R$ 5.000 ou mais por meses a fio de espera e no final entregaram um painel complexo que ninguém consegue editar. Você merece ter uma solução ágil, completa e acessível hoje.",
@@ -573,7 +546,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  WhatsApp de <span className="text-[#f0134d] font-black">Alta Conversão</span>
+                  WhatsApp de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Alta Conversão</span>
                 </span>
               ), 
               desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
@@ -582,7 +555,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Agendamento <span className="text-[#f0134d] font-black">Prático</span>
+                  Agendamento <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Prático</span>
                 </span>
               ), 
               desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
@@ -591,7 +564,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Otimizado para <span className="text-[#f0134d] font-black">Google</span>
+                  Otimizado para <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Google</span>
                 </span>
               ), 
               desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
@@ -600,7 +573,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Google <span className="text-[#f0134d] font-black">Maps Integrado</span>
+                  Google <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Maps Integrado</span>
                 </span>
               ), 
               desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
@@ -609,7 +582,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Design <span className="text-[#f0134d] font-black">Mobile-First</span>
+                  Design <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Mobile-First</span>
                 </span>
               ), 
               desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
@@ -618,7 +591,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  100% <span className="text-[#f0134d] font-black">Personalizado</span>
+                  100% <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Personalizado</span>
                 </span>
               ), 
               desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
@@ -759,7 +732,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Totalmente <span className="text-[#f0134d] font-black">Personalizado</span>
+                  Totalmente <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Personalizado</span>
                 </span>
               ), 
               desc: "Sua logo, suas cores, suas fotos. Nenhum cliente vai achar que é um modelo genérico — parece feito do zero para você.", 
@@ -768,7 +741,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Pronto em <span className="text-[#f0134d] font-black">48 Horas</span>
+                  Pronto em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">48 Horas</span>
                 </span>
               ), 
               desc: "Enquanto uma agência levaria 60 dias, você já está recebendo cliques de novos clientes. Dois dias de prazo.", 
@@ -777,7 +750,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Sem <span className="text-[#f0134d] font-black">Fidelidade</span>
+                  Sem <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Fidelidade</span>
                 </span>
               ), 
               desc: "Sem multa de rescisão, sem contrato mínimo. Se em algum mês não quiser continuar ativo, basta nos avisar.", 
@@ -786,7 +759,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Suporte por <span className="text-[#f0134d] font-black">WhatsApp</span>
+                  Suporte por <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">WhatsApp</span>
                 </span>
               ), 
               desc: "Quer trocar uma foto? Atualizar um texto? Manda uma mensagem. Respondemos com agilidade e eficiência.", 
@@ -795,7 +768,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Sem <span className="text-[#f0134d] font-black">Letras Miúdas</span>
+                  Sem <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Letras Miúdas</span>
                 </span>
               ), 
               desc: "R$ 197/mês fixos. Sem taxas extras ou custos ocultos, sem surpresas desagradáveis na fatura.", 
@@ -804,7 +777,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             { 
               title: (
                 <span>
-                  Feito para <span className="text-[#f0134d] font-black">Converter</span>
+                  Feito para <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Converter</span>
                 </span>
               ), 
               desc: "Cada botão, seção e texto foi otimizado para transformar visitante em contato real no seu WhatsApp.", 
@@ -913,7 +886,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               {
                 title: (
                   <span>
-                    Neuromarketing de <span className="text-[#f0134d] font-black">Elite</span>
+                    Neuromarketing de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Elite</span>
                   </span>
                 ),
                 desc: "Texto persuasivo escrito por especialistas focado em conversão e vendas locais.",
@@ -922,7 +895,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               {
                 title: (
                   <span>
-                    Velocidade <span className="text-[#f0134d] font-black">Ultra Rápida</span>
+                    Velocidade <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Ultra Rápida</span>
                   </span>
                 ),
                 desc: "Site otimizado sob regras rígidas de SEO para carregar de forma instantânea.",
@@ -931,7 +904,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               {
                 title: (
                   <span>
-                    Design <span className="text-[#f0134d] font-black">Responsivo</span>
+                    Design <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Responsivo</span>
                   </span>
                 ),
                 desc: "Adaptado perfeitamente para qualquer tamanho ou orientação de tela móvel.",

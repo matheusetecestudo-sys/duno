@@ -4,27 +4,25 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section 
-      className="relative min-h-[100vh] lg:min-h-[750px] lg:h-screen lg:max-h-[1000px] flex items-center justify-start px-6 sm:px-12 py-24 lg:py-0 overflow-hidden bg-[#0a0a0a] text-white"
+      className="relative min-h-[100vh] lg:min-h-[750px] lg:h-screen lg:max-h-[1000px] flex items-center justify-center px-6 sm:px-12 py-24 lg:py-0 overflow-hidden bg-[#0a0a0a] text-white"
     >
-      {/* Background Banner Image integrated smoothly into the session background (on the right) */}
+      {/* Background Banner Image covering the entire screen */}
       <div 
-        className="absolute inset-y-0 right-0 w-full lg:w-[54%] bg-cover lg:bg-contain bg-right bg-no-repeat z-0 pointer-events-none opacity-20 lg:opacity-100"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 pointer-events-none"
         style={{ 
           backgroundImage: "url('/img-desktop-showcase.png')",
         }}
       />
-      {/* Dynamic gradient overlay to blend the banner seamlessly with the dark background */}
-      <div className="absolute inset-y-0 right-[45%] w-[15%] bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none z-5 hidden lg:block" />
-      <div className="absolute inset-0 bg-[#0a0a0a]/70 lg:bg-transparent pointer-events-none z-5 lg:hidden" />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-[#0a0a0a]/65 pointer-events-none z-[1]" />
 
       {/* Background soft ambient lights only */}
-      <div className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] bg-[#f0134d]/6 blur-[160px] rounded-full pointer-events-none z-0 animate-pulse" />
-      <div className="absolute left-[-10%] bottom-[10%] w-[400px] h-[400px] bg-[#7c3aed]/4 blur-[160px] rounded-full pointer-events-none z-0" />
+      <div className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] bg-[#f0134d]/6 blur-[160px] rounded-full pointer-events-none z-[1] animate-pulse" />
+      <div className="absolute left-[-10%] bottom-[10%] w-[400px] h-[400px] bg-[#7c3aed]/4 blur-[160px] rounded-full pointer-events-none z-[1]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-center pt-10 lg:pt-0">
+      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center pt-10 lg:pt-0">
         
-        {/* Left Copy Container (Takes up 55% width to layout perfectly side-by-side with the right-aligned background banner) */}
-        <div className="w-full lg:max-w-[55%] flex flex-col items-start text-left">
+        <div className="w-full flex flex-col items-center text-center">
           {/* Badge topo */}
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
@@ -46,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-black leading-[1.12] tracking-tight uppercase mb-6 text-left text-glow text-white font-sans"
+            className="text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-black leading-[1.12] tracking-tight uppercase mb-6 text-center text-glow text-white font-sans"
           >
             Seu site de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">alta conversão</span> <br />
             colocado no ar em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">apenas 48 horas</span>
@@ -57,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[#b3b3b3] text-base sm:text-lg mb-8 leading-relaxed font-semibold max-w-xl text-left"
+            className="text-[#b3b3b3] text-base sm:text-lg mb-8 leading-relaxed font-semibold max-w-2xl text-center"
           >
             Um site de elite completo, ultra-veloz, totalmente otimizado para celulares e focado em transformar seus visitantes em clientes reais por apenas R$197/mês.
           </motion.p>
@@ -67,7 +65,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-10 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 w-full sm:w-auto"
           >
             <a 
               href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
@@ -97,7 +95,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex items-center gap-4 sm:gap-6 py-4 border-t border-b border-white/10 w-full max-w-md bg-white/5 backdrop-blur-md px-6 rounded-2xl"
+            className="flex items-center justify-center gap-4 sm:gap-6 py-4 border-t border-b border-white/10 w-full max-w-md bg-white/5 backdrop-blur-md px-6 rounded-2xl mx-auto"
           >
             <div className="flex-1">
               <span className="block text-2xl sm:text-3xl font-black text-[#f0134d] leading-none">+100</span>

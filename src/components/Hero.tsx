@@ -10,7 +10,7 @@ export default function Hero() {
       <div 
         className="absolute inset-y-0 right-0 w-full lg:w-[54%] bg-cover lg:bg-contain bg-right bg-no-repeat z-0 pointer-events-none opacity-20 lg:opacity-100"
         style={{ 
-          backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/main/img03desktop.png')",
+          backgroundImage: "url('/img-desktop-showcase.png')",
         }}
       />
       {/* Dynamic gradient overlay to blend the banner seamlessly with the dark background */}

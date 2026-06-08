@@ -319,14 +319,14 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         <div
           className="hero-bg-slide-1 absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
           style={{
-            backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/refs/heads/main/img-mobile-showcase.png')",
+            backgroundImage: "url('/img-mobile-showcase.png')",
           }}
         />
         {/* Slide 2 — Desktop Layouts Showcase */}
         <div
           className="hero-bg-slide-2 absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
           style={{
-            backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/refs/heads/main/img-desktop-showcase.png')",
+            backgroundImage: "url('/img-desktop-showcase.png')",
           }}
         />
 

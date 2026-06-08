@@ -291,22 +291,56 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           HERO MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="relative w-full px-5 pt-[95px] pb-14 flex flex-col items-center justify-start overflow-hidden bg-[#0a0a0a]">
-        {/* Horizontal banner image integrated seamlessly into the background style of this section on Mobile */}
-        <div 
-          className="absolute inset-x-0 top-0 w-full h-[220px] min-[375px]:h-[240px] min-[414px]:h-[260px] bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-45"
-          style={{ 
-            backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/main/img03desktop.png')",
+      <section
+        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]"
+        style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
+      >
+        {/* ---- FULL-HEIGHT BACKGROUND SLIDESHOW CSS ---- */}
+        <style>{`
+          @keyframes heroBgFadeIn {
+            0%   { opacity: 0; }
+            8%   { opacity: 1; }
+            42%  { opacity: 1; }
+            50%  { opacity: 0; }
+            100% { opacity: 0; }
+          }
+          @keyframes heroBgFadeIn2 {
+            0%   { opacity: 0; }
+            50%  { opacity: 0; }
+            58%  { opacity: 1; }
+            92%  { opacity: 1; }
+            100% { opacity: 0; }
+          }
+          .hero-bg-slide-1 { animation: heroBgFadeIn  10s ease-in-out infinite; }
+          .hero-bg-slide-2 { animation: heroBgFadeIn2 10s ease-in-out infinite; }
+        `}</style>
+
+        {/* Slide 1 — Mobile Cards Showcase */}
+        <div
+          className="hero-bg-slide-1 absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
+          style={{
+            backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/refs/heads/main/img-mobile-showcase.png')",
           }}
         />
-        
-        {/* Gradient transition to blend the background banner into the dark layout color */}
-        <div className="absolute inset-x-0 top-0 h-[220px] min-[375px]:h-[240px] min-[414px]:h-[260px] bg-gradient-to-b from-transparent via-[#0a0a0a]/35 to-[#0a0a0a] pointer-events-none z-[1]" />
+        {/* Slide 2 — Desktop Layouts Showcase */}
+        <div
+          className="hero-bg-slide-2 absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
+          style={{
+            backgroundImage: "url('https://raw.githubusercontent.com/matheusetecestudo-sys/duno/refs/heads/main/img-desktop-showcase.png')",
+          }}
+        />
 
-        {/* Glow behind mobile header */}
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#f0134d]/5 blur-[80px] rounded-full pointer-events-none z-0" />
+        {/* Dark overlay — dimming the background so text is perfectly readable */}
+        <div className="absolute inset-0 bg-[#0a0a0a]/62 pointer-events-none z-[1]" />
+        {/* Gradient — bottom fade to dark */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none z-[2]" />
+        {/* Gradient — top fade to dark (navbar area) */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0a0a0a]/80 to-transparent pointer-events-none z-[2]" />
 
-        {/* 1. Header Badge with Avatar group exactly like yesterday morning */}
+        {/* Ambient pink glow accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/8 blur-[100px] rounded-full pointer-events-none z-[1]" />
+
+        {/* 1. Header Badge */}
         <div className="relative z-10 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#12020a]/90 border border-[#f0134d]/45 text-white text-xs font-extrabold tracking-wide mb-6 shadow-[0_0_15px_rgba(240,19,77,0.25)]">
           <div className="flex -space-x-1.5">
             <img className="inline-block h-5.5 w-5.5 rounded-full ring-2 ring-[#f0134d] object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80" alt="1" />
@@ -317,17 +351,18 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           <span className="text-[#f0134d] font-black tracking-widest uppercase text-[10px]">⚡ Seu site no ar completo em 48h</span>
         </div>
 
-        {/* 3. Headline with highlighting from Print 3 */}
-        <h1 className="relative z-10 font-black mb-4 text-white text-center px-1 text-2xl min-[370px]:text-3xl uppercase tracking-tight leading-tight text-glow">
-          Seu site de alta conversão <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] block mt-1.5 font-black">sem complicação</span>
+        {/* 2. Headline — full gradient on both lines, matching desktop style */}
+        <h1 className="relative z-10 font-black mb-4 text-center px-1 text-2xl min-[370px]:text-[28px] uppercase tracking-tight leading-[1.15]">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Seu site de alta conversão</span>
+          <span className="block mt-1.5 text-white font-black">sem complicação</span>
         </h1>
 
-        {/* 4. Subheadline */}
-        <p className="relative z-10 text-[13px] min-[370px]:text-[14px] text-[#b3b3b3] text-center mb-7 font-semibold leading-relaxed max-w-[340px]">
+        {/* 3. Subheadline */}
+        <p className="relative z-10 text-[13px] min-[370px]:text-[14px] text-[#c8c8c8] text-center mb-8 font-semibold leading-relaxed max-w-[340px]">
           Um site de elite completo, ultra-veloz, 100% otimizado para celulares e integrado ao WhatsApp por apenas R$197/mês.
         </p>
 
-        {/* 5. CTAs Blocks */}
+        {/* 4. CTAs Blocks */}
         <div className="relative z-10 w-full max-w-[340px] flex flex-col gap-3 px-1.5 pb-2 text-center items-center">
           <a
             href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
@@ -347,6 +382,24 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             <span className="text-white whitespace-nowrap font-black">Ver vantagens</span>
             <ArrowRight size={15} className="text-white bg-transparent shrink-0" />
           </button>
+        </div>
+
+        {/* 5. Social proof strip — mirroring desktop */}
+        <div className="relative z-10 mt-8 flex items-center gap-4 py-3.5 border-t border-b border-white/10 w-full max-w-[340px] bg-black/40 backdrop-blur-md px-5 rounded-2xl">
+          <div className="flex-1 text-center">
+            <span className="block text-xl font-black text-[#f0134d] leading-none">+100</span>
+            <span className="text-[9px] font-black text-neutral-400 uppercase tracking-wider block mt-0.5">Sites</span>
+          </div>
+          <div className="h-8 w-[1px] bg-white/10" />
+          <div className="flex-1 text-center">
+            <span className="block text-xl font-black text-[#f0134d] leading-none">+15</span>
+            <span className="text-[9px] font-black text-neutral-400 uppercase tracking-wider block mt-0.5">Nichos</span>
+          </div>
+          <div className="h-8 w-[1px] bg-white/10" />
+          <div className="flex-1 text-center">
+            <span className="block text-xl font-black text-[#f0134d] leading-none">48h</span>
+            <span className="text-[9px] font-black text-neutral-400 uppercase tracking-wider block mt-0.5">Pronto</span>
+          </div>
         </div>
       </section>
 

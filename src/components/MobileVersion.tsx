@@ -299,7 +299,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
           style={{
-            backgroundImage: "url('/img-mobile-showcase.png')",
+            backgroundImage: "url('/img04mobile.png')",
           }}
         />
 

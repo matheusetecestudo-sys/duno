@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section 
-      className="relative min-h-[100vh] lg:min-h-[750px] lg:h-screen lg:max-h-[1000px] flex items-center justify-center px-6 sm:px-12 py-24 lg:py-0 overflow-hidden bg-[#0a0a0a] text-white"
+      className="relative min-h-[75vh] lg:min-h-[550px] lg:h-[75vh] lg:max-h-[750px] flex items-center justify-center px-6 sm:px-12 py-16 lg:py-0 overflow-hidden bg-[#121212] text-white"
     >
       {/* Background Banner Image covering the entire screen */}
       <div 
@@ -14,7 +14,7 @@ export default function Hero() {
         }}
       />
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-[#0a0a0a]/65 pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-[#121212]/65 pointer-events-none z-[1]" />
 
       {/* Background soft ambient lights only */}
       <div className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] bg-[#f0134d]/6 blur-[160px] rounded-full pointer-events-none z-[1] animate-pulse" />

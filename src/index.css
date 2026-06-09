@@ -3,13 +3,13 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
 
   --color-brand-primary: #f0134d;
   --color-brand-secondary: #e91e8c;
   --color-brand-accent: #9b1fbd;
   
-  --color-premium: #0a0a0a;
+  --color-premium: #121212;
 
   --animate-gradient-slow: gradient-anim 5s ease infinite;
 
@@ -22,7 +22,7 @@
 
 @layer base {
   body {
-    background-color: #0a0a0a;
+    background-color: #121212;
     color: #ffffff;
     font-family: var(--font-sans);
     @apply antialiased selection:bg-[#e91e8c]/30 overflow-x-hidden;
@@ -76,16 +76,15 @@
   @apply hover:shadow-[0_15px_40px_rgba(155,31,189,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 font-bold cursor-pointer;
 }
 
-/* Premium Gold Button */
+/* Premium Button with Brand Gradient */
 .gold-premium-btn {
   background: linear-gradient(
-    180deg,
-    #FFE48A 0%,
-    #FFD95E 25%,
-    #F6C73E 60%,
-    #E8B73A 100%
+    90deg,
+    #f0134d 0%,
+    #e91e8c 50%,
+    #9b1fbd 100%
   );
-  color: #0F0F0F;
+  color: #ffffff;
   font-weight: 800;
   font-size: 15px;
   text-transform: uppercase;
@@ -100,9 +99,9 @@
   padding-left: 38px;
   padding-right: 32px; /* Less padding on the right to keep the icon closer to the edge */
   position: relative;
-  /* Premium depth and glow */
+  /* Premium depth and glow with pink shadow */
   box-shadow: 
-    0 10px 25px rgba(255, 210, 80, 0.28),
+    0 10px 25px rgba(240, 19, 77, 0.28),
     0 4px 10px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -116,7 +115,7 @@
 .gold-premium-btn svg {
   width: 16px !important;
   height: 16px !important;
-  stroke: #111111 !important;
+  stroke: #ffffff !important;
   stroke-width: 2.5px !important;
   transition: transform 0.3s ease;
 }
@@ -125,7 +124,7 @@
   filter: brightness(1.1);
   transform: translateY(-2px);
   box-shadow: 
-    0 14px 35px rgba(255, 210, 80, 0.35),
+    0 14px 35px rgba(240, 19, 77, 0.35),
     0 6px 14px rgba(0, 0, 0, 0.30),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
@@ -137,13 +136,13 @@
 .gold-premium-btn:active {
   transform: scale(0.98) translateY(0px);
   box-shadow: 
-    0 4px 12px rgba(255, 210, 80, 0.18),
+    0 4px 12px rgba(240, 19, 77, 0.18),
     0 2px 6px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .gold-premium-btn:focus-visible {
-  outline: 2.5px solid #FFD95E !important;
+  outline: 2.5px solid #e91e8c !important;
   outline-offset: 3px;
 }
 

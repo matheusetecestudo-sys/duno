@@ -62,6 +62,26 @@ const NICHES = [
     stats: { speed: "97", seo: "100" },
     tag: "Gastronomia",
     highlight: "🍽️ Com agendamento, WhatsApp integrado e Google Maps"
+  },
+  { 
+    niche: "Psicologia", 
+    subtitle: "Clínicas & Consultórios de Psicologia — site acolhedor com agendamento online de sessões e formulário de contato.",
+    desc: "Design empático e profissional, personalizado com seu CRP, especialidades, horários e modo de atendimento presencial ou online.", 
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800",
+    desktopImg: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200",
+    stats: { speed: "98", seo: "100" },
+    tag: "Saúde Mental",
+    highlight: "🧠 Com agendamento de sessões e WhatsApp integrado"
+  },
+  { 
+    niche: "Arquitetura", 
+    subtitle: "Escritórios & Ateliês de Arquitetura — portfólio premium com galeria de projetos e formulário de contato exclusivo.",
+    desc: "Apresentação sofisticada dos seus projetos mais impactantes, com galeria de fotos em alta definição e chamada para orçamento pelo WhatsApp.", 
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800",
+    desktopImg: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1200",
+    stats: { speed: "99", seo: "100" },
+    tag: "Arquitetura",
+    highlight: "🏛️ Com galeria de projetos e formulário de orçamento"
   }
 ];
 
@@ -73,7 +93,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="modelos" className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden text-center border-t border-[#2a2a2a]">
+    <section id="modelos" className="py-24 px-6 bg-[#121212] relative overflow-hidden text-center border-t border-[#2a2a2a]">
       {/* Background radial gloss blobs */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#e91e8c]/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#7c3aed]/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
@@ -81,9 +101,9 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto">
         
         {/* H2 Title */}
-        <h2 className="text-3xl md:text-[48px] font-black mb-4 uppercase tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
-          Escolha seu modelo <br />
-          do seu segmento
+        <h2 className="text-3xl md:text-[48px] font-black mb-4 uppercase tracking-tight leading-tight text-white">
+          Escolha seu <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">modelo</span> <br />
+          do seu <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">segmento</span>
         </h2>
         
         {/* Validated Direct-Response Subtitle */}
@@ -99,8 +119,8 @@ export default function Portfolio() {
           </span>
         </div>
 
-        {/* 3x3 Grid of Niche Cards (Perfect desktop layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 text-left">
+        {/* 2x4 Grid of Niche Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 text-left">
           {NICHES.map((item, i) => (
             <motion.div
               key={i}
@@ -109,7 +129,7 @@ export default function Portfolio() {
               transition={{ delay: i * 0.08 }}
               viewport={{ once: true }}
               onClick={() => handleOpenDemo(item)}
-              className="group flex flex-col overflow-hidden cursor-pointer h-full border border-[#2a2a2a] bg-[#1a1a1a] rounded-[16px] transition-all duration-300 relative shadow-2xl hover:border-[#e91e8c]/50 hover:shadow-[0_0_25px_rgba(233,30,140,0.15)] hover:-translate-y-1"
+              className="group flex flex-col overflow-hidden cursor-pointer h-full border-2 border-[#e10270] bg-[#410e28] rounded-[20px] transition-all duration-300 relative shadow-2xl hover:border-[#f0134d] hover:shadow-[0_0_35px_rgba(225,2,112,0.25)] hover:-translate-y-1"
             >
               <div className="aspect-[16/10] overflow-hidden relative border-b border-[#2a2a2a]">
                 
@@ -135,7 +155,7 @@ export default function Portfolio() {
                 />
                 
                 {/* Visual click overlay */}
-                <div className="absolute inset-x-0 bottom-0 top-[18px] bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-90" />
+                <div className="absolute inset-x-0 bottom-0 top-[18px] bg-gradient-to-t from-[#410e28] via-transparent to-transparent opacity-90" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
                   <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-[#e91e8c]/20">
                     <Eye size={14} className="stroke-[3]" />

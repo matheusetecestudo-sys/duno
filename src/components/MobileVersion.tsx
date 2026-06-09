@@ -113,6 +113,24 @@ const MOBILE_NICHES: NicheItem[] = [
     stats: { speed: "97", seo: "100" },
     tag: "Gastronomia",
     highlight: "🍽️ Cardápio e rota GPS guiados"
+  },
+  { 
+    niche: "Psicologia", 
+    subtitle: "Clínicas & Consultórios de Psicologia",
+    desc: "Design empático e profissional, personalizado com seu CRP, especialidades e horários de atendimento.", 
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600",
+    stats: { speed: "98", seo: "100" },
+    tag: "Saúde Mental",
+    highlight: "🧠 Agendamento de sessões e WhatsApp"
+  },
+  { 
+    niche: "Arquitetura", 
+    subtitle: "Escritórios & Ateliês de Arquitetura",
+    desc: "Apresentação sofisticada dos seus projetos com galeria de fotos e chamada para orçamento pelo WhatsApp.", 
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=600",
+    stats: { speed: "99", seo: "100" },
+    tag: "Arquitetura",
+    highlight: "🏛️ Galeria de projetos e orçamento"
   }
 ];
 
@@ -177,7 +195,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   }, [onPriceInView]);
 
   return (
-    <div className="w-full max-w-[430px] mx-auto bg-[#0a0a0a] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative">
+    <div className="w-full max-w-[430px] mx-auto bg-[#121212] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative">
       
       {/* ----------------------------------------------------------------------
           NAVBAR MOBILE (includes emergency countdown bar above)
@@ -225,7 +243,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute top-[64px] inset-x-0 bg-[#0c0c0cf9] border-b border-[#f0134d]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
+                className="absolute top-[64px] inset-x-0 bg-[#121212f9] border-b border-[#f0134d]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
               >
                 <div className="flex flex-col gap-1">
                   <span className="text-[10px] font-black uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
@@ -292,7 +310,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           HERO MOBILE
           ---------------------------------------------------------------------- */}
       <section
-        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]"
+        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#121212]"
         style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
       >
         {/* Background Image — Mobile Cards Showcase */}
@@ -304,11 +322,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         />
 
         {/* Dark overlay — dimming the background so text is perfectly readable */}
-        <div className="absolute inset-0 bg-[#0a0a0a]/62 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-[#121212]/62 pointer-events-none z-[1]" />
         {/* Gradient — bottom fade to dark */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none z-[2]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none z-[2]" />
         {/* Gradient — top fade to dark (navbar area) */}
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0a0a0a]/80 to-transparent pointer-events-none z-[2]" />
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#121212]/80 to-transparent pointer-events-none z-[2]" />
 
         {/* Ambient pink glow accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/8 blur-[100px] rounded-full pointer-events-none z-[1]" />
@@ -379,7 +397,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           BARRA DE NICHOS MOBILE
           ---------------------------------------------------------------------- */}
-      <section className="bg-[#0a0a0a] border-y border-[#202020]/20 py-4 overflow-hidden select-none relative">
+      <section className="bg-[#121212] border-y border-[#202020]/20 py-4 overflow-hidden select-none relative">
         <style>{`
           @keyframes nicheMarquee {
             0% { transform: translateX(0); }
@@ -441,7 +459,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           DOR MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#0a0a0a] relative flex flex-col items-center">
+        <section className="py-20 px-5 bg-[#121212] relative flex flex-col items-center">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-4 text-white">
           Você está <span className="gradient-text italic font-black">perdendo vendas</span>
         </h2>
@@ -496,7 +514,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-6 pb-7 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
+                className="p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
               >
                 <div className="flex justify-start">
                   <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="!mx-0 !my-0 shrink-0" />
@@ -520,7 +538,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SOLUÇÃO MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#0a0a0a] border-t border-b border-[#202020]/20 relative overflow-hidden flex flex-col items-center">
+        <section className="py-20 px-5 bg-[#121212] border-t border-b border-[#202020]/20 relative overflow-hidden flex flex-col items-center">
         {/* Background visual glosses */}
         <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/5 blur-[90px] rounded-full pointer-events-none" />
         <div className="absolute left-[-50px] top-[10%] w-[300px] h-[300px] bg-[#7c3aed]/5 blur-[90px] rounded-full pointer-events-none" />
@@ -605,7 +623,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="p-6 pb-7 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
+                className="p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
               >
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
                 <div className="flex items-center gap-4">
@@ -646,7 +664,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           COMO FUNCIONA MOBILE (Timeline Vertical)
           ---------------------------------------------------------------------- */}
       <RevealSection id="como-funciona-mobile">
-        <section id="como-funciona-mobile" className="py-16 px-5 bg-[#0a0a0a]">
+        <section id="como-funciona-mobile" className="py-16 px-5 bg-[#121212]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white">
           Como funciona <span className="gradient-text">em 48 horas</span>
         </h2>
@@ -720,7 +738,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           VANTAGENS MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection id="beneficios-mobile">
-        <section id="beneficios-mobile" className="py-16 px-5 bg-[#0a0a0a] border-y border-[#202020]/20">
+        <section id="beneficios-mobile" className="py-16 px-5 bg-[#121212] border-y border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
             Vantagens exclusivas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">da nossa assinatura</span>
@@ -787,7 +805,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             return (
               <div 
                 key={i} 
-                className="p-6 pb-7 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
+                className="p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
               >
                 {/* Icon Wrapper badge */}
                 <div className="flex justify-start">
@@ -812,7 +830,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           ANTES E DEPOIS MOBILE (Vertical Stack with divider)
           ---------------------------------------------------------------------- */}
       <RevealSection id="diferenca-mobile">
-        <section id="diferenca-mobile" className="py-16 px-5 bg-[#0a0a0a]">
+        <section id="diferenca-mobile" className="py-16 px-5 bg-[#121212]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-[1.05] mb-10 text-white">
           A diferença <span className="gradient-text">de um site útil</span>
         </h2>
@@ -862,7 +880,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SHOWCASE DE DESIGN EXCLUSIVO MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-16 px-5 bg-[#0a0a0a] border-t border-[#202020]/20 relative flex flex-col items-center overflow-hidden">
+        <section className="py-16 px-5 bg-[#121212] border-t border-[#202020]/20 relative flex flex-col items-center overflow-hidden">
         {/* Subtle glow light */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] bg-[#f0134d]/5 blur-[70px] rounded-full pointer-events-none" />
 
@@ -914,7 +932,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               return (
                 <div 
                   key={i} 
-                  className="p-5 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] flex items-start gap-4 hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
+                  className="p-5 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] flex items-start gap-4 hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
                 >
                   <StyledIcon iconName={v.iconName} size={18} containerSize={40} flat={true} className="shrink-0 !mx-0 !my-0" />
                   <div>
@@ -933,7 +951,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           MODELOS MOBILE (Horizontal Snap Carrossel with Right Gradient Mask)
           ---------------------------------------------------------------------- */}
       <RevealSection id="modelos-carrossel">
-        <section id="modelos-carrossel" className="py-16 bg-[#0a0a0a] border-y border-[#202020]/20 relative">
+        <section id="modelos-carrossel" className="py-16 bg-[#121212] border-y border-[#202020]/20 relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
           Escolha seu modelo <span className="gradient-text">do seu nicho</span>
         </h2>
@@ -967,7 +985,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               <div 
                 key={i}
                 onClick={() => setSelectedModel(item)}
-                className="w-[280px] shrink-0 snap-start bg-[#0a0a0a] rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between"
+                className="w-[280px] shrink-0 snap-start bg-[#121212] rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between"
               >
                 {/* Visual Image */}
                 <div className="aspect-[16/10] overflow-hidden relative">
@@ -1037,7 +1055,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           DEPOIMENTOS MOBILE (WhatsApp-styled carousel cards)
           ---------------------------------------------------------------------- */}
       <RevealSection id="depoimentos-mobile">
-        <section id="depoimentos-mobile" className="py-16 bg-[#0a0a0a] border-b border-[#202020] relative">
+        <section id="depoimentos-mobile" className="py-16 bg-[#121212] border-b border-[#202020] relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
           Sucesso real na <span className="gradient-text">tela do WhatsApp</span>
         </h2>
@@ -1113,7 +1131,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           COMPARATIVO MOBILE (Highlight Duno first)
           ---------------------------------------------------------------------- */}
       <RevealSection id="comparativo-mobile">
-        <section id="comparativo-mobile" className="py-16 px-5 bg-[#0a0a0a] border-b border-[#202020]/20">
+        <section id="comparativo-mobile" className="py-16 px-5 bg-[#121212] border-b border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-3">
             O melhor <span className="gradient-text">custo-benefício</span>
@@ -1125,7 +1143,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         <div className="flex flex-col gap-6">
           {/* Card Duno (Primário e Destacado) */}
-          <div className="border-2 border-[#f0134d] rounded-[20px] bg-[#0a0a0a] overflow-hidden shadow-[0_4px_30px_rgba(240,19,77,0.25)]">
+          <div className="border-2 border-[#f0134d] rounded-[20px] bg-[#121212] overflow-hidden shadow-[0_4px_30px_rgba(240,19,77,0.25)]">
             <div className="bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] p-3 text-center">
               <span className="text-white text-[11px] font-black uppercase tracking-widest block">★ INDICADO PARA SEU NEGÓCIO</span>
             </div>
@@ -1221,7 +1239,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           PREÇO + CTA MOBILE (Includes special intersection handle)
           ---------------------------------------------------------------------- */}
       <RevealSection id="preco-mobile">
-        <section ref={priceRef} id="preco-mobile" className="py-16 px-5 bg-[#0a0a0a]">
+        <section ref={priceRef} id="preco-mobile" className="py-16 px-5 bg-[#121212]">
         <div className="w-full p-5 rounded-2xl border-2 border-[#f0134d]/30 bg-[#111] text-center shadow-xl">
           <span className="text-[#f0134d] text-[10px] font-black tracking-[0.2em] uppercase block mb-2">QUERO COMECAR HOJE</span>
           
@@ -1286,7 +1304,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           FAQ MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection id="faq-mobile">
-        <section id="faq-mobile" className="py-16 px-5 bg-[#0a0a0a] border-t border-[#202020]">
+        <section id="faq-mobile" className="py-16 px-5 bg-[#121212] border-t border-[#202020]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-10 text-white">
           Dúvidas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Frequentes</span>
         </h2>
@@ -1368,7 +1386,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SOBRE / CONFIANÇA MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-16 px-5 bg-[#0a0a0a] border-y border-[#202020]/20 text-center">
+        <section className="py-16 px-5 bg-[#121212] border-y border-[#202020]/20 text-center">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
           Cuidado local em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">boas mãos</span>
         </h2>
@@ -1411,7 +1429,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             return (
               <div 
                 key={i}
-                className="p-3.5 pb-4 rounded-[16px] bg-[#2a0518] border-2 border-[#f0134d] text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square select-none hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
+                className="p-3.5 pb-4 rounded-[16px] bg-[#410e28] border-2 border-[#e10270] text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square select-none hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
               >
                 <div className="flex justify-center mb-1">
                   <StyledIcon iconName={v.iconName} size={16} containerSize={36} flat={true} className="mx-auto shrink-0" />
@@ -1431,7 +1449,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           CTA FINAL MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#0a0a0a] border-t border-[#202020] text-center relative overflow-hidden">
+        <section className="py-20 px-5 bg-[#121212] border-t border-[#202020] text-center relative overflow-hidden">
         {/* Background gloss overlay decoration */}
         <div className="absolute inset-0 bg-[#e91e8c]/5 pointer-events-none" />
         
@@ -1470,7 +1488,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           RODAPÉ MOBILE
           ---------------------------------------------------------------------- */}
-      <footer className="py-12 px-5 bg-[#0c0c0c] border-t-2 border-[#f0134d] text-center">
+      <footer className="py-12 px-5 bg-[#121212] border-t-2 border-[#f0134d] text-center">
         <Logo size="sm" className="justify-center mb-6" />
         
         <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-6 max-w-[320px] mx-auto">

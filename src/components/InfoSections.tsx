@@ -75,7 +75,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section id="como-funciona" className="py-24 px-6 bg-[#0a0a0a] relative">
+    <section id="como-funciona" className="py-24 px-6 bg-[#121212] relative">
       <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-96 h-96 bg-[#f0134d]/5 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto text-center relative z-10">        {/* Beautiful Unified Badge with Icon */}
@@ -109,7 +109,7 @@ export function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative z-10 overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-4"
+                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative z-10 overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-4"
               >
                 {/* Large semi-transparent background step number */}
                 <span className="absolute top-4 right-6 text-5xl font-black text-white/[0.05] group-hover:text-[#f0134d]/10 transition-colors select-none font-mono">
@@ -209,7 +209,7 @@ export function Benefits() {
   ];
 
   return (
-    <section id="vantagens" className="py-24 px-6 bg-[#0a0a0a] relative">
+    <section id="vantagens" className="py-24 px-6 bg-[#121212] relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           
@@ -238,7 +238,7 @@ export function Benefits() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start"
+                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start"
               >
                 {/* Icon Inside circle wrapper */}
                 <div className="mb-6">
@@ -280,7 +280,7 @@ export function BeforeAfter() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#121212] relative overflow-hidden border-t border-[#2a2a2a]">
       {/* Visual background atmospheric pink blob */}
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-[300px] bg-[#e91e8c]/2 blur-[140px] rounded-full pointer-events-none" />
       
@@ -389,7 +389,7 @@ export function Comparison() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden">
+    <section className="py-24 px-6 bg-[#121212] relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
         
         {/* Beautiful Unified Badge with Icon */}
@@ -549,7 +549,7 @@ export function ProductShowcase() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#121212] relative border-t border-[#2a2a2a]">
       {/* Background visual glosses */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e91e8c]/3 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#7c3aed]/3 blur-[140px] rounded-full pointer-events-none" />
@@ -588,7 +588,7 @@ export function ProductShowcase() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
-                className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between"
+                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between"
               >
                 {/* Central Icon container */}
                 <div className="mb-6 flex justify-start">

@@ -36,7 +36,7 @@ export function SocialProof() {
   ];
 
   return (
-    <section id="depoimentos" className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden border-t border-[#2a2a2a]">
+    <section id="depoimentos" className="py-24 px-6 bg-[#121212] relative overflow-hidden border-t border-[#2a2a2a]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/3 blur-[140px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10 text-center">
@@ -70,7 +70,7 @@ export function SocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between"
+              className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between"
             >
               {/* Background elegant Quote Icon */}
               <Quote className="absolute top-6 right-6 w-12 h-12 text-[#f0134d]/5 group-hover:text-[#f0134d]/10 transition-colors pointer-events-none stroke-[2]" />
@@ -127,7 +127,7 @@ export function Offer() {
   ];
 
   return (
-    <section id="preco" className="py-24 px-6 bg-[#0a0a0a] relative flex items-center justify-center border-t border-[#2a2a2a]">
+    <section id="preco" className="py-24 px-6 bg-[#121212] relative flex items-center justify-center border-t border-[#2a2a2a]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/3 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-4xl w-full mx-auto text-center relative z-10">
@@ -141,7 +141,7 @@ export function Offer() {
           Sem taxas ocultas, sem preocupação com programação. Deixe tudo nas mãos de nossos engenheiros e mude quando quiser.
         </p>
         
-        <div className="p-8 sm:p-12 relative border-2 border-[#e91e8c]/40 bg-[#111111] rounded-[16px] shadow-2xl">
+        <div className="p-8 sm:p-12 relative border-2 border-[#e10270] bg-[#410e28] rounded-[20px] shadow-2xl">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] text-[11px] font-black uppercase tracking-widest text-white shadow-md whitespace-nowrap animate-pulse">
             ★ ATIVAÇÃO EM ATÉ 48 HORAS
           </div>
@@ -216,7 +216,7 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 bg-[#0a0a0a] border-t border-[#2a2a2a] relative">
+    <section id="faq" className="py-24 px-6 bg-[#121212] border-t border-[#2a2a2a] relative">
       <div className="absolute bottom-0 right-[10%] w-96 h-96 bg-[#7c3aed]/3 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-3xl mx-auto relative z-10 text-center">
@@ -300,7 +300,7 @@ export function AboutTrust() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#121212] relative border-t border-[#2a2a2a]">
       <div className="max-w-7xl mx-auto relative z-10 text-center">
         
         <h2 className="text-3xl md:text-[48px] font-black mb-6 uppercase tracking-tight leading-tight text-white">
@@ -316,7 +316,7 @@ export function AboutTrust() {
             return (
               <div 
                 key={i} 
-                className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6"
+                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6"
               >
                 <div className="flex justify-start">
                   <StyledIcon iconName={v.iconName} size={24} containerSize={48} flat={true} className="shrink-0 !mx-0 !my-0" />
@@ -338,7 +338,7 @@ export function AboutTrust() {
 // SEÇÃO 14 — CTA FINAL
 export function FinalCTA() {
   return (
-    <section className="py-32 px-6 text-center relative overflow-hidden bg-[#0a0a0a] border-t border-[#2a2a2a]">
+    <section className="py-32 px-6 text-center relative overflow-hidden bg-[#121212] border-t border-[#2a2a2a]">
        {/* Animated background radial glow */}
        <motion.div 
          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -393,7 +393,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-20 px-6 border-t-2 border-[#f0134d] bg-[#0a0a0a] relative overflow-hidden select-none">
+    <footer className="py-20 px-6 border-t-2 border-[#f0134d] bg-[#121212] relative overflow-hidden select-none">
       {/* Decorative Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#e91e8c]/3 blur-[120px] rounded-full pointer-events-none" />
       

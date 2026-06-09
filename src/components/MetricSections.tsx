@@ -47,7 +47,7 @@ export function Problem() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative flex items-center justify-center">
+    <section className="py-24 px-6 bg-[#121212] relative flex items-center justify-center">
       <div className="max-w-[1100px] w-full mx-auto relative z-10 text-center">
         
         {/* Beautiful Unified Badge with Icon */}
@@ -78,7 +78,7 @@ export function Problem() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6"
+                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6"
               >
                 <div className="flex justify-start">
                   <StyledIcon iconName={p.iconName} size={24} containerSize={48} flat={true} className="!mx-0 !my-0" />
@@ -160,7 +160,7 @@ export function Solution() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden flex items-center justify-center">
+    <section className="py-24 px-6 bg-[#121212] relative overflow-hidden flex items-center justify-center">
       {/* Background visual glosses */}
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#f0134d]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute left-[-100px] top-[10%] w-[400px] h-[400px] bg-[#9b1fbd]/5 blur-[130px] rounded-full pointer-events-none" />
@@ -196,7 +196,7 @@ export function Solution() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#2a0518] border-2 border-[#f0134d] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(240,19,77,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6 justify-between animate-glow"
+                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6 justify-between animate-glow"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-xl rounded-full pointer-events-none" />
                 <div>

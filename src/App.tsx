@@ -36,7 +36,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-premium text-white selection:bg-[#e91e8c]/30 selection:text-white">
       {isMobile ? (
-        <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col items-center">
+        <div className="min-h-screen bg-[#121212] text-white flex flex-col items-center">
           <MobileVersion 
             onPriceInView={(visible) => setPriceInView(visible)} 
           />

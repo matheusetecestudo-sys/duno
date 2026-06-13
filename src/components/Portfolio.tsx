@@ -119,8 +119,8 @@ export default function Portfolio() {
           </span>
         </div>
 
-        {/* Grid of Niche Cards (3 columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 text-left">
+        {/* Carousel of Niche Cards */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 mb-12 hide-scrollbar">
           {NICHES.map((item, i) => (
             <motion.div
               key={i}
@@ -129,7 +129,7 @@ export default function Portfolio() {
               transition={{ delay: i * 0.08 }}
               viewport={{ once: true }}
               onClick={() => handleOpenDemo(item)}
-              className="group flex flex-col overflow-hidden cursor-pointer h-full border-[3px] border-[#e91e8c] rounded-[16px] transition-all duration-300 relative shadow-lg hover:shadow-[0_0_25px_rgba(233,30,140,0.4)] hover:-translate-y-1"
+              className="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] group flex flex-col overflow-hidden cursor-pointer border-[3px] border-[#e91e8c] rounded-[16px] transition-all duration-300 relative shadow-lg hover:shadow-[0_0_25px_rgba(233,30,140,0.4)] hover:-translate-y-1"
             >
               <div className="aspect-[3/4] sm:aspect-[4/5] overflow-hidden relative">
                 <img 

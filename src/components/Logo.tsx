@@ -25,8 +25,7 @@ export function Logo({ className = "", size = 'md' }: LogoProps) {
         <div className="absolute inset-x-[-20%] -inset-y-4 bg-[#e91e8c] blur-2xl opacity-0 group-hover:opacity-20 transition-opacity" />
         
         <div className="flex items-center select-none font-sans font-black tracking-[-0.04em]">
-          <span className={`${sizes[size]} text-white`}>DUN</span>
-          <span className={`${circleSizes[size]} rounded-full bg-gradient-to-tr from-[#e91e8c] to-[#7c3aed] border-white inline-block shrink-0`} />
+          <span className={`${sizes[size]} texto-degradê uppercase`}>DUNO</span>
         </div>
       </div>
     </div>

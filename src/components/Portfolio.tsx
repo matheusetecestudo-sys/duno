@@ -119,8 +119,8 @@ export default function Portfolio() {
           </span>
         </div>
 
-        {/* 2x4 Grid of Niche Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 text-left">
+        {/* Grid of Niche Cards (3 columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 text-left">
           {NICHES.map((item, i) => (
             <motion.div
               key={i}
@@ -129,82 +129,24 @@ export default function Portfolio() {
               transition={{ delay: i * 0.08 }}
               viewport={{ once: true }}
               onClick={() => handleOpenDemo(item)}
-              className="group flex flex-col overflow-hidden cursor-pointer h-full border-2 border-[#e10270] bg-[#410e28] rounded-[20px] transition-all duration-300 relative shadow-2xl hover:border-[#f0134d] hover:shadow-[0_0_35px_rgba(225,2,112,0.25)] hover:-translate-y-1"
+              className="group flex flex-col overflow-hidden cursor-pointer h-full border-[3px] border-[#e91e8c] rounded-[16px] transition-all duration-300 relative shadow-lg hover:shadow-[0_0_25px_rgba(233,30,140,0.4)] hover:-translate-y-1"
             >
-              <div className="aspect-[16/10] overflow-hidden relative border-b border-[#2a2a2a]">
-                
-                {/* Browser top-bar illusion header */}
-                <div className="absolute top-0 left-0 right-0 bg-[#111111]/70 backdrop-blur-md px-3 py-1.5 flex items-center justify-between z-15 border-b border-white/5">
-                  <div className="flex gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500/80" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500/80" />
-                  </div>
-                  <span className="text-[10px] font-mono text-[#a0a0a0] truncate max-w-[130px]">visualizacao-modelo.com</span>
-                  <span className="px-2 py-0.5 text-[8px] font-black tracking-widest text-[#e91e8c] bg-[#e91e8c]/15 rounded-md border border-[#e91e8c]/30 uppercase">
-                    {item.tag}
-                  </span>
-                </div>
-
+              <div className="aspect-[3/4] sm:aspect-[4/5] overflow-hidden relative">
                 <img 
                   src={item.img} 
                   alt={item.niche} 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-103 transition-all duration-700 pt-[18px]"
+                  className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
                 
                 {/* Visual click overlay */}
-                <div className="absolute inset-x-0 bottom-0 top-[18px] bg-gradient-to-t from-[#410e28] via-transparent to-transparent opacity-90" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
                   <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-[#e91e8c]/20">
                     <Eye size={14} className="stroke-[3]" />
-                    <span>Abrir Demonstração</span>
+                    <span>Visualizar</span>
                   </div>
                 </div>
-              </div>
-
-              {/* CARD DATA */}
-              <div className="p-6 md:p-8 flex flex-col flex-1">
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <h3 className="text-2xl font-black leading-none uppercase tracking-tight transition-colors bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
-                     {item.niche}
-                  </h3>
-                  <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#e91e8c] flex items-center justify-center text-white/55 group-hover:text-white transition-all duration-300 shrink-0">
-                    <ArrowRight size={14} className="stroke-[3] group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </div>
-
-                {/* Rosa high-converting highlighter line detailing tools included */}
-                <div className="text-[#e91e8c] text-xs font-bold py-1.5 px-3 rounded bg-[#e91e8c]/5 border border-[#e91e8c]/10 mb-5 leading-normal">
-                  {item.highlight}
-                </div>
-
-                <p className="text-[#a0a0a0] text-sm font-medium leading-relaxed mb-6">
-                  {item.desc}
-                </p>
-
-                {/* DEFINITIVE SEEMING CONVINCING BUTTON ON BOTTOM OF EVERY CARD */}
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleOpenDemo(item);
-                  }}
-                  className="mt-auto w-full py-3.5 rounded-xl text-center bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 hover:brightness-110 shadow-md shadow-[#e91e8c]/15"
-                >
-                  <span className="text-white">Ver demonstração</span>
-                  <ArrowRight size={14} className="text-white" />
-                </button>
-
-                {/* Card footer details with PageSpeed */}
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] text-[#606060] font-bold">
-                  <div className="flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                    <span className="uppercase tracking-wider text-[#25D366]">Site Pronto 48h</span>
-                  </div>
-                  <span className="font-mono uppercase">PAGESPEED SCORE: <strong className="text-white">98/100</strong></span>
-                </div>
-
               </div>
             </motion.div>
           ))}

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, X, Sparkles, Eye, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, X, Sparkles, Eye, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useRef } from "react";
 
 const NICHES = [
   { 
@@ -87,6 +87,20 @@ const NICHES = [
 
 export default function Portfolio() {
   const [selectedModel, setSelectedModel] = useState<typeof NICHES[0] | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const visibleCount = 3;
+  const maxIndex = NICHES.length - visibleCount;
+
+  const goTo = (idx: number) => {
+    const clamped = Math.max(0, Math.min(idx, maxIndex));
+    setActiveIndex(clamped);
+    if (trackRef.current) {
+      const cardWidth = trackRef.current.scrollWidth / NICHES.length;
+      trackRef.current.scrollTo({ left: cardWidth * clamped, behavior: "smooth" });
+    }
+  };
 
   const handleOpenDemo = (niche: typeof NICHES[0]) => {
     setSelectedModel(niche);
@@ -108,48 +122,121 @@ export default function Portfolio() {
         
         {/* Validated Direct-Response Subtitle */}
         <p className="text-[#a0a0a0] text-[17px] font-semibold max-w-3xl mx-auto mb-8 leading-relaxed">
-          Nossos modelos já foram validados e trazem clientes de verdade. Clique no botão de demonstração para abrir e clicar como se fosse o site real.
+          Nossos modelos já foram validados e trazem clientes de verdade. Passe o mouse ou o dedo para rolar e ver o site completo.
         </p>
 
         {/* Urgency Scarcity Warning Card Indicator */}
         <div className="inline-flex items-center gap-3 bg-[#ef4444]/15 border border-[#ef4444]/30 rounded-2xl px-5 py-4 max-w-2xl mx-auto mb-16 shadow-lg shadow-[#ef4444]/5 text-center">
-          <span className="w-2 h-2 rounded-full bg-[#ef4444] animate-ping shrink-0" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ef4444] animate-ping shrink-0" />
           <span className="text-xs sm:text-sm font-bold text-white tracking-wide">
             ⚠️ Limitamos a apenas <strong className="text-[#ef4444]">1 cliente por nicho em cada bairro</strong> para não concorrer no Google Maps. Garantimos exclusividade local.
           </span>
         </div>
 
-        {/* Carousel of Niche Cards */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 mb-12 hide-scrollbar">
-          {NICHES.map((item, i) => (
+        {/* Carousel Wrapper with controls */}
+        <div className="relative mb-12">
+          {/* Prev Button */}
+          <button
+            onClick={() => goTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#410e28] border-2 border-[#e10270] flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#e10270] transition-all duration-200 shadow-lg"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={20} strokeWidth={2.5} />
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={() => goTo(activeIndex + 1)}
+            disabled={activeIndex >= maxIndex}
+            className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#410e28] border-2 border-[#e10270] flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#e10270] transition-all duration-200 shadow-lg"
+            aria-label="Próximo"
+          >
+            <ChevronRight size={20} strokeWidth={2.5} />
+          </button>
+
+          {/* Scrollable Track */}
+          <div
+            ref={trackRef}
+            className="overflow-hidden"
+          >
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              viewport={{ once: true }}
-              onClick={() => handleOpenDemo(item)}
-              className="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] group flex flex-col overflow-hidden cursor-pointer border-[3px] border-[#e91e8c] rounded-[16px] transition-all duration-300 relative shadow-lg hover:shadow-[0_0_25px_rgba(233,30,140,0.4)] hover:-translate-y-1"
+              className="flex gap-6"
+              animate={{ x: `-${activeIndex * (100 / visibleCount)}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              style={{ width: `${(NICHES.length / visibleCount) * 100}%` }}
             >
-              <div className="aspect-[3/4] sm:aspect-[4/5] overflow-hidden relative">
-                <img 
-                  src={item.img} 
-                  alt={item.niche} 
-                  className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                
-                {/* Visual click overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
-                  <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-[#e91e8c]/20">
-                    <Eye size={14} className="stroke-[3]" />
-                    <span>Visualizar</span>
+              {NICHES.map((item, i) => (
+                <motion.div
+                  key={i}
+                  style={{ width: `${100 / NICHES.length}%` }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05, duration: 0.4 }}
+                  viewport={{ once: true }}
+                  className="shrink-0 group/card flex flex-col justify-between p-4 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 text-center"
+                >
+                  {/* Image container with fixed height and overflow hidden */}
+                  <div 
+                    onClick={() => handleOpenDemo(item)}
+                    className="w-full h-[320px] rounded-xl overflow-hidden relative bg-[#121212] cursor-pointer"
+                  >
+                    <img 
+                      src={item.img} 
+                      alt={item.niche} 
+                      className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/card:translate-y-[calc(-100%+320px)] active:translate-y-[calc(-100%+320px)]"
+                      style={{ height: 'auto' }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
+                    
+                    {/* Visual click overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
+                      <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
+                        <Eye size={12} className="stroke-[3]" />
+                        <span>Detalhes</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+
+                  {/* Niche name below card image */}
+                  <h3 className="text-lg font-black text-white uppercase mt-4 mb-1">
+                    {item.niche}
+                  </h3>
+
+                  {/* Button for the site under the niche name */}
+                  <div className="mt-1">
+                    <a 
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="gold-premium-btn !h-10 !text-xs !px-4 !py-2 w-full flex items-center justify-center gap-2"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>Visualizar Site</span>
+                      <ArrowRight size={12} />
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  activeIndex === i
+                    ? "w-6 h-2 bg-[#f0134d]"
+                    : "w-2 h-2 bg-neutral-700 hover:bg-neutral-500"
+                }`}
+                aria-label={`Ir para slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Missing niche segments banner request */}

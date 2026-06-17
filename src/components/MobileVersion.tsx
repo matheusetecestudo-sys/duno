@@ -64,7 +64,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Odontologia", 
     subtitle: "Clínicas & Consultórios — site premium",
     desc: "Personalizamos com suas fotos, logomarca e procedimentos clínicos em até 48 horas.", 
-    img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600",
+    img: "/images/nicho_1.png",
     stats: { speed: "99", seo: "100" },
     tag: "Dentistas",
     highlight: "🦷 Agendamento e WhatsApp integrado"
@@ -73,7 +73,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Veterinário", 
     subtitle: "Clínicas Pet & Hospitais — alta conversão",
     desc: "Layout dócil e corporativo para passar total segurança para sua clínica em até 48 horas.", 
-    img: "https://images.unsplash.com/photo-1581888227599-779811939961?q=80&w=600",
+    img: "/images/nicho_2.png",
     stats: { speed: "98", seo: "100" },
     tag: "Veterinários",
     highlight: "🐾 Agendamento e WhatsApp"
@@ -82,7 +82,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Estética", 
     subtitle: "Clínicas de Estética & Spas",
     desc: "Design clean focado em captar contatos interessados em procedimentos estéticos.", 
-    img: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=600",
+    img: "/images/nicho_3.png",
     stats: { speed: "100", seo: "100" },
     tag: "Estética",
     highlight: "✂️ Portfólio de antes e depois"
@@ -91,7 +91,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Academia", 
     subtitle: "Studios, CrossFit & Academias",
     desc: "Design dinâmico e enérgico que customizamos para o seu método de treinamento físico.", 
-    img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600",
+    img: "/images/nicho_4.png",
     stats: { speed: "99", seo: "98" },
     tag: "Fitness",
     highlight: "💪 Chamada de matrícula rápida"
@@ -100,7 +100,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Advocacia", 
     subtitle: "Escritórios Jurídicos",
     desc: "Um design extremamente refinado para transmitir máxima credibilidade em sua cidade.", 
-    img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=600",
+    img: "/images/nicho_5.png",
     stats: { speed: "100", seo: "100" },
     tag: "Direito",
     highlight: "⚖️ Destaque de especialidades"
@@ -109,7 +109,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Restaurante", 
     subtitle: "Gourmet & Bistrô — página otimizada",
     desc: "Layout sofisticado que destaca pratos, reservas automáticas e disk delivery.", 
-    img: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600",
+    img: "/images/nicho_6.png",
     stats: { speed: "97", seo: "100" },
     tag: "Gastronomia",
     highlight: "🍽️ Cardápio e rota GPS guiados"
@@ -118,7 +118,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Psicologia", 
     subtitle: "Clínicas & Consultórios de Psicologia",
     desc: "Design empático e profissional, personalizado com seu CRP, especialidades e horários de atendimento.", 
-    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600",
+    img: "/images/nicho_7.png",
     stats: { speed: "98", seo: "100" },
     tag: "Saúde Mental",
     highlight: "🧠 Agendamento de sessões e WhatsApp"
@@ -127,7 +127,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Arquitetura", 
     subtitle: "Escritórios & Ateliês de Arquitetura",
     desc: "Apresentação sofisticada dos seus projetos com galeria de fotos e chamada para orçamento pelo WhatsApp.", 
-    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=600",
+    img: "/images/nicho_8.png",
     stats: { speed: "99", seo: "100" },
     tag: "Arquitetura",
     highlight: "🏛️ Galeria de projetos e orçamento"
@@ -1002,39 +1002,45 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {MOBILE_NICHES.map((item, i) => (
               <div 
                 key={i}
-                onClick={() => setSelectedModel(item)}
-                className="w-[280px] shrink-0 snap-start bg-[#121212] rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between"
+                className="w-[280px] shrink-0 snap-start group/card flex flex-col justify-between p-4 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden transition-all duration-300 shadow-lg text-center"
               >
-                {/* Visual Image */}
-                <div className="aspect-[16/10] overflow-hidden relative">
+                {/* Image container with fixed height and overflow hidden */}
+                <div 
+                  onClick={() => setSelectedModel(item)}
+                  className="w-full h-[300px] rounded-xl overflow-hidden relative bg-[#121212] cursor-pointer"
+                >
                   <img 
                     src={item.img} 
                     alt={item.niche} 
-                    className="w-full h-full object-cover" 
+                    className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/card:translate-y-[calc(-100%+300px)] active:translate-y-[calc(-100%+300px)]"
+                    style={{ height: 'auto' }}
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-2.5 right-2.5 bg-black/80 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#f0134d] uppercase border border-[#f0134d]/30">
+                  
+                  {/* Tag overlay */}
+                  <div className="absolute top-2.5 right-2.5 bg-black/85 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#f0134d] uppercase border border-[#f0134d]/30 pointer-events-none">
                     {item.tag}
                   </div>
                 </div>
 
-                {/* Info action pane */}
-                <div className="p-4 text-left flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg font-black text-white leading-none uppercase mb-2">{item.niche}</h3>
-                    <div className="text-[11px] font-semibold text-[#f0134d] line-clamp-1 mb-2.5">{item.highlight}</div>
-                    <p className="text-xs text-[#a0a0a0] leading-relaxed line-clamp-3 mb-4 font-semibold">
-                      {item.desc}
-                    </p>
-                  </div>
-                  
-                  <button
-                    onClick={() => setSelectedModel(item)}
-                    className="w-full py-2.5 rounded-lg border border-[#f0134d] text-[#f0134d] text-[11px] font-black uppercase tracking-wider"
+                {/* Niche name below card image */}
+                <h3 className="text-base font-black text-white uppercase mt-4 mb-1">
+                  {item.niche}
+                </h3>
+
+                {/* Button for the site under the niche name */}
+                <div className="mt-1">
+                  <a 
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="gold-premium-btn !h-10 !text-[10px] !px-4 !py-2 w-full flex items-center justify-center gap-2"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    Ver detalhes
-                  </button>
+                    <span>Visualizar Site</span>
+                    <ArrowRight size={12} />
+                  </a>
                 </div>
               </div>
             ))}

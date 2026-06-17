@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] bg-[#f0134d]/6 blur-[160px] rounded-full pointer-events-none z-[1] animate-pulse" />
       <div className="absolute left-[-10%] bottom-[10%] w-[400px] h-[400px] bg-[#7c3aed]/4 blur-[160px] rounded-full pointer-events-none z-[1]" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center pt-10 lg:pt-0">
+      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center pt-24 lg:pt-32 pb-12">
         
         <div className="w-full flex flex-col items-center text-center">
           {/* Badge topo */}

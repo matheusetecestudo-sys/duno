@@ -2,7 +2,6 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import NicheTicker from "./components/NicheTicker";
 import { Problem, Solution } from "./components/MetricSections";
 import { Benefits, HowItWorks, BeforeAfter, Comparison, ProductShowcase } from "./components/InfoSections";
 import { Offer, FAQ, AboutTrust, FinalCTA, Footer, WhatsAppButton } from "./components/MarketingElements";
@@ -49,11 +48,6 @@ export default function App() {
           <main>
             {/* Seção 1: Hero - has built-in instant entry on mount animations */}
             <Hero />
-            
-            {/* Seção 2: Barra de logos/nichos (Nova) */}
-            <RevealSection>
-              <NicheTicker />
-            </RevealSection>
             
             {/* Seção 3: Dor */}
             <RevealSection>

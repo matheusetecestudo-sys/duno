@@ -345,13 +345,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         {/* 2. Headline */}
         <h1 className="relative z-10 font-black mb-4 text-center px-1 text-2xl min-[370px]:text-[28px] uppercase tracking-tight leading-[1.15]">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Seu site de alta conversão</span>
-          <span className="block mt-1.5 text-white font-black">sem complicação</span>
+          Seu site de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">alta conversão</span>{" "}<br />
+          colocado no ar em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">apenas 48 horas</span>
         </h1>
 
         {/* 3. Subheadline */}
         <p className="relative z-10 text-[13px] min-[370px]:text-[14px] text-[#c8c8c8] text-center mb-8 font-semibold leading-relaxed max-w-[340px]">
-          Um site de elite completo, ultra-veloz, 100% otimizado para celulares e integrado ao WhatsApp por apenas R$197/mês.
+          Um site de elite completo, ultra-veloz, totalmente otimizado para celulares e focado em transformar seus visitantes em clientes reais por apenas R$197/mês.
         </p>
 
         {/* 4. CTAs Blocks */}
@@ -395,66 +395,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </div>
       </section>
 
-      {/* ----------------------------------------------------------------------
-          BARRA DE NICHOS MOBILE
-          ---------------------------------------------------------------------- */}
-      <section className="bg-[#121212] border-y border-[#202020]/20 py-4 overflow-hidden select-none relative">
-        <style>{`
-          @keyframes nicheMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.3333%); }
-          }
-          .mobile-marquee-ticker {
-            display: flex;
-            width: max-content;
-            animation: nicheMarquee 20s linear infinite;
-          }
-        `}</style>
-        <div className="mobile-marquee-ticker">
-          {[
-            { n: "Odontologia", e: "🦷" },
-            { n: "Veterinário", e: "🐾" },
-            { n: "Estética", e: "✂️" },
-            { n: "Academia", e: "💪" },
-            { n: "Advocacia", e: "⚖️" },
-            { n: "Nutrição", e: "🥗" }
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-1.5 mx-4 shrink-0">
-              <span className="text-sm">{item.e}</span>
-              <span className="text-[13px] font-bold text-white uppercase tracking-wider">{item.n}</span>
-              <span className="text-neutral-700 ml-2 font-black">•</span>
-            </div>
-          ))}
-          {[
-            { n: "Odontologia", e: "🦷" },
-            { n: "Veterinário", e: "🐾" },
-            { n: "Estética", e: "✂️" },
-            { n: "Academia", e: "💪" },
-            { n: "Advocacia", e: "⚖️" },
-            { n: "Nutrição", e: "🥗" }
-          ].map((item, i) => (
-            <div key={i + 10} className="flex items-center gap-1.5 mx-4 shrink-0">
-              <span className="text-sm">{item.e}</span>
-              <span className="text-[13px] font-bold text-white uppercase tracking-wider">{item.n}</span>
-              <span className="text-neutral-700 ml-2 font-black">•</span>
-            </div>
-          ))}
-          {[
-            { n: "Odontologia", e: "🦷" },
-            { n: "Veterinário", e: "🐾" },
-            { n: "Estética", e: "✂️" },
-            { n: "Academia", e: "💪" },
-            { n: "Advocacia", e: "⚖️" },
-            { n: "Nutrição", e: "🥗" }
-          ].map((item, i) => (
-            <div key={i + 20} className="flex items-center gap-1.5 mx-4 shrink-0">
-              <span className="text-sm">{item.e}</span>
-              <span className="text-[13px] font-bold text-white uppercase tracking-wider">{item.n}</span>
-              <span className="text-neutral-700 ml-2 font-black">•</span>
-            </div>
-          ))}
-        </div>
-      </section>
+
+
 
       {/* ----------------------------------------------------------------------
           DOR MOBILE

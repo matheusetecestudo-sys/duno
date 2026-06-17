@@ -11,14 +11,6 @@
   --color-brand-accent: #9b1fbd;
   
   --color-premium: #121212;
-
-  --animate-gradient-slow: gradient-anim 5s ease infinite;
-
-  @keyframes gradient-anim {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
 }
 
 @layer base {
@@ -50,14 +42,10 @@
     @apply font-black tracking-[-0.05em] uppercase leading-[1.12];
   }
 
-  /* Global gradient on all headings */
-  h2, h3, h4, h5, h6 {
-    background: linear-gradient(90deg, #f0134d 0%, #e91e8c 50%, #9b1fbd 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+  /* Headings default to white; gradient applied only to key words via .gradient-text */
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
   }
-}
 
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */

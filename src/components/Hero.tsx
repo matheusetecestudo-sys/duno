@@ -7,12 +7,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center px-6 sm:px-12 overflow-hidden bg-[#121212] text-white"
     >
       {/* Background Banner Image covering the entire screen */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 pointer-events-none"
-        style={{ 
-          backgroundImage: "url('/img-desktop-showcase.png')",
-        }}
-      />
+      <div className="absolute inset-0 w-full h-full bg-[#121212] z-0 pointer-events-none" />
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-[#121212]/60 pointer-events-none z-[1]" />
 

@@ -163,6 +163,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [solucaoIndex, setSolucaoIndex] = useState(0);
   const [selectedModel, setSelectedModel] = useState<NicheItem | null>(null);
   const [isCompExpanded, setIsCompExpanded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -558,86 +559,103 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </p>
         </div>
 
-        {/* Beautiful Stacked Cards of features in Mobile - No Images! */}
-        <div className="w-full space-y-4  relative z-10 max-w-sm mb-10">
-          {[
-            { 
-              title: (
-                <span>
-                  WhatsApp de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Alta Conversão</span>
-                </span>
-              ), 
-              desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
-              iconName: "MessageSquare" 
-            },
-            { 
-              title: (
-                <span>
-                  Agendamento <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Prático</span>
-                </span>
-              ), 
-              desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
-              iconName: "CalendarDays" 
-            },
-            { 
-              title: (
-                <span>
-                  Otimizado para <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Google</span>
-                </span>
-              ), 
-              desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
-              iconName: "Search" 
-            },
-            { 
-              title: (
-                <span>
-                  Google <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Maps Integrado</span>
-                </span>
-              ), 
-              desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
-              iconName: "MapPin" 
-            },
-            { 
-              title: (
-                <span>
-                  Design <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Mobile-First</span>
-                </span>
-              ), 
-              desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
-              iconName: "Smartphone" 
-            },
-            { 
-              title: (
-                <span>
-                  100% <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Personalizado</span>
-                </span>
-              ), 
-              desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
-              iconName: "Sparkles" 
-            }
-          ].map((item, idx) => {
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.05, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
-              >
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
-                <div className="flex items-center gap-4">
-                  <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="shrink-0 !mx-0 !my-0" />
-                  <h3 className="text-[15px] font-black text-white tracking-tight leading-snug">{item.title}</h3>
+        {/* Horizontal Carousel of service feature cards */}
+        <div className="w-full relative z-10 mb-10">
+          {/* Scroll fade mask on right */}
+          <div className="relative overflow-hidden">
+            <div className="absolute top-0 bottom-0 right-0 w-10 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none" />
+            <div
+              className="flex gap-4 overflow-x-auto pb-4 px-5 snap-x snap-mandatory"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              onScroll={(e) => {
+                const sl = (e.target as HTMLDivElement).scrollLeft;
+                const cw = (e.target as HTMLDivElement).scrollWidth / 6;
+                setSolucaoIndex(Math.round(sl / cw));
+              }}
+            >
+              {[
+                { 
+                  title: (
+                    <span>
+                      WhatsApp de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Alta Conversão</span>
+                    </span>
+                  ), 
+                  desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
+                  iconName: "MessageSquare" 
+                },
+                { 
+                  title: (
+                    <span>
+                      Agendamento <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Prático</span>
+                    </span>
+                  ), 
+                  desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
+                  iconName: "CalendarDays" 
+                },
+                { 
+                  title: (
+                    <span>
+                      Otimizado para <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Google</span>
+                    </span>
+                  ), 
+                  desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
+                  iconName: "Search" 
+                },
+                { 
+                  title: (
+                    <span>
+                      Google <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Maps Integrado</span>
+                    </span>
+                  ), 
+                  desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
+                  iconName: "MapPin" 
+                },
+                { 
+                  title: (
+                    <span>
+                      Design <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Mobile-First</span>
+                    </span>
+                  ), 
+                  desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
+                  iconName: "Smartphone" 
+                },
+                { 
+                  title: (
+                    <span>
+                      100% <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Personalizado</span>
+                    </span>
+                  ), 
+                  desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
+                  iconName: "Sparkles" 
+                }
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="w-[78vw] max-w-[300px] shrink-0 snap-start p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
+                >
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
+                  <div className="flex items-center gap-4">
+                    <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="shrink-0 !mx-0 !my-0" />
+                    <h3 className="text-[15px] font-black text-white tracking-tight leading-snug">{item.title}</h3>
+                  </div>
+                  <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
+                  <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#f0134d] mt-1">
+                    <span>Ativo na Assinatura</span>
+                    <span>✓ Incluso</span>
+                  </div>
                 </div>
-                <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
-                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#f0134d] mt-1">
-                  <span>Ativo na Assinatura</span>
-                  <span>✓ Incluso</span>
-                </div>
-              </motion.div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
+          {/* Dots */}
+          <div className="flex justify-center gap-1.5 mt-2">
+            {[0,1,2,3,4,5].map((i) => (
+              <div
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-300 ${solucaoIndex === i ? "w-4 bg-[#f0134d]" : "w-1.5 bg-neutral-700"}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Info Highlights Badge list */}
@@ -1052,26 +1070,28 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       </RevealSection>
 
       {/* ----------------------------------------------------------------------
-          DEPOIMENTOS MOBILE (WhatsApp-styled carousel cards)
+          DEPOIMENTOS MOBILE (Desktop-style premium carousel cards)
           ---------------------------------------------------------------------- */}
       <RevealSection id="depoimentos-mobile">
         <section id="depoimentos-mobile" className="py-16 bg-[#121212] border-b border-[#202020] relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
-          Sucesso real na <span className="gradient-text">tela do WhatsApp</span>
+          Quem já adquiriu <span className="gradient-text">recomenda de verdade</span>
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-10 max-w-[320px] mx-auto px-5">
-          Confira o retorno real que nossos clientes nos enviaram.
+          Veja a opinião real de profissionais que multiplicaram a conversão de seus clientes.
         </p>
 
-        {/* Carrossel 90% wide with snap scroll */}
+        {/* Carrossel com cards premium idênticos ao desktop */}
         <div className="w-full overflow-hidden relative">
+          <div className="absolute top-0 bottom-0 right-0 w-10 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none" />
           <div 
-            className="flex gap-3 overflow-x-auto pb-4 px-5 snap-x snap-mandatory"
+            className="flex gap-4 overflow-x-auto pb-4 px-5 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             onScroll={(e) => {
               const scrollLeft = (e.target as HTMLDivElement).scrollLeft;
-              const approxIdx = Math.round(scrollLeft / (window.innerWidth * 0.85));
+              const cardWidth = (e.target as HTMLDivElement).scrollWidth / CHATS.length;
+              const approxIdx = Math.round(scrollLeft / cardWidth);
               if (approxIdx >= 0 && approxIdx < CHATS.length) {
                 setTestimonialIndex(approxIdx);
               }
@@ -1080,11 +1100,28 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {CHATS.map((item, idx) => (
               <div 
                 key={idx}
-                className="w-[85vw] max-w-[320px] shrink-0 snap-start bg-[#111b21] rounded-2xl border border-[#2a2a2a] shadow-xl flex flex-col justify-between overflow-hidden"
+                className="w-[85vw] max-w-[320px] shrink-0 snap-start p-6 pb-8 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden hover:shadow-[0_0_20px_rgba(225,2,112,0.35)] transition-all duration-300 text-left flex flex-col justify-between"
               >
-                {/* Header WA styled */}
-                <div className="bg-[#202c33] p-3.5 flex items-center gap-2.5 border-b border-white/5 select-none text-left">
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 shrink-0 bg-neutral-800">
+                {/* Decorative quote icon */}
+                <div className="absolute top-4 right-4 text-[#f0134d]/5 text-5xl font-black leading-none select-none pointer-events-none">"</div>
+
+                <div>
+                  {/* 5 stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[1,2,3,4,5].map((s) => (
+                      <Star key={s} size={13} className="fill-[#f0134d] text-[#f0134d]" />
+                    ))}
+                  </div>
+
+                  {/* Testimonial text */}
+                  <p className="text-[#a0a0a0] leading-relaxed font-semibold text-xs italic mb-5">
+                    "{item.text}"
+                  </p>
+                </div>
+
+                {/* Profile footer */}
+                <div className="flex items-center gap-3 bg-white/[0.02] border border-white/5 rounded-xl p-3 mt-auto">
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-[#f0134d]/40 shrink-0 bg-neutral-900">
                     <img 
                       src={item.avatarUrl} 
                       alt={item.name} 
@@ -1092,22 +1129,9 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <div className="flex-1 truncate">
-                    <h4 className="text-white text-xs font-black leading-none uppercase truncate">{item.name}</h4>
-                    <span className="text-[9px] text-neutral-400 font-bold leading-none">{item.role}</span>
-                  </div>
-                  <span className="text-xs text-neutral-400">⋮</span>
-                </div>
-
-                {/* Bubble Body Area */}
-                <div className="p-4 bg-[#0b141a] text-left min-h-[140px] flex flex-col justify-between">
-                  <p className="text-white text-[14px] leading-relaxed font-semibold italic text-neutral-200">
-                    "{item.text}"
-                  </p>
-                  
-                  <div className="flex justify-end gap-1 items-center text-[10px] text-white/40 mt-3">
-                    <span>Visto</span>
-                    <span className="text-emerald-500 font-black tracking-tighter">✓✓</span>
+                  <div className="truncate flex-1">
+                    <h4 className="text-white text-xs font-black truncate leading-tight uppercase tracking-tight">{item.name}</h4>
+                    <p className="text-[9px] text-[#f0134d] font-black uppercase tracking-wider truncate mt-0.5">{item.role}</p>
                   </div>
                 </div>
               </div>
@@ -1116,7 +1140,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-1.5 mt-1">
+        <div className="flex justify-center gap-1.5 mt-3">
           {CHATS.map((_, i) => (
             <div 
               key={i} 

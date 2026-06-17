@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useState, useRef } from "react";
 import { 
   Layout, 
   Paintbrush, 
@@ -21,7 +22,9 @@ import {
   Rocket,
   Monitor,
   PhoneCall,
-  Smartphone
+  Smartphone,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { StyledIcon } from "./StyledIcon";
 
@@ -151,6 +154,9 @@ export function HowItWorks() {
 
 // SEÇÃO 6 — VANTAGENS EXCLUSIVAS
 export function Benefits() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+
   const list = [
     { 
       title: (
@@ -208,6 +214,18 @@ export function Benefits() {
     }
   ];
 
+  const visibleCount = 3;
+  const maxIndex = list.length - visibleCount;
+
+  const goTo = (idx: number) => {
+    const clamped = Math.max(0, Math.min(idx, maxIndex));
+    setActiveIndex(clamped);
+    if (trackRef.current) {
+      const cardWidth = trackRef.current.scrollWidth / list.length;
+      trackRef.current.scrollTo({ left: cardWidth * clamped, behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="vantagens" className="py-24 px-6 bg-[#121212] relative">
       <div className="max-w-7xl mx-auto">
@@ -229,32 +247,80 @@ export function Benefits() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {list.map((b, i) => {
-            return (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.05, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start"
-              >
-                {/* Icon Inside circle wrapper */}
-                <div className="mb-6">
-                  <StyledIcon iconName={b.iconName} size={24} containerSize={48} flat={true} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-3 leading-snug w-fit text-white">
-                    {b.title}
-                  </h3>
-                  <p className="text-[#a0a0a0] leading-relaxed font-semibold text-xs sm:text-sm">
-                    {b.desc}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* Carousel Wrapper */}
+        <div className="relative">
+          {/* Prev Button */}
+          <button
+            onClick={() => goTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#410e28] border-2 border-[#e10270] flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#e10270] transition-all duration-200 shadow-lg"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={20} strokeWidth={2.5} />
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={() => goTo(activeIndex + 1)}
+            disabled={activeIndex >= maxIndex}
+            className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#410e28] border-2 border-[#e10270] flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#e10270] transition-all duration-200 shadow-lg"
+            aria-label="Próximo"
+          >
+            <ChevronRight size={20} strokeWidth={2.5} />
+          </button>
+
+          {/* Scrollable Track */}
+          <div
+            ref={trackRef}
+            className="overflow-hidden"
+          >
+            <motion.div
+              className="flex gap-8"
+              animate={{ x: `-${activeIndex * (100 / visibleCount)}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              style={{ width: `${(list.length / visibleCount) * 100}%` }}
+            >
+              {list.map((b, i) => (
+                <motion.div 
+                  key={i}
+                  style={{ width: `${100 / list.length}%` }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05, duration: 0.4 }}
+                  viewport={{ once: true }}
+                  className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start shrink-0"
+                >
+                  <div className="mb-6">
+                    <StyledIcon iconName={b.iconName} size={24} containerSize={48} flat={true} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 leading-snug w-fit text-white">
+                      {b.title}
+                    </h3>
+                    <p className="text-[#a0a0a0] leading-relaxed font-semibold text-xs sm:text-sm">
+                      {b.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  activeIndex === i
+                    ? "w-6 h-2 bg-[#f0134d]"
+                    : "w-2 h-2 bg-neutral-700 hover:bg-neutral-500"
+                }`}
+                aria-label={`Ir para slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -35,6 +35,7 @@
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #f0134d 0%, #e91e8c 50%, #9b1fbd 100%);
     @apply rounded-full hover:brightness-125;
+}
   }
 
   h1, h2, h3, h4, h5, h6 {

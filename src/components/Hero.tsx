@@ -7,9 +7,18 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center px-6 sm:px-12 overflow-hidden bg-[#121212] text-white"
     >
       {/* Background Banner Image covering the entire screen */}
-      <div className="absolute inset-0 w-full h-full bg-[#121212] z-0 pointer-events-none" />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-[#121212]/60 pointer-events-none z-[1]" />
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 pointer-events-none"
+        style={{ 
+          backgroundImage: "url('/img-desktop-showcase.png')",
+        }}
+      />
+      {/* Dark overlay — dimming the background so text is perfectly readable */}
+      <div className="absolute inset-0 bg-[#121212]/62 pointer-events-none z-[1]" />
+      {/* Gradient — bottom fade to dark */}
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none z-[2]" />
+      {/* Gradient — top fade to dark (navbar area) */}
+      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#121212]/80 to-transparent pointer-events-none z-[2]" />
 
       {/* Background soft ambient lights only */}
       <div className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] bg-[#f0134d]/8 blur-[160px] rounded-full pointer-events-none z-[1] animate-pulse" />
@@ -41,8 +50,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-black leading-[1.12] tracking-tight uppercase mb-6 text-center text-white font-sans"
           >
-            Seu site de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">alta conversão</span> <br />
-            colocado no ar em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">apenas 48 horas</span>
+            Seu site de <span className="gradient-text">alta conversão</span> <br />
+            colocado no ar em apenas <span className="gradient-text">48 horas</span>
           </motion.h1>
           
           {/* Subheadline description */}

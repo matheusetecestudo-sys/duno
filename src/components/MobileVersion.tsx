@@ -345,8 +345,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         {/* 2. Headline */}
         <h1 className="relative z-10 font-black mb-4 text-center px-1 text-2xl min-[370px]:text-[28px] uppercase tracking-tight leading-[1.15]">
-          Seu site de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">alta conversão</span>{" "}<br />
-          colocado no ar em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">apenas 48 horas</span>
+          Seu site de <span className="gradient-text">alta conversão</span>{" "}<br />
+          colocado no ar em apenas <span className="gradient-text">48 horas</span>
         </h1>
 
         {/* 3. Subheadline */}
@@ -1280,7 +1280,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       <RevealSection>
         <section className="py-16 px-5 bg-[#121212] border-y border-[#202020]/20 text-center">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
-          Cuidado local em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">boas mãos</span>
+          Cuidado local em boas <span className="gradient-text">mãos</span>
         </h2>
         
         {/* 3 trust cards stacked vertically — same size as other pink-cards */}

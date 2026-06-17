@@ -570,7 +570,7 @@ export function ProductShowcase() {
 
           <h2 className="text-3xl md:text-[44px] lg:text-[48px] font-black uppercase tracking-tight mb-4 leading-tight text-white">
             ESTRUTURAS COM NEUROMARKETING <br />
-            FEITAS PARA <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">CONVERTER SEUS LEADS</span>
+            FEITAS PARA <span className="gradient-text">CONVERTER</span> SEUS <span className="gradient-text">LEADS</span>
           </h2>
           
           <p className="text-[#a0a0a0] text-sm sm:text-base md:text-lg leading-relaxed font-semibold">

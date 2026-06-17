@@ -303,7 +303,7 @@ export function AboutTrust() {
       <div className="max-w-7xl mx-auto relative z-10 text-center">
         
         <h2 className="text-3xl md:text-[48px] font-black mb-6 uppercase tracking-tight leading-tight text-white">
-          Sua marca em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">boas mãos</span> nacionais
+          Sua marca em boas <span className="gradient-text">mãos</span> nacionais
         </h2>
         
         <p className="text-[#a0a0a0] text-[17px] mb-16 max-w-3xl mx-auto leading-relaxed font-semibold text-center">

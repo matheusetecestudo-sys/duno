@@ -93,7 +93,7 @@ export function HowItWorks() {
 
         <h2 className="text-3xl md:text-[44px] lg:text-[48px] font-black uppercase tracking-tight mb-4 leading-tight text-white">
           COMO FUNCIONA <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">EM 48 HORAS</span>
+          EM <span className="gradient-text">48 HORAS</span>
         </h2>
         
         <p className="text-[#a0a0a0] text-[17px] max-w-[600px] mx-auto leading-relaxed font-semibold mb-20">
@@ -227,7 +227,7 @@ export function Benefits() {
 
           <h2 className="text-3xl md:text-[44px] lg:text-[48px] font-black uppercase tracking-tight mb-4 leading-tight text-white">
             VANTAGENS EXCLUSIVAS <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">DA NOSSA ASSINATURA</span>
+             DA NOSSA <span className="gradient-text">ASSINATURA</span>
           </h2>
         </div>
 
@@ -298,7 +298,7 @@ export function BeforeAfter() {
 
         <h2 className="text-3xl md:text-[44px] lg:text-[48px] font-black uppercase tracking-tight mb-4 leading-tight text-white">
           A DIFERENÇA QUE <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">A DUNO FAZ NO SEU NEGÓCIO</span>
+          A <span className="gradient-text">DUNO</span> FAZ NO SEU <span className="gradient-text">NEGÓCIO</span>
         </h2>
 
         {/* 50/50 Split Board with Vertical Gradient Divider */}
@@ -404,7 +404,7 @@ export function Comparison() {
 
         <h2 className="text-3xl md:text-[44px] lg:text-[48px] font-black uppercase tracking-tight mb-4 leading-tight text-white">
           POR QUE A DUNO É <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">A ESCOLHA MAIS INTELIGENTE</span>
+          A ESCOLHA MAIS <span className="gradient-text">INTELIGENTE</span>
         </h2>
         <p className="text-[#a0a0a0] text-sm sm:text-base font-bold uppercase tracking-widest mb-4">
           Compare com as outras formas do mercado

@@ -680,7 +680,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         <section id="beneficios-mobile" className="py-16 px-5 bg-[#121212] border-y border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
-            Vantagens exclusivas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">da nossa assinatura</span>
+            Vantagens exclusivas da nossa <span className="gradient-text">assinatura</span>
           </h2>
         </div>
 

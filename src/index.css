@@ -49,6 +49,14 @@
     font-family: var(--font-display);
     @apply font-black tracking-[-0.05em] uppercase leading-[1.12];
   }
+
+  /* Global gradient on all headings */
+  h2, h3, h4, h5, h6 {
+    background: linear-gradient(90deg, #f0134d 0%, #e91e8c 50%, #9b1fbd 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
 }
 
 .hide-scrollbar {
@@ -89,34 +97,33 @@
   @apply hover:shadow-[0_15px_40px_rgba(155,31,189,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 font-bold cursor-pointer;
 }
 
-/* Premium Button with Brand Gradient */
+/* Premium Gold Button */
 .gold-premium-btn {
   background: linear-gradient(
     90deg,
-    #f0134d 0%,
-    #e91e8c 50%,
-    #9b1fbd 100%
+    #c8860a 0%,
+    #f5c518 45%,
+    #e8a500 100%
   );
-  color: #ffffff;
-  font-weight: 800;
+  color: #000000;
+  font-weight: 900;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0;
-  border-radius: 9999px; /* Pill format */
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 220, 80, 0.5);
   height: 58px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   padding-left: 38px;
-  padding-right: 32px; /* Less padding on the right to keep the icon closer to the edge */
+  padding-right: 32px;
   position: relative;
-  /* Premium depth and glow with pink shadow */
-  box-shadow: 
-    0 10px 25px rgba(240, 19, 77, 0.28),
-    0 4px 10px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 10px 30px rgba(200, 134, 10, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   outline: none;
@@ -128,18 +135,18 @@
 .gold-premium-btn svg {
   width: 16px !important;
   height: 16px !important;
-  stroke: #ffffff !important;
+  stroke: #000000 !important;
   stroke-width: 2.5px !important;
   transition: transform 0.3s ease;
 }
 
 .gold-premium-btn:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.08);
   transform: translateY(-2px);
-  box-shadow: 
-    0 14px 35px rgba(240, 19, 77, 0.35),
-    0 6px 14px rgba(0, 0, 0, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 14px 40px rgba(200, 134, 10, 0.55),
+    0 6px 14px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .gold-premium-btn:hover svg {
@@ -148,14 +155,14 @@
 
 .gold-premium-btn:active {
   transform: scale(0.98) translateY(0px);
-  box-shadow: 
-    0 4px 12px rgba(240, 19, 77, 0.18),
+  box-shadow:
+    0 4px 14px rgba(200, 134, 10, 0.3),
     0 2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .gold-premium-btn:focus-visible {
-  outline: 2.5px solid #e91e8c !important;
+  outline: 2.5px solid #f5c518 !important;
   outline-offset: 3px;
 }
 
@@ -193,7 +200,16 @@
 
 
 .icon-box {
-  @apply w-12 h-12 rounded-lg bg-[#f0134d] flex items-center justify-center text-black mb-8 shadow-[0_0_15px_rgba(240,19,77,0.5)];
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #f0134d 0%, #e91e8c 50%, #9b1fbd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-bottom: 32px;
+  box-shadow: 0 0 20px rgba(240, 19, 77, 0.45);
 }
 
 .brand-glow {

@@ -1283,12 +1283,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           Cuidado local em <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">boas mãos</span>
         </h2>
         
-        <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-10 max-w-[320px] mx-auto">
-          Somos uma empresa dedicada ao sucesso comercial online do micro e pequeno profissional autônomo e de clínicas.
-        </p>
-
-        {/* 3 seals in line */}
-        <div className="flex gap-2 justify-between">
+        {/* 3 trust cards stacked vertically — same size as other pink-cards */}
+        <div className="flex flex-col gap-4 w-full">
           {[
             { 
               t: (
@@ -1296,16 +1292,16 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   Nacional de <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">verdade</span>
                 </span>
               ), 
-              text: "Suporte 100% PT-BR", 
+              text: "Sediada no Brasil, emitindo nota fiscal e com suporte 100% PT-BR para o seu negócio local.", 
               iconName: "Landmark" 
             },
             { 
               t: (
                 <span>
-                  Foco em <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">CRO</span>
+                  Foco em <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">Conversão</span>
                 </span>
               ), 
-              text: "Design para vender", 
+              text: "Design de alta performance desenhado para captar e converter cada potencial cliente que entra na sua página.", 
               iconName: "Award" 
             },
             { 
@@ -1314,21 +1310,21 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   Sem <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black pb-0.5">Robôs</span>
                 </span>
               ), 
-              text: "Atendimento humano", 
+              text: "Suporte 100% humanizado e ágil diretamente pelo WhatsApp. Pessoas reais prontas para lhe atender.", 
               iconName: "Heart" 
             }
           ].map((v, i) => {
             return (
               <div 
-                key={i}
-                className="pink-card text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square select-none transition-all duration-300 !p-3.5 !pb-4"
+                key={i} 
+                className="pink-card hover:scale-[1.02] !p-6 !pb-8 gap-4 text-left flex flex-row items-start"
               >
-                <div className="flex justify-center mb-1">
-                  <StyledIcon iconName={v.iconName} size={16} containerSize={36} flat={true} className="mx-auto shrink-0" />
+                <div className="shrink-0 mt-1">
+                  <StyledIcon iconName={v.iconName} size={18} containerSize={42} flat={true} className="!mx-0 !my-0" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] min-[370px]:text-[11px] font-black uppercase leading-tight mb-1 text-white w-fit mx-auto">{v.t}</h4>
-                  <p className="text-[9px] text-[#a0a0a0] font-bold leading-normal">{v.text}</p>
+                  <h4 className="text-[13px] font-black uppercase leading-tight mb-2 w-fit">{v.t}</h4>
+                  <p className="text-[11px] text-[#a0a0a0] font-semibold leading-relaxed">{v.text}</p>
                 </div>
               </div>
             );

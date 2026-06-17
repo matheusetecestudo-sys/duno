@@ -44,15 +44,20 @@ export function StyledIcon({
 
   if (flat) {
     return (
-      <div 
-        className={`flex items-center justify-start shrink-0 select-none ${className}`}
-        style={{ width: size, height: size }}
+      <div
+        className={`flex items-center justify-center shrink-0 select-none rounded-xl ${className}`}
+        style={{
+          width: containerSize,
+          height: containerSize,
+          background: "linear-gradient(135deg, #f0134d 0%, #e91e8c 55%, #9b1fbd 100%)",
+          boxShadow: "0 0 18px rgba(240,19,77,0.45)",
+        }}
       >
-        <SelectedIcon 
-          size={size} 
-          stroke="#f0134d" 
+        <SelectedIcon
+          size={size}
+          stroke="#ffffff"
           strokeWidth={2.4}
-          className="drop-shadow-[0_0_8px_rgba(240,19,77,0.65)]"
+          className="drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]"
         />
       </div>
     );

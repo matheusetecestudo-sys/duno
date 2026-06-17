@@ -78,7 +78,7 @@ export function Problem() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6"
+                className="pink-card hover:scale-[1.02] relative z-10 !p-8 !pb-10 gap-6"
               >
                 <div className="flex justify-start">
                   <StyledIcon iconName={p.iconName} size={24} containerSize={48} flat={true} className="!mx-0 !my-0" />
@@ -196,7 +196,7 @@ export function Solution() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6 justify-between animate-glow"
+                className="pink-card hover:scale-[1.02] relative z-10 !p-8 !pb-10 gap-6 justify-between animate-glow"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-xl rounded-full pointer-events-none" />
                 <div>

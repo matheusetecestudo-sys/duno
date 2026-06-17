@@ -174,24 +174,24 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05, duration: 0.4 }}
                   viewport={{ once: true }}
-                  className="shrink-0 group/card flex flex-col justify-between p-4 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 text-center"
+                  className="shrink-0 flex flex-col gap-4 text-left"
                 >
-                  {/* Image container with fixed height and overflow hidden */}
+                  {/* Card containing ONLY the image viewport */}
                   <div 
                     onClick={() => handleOpenDemo(item)}
-                    className="w-full h-[320px] rounded-xl overflow-hidden relative bg-[#121212] cursor-pointer"
+                    className="w-full h-[320px] rounded-[20px] bg-[#0F0108] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 transition-all duration-300"
                   >
                     <img 
                       src={item.img} 
                       alt={item.niche} 
-                      className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/card:translate-y-[calc(-100%+320px)] active:translate-y-[calc(-100%+320px)]"
+                      className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/img:translate-y-[calc(-100%+320px)] active:translate-y-[calc(-100%+320px)]"
                       style={{ height: 'auto' }}
                       loading="lazy"
                       referrerPolicy="no-referrer"
                     />
                     
                     {/* Visual click overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
                       <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
                         <Eye size={12} className="stroke-[3]" />
                         <span>Detalhes</span>
@@ -199,10 +199,15 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  {/* Niche name below card image */}
-                  <h3 className="text-lg font-black text-white uppercase mt-4 mb-1">
-                    {item.niche}
-                  </h3>
+                  {/* Niche details and Novo badge below card image */}
+                  <div className="flex items-center justify-between mt-2 px-1">
+                    <h3 className="text-lg font-black text-white uppercase tracking-tight">
+                      {item.niche}
+                    </h3>
+                    <span className="px-2.5 py-1 rounded bg-[#e10270]/10 text-[10px] font-black text-[#e10270] uppercase border border-[#e10270]/20 tracking-wider">
+                      Novo
+                    </span>
+                  </div>
 
                   {/* Button for the site under the niche name */}
                   <div className="mt-1">
@@ -210,7 +215,7 @@ export default function Portfolio() {
                       href="#"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="gold-premium-btn !h-10 !text-xs !px-4 !py-2 w-full flex items-center justify-center gap-2"
+                      className="gold-premium-btn !h-11 !text-xs w-full flex items-center justify-center gap-2"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <span>Visualizar Site</span>

@@ -311,26 +311,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           HERO MOBILE
           ---------------------------------------------------------------------- */}
       <section
-        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#121212]"
-        style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
+        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0F0108]"
+        style={{ paddingTop: '110px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
       >
-        {/* Background Image — Mobile Cards Showcase */}
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
-          style={{
-            backgroundImage: "url('/img04mobile.png')",
-          }}
-        />
-
-        {/* Dark overlay — dimming the background so text is perfectly readable */}
-        <div className="absolute inset-0 bg-[#121212]/62 pointer-events-none z-[1]" />
-        {/* Gradient — bottom fade to dark */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none z-[2]" />
-        {/* Gradient — top fade to dark (navbar area) */}
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#121212]/80 to-transparent pointer-events-none z-[2]" />
-
         {/* Ambient pink glow accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/8 blur-[100px] rounded-full pointer-events-none z-[1]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#e10270]/8 blur-[100px] rounded-full pointer-events-none z-0" />
 
         {/* 1. Header Badge */}
         <div className="relative z-10 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#12020a]/90 border border-[#f0134d]/45 text-white text-xs font-extrabold tracking-wide mb-6 shadow-[0_0_15px_rgba(240,19,77,0.25)]">
@@ -343,7 +328,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black tracking-widest uppercase text-[10px]">⚡ Seu site no ar completo em 48h</span>
         </div>
 
-        {/* 2. Headline — full gradient on both lines, matching desktop style */}
+        {/* 2. Headline */}
         <h1 className="relative z-10 font-black mb-4 text-center px-1 text-2xl min-[370px]:text-[28px] uppercase tracking-tight leading-[1.15]">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Seu site de alta conversão</span>
           <span className="block mt-1.5 text-white font-black">sem complicação</span>
@@ -392,6 +377,18 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             <span className="block text-xl font-black text-[#f0134d] leading-none">48h</span>
             <span className="text-[9px] font-black text-neutral-400 uppercase tracking-wider block mt-0.5">Pronto</span>
           </div>
+        </div>
+
+        {/* Mobile Showcase mockup container */}
+        <div className="relative z-10 w-full max-w-[340px] mt-8 rounded-[24px] overflow-hidden border-2 border-[#e10270]/30 shadow-[0_15px_35px_rgba(225,2,112,0.15)] bg-[#0F0108] p-1.5">
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 rounded-full bg-black z-20 flex items-center justify-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#111]" />
+          </div>
+          <img 
+            src="/img04mobile.png" 
+            alt="Modelo Mobile Premium Duno" 
+            className="w-full h-auto object-cover rounded-[18px]"
+          />
         </div>
       </section>
 
@@ -515,7 +512,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
+                className="pink-card hover:scale-[1.01] transition-all duration-300 flex flex-col gap-4 text-left"
               >
                 <div className="flex justify-start">
                   <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="!mx-0 !my-0 shrink-0" />
@@ -631,7 +628,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="w-[78vw] max-w-[300px] shrink-0 snap-start p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
+                  className="pink-card w-[78vw] max-w-[300px] shrink-0 snap-start relative flex flex-col gap-4 text-left"
                 >
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
                   <div className="flex items-center gap-4">
@@ -823,7 +820,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             return (
               <div 
                 key={i} 
-                className="p-6 pb-7 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_20px_rgba(240,19,77,0.3)] transition-all duration-300 flex flex-col gap-4 text-left"
+                className="pink-card relative flex flex-col gap-4 text-left"
               >
                 {/* Icon Wrapper badge */}
                 <div className="flex justify-start">
@@ -950,7 +947,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               return (
                 <div 
                   key={i} 
-                  className="p-5 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] flex items-start gap-4 hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
+                  className="pink-card flex items-start gap-4 transition-all duration-300 !p-5"
                 >
                   <StyledIcon iconName={v.iconName} size={18} containerSize={40} flat={true} className="shrink-0 !mx-0 !my-0" />
                   <div>
@@ -1002,17 +999,17 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {MOBILE_NICHES.map((item, i) => (
               <div 
                 key={i}
-                className="w-[280px] shrink-0 snap-start group/card flex flex-col justify-between p-4 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden transition-all duration-300 shadow-lg text-center"
+                className="w-[280px] shrink-0 snap-start flex flex-col gap-3 text-left"
               >
-                {/* Image container with fixed height and overflow hidden */}
+                {/* Card containing ONLY the image viewport */}
                 <div 
                   onClick={() => setSelectedModel(item)}
-                  className="w-full h-[300px] rounded-xl overflow-hidden relative bg-[#121212] cursor-pointer"
+                  className="w-full h-[300px] rounded-[20px] bg-[#0F0108] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg transition-all duration-300"
                 >
                   <img 
                     src={item.img} 
                     alt={item.niche} 
-                    className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/card:translate-y-[calc(-100%+300px)] active:translate-y-[calc(-100%+300px)]"
+                    className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/img:translate-y-[calc(-100%+300px)] active:translate-y-[calc(-100%+300px)]"
                     style={{ height: 'auto' }}
                     loading="lazy"
                     referrerPolicy="no-referrer"
@@ -1024,10 +1021,15 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   </div>
                 </div>
 
-                {/* Niche name below card image */}
-                <h3 className="text-base font-black text-white uppercase mt-4 mb-1">
-                  {item.niche}
-                </h3>
+                {/* Niche details and Novo badge below card image */}
+                <div className="flex items-center justify-between mt-1 px-1">
+                  <h3 className="text-base font-black text-white uppercase tracking-tight">
+                    {item.niche}
+                  </h3>
+                  <span className="px-2.5 py-0.5 rounded bg-[#e10270]/10 text-[9px] font-black text-[#e10270] uppercase border border-[#e10270]/20 tracking-wider">
+                    Novo
+                  </span>
+                </div>
 
                 {/* Button for the site under the niche name */}
                 <div className="mt-1">
@@ -1035,7 +1037,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                     href="#"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="gold-premium-btn !h-10 !text-[10px] !px-4 !py-2 w-full flex items-center justify-center gap-2"
+                    className="gold-premium-btn !h-10 !text-[10px] w-full flex items-center justify-center gap-2"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span>Visualizar Site</span>
@@ -1106,7 +1108,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {CHATS.map((item, idx) => (
               <div 
                 key={idx}
-                className="w-[85vw] max-w-[320px] shrink-0 snap-start p-6 pb-8 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden hover:shadow-[0_0_20px_rgba(225,2,112,0.35)] transition-all duration-300 text-left flex flex-col justify-between"
+                className="pink-card w-[85vw] max-w-[320px] shrink-0 snap-start relative flex flex-col justify-between transition-all duration-300"
               >
                 {/* Decorative quote icon */}
                 <div className="absolute top-4 right-4 text-[#f0134d]/5 text-5xl font-black leading-none select-none pointer-events-none">"</div>
@@ -1459,7 +1461,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             return (
               <div 
                 key={i}
-                className="p-3.5 pb-4 rounded-[16px] bg-[#410e28] border-2 border-[#e10270] text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square select-none hover:shadow-[0_0_15px_rgba(240,19,77,0.25)] transition-all duration-300"
+                className="pink-card text-center flex-1 min-w-[100px] flex flex-col justify-between aspect-square select-none transition-all duration-300 !p-3.5 !pb-4"
               >
                 <div className="flex justify-center mb-1">
                   <StyledIcon iconName={v.iconName} size={16} containerSize={36} flat={true} className="mx-auto shrink-0" />

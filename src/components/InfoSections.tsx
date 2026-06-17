@@ -111,8 +111,7 @@ export function HowItWorks() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative z-10 overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-4"
+                className="pink-card hover:scale-[1.02] relative z-10 !p-8 !pb-10 gap-4"
               >
                 {/* Large semi-transparent background step number */}
                 <span className="absolute top-4 right-6 text-5xl font-black text-white/[0.05] group-hover:text-[#f0134d]/10 transition-colors select-none font-mono">
@@ -287,8 +286,7 @@ export function Benefits() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05, duration: 0.4 }}
-                  viewport={{ once: true }}
-                  className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start shrink-0"
+                  className="pink-card hover:scale-[1.02] shrink-0 !p-8 !pb-10"
                 >
                   <div className="mb-6">
                     <StyledIcon iconName={b.iconName} size={24} containerSize={48} flat={true} />
@@ -479,7 +477,7 @@ export function Comparison() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-12 relative z-10 px-2">
           
           {/* Coluna 1 — Agência Tradicional */}
-          <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-[24px] p-8 flex flex-col justify-between shrink-0 text-left font-sans">
+          <div className="pink-card opacity-80 !rounded-[24px] !p-8 flex flex-col justify-between shrink-0 text-left">
             <div>
               <div className="bg-neutral-800 text-white px-4 py-2 rounded-xl text-center font-bold text-xs uppercase tracking-wider mb-6">
                 Agência Tradicional
@@ -544,7 +542,7 @@ export function Comparison() {
           </div>
 
           {/* Coluna 3 — Freelancer */}
-          <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-[24px] p-8 flex flex-col justify-between shrink-0 text-left">
+          <div className="pink-card opacity-80 !rounded-[24px] !p-8 flex flex-col justify-between shrink-0 text-left">
             <div>
               <div className="bg-neutral-800 text-white px-4 py-2 rounded-xl text-center font-bold text-xs uppercase tracking-wider mb-6">
                 Templates Soltos
@@ -654,7 +652,7 @@ export function ProductShowcase() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
-                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between"
+                className="pink-card hover:scale-[1.02] !p-8 !pb-10"
               >
                 {/* Central Icon container */}
                 <div className="mb-6 flex justify-start">

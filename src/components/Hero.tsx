@@ -4,23 +4,13 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section 
-      className="relative min-h-[75vh] lg:min-h-[550px] lg:h-[75vh] lg:max-h-[750px] flex items-center justify-center px-6 sm:px-12 py-16 lg:py-0 overflow-hidden bg-[#121212] text-white"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 pt-32 pb-24 overflow-hidden bg-[#0F0108] text-white"
     >
-      {/* Background Banner Image covering the entire screen */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 pointer-events-none"
-        style={{ 
-          backgroundImage: "url('/img-desktop-showcase.png')",
-        }}
-      />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-[#121212]/65 pointer-events-none z-[1]" />
-
       {/* Background soft ambient lights only */}
-      <div className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] bg-[#f0134d]/6 blur-[160px] rounded-full pointer-events-none z-[1] animate-pulse" />
-      <div className="absolute left-[-10%] bottom-[10%] w-[400px] h-[400px] bg-[#7c3aed]/4 blur-[160px] rounded-full pointer-events-none z-[1]" />
+      <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-[#e10270]/8 blur-[160px] rounded-full pointer-events-none z-0 animate-pulse" />
+      <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-[#9b1fbd]/6 blur-[160px] rounded-full pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center pt-24 lg:pt-32 pb-12">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
         
         <div className="w-full flex flex-col items-center text-center">
           {/* Badge topo */}
@@ -111,6 +101,28 @@ export default function Hero() {
               <span className="block text-2xl sm:text-3xl font-black text-[#f0134d] leading-none">48h</span>
               <span className="text-[10px] font-black text-neutral-400 uppercase tracking-wider block mt-1">Pronto</span>
             </div>
+          </motion.div>
+
+          {/* Browser Showcase Mockup */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="w-full max-w-4xl mt-12 rounded-[20px] overflow-hidden border-2 border-[#e10270]/30 shadow-[0_20px_50px_rgba(225,2,112,0.15)] bg-[#0F0108] p-1.5"
+          >
+            <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/5 bg-black/45">
+              <div className="w-3 h-3 rounded-full bg-[#ef4444]/70" />
+              <div className="w-3 h-3 rounded-full bg-[#eab308]/70" />
+              <div className="w-3 h-3 rounded-full bg-[#22c55e]/70" />
+              <div className="ml-4 px-3 py-1 rounded bg-white/5 text-[10px] text-neutral-500 font-mono select-none w-48 text-center truncate">
+                duno.com.br/modelo-premium
+              </div>
+            </div>
+            <img 
+              src="/img-desktop-showcase.png" 
+              alt="Modelo Premium Duno" 
+              className="w-full h-auto object-cover rounded-b-xl"
+            />
           </motion.div>
         </div>
 

@@ -69,8 +69,7 @@ export function SocialProof() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col justify-between"
+              className="pink-card hover:scale-[1.02] !p-8 !pb-10"
             >
               {/* Background elegant Quote Icon */}
               <Quote className="absolute top-6 right-6 w-12 h-12 text-[#f0134d]/5 group-hover:text-[#f0134d]/10 transition-colors pointer-events-none stroke-[2]" />
@@ -141,7 +140,7 @@ export function Offer() {
           Sem taxas ocultas, sem preocupação com programação. Deixe tudo nas mãos de nossos engenheiros e mude quando quiser.
         </p>
         
-        <div className="p-8 sm:p-12 relative border-2 border-[#e10270] bg-[#410e28] rounded-[20px] shadow-2xl">
+        <div className="pink-card shadow-2xl !p-8 !sm:p-12 relative !overflow-visible">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] text-[11px] font-black uppercase tracking-widest text-white shadow-md whitespace-nowrap animate-pulse">
             ★ ATIVAÇÃO EM ATÉ 48 HORAS
           </div>
@@ -316,7 +315,7 @@ export function AboutTrust() {
             return (
               <div 
                 key={i} 
-                className="p-8 pb-10 rounded-[20px] bg-[#410e28] border-2 border-[#e10270] relative overflow-hidden group hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:scale-[1.02] transition-all duration-300 text-left flex flex-col items-start gap-6"
+                className="pink-card hover:scale-[1.02] !p-8 !pb-10 gap-6"
               >
                 <div className="flex justify-start">
                   <StyledIcon iconName={v.iconName} size={24} containerSize={48} flat={true} className="shrink-0 !mx-0 !my-0" />

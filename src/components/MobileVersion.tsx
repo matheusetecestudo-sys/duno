@@ -311,11 +311,26 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           HERO MOBILE
           ---------------------------------------------------------------------- */}
       <section
-        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0F0108]"
-        style={{ paddingTop: '110px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
+        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#121212]"
+        style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
       >
+        {/* Background Image — Mobile Cards Showcase */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none z-0"
+          style={{
+            backgroundImage: "url('/img04mobile.png')",
+          }}
+        />
+
+        {/* Dark overlay — dimming the background so text is perfectly readable */}
+        <div className="absolute inset-0 bg-[#121212]/62 pointer-events-none z-[1]" />
+        {/* Gradient — bottom fade to dark */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none z-[2]" />
+        {/* Gradient — top fade to dark (navbar area) */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#121212]/80 to-transparent pointer-events-none z-[2]" />
+
         {/* Ambient pink glow accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#e10270]/8 blur-[100px] rounded-full pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/8 blur-[100px] rounded-full pointer-events-none z-[1]" />
 
         {/* 1. Header Badge */}
         <div className="relative z-10 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#12020a]/90 border border-[#f0134d]/45 text-white text-xs font-extrabold tracking-wide mb-6 shadow-[0_0_15px_rgba(240,19,77,0.25)]">
@@ -377,18 +392,6 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             <span className="block text-xl font-black text-[#f0134d] leading-none">48h</span>
             <span className="text-[9px] font-black text-neutral-400 uppercase tracking-wider block mt-0.5">Pronto</span>
           </div>
-        </div>
-
-        {/* Mobile Showcase mockup container */}
-        <div className="relative z-10 w-full max-w-[340px] mt-8 rounded-[24px] overflow-hidden border-2 border-[#e10270]/30 shadow-[0_15px_35px_rgba(225,2,112,0.15)] bg-[#0F0108] p-1.5">
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 rounded-full bg-black z-20 flex items-center justify-center">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#111]" />
-          </div>
-          <img 
-            src="/img04mobile.png" 
-            alt="Modelo Mobile Premium Duno" 
-            className="w-full h-auto object-cover rounded-[18px]"
-          />
         </div>
       </section>
 
@@ -556,101 +559,80 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </p>
         </div>
 
-        {/* Horizontal Carousel of service feature cards */}
-        <div className="w-full relative z-10 mb-10">
-          {/* Scroll fade mask on right */}
-          <div className="relative overflow-hidden">
-            <div className="absolute top-0 bottom-0 right-0 w-10 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none" />
-            <div
-              className="flex gap-4 overflow-x-auto pb-4 px-5 snap-x snap-mandatory"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-              onScroll={(e) => {
-                const sl = (e.target as HTMLDivElement).scrollLeft;
-                const cw = (e.target as HTMLDivElement).scrollWidth / 6;
-                setSolucaoIndex(Math.round(sl / cw));
-              }}
-            >
-              {[
-                { 
-                  title: (
-                    <span>
-                      WhatsApp de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Alta Conversão</span>
-                    </span>
-                  ), 
-                  desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
-                  iconName: "MessageSquare" 
-                },
-                { 
-                  title: (
-                    <span>
-                      Agendamento <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Prático</span>
-                    </span>
-                  ), 
-                  desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
-                  iconName: "CalendarDays" 
-                },
-                { 
-                  title: (
-                    <span>
-                      Otimizado para <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Google</span>
-                    </span>
-                  ), 
-                  desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
-                  iconName: "Search" 
-                },
-                { 
-                  title: (
-                    <span>
-                      Google <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Maps Integrado</span>
-                    </span>
-                  ), 
-                  desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
-                  iconName: "MapPin" 
-                },
-                { 
-                  title: (
-                    <span>
-                      Design <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Mobile-First</span>
-                    </span>
-                  ), 
-                  desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
-                  iconName: "Smartphone" 
-                },
-                { 
-                  title: (
-                    <span>
-                      100% <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Personalizado</span>
-                    </span>
-                  ), 
-                  desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
-                  iconName: "Sparkles" 
-                }
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="pink-card w-[78vw] max-w-[300px] shrink-0 snap-start relative flex flex-col gap-4 text-left"
-                >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
-                  <div className="flex items-center gap-4">
-                    <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="shrink-0 !mx-0 !my-0" />
-                    <h3 className="text-[15px] font-black text-white tracking-tight leading-snug">{item.title}</h3>
-                  </div>
-                  <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
-                  <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#f0134d] mt-1">
-                    <span>Ativo na Assinatura</span>
-                    <span>✓ Incluso</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Dots */}
-          <div className="flex justify-center gap-1.5 mt-2">
-            {[0,1,2,3,4,5].map((i) => (
+        {/* Vertical list of service feature cards */}
+        <div className="w-full px-5 mb-10 z-10 relative">
+          <div className="grid grid-cols-1 gap-4.5">
+            {[
+              { 
+                title: (
+                  <span>
+                    WhatsApp de <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Alta Conversão</span>
+                  </span>
+                ), 
+                desc: "Botão flutuante perfeitamente posicionado e pré-configurado com mensagem personalizada para direcionar novos contatos direto para seu WhatsApp.", 
+                iconName: "MessageSquare" 
+              },
+              { 
+                title: (
+                  <span>
+                    Agendamento <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Prático</span>
+                  </span>
+                ), 
+                desc: "Formulário estratégico para que novos pacientes ou clientes agendem consultas e serviços de forma totalmente rápida.", 
+                iconName: "CalendarDays" 
+              },
+              { 
+                title: (
+                  <span>
+                    Otimizado para <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Google</span>
+                  </span>
+                ), 
+                desc: "Programado sob as estritas diretrizes oficiais de indexação local (SEO), ampliando sua visibilidade na sua cidade.", 
+                iconName: "Search" 
+              },
+              { 
+                title: (
+                  <span>
+                    Google <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Maps Integrado</span>
+                  </span>
+                ), 
+                desc: "Integração do mapa interativo oficial para que seus clientes tracem rotas físicas exatas até seu consultório com apenas um toque.", 
+                iconName: "MapPin" 
+              },
+              { 
+                title: (
+                  <span>
+                    Design <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Mobile-First</span>
+                  </span>
+                ), 
+                desc: "Interface ultra-veloz, desenvolvida sob medida para carregar velozmente até nas conexões 3G/4G mais instáveis.", 
+                iconName: "Smartphone" 
+              },
+              { 
+                title: (
+                  <span>
+                    100% <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Personalizado</span>
+                  </span>
+                ), 
+                desc: "Nossa equipe adapta todo o layout com sua identidade visual: logotipo, paleta de cores e fotografias reais do seu consultório.", 
+                iconName: "Sparkles" 
+              }
+            ].map((item, idx) => (
               <div
-                key={i}
-                className={`h-1.5 rounded-full transition-all duration-300 ${solucaoIndex === i ? "w-4 bg-[#f0134d]" : "w-1.5 bg-neutral-700"}`}
-              />
+                key={idx}
+                className="pink-card w-full relative flex flex-col gap-4 text-left"
+              >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#f0134d]/5 to-transparent blur-lg rounded-full pointer-events-none" />
+                <div className="flex items-center gap-4">
+                  <StyledIcon iconName={item.iconName} size={20} containerSize={44} flat={true} className="shrink-0 !mx-0 !my-0" />
+                  <h3 className="text-[15px] font-black text-white tracking-tight leading-snug">{item.title}</h3>
+                </div>
+                <p className="text-[#a0a0a0] text-xs leading-relaxed font-semibold">{item.desc}</p>
+                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-black uppercase text-[#f0134d] mt-1">
+                  <span>Ativo na Assinatura</span>
+                  <span>✓ Incluso</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -975,31 +957,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           Deslize com o polegar para explorar. Toque para abrir detalhes e demonstração direta.
         </p>
 
-        {/* Marquee viewport with gradient mask on right */}
-        <div className="relative w-full overflow-hidden">
-          {/* Scroll fade highlight overlay only on the right to indicate more */}
-          <div className="absolute top-0 bottom-0 right-0 w-12 bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none" />
-
-          {/* Scroll container */}
-          <div 
-            className="flex gap-4 overflow-x-auto pb-6 px-5 snap-x snap-mandatory"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none"
-            }}
-            onScroll={(e) => {
-              const scrollLeft = (e.target as HTMLDivElement).scrollLeft;
-              const cardWidth = 280 + 16;
-              const approxIdx = Math.round(scrollLeft / cardWidth);
-              if (approxIdx >= 0 && approxIdx < MOBILE_NICHES.length) {
-                setPortfolioIndex(approxIdx);
-              }
-            }}
-          >
+        {/* 1x8 Grid of Niche Cards */}
+        <div className="w-full px-5 mb-10">
+          <div className="grid grid-cols-1 gap-8">
             {MOBILE_NICHES.map((item, i) => (
               <div 
                 key={i}
-                className="w-[280px] shrink-0 snap-start flex flex-col gap-3 text-left"
+                className="w-full flex flex-col gap-3 text-left"
               >
                 {/* Card containing ONLY the image viewport */}
                 <div 
@@ -1030,21 +994,9 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                     Novo
                   </span>
                 </div>
-
-
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Scroll Pagination Indicators */}
-        <div className="flex justify-center gap-1.5 mt-2">
-          {MOBILE_NICHES.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1.5 rounded-full transition-all duration-300 ${portfolioIndex === i ? "w-4 bg-[#f0134d]" : "w-1.5 bg-neutral-700"}`} 
-            />
-          ))}
         </div>
 
         {/* Segment customized request box */}
@@ -1078,25 +1030,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           Veja a opinião real de profissionais que multiplicaram a conversão de seus clientes.
         </p>
 
-        {/* Carrossel com cards premium idênticos ao desktop */}
-        <div className="w-full overflow-hidden relative">
-          <div className="absolute top-0 bottom-0 right-0 w-10 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none" />
-          <div 
-            className="flex gap-4 overflow-x-auto pb-4 px-5 snap-x snap-mandatory"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            onScroll={(e) => {
-              const scrollLeft = (e.target as HTMLDivElement).scrollLeft;
-              const cardWidth = (e.target as HTMLDivElement).scrollWidth / CHATS.length;
-              const approxIdx = Math.round(scrollLeft / cardWidth);
-              if (approxIdx >= 0 && approxIdx < CHATS.length) {
-                setTestimonialIndex(approxIdx);
-              }
-            }}
-          >
+        {/* Vertical stack of premium cards identical to desktop */}
+        <div className="w-full px-5 mb-8">
+          <div className="grid grid-cols-1 gap-6">
             {CHATS.map((item, idx) => (
               <div 
                 key={idx}
-                className="pink-card w-[85vw] max-w-[320px] shrink-0 snap-start relative flex flex-col justify-between transition-all duration-300"
+                className="pink-card w-full relative flex flex-col justify-between transition-all duration-300"
               >
                 {/* Decorative quote icon */}
                 <div className="absolute top-4 right-4 text-[#f0134d]/5 text-5xl font-black leading-none select-none pointer-events-none">"</div>
@@ -1133,16 +1073,6 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-1.5 mt-3">
-          {CHATS.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1.5 rounded-full transition-all duration-300 ${testimonialIndex === i ? "w-4 bg-[#f0134d]" : "w-1.5 bg-neutral-700"}`} 
-            />
-          ))}
         </div>
       </section>
       </RevealSection>

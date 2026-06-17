@@ -87,20 +87,6 @@ const NICHES = [
 
 export default function Portfolio() {
   const [selectedModel, setSelectedModel] = useState<typeof NICHES[0] | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const visibleCount = 3;
-  const maxIndex = NICHES.length - visibleCount;
-
-  const goTo = (idx: number) => {
-    const clamped = Math.max(0, Math.min(idx, maxIndex));
-    setActiveIndex(clamped);
-    if (trackRef.current) {
-      const cardWidth = trackRef.current.scrollWidth / NICHES.length;
-      trackRef.current.scrollTo({ left: cardWidth * clamped, behavior: "smooth" });
-    }
-  };
 
   const handleOpenDemo = (niche: typeof NICHES[0]) => {
     setSelectedModel(niche);
@@ -133,103 +119,51 @@ export default function Portfolio() {
           </span>
         </div>
 
-        {/* Carousel Wrapper with controls */}
-        <div className="relative mb-12">
-          {/* Prev Button */}
-          <button
-            onClick={() => goTo(activeIndex - 1)}
-            disabled={activeIndex === 0}
-            className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#410e28] border-2 border-[#e10270] flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#e10270] transition-all duration-200 shadow-lg"
-            aria-label="Anterior"
-          >
-            <ChevronLeft size={20} strokeWidth={2.5} />
-          </button>
-
-          {/* Next Button */}
-          <button
-            onClick={() => goTo(activeIndex + 1)}
-            disabled={activeIndex >= maxIndex}
-            className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#410e28] border-2 border-[#e10270] flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#e10270] transition-all duration-200 shadow-lg"
-            aria-label="Próximo"
-          >
-            <ChevronRight size={20} strokeWidth={2.5} />
-          </button>
-
-          {/* Scrollable Track */}
-          <div
-            ref={trackRef}
-            className="overflow-hidden"
-          >
+        {/* 2x4 Grid of Niche Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 text-left">
+          {NICHES.map((item, i) => (
             <motion.div
-              className="flex gap-6"
-              animate={{ x: `-${activeIndex * (100 / visibleCount)}%` }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              style={{ width: `${(NICHES.length / visibleCount) * 100}%` }}
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-4 text-left"
             >
-              {NICHES.map((item, i) => (
-                <motion.div
-                  key={i}
-                  style={{ width: `${100 / NICHES.length}%` }}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.05, duration: 0.4 }}
-                  viewport={{ once: true }}
-                  className="shrink-0 flex flex-col gap-4 text-left"
-                >
-                  {/* Card containing ONLY the image viewport */}
-                  <div 
-                    onClick={() => handleOpenDemo(item)}
-                    className="w-full h-[320px] rounded-[20px] bg-[#0F0108] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <img 
-                      src={item.img} 
-                      alt={item.niche} 
-                      className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/img:translate-y-[calc(-100%+320px)] active:translate-y-[calc(-100%+320px)]"
-                      style={{ height: 'auto' }}
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                    
-                    {/* Visual click overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
-                      <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
-                        <Eye size={12} className="stroke-[3]" />
-                        <span>Detalhes</span>
-                      </div>
-                    </div>
+              {/* Card containing ONLY the image viewport */}
+              <div 
+                onClick={() => handleOpenDemo(item)}
+                className="w-full h-[300px] rounded-[20px] bg-[#0F0108] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 transition-all duration-300"
+              >
+                <img 
+                  src={item.img} 
+                  alt={item.niche} 
+                  className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/img:translate-y-[calc(-100%+300px)] active:translate-y-[calc(-100%+300px)]"
+                  style={{ height: 'auto' }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Visual click overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
+                    <Eye size={12} className="stroke-[3]" />
+                    <span>Detalhes</span>
                   </div>
+                </div>
+              </div>
 
-                  {/* Niche details and Novo badge below card image */}
-                  <div className="flex items-center justify-between mt-2 px-1">
-                    <h3 className="text-lg font-black text-white uppercase tracking-tight">
-                      {item.niche}
-                    </h3>
-                    <span className="px-2.5 py-1 rounded bg-[#e10270]/10 text-[10px] font-black text-[#e10270] uppercase border border-[#e10270]/20 tracking-wider">
-                      Novo
-                    </span>
-                  </div>
-
-
-                </motion.div>
-              ))}
+              {/* Niche details and Novo badge below card image */}
+              <div className="flex items-center justify-between mt-2 px-1">
+                <h3 className="text-lg font-black text-white uppercase tracking-tight">
+                  {item.niche}
+                </h3>
+                <span className="px-2.5 py-1 rounded bg-[#e10270]/10 text-[10px] font-black text-[#e10270] uppercase border border-[#e10270]/20 tracking-wider">
+                  Novo
+                </span>
+              </div>
             </motion.div>
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  activeIndex === i
-                    ? "w-6 h-2 bg-[#f0134d]"
-                    : "w-2 h-2 bg-neutral-700 hover:bg-neutral-500"
-                }`}
-                aria-label={`Ir para slide ${i + 1}`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
 
         {/* Missing niche segments banner request */}

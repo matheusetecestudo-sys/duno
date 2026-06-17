@@ -209,19 +209,7 @@ export default function Portfolio() {
                     </span>
                   </div>
 
-                  {/* Button for the site under the niche name */}
-                  <div className="mt-1">
-                    <a 
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="gold-premium-btn !h-11 !text-xs w-full flex items-center justify-center gap-2"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <span>Visualizar Site</span>
-                      <ArrowRight size={12} />
-                    </a>
-                  </div>
+
                 </motion.div>
               ))}
             </motion.div>

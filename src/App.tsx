@@ -33,7 +33,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-premium text-white selection:bg-[#e91e8c]/30 selection:text-white">
+    <div className="min-h-screen bg-[#000000] text-white selection:bg-[#e91e8c]/30 selection:text-white">
       {isMobile ? (
         <div className="min-h-screen bg-[#000000] text-white flex flex-col items-center">
           <MobileVersion 

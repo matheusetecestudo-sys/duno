@@ -78,7 +78,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section id="como-funciona" className="py-24 px-6 bg-[#121212] relative">
+    <section id="como-funciona" className="py-24 px-6 bg-[#000000] relative">
       <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-96 h-96 bg-[#f0134d]/5 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto text-center relative z-10">        {/* Beautiful Unified Badge with Icon */}
@@ -211,7 +211,7 @@ export function Benefits() {
   ];
 
   return (
-    <section id="vantagens" className="py-24 px-6 bg-[#121212] relative">
+    <section id="vantagens" className="py-24 px-6 bg-[#000000] relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           
@@ -280,7 +280,7 @@ export function BeforeAfter() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#121212] relative overflow-hidden border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#000000] relative overflow-hidden border-t border-[#2a2a2a]">
       {/* Visual background atmospheric pink blob */}
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-[300px] bg-[#e91e8c]/2 blur-[140px] rounded-full pointer-events-none" />
       
@@ -389,7 +389,7 @@ export function Comparison() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#121212] relative overflow-hidden">
+    <section className="py-24 px-6 bg-[#000000] relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
         
         {/* Beautiful Unified Badge with Icon */}
@@ -549,7 +549,7 @@ export function ProductShowcase() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#121212] relative border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#000000] relative border-t border-[#2a2a2a]">
       {/* Background visual glosses */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e91e8c]/3 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#7c3aed]/3 blur-[140px] rounded-full pointer-events-none" />

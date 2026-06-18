@@ -36,7 +36,7 @@ export function SocialProof() {
   ];
 
   return (
-    <section id="depoimentos" className="py-24 px-6 bg-[#121212] relative overflow-hidden border-t border-[#2a2a2a]">
+    <section id="depoimentos" className="py-24 px-6 bg-[#000000] relative overflow-hidden border-t border-[#2a2a2a]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/3 blur-[140px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10 text-center">
@@ -126,7 +126,7 @@ export function Offer() {
   ];
 
   return (
-    <section id="preco" className="py-24 px-6 bg-[#121212] relative flex items-center justify-center border-t border-[#2a2a2a]">
+    <section id="preco" className="py-24 px-6 bg-[#000000] relative flex items-center justify-center border-t border-[#2a2a2a]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/3 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-4xl w-full mx-auto text-center relative z-10">
@@ -215,7 +215,7 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 bg-[#121212] border-t border-[#2a2a2a] relative">
+    <section id="faq" className="py-24 px-6 bg-[#000000] border-t border-[#2a2a2a] relative">
       <div className="absolute bottom-0 right-[10%] w-96 h-96 bg-[#7c3aed]/3 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-3xl mx-auto relative z-10 text-center">
@@ -236,7 +236,7 @@ export function FAQ() {
         
         <div className="space-y-6 text-left">
           {faqs.map((f, i) => (
-            <div key={i} className="overflow-hidden border border-[#2a2a2a] bg-[#111111] hover:border-white/10 rounded-2xl transition-all duration-300">
+            <div key={i} className="overflow-hidden border border-[#2a2a2a] bg-[#000000] hover:border-white/10 rounded-2xl transition-all duration-300">
                <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full p-6 flex items-center justify-between text-left cursor-pointer group"
@@ -299,7 +299,7 @@ export function AboutTrust() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#121212] relative border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#000000] relative border-t border-[#2a2a2a]">
       <div className="max-w-7xl mx-auto relative z-10 text-center">
         
         <h2 className="text-3xl md:text-[48px] font-black mb-6 uppercase tracking-tight leading-tight text-white">
@@ -337,7 +337,7 @@ export function AboutTrust() {
 // SEÇÃO 14 — CTA FINAL
 export function FinalCTA() {
   return (
-    <section className="py-32 px-6 text-center relative overflow-hidden bg-[#121212] border-t border-[#2a2a2a]">
+    <section className="py-32 px-6 text-center relative overflow-hidden bg-[#000000] border-t border-[#2a2a2a]">
        {/* Animated background radial glow */}
        <motion.div 
          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -392,7 +392,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-20 px-6 border-t-2 border-[#f0134d] bg-[#121212] relative overflow-hidden select-none">
+    <footer className="py-20 px-6 border-t-2 border-[#f0134d] bg-[#000000] relative overflow-hidden select-none">
       {/* Decorative Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#e91e8c]/3 blur-[120px] rounded-full pointer-events-none" />
       

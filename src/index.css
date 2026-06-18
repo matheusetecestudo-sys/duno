@@ -18,8 +18,12 @@
     font-family: "Montserrat", sans-serif !important;
   }
 
+  html, body, #root {
+    background-color: #000000 !important;
+  }
+
   body {
-    background-color: #000000;
+    background-color: #000000 !important;
     color: #ffffff;
     font-family: "Montserrat", sans-serif !important;
     @apply antialiased selection:bg-[#e91e8c]/30 overflow-x-hidden;
@@ -176,7 +180,7 @@
 }
 
 .pink-card {
-  @apply bg-[#0F0108] rounded-[20px] p-6 transition-all duration-300 relative overflow-hidden text-left flex flex-col justify-between;
+  @apply bg-[#000000] rounded-[20px] p-6 transition-all duration-300 relative overflow-hidden text-left flex flex-col justify-between;
   border: 2px solid #e10270;
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
 }

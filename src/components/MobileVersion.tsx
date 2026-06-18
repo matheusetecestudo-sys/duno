@@ -196,7 +196,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   }, [onPriceInView]);
 
   return (
-    <div className="w-full max-w-[430px] mx-auto bg-[#121212] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative">
+    <div className="w-full max-w-[430px] mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative">
       
       {/* ----------------------------------------------------------------------
           NAVBAR MOBILE (includes emergency countdown bar above)
@@ -287,7 +287,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   ))}
                 </div>
 
-                <div className="bg-[#111111] border border-white/5 p-4 rounded-xl flex items-center justify-between mt-1">
+                <div className="bg-[#000000] border border-white/5 p-4 rounded-xl flex items-center justify-between mt-1">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
                     <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Agência Online ativa</span>
@@ -311,7 +311,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           HERO MOBILE
           ---------------------------------------------------------------------- */}
       <section
-        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#121212]"
+        className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#000000]"
         style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
       >
         {/* Background Image — Mobile Cards Showcase */}
@@ -323,7 +323,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         />
 
         {/* Dark overlay — dimming the background so text is perfectly readable */}
-        <div className="absolute inset-0 bg-[#121212]/62 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-[#000000]/62 pointer-events-none z-[1]" />
         {/* Gradient — bottom fade to dark */}
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none z-[2]" />
         {/* Gradient — top fade to dark (navbar area) */}
@@ -402,7 +402,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           DOR MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#121212] relative flex flex-col items-center">
+        <section className="py-20 px-5 bg-[#000000] relative flex flex-col items-center">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-4 text-white">
           Você está <span className="gradient-text italic font-black">perdendo vendas</span>
         </h2>
@@ -481,7 +481,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SOLUÇÃO MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#121212] border-t border-b border-[#202020]/20 relative overflow-hidden flex flex-col items-center">
+        <section className="py-20 px-5 bg-[#000000] border-t border-b border-[#202020]/20 relative overflow-hidden flex flex-col items-center">
         {/* Background visual glosses */}
         <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/5 blur-[90px] rounded-full pointer-events-none" />
         <div className="absolute left-[-50px] top-[10%] w-[300px] h-[300px] bg-[#7c3aed]/5 blur-[90px] rounded-full pointer-events-none" />
@@ -603,7 +603,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           COMO FUNCIONA MOBILE (Timeline Vertical)
           ---------------------------------------------------------------------- */}
       <RevealSection id="como-funciona-mobile">
-        <section id="como-funciona-mobile" className="py-16 px-5 bg-[#121212]">
+        <section id="como-funciona-mobile" className="py-16 px-5 bg-[#000000]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white">
           Como funciona <span className="gradient-text">em 48 horas</span>
         </h2>
@@ -649,7 +649,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 {item.step}
               </div>
               
-              <div className="flex-1 bg-[#111]/90 border border-white/5 rounded-2xl p-4 text-left">
+              <div className="flex-1 bg-[#000000]/90 border border-white/5 rounded-2xl p-4 text-left">
                 <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
                   <h3 className="text-[15px] font-black text-white uppercase tracking-tight">{item.title}</h3>
                   <span className="px-2 py-0.5 rounded bg-[#f0134d]/15 text-[#f0134d] text-[9px] font-black uppercase border border-[#f0134d]/30">
@@ -677,7 +677,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           VANTAGENS MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection id="beneficios-mobile">
-        <section id="beneficios-mobile" className="py-16 px-5 bg-[#121212] border-y border-[#202020]/20">
+        <section id="beneficios-mobile" className="py-16 px-5 bg-[#000000] border-y border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
             Vantagens exclusivas da nossa <span className="gradient-text">assinatura</span>
@@ -769,7 +769,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           ANTES E DEPOIS MOBILE (Vertical Stack with divider)
           ---------------------------------------------------------------------- */}
       <RevealSection id="diferenca-mobile">
-        <section id="diferenca-mobile" className="py-16 px-5 bg-[#121212]">
+        <section id="diferenca-mobile" className="py-16 px-5 bg-[#000000]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-[1.05] mb-10 text-white">
           A diferença <span className="gradient-text">de um site útil</span>
         </h2>
@@ -819,7 +819,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SHOWCASE DE DESIGN EXCLUSIVO MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-16 px-5 bg-[#121212] border-t border-[#202020]/20 relative flex flex-col items-center overflow-hidden">
+        <section className="py-16 px-5 bg-[#000000] border-t border-[#202020]/20 relative flex flex-col items-center overflow-hidden">
         {/* Subtle glow light */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] bg-[#f0134d]/5 blur-[70px] rounded-full pointer-events-none" />
 
@@ -890,7 +890,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           MODELOS MOBILE (Horizontal Snap Carrossel with Right Gradient Mask)
           ---------------------------------------------------------------------- */}
       <RevealSection id="modelos-carrossel">
-        <section id="modelos-carrossel" className="py-16 bg-[#121212] border-y border-[#202020]/20 relative">
+        <section id="modelos-carrossel" className="py-16 bg-[#000000] border-y border-[#202020]/20 relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
           Escolha seu modelo <span className="gradient-text">do seu nicho</span>
         </h2>
@@ -910,7 +910,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 {/* Card containing ONLY the image viewport */}
                 <div 
                   onClick={() => setSelectedModel(item)}
-                  className="w-full h-[300px] rounded-[20px] bg-[#0F0108] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg transition-all duration-300"
+                  className="w-full h-[300px] rounded-[20px] bg-[#000000] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg transition-all duration-300"
                 >
                   <img 
                     src={item.img} 
@@ -963,7 +963,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           DEPOIMENTOS MOBILE (Desktop-style premium carousel cards)
           ---------------------------------------------------------------------- */}
       <RevealSection id="depoimentos-mobile">
-        <section id="depoimentos-mobile" className="py-16 bg-[#121212] border-b border-[#202020] relative">
+        <section id="depoimentos-mobile" className="py-16 bg-[#000000] border-b border-[#202020] relative">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-3 text-white px-5">
           Quem já adquiriu <span className="gradient-text">recomenda de verdade</span>
         </h2>
@@ -1023,7 +1023,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           COMPARATIVO MOBILE (Highlight Duno first)
           ---------------------------------------------------------------------- */}
       <RevealSection id="comparativo-mobile">
-        <section id="comparativo-mobile" className="py-16 px-5 bg-[#121212] border-b border-[#202020]/20">
+        <section id="comparativo-mobile" className="py-16 px-5 bg-[#000000] border-b border-[#202020]/20">
         <div className="text-center mb-10">
           <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-3">
             O melhor <span className="gradient-text">custo-benefício</span>
@@ -1035,7 +1035,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         <div className="flex flex-col gap-6">
           {/* Card Duno (Primário e Destacado) */}
-          <div className="border-2 border-[#f0134d] rounded-[20px] bg-[#121212] overflow-hidden shadow-[0_4px_30px_rgba(240,19,77,0.25)]">
+          <div className="border-2 border-[#f0134d] rounded-[20px] bg-[#000000] overflow-hidden shadow-[0_4px_30px_rgba(240,19,77,0.25)]">
             <div className="bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] p-3 text-center">
               <span className="text-white text-[11px] font-black uppercase tracking-widest block">★ INDICADO PARA SEU NEGÓCIO</span>
             </div>
@@ -1075,7 +1075,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </div>
 
           {/* Opaque options (Agência / Freelancer) */}
-          <div className="bg-[#151515] rounded-[20px] border border-white/5 opacity-80 p-5 text-left">
+          <div className="bg-[#000000] rounded-[20px] border border-white/5 opacity-80 p-5 text-left">
             <span className="text-neutral-500 font-extrabold text-[10px] uppercase block mb-1">OPÇÃO 02</span>
             <h3 className="text-[16px] font-black uppercase text-white mb-1 leading-none">Agência Tradicional</h3>
             <p className="text-sm font-mono text-neutral-500 font-bold mb-4">R$3.000 a R$8.000 setup</p>
@@ -1090,7 +1090,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             </ul>
           </div>
 
-          <div className="bg-[#151515] rounded-[20px] border border-white/5 opacity-80 p-5 text-left">
+          <div className="bg-[#000000] rounded-[20px] border border-white/5 opacity-80 p-5 text-left">
             <span className="text-neutral-500 font-extrabold text-[10px] uppercase block mb-1">OPÇÃO 03</span>
             <h3 className="text-[16px] font-black uppercase text-white mb-1 leading-none">Freelancer</h3>
             <p className="text-sm font-mono text-neutral-500 font-bold mb-4">R$1.000 a R$2.500 setup</p>
@@ -1114,7 +1114,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </button>
 
           {isCompExpanded && (
-            <div className="bg-[#0f0f0f] border border-white/5 rounded-2xl p-5 text-left text-xs leading-relaxed text-neutral-400 space-y-3 animate-float" style={{ animationDuration: "8s" }}>
+            <div className="bg-[#000000] border border-white/5 rounded-2xl p-5 text-left text-xs leading-relaxed text-neutral-400 space-y-3 animate-float" style={{ animationDuration: "8s" }}>
               <p>
                 <strong>Hospedagem inclusa:</strong> Em todos os pacotes Duno, utilizamos infraestruturas AWS de alta resposta com rede otimizada em CDN internacional para seu site carregar instantaneamente, sem travar nas conexões 4G brasileiras.
               </p>
@@ -1131,8 +1131,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           PREÇO + CTA MOBILE (Includes special intersection handle)
           ---------------------------------------------------------------------- */}
       <RevealSection id="preco-mobile">
-        <section ref={priceRef} id="preco-mobile" className="py-16 px-5 bg-[#121212]">
-        <div className="w-full p-5 rounded-2xl border-2 border-[#f0134d]/30 bg-[#111] text-center shadow-xl">
+        <section ref={priceRef} id="preco-mobile" className="py-16 px-5 bg-[#000000]">
+        <div className="w-full p-5 rounded-2xl border-2 border-[#f0134d]/30 bg-[#000000] text-center shadow-xl">
           <span className="text-[#f0134d] text-[10px] font-black tracking-[0.2em] uppercase block mb-2">QUERO COMECAR HOJE</span>
           
           {/* Preço de alta conversão */}
@@ -1196,7 +1196,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           FAQ MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection id="faq-mobile">
-        <section id="faq-mobile" className="py-16 px-5 bg-[#121212] border-t border-[#202020]">
+        <section id="faq-mobile" className="py-16 px-5 bg-[#000000] border-t border-[#202020]">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-10 text-white">
           Dúvidas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black">Frequentes</span>
         </h2>
@@ -1232,7 +1232,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             return (
               <div 
                 key={i}
-                className="border border-[#202020] bg-[#111] rounded-2xl overflow-hidden text-left"
+                className="border border-[#202020] bg-[#000000] rounded-2xl overflow-hidden text-left"
               >
                 <button
                   onClick={() => setActiveFaq(isOpen ? null : i)}
@@ -1278,7 +1278,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           SOBRE / CONFIANÇA MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-16 px-5 bg-[#121212] border-y border-[#202020]/20 text-center">
+        <section className="py-16 px-5 bg-[#000000] border-y border-[#202020]/20 text-center">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase tracking-tight leading-tight mb-4 text-white">
           Cuidado local em boas <span className="gradient-text">mãos</span>
         </h2>
@@ -1337,7 +1337,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           CTA FINAL MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#121212] border-t border-[#202020] text-center relative overflow-hidden">
+        <section className="py-20 px-5 bg-[#000000] border-t border-[#202020] text-center relative overflow-hidden">
         {/* Background gloss overlay decoration */}
         <div className="absolute inset-0 bg-[#e91e8c]/5 pointer-events-none" />
         
@@ -1376,7 +1376,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           RODAPÉ MOBILE
           ---------------------------------------------------------------------- */}
-      <footer className="py-12 px-5 bg-[#121212] border-t-2 border-[#f0134d] text-center">
+      <footer className="py-12 px-5 bg-[#000000] border-t-2 border-[#f0134d] text-center">
         <Logo size="sm" className="justify-center mb-6" />
         
         <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-6 max-w-[320px] mx-auto">
@@ -1429,7 +1429,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               initial={{ scale: 0.9, y: 15, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 15, opacity: 0 }}
-              className="relative w-full max-w-[340px] bg-[#111] border border-[#f0134d]/30 rounded-2xl overflow-hidden shadow-2xl p-6 text-left"
+              className="relative w-full max-w-[340px] bg-[#000000] border border-[#f0134d]/30 rounded-2xl overflow-hidden shadow-2xl p-6 text-left"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}

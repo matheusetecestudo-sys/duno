@@ -18,7 +18,7 @@ export default function NicheTicker() {
   const marqueeItems = [...items, ...items, ...items, ...items];
 
   return (
-    <section className="bg-[#0a0a0a] border-t border-b border-[#2a2a2a] py-6 relative overflow-hidden select-none">
+    <section className="bg-[#000000] border-t border-b border-[#2a2a2a] py-6 relative overflow-hidden select-none">
       {/* Self-contained responsive CSS animation for infinite marquee movement */}
       <style>{`
         @keyframes marquee {

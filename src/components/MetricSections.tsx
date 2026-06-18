@@ -47,7 +47,7 @@ export function Problem() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#121212] relative flex items-center justify-center">
+    <section className="py-24 px-6 bg-[#000000] relative flex items-center justify-center">
       <div className="max-w-[1100px] w-full mx-auto relative z-10 text-center">
         
         {/* Beautiful Unified Badge with Icon */}
@@ -160,7 +160,7 @@ export function Solution() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#121212] relative overflow-hidden flex items-center justify-center">
+    <section className="py-24 px-6 bg-[#000000] relative overflow-hidden flex items-center justify-center">
       {/* Background visual glosses */}
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#f0134d]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute left-[-100px] top-[10%] w-[400px] h-[400px] bg-[#9b1fbd]/5 blur-[130px] rounded-full pointer-events-none" />

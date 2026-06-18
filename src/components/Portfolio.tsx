@@ -93,7 +93,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="modelos" className="py-24 px-6 bg-[#121212] relative overflow-hidden text-center border-t border-[#2a2a2a]">
+    <section id="modelos" className="py-24 px-6 bg-[#000000] relative overflow-hidden text-center border-t border-[#2a2a2a]">
       {/* Background radial gloss blobs */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#e91e8c]/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#7c3aed]/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
@@ -133,7 +133,7 @@ export default function Portfolio() {
               {/* Card containing ONLY the image viewport */}
               <div 
                 onClick={() => handleOpenDemo(item)}
-                className="w-full h-[300px] rounded-[20px] bg-[#0F0108] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 transition-all duration-300"
+                className="w-full h-[300px] rounded-[20px] bg-[#000000] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg hover:shadow-[0_0_25px_rgba(225,2,112,0.35)] hover:-translate-y-1 transition-all duration-300"
               >
                 <img 
                   src={item.img} 
@@ -167,7 +167,7 @@ export default function Portfolio() {
         </div>
 
         {/* Missing niche segments banner request */}
-        <div className="text-center py-6 px-8 border border-[#2a2a2a] rounded-[16px] bg-[#111111] max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="text-center py-6 px-8 border border-[#2a2a2a] rounded-[16px] bg-[#000000] max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-[#a0a0a0] font-bold text-sm sm:text-base text-left">
             Não encontrou seu segmento? Fale conosco — criamos para qualquer nicho.
           </p>
@@ -199,7 +199,7 @@ export default function Portfolio() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 350 }}
-              className="relative w-full max-w-4xl lg:max-w-5xl bg-[#111111] border-2 border-[#e91e8c]/30 rounded-[20px] overflow-hidden shadow-[0_25px_80px_rgba(233,30,140,0.25)] max-h-[90vh] overflow-y-auto select-none"
+              className="relative w-full max-w-4xl lg:max-w-5xl bg-[#000000] border-2 border-[#e91e8c]/30 rounded-[20px] overflow-hidden shadow-[0_25px_80px_rgba(233,30,140,0.25)] max-h-[90vh] overflow-y-auto select-none"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12">

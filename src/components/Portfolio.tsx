@@ -7,7 +7,7 @@ const NICHES = [
     niche: "Odontologia", 
     subtitle: "Clínicas & Consultórios — site premium com agendamento direto de consultas, galeria de tratamentos e botão de WhatsApp flutuante.",
     desc: "Personalizamos este modelo completo com as suas fotos, logomarca e procedimentos clínicos em até 48 horas.", 
-    img: "/images/nicho_1.png",
+    img: "/images/clinica de estetica.png",
     stats: { speed: "99", seo: "100" },
     tag: "Dentistas",
     highlight: "🦷 Com agendamento, WhatsApp integrado e Google Maps"
@@ -16,7 +16,7 @@ const NICHES = [
     niche: "Veterinário", 
     subtitle: "Clínicas Pet & Hospitais — site de alta conversão para tutores agendarem consultas, banhos e exames 24h por dia.",
     desc: "Layout dócil e corporativo que adaptamos em até 48 horas para passar total segurança e autoridade para sua clínica veterinária.", 
-    img: "/images/nicho_2.png",
+    img: "/images/clinica de nutrição.png",
     stats: { speed: "98", seo: "100" },
     tag: "Veterinários",
     highlight: "🐾 Com agendamento, WhatsApp integrado e Google Maps"
@@ -25,7 +25,7 @@ const NICHES = [
     niche: "Estética", 
     subtitle: "Clínicas de Estética & Spas — página premium com depoimentos em carrossel, tratamentos, portfólio de antes/depois.",
     desc: "Design clean focado em captar contatos de pessoas interessadas em procedimentos estéticos e tratamentos corporais.", 
-    img: "/images/nicho_3.png",
+    img: "/images/clinica odontologica.png",
     stats: { speed: "100", seo: "100" },
     tag: "Estética",
     highlight: "✂️ Com agendamento, WhatsApp integrado e Google Maps"
@@ -34,7 +34,7 @@ const NICHES = [
     niche: "Academia", 
     subtitle: "Studios, CrossFit & Academias — página com grade de horários, chamada rápida de matrícula e contato direto.",
     desc: "Design dinâmico e enérgico que customizamos para o seu método de treinamento físico, crossfit ou studio funcional.", 
-    img: "/images/nicho_4.png",
+    img: "/images/clinica veterinaria.png",
     stats: { speed: "99", seo: "98" },
     tag: "Fitness",
     highlight: "💪 Com agendamento, WhatsApp integrado e Google Maps"
@@ -43,7 +43,7 @@ const NICHES = [
     niche: "Advocacia", 
     subtitle: "Escritórios Jurídicos — design de grande seriedade destacando especialidades e formulário de consulta rápida.",
     desc: "Um design extremamente refinado e estruturado que adaptamos com rapidez para transmitir máxima credibilidade em sua cidade.", 
-    img: "/images/nicho_5.png",
+    img: "/images/dedetizadora (2).png",
     stats: { speed: "100", seo: "100" },
     tag: "Direito",
     highlight: "⚖️ Com agendamento, WhatsApp integrado e Google Maps"
@@ -52,7 +52,7 @@ const NICHES = [
     niche: "Restaurante", 
     subtitle: "Gourmet & Bistrô — página para mostrar cardápio digital, reservas automáticas e botão de disk delivery.",
     desc: "Layout sofisticado que destaca pratos principais, horário de funcionamento e rota GPS para clientes chegarem sem erro.", 
-    img: "/images/nicho_6.png",
+    img: "/images/psicologo.png",
     stats: { speed: "97", seo: "100" },
     tag: "Gastronomia",
     highlight: "🍽️ Com agendamento, WhatsApp integrado e Google Maps"
@@ -61,7 +61,7 @@ const NICHES = [
     niche: "Psicologia", 
     subtitle: "Clínicas & Consultórios de Psicologia — site acolhedor com agendamento online de sessões e formulário de contato.",
     desc: "Design empático e profissional, personalizado com seu CRP, especialidades, horários e modo de atendimento presencial ou online.", 
-    img: "/images/nicho_7.png",
+    img: "/images/salao de beleza.png",
     stats: { speed: "98", seo: "100" },
     tag: "Saúde Mental",
     highlight: "🧠 Com agendamento de sessões e WhatsApp integrado"
@@ -70,7 +70,7 @@ const NICHES = [
     niche: "Arquitetura", 
     subtitle: "Escritórios & Ateliês de Arquitetura — portfólio premium com galeria de projetos e formulário de contato exclusivo.",
     desc: "Apresentação sofisticada dos seus projetos mais impactantes, com galeria de fotos em alta definição e chamada para orçamento pelo WhatsApp.", 
-    img: "/images/nicho_8.png",
+    img: "/images/vidracaria.png",
     stats: { speed: "99", seo: "100" },
     tag: "Arquitetura",
     highlight: "🏛️ Com galeria de projetos e formulário de orçamento"

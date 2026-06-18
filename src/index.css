@@ -10,7 +10,7 @@
   --color-brand-secondary: #e91e8c;
   --color-brand-accent: #9b1fbd;
   
-  --color-premium: #121212;
+  --color-premium: #000000;
 }
 
 @layer base {
@@ -19,7 +19,7 @@
   }
 
   body {
-    background-color: #121212;
+    background-color: #000000;
     color: #ffffff;
     font-family: "Montserrat", sans-serif !important;
     @apply antialiased selection:bg-[#e91e8c]/30 overflow-x-hidden;

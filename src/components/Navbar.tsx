@@ -39,7 +39,7 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`flex items-center justify-between px-6 md:px-12 h-[70px] transition-all duration-300 ${
           scrolled 
-            ? "bg-[#0a0a0af5] backdrop-blur-[20px] border-b border-[#e91e8c]/30 shadow-[0_10px_30px_rgba(0,0,0,0.8)]" 
+            ? "bg-[#000000] backdrop-blur-[20px] border-b border-[#e91e8c]/30 shadow-[0_10px_30px_rgba(0,0,0,0.8)]" 
             : "bg-black/40 border-b border-white/5"
         }`}
       >
@@ -93,7 +93,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-[100%] left-4 right-4 bg-[#0a0a0a]/98 backdrop-blur-3xl border border-white/10 rounded-[24px] mt-2 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 pointer-events-auto"
+            className="lg:hidden absolute top-[100%] left-4 right-4 bg-[#000000] backdrop-blur-3xl border border-white/10 rounded-[24px] mt-2 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 pointer-events-auto"
           >
             <div className="flex flex-col p-6 gap-2">
               {navItems.map((item) => (

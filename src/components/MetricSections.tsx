@@ -216,7 +216,7 @@ export function Solution() {
         </div>
 
         {/* Real hosting, no maintenance, high performance cards below */}
-        <div className="mt-16 inline-flex flex-wrap items-center justify-center gap-6 bg-[#161616] border border-[#2a2a2a] rounded-[20px] p-6 shadow-xl max-w-3xl mx-auto">
+        <div className="mt-16 inline-flex flex-wrap items-center justify-center gap-6 bg-[#000000] border border-[#2a2a2a] rounded-[20px] p-6 shadow-xl max-w-3xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-black text-white uppercase tracking-wider">Tráfego Ilimitado</span>

@@ -443,7 +443,7 @@ export function Comparison() {
               ★ INDICADO PARA SEU NEGÓCIO
             </div>
 
-            <div className="bg-[#0a0a0af8] rounded-[22.5px] p-8 h-full flex flex-col justify-between">
+            <div className="bg-[#000000] rounded-[22.5px] p-8 h-full flex flex-col justify-between">
               <div>
                 <div className="bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] text-white px-4 py-2.5 rounded-xl text-center font-black text-xs uppercase tracking-widest mb-6">
                   Assinatura Duno®

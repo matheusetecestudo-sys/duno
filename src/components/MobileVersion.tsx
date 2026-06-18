@@ -203,7 +203,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           ---------------------------------------------------------------------- */}
       <div className="fixed top-0 left-0 right-0 z-[999] max-w-[430px] mx-auto">
         {/* Home header */}
-        <div className="h-[64px] bg-[#020202e0] backdrop-blur-md border-b border-[#f0134d]/20 px-4 flex items-center justify-between relative">
+        <div className="h-[64px] bg-[#000000] backdrop-blur-md border-b border-[#f0134d]/20 px-4 flex items-center justify-between relative">
           <button 
             onClick={() => {
               setIsMenuOpen(false);
@@ -244,7 +244,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute top-[64px] inset-x-0 bg-[#121212f9] border-b border-[#f0134d]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
+                className="absolute top-[64px] inset-x-0 bg-[#000000] border-b border-[#f0134d]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
               >
                 <div className="flex flex-col gap-1">
                   <span className="text-[10px] font-black uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
@@ -580,7 +580,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </div>
 
         {/* Info Highlights Badge list */}
-        <div className="w-full max-w-sm bg-[#161616] p-5 border border-[#2a2a2a] rounded-[16px] text-center space-y-3 relative z-10 shadow-lg">
+        <div className="w-full max-w-sm bg-[#000000] p-5 border border-[#2a2a2a] rounded-[16px] text-center space-y-3 relative z-10 shadow-lg">
           <div className="flex items-center justify-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[11px] font-black uppercase tracking-wider text-white">Acessos e Tráfego Ilimitado</span>

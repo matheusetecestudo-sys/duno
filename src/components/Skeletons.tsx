@@ -2,7 +2,7 @@ import React from "react";
 
 export function PortfolioSkeleton() {
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] border-t border-[#2a2a2a] relative overflow-hidden">
+    <section className="py-24 px-6 bg-[#000000] border-t border-[#2a2a2a] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/3 blur-[140px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
@@ -46,7 +46,7 @@ export function PortfolioSkeleton() {
 
 export function SocialProofSkeleton() {
   return (
-    <section className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden border-t border-[#2a2a2a]">
+    <section className="py-24 px-6 bg-[#000000] relative overflow-hidden border-t border-[#2a2a2a]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#e91e8c]/3 blur-[140px] rounded-full pointer-events-none" />
       
       <div className="max-w-[1100px] w-full mx-auto relative z-10 text-center">

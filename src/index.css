@@ -20,6 +20,8 @@
 
   html, body, #root {
     background-color: #000000 !important;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {

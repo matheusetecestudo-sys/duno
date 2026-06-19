@@ -201,7 +201,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   }, [onPriceInView]);
 
   return (
-    <div className="w-full max-w-[430px] mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative">
+    <div className="w-full max-w-[430px] mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative" style={{ contain: 'layout' }}>
       
       {/* ----------------------------------------------------------------------
           NAVBAR MOBILE (includes emergency countdown bar above)
@@ -407,7 +407,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           DOR MOBILE
           ---------------------------------------------------------------------- */}
       <RevealSection>
-        <section className="py-20 px-5 bg-[#000000] relative flex flex-col items-center">
+        <section className="py-20 px-5 bg-[#000000] relative flex flex-col items-center overflow-hidden">
         <h2 className="text-[22px] min-[375px]:text-[28px] font-black uppercase text-center tracking-tight leading-tight mb-4 text-white">
           Você está <span className="gradient-text italic font-black">perdendo vendas</span>
         </h2>
@@ -488,8 +488,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       <RevealSection>
         <section className="py-20 px-5 bg-[#000000] border-t border-b border-[#202020]/20 relative overflow-hidden flex flex-col items-center">
         {/* Background visual glosses */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#f0134d]/5 blur-[90px] rounded-full pointer-events-none" />
-        <div className="absolute left-[-50px] top-[10%] w-[300px] h-[300px] bg-[#7c3aed]/5 blur-[90px] rounded-full pointer-events-none" />
+        <div className="absolute -right-16 top-1/2 -translate-y-1/2 w-64 h-64 bg-[#f0134d]/5 blur-[90px] rounded-full pointer-events-none" />
+        <div className="absolute -left-10 top-[10%] w-60 h-60 bg-[#7c3aed]/5 blur-[90px] rounded-full pointer-events-none" />
 
         <div className="text-center mb-10 relative z-10 w-full">
           <div className="text-[#f0134d] text-[11px] font-black tracking-[0.2em] uppercase mb-4 animate-pulse">

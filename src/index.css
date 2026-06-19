@@ -220,3 +220,10 @@
 .animate-float {
   animation: float 5s ease-in-out infinite;
 }
+
+@keyframes modalPan {
+  0%   { transform: translateY(0%); }
+  15%  { transform: translateY(0%); }
+  85%  { transform: translateY(calc(-100% + min(55vw, 280px))); }
+  100% { transform: translateY(calc(-100% + min(55vw, 280px))); }
+}

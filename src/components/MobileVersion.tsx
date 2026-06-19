@@ -1465,7 +1465,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 300 }}
-            className="fixed inset-0 z-[1100] flex flex-col bg-[#0a0a0a]"
+            className="fixed inset-0 z-[1100] flex flex-col bg-[#0a0a0a] overflow-hidden"
           >
             {/* ── Top bar: voltar ── */}
             <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/8 shrink-0 bg-[#0a0a0a]">
@@ -1481,10 +1481,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             </div>
 
             {/* ── Scrollable content ── */}
-            <div className="flex-1 overflow-y-auto px-4 py-5">
-              {/* Niche image preview */}
+            <div className="flex-1 overflow-y-auto">
+              {/* Auto-panning image preview - same as desktop */}
               <div
-                className="w-full h-[200px] rounded-2xl overflow-hidden border border-[#f0134d]/20 mb-4 relative cursor-pointer"
+                className="w-full overflow-hidden relative cursor-pointer bg-black"
+                style={{ height: '55vw', maxHeight: '280px', minHeight: '180px' }}
                 onClick={() => {
                   setLightboxImg(selectedModel.img);
                   setLightboxNiche(selectedModel.niche);
@@ -1494,58 +1495,66 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 <img
                   src={selectedModel.img}
                   alt={selectedModel.niche}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full absolute top-0 left-0 origin-top"
+                  style={{
+                    height: 'auto',
+                    animation: 'modalPan 8s ease-in-out forwards',
+                  }}
                 />
-                <div className="absolute inset-0 flex items-end p-3 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="absolute inset-0 flex items-end p-3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
                   <span className="text-[9px] font-black text-white/60 uppercase tracking-widest flex items-center gap-1">
                     <ZoomIn size={10} /> Toque para ver o site completo
                   </span>
                 </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
-                {selectedModel.niche}
-              </h3>
-
-              {/* Highlight tag */}
-              <div className="inline-block px-2.5 py-1 rounded-full bg-[#f0134d]/10 text-[10px] font-black text-[#f0134d] border border-[#f0134d]/20 mb-3">
-                {selectedModel.highlight}
-              </div>
-
-              {/* Description */}
-              <p className="text-[12px] text-neutral-400 font-semibold leading-relaxed mb-4">
-                {selectedModel.persuasionDesc}
-              </p>
-
-              {/* Stats */}
-              <div className="flex gap-3 mb-5">
-                <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
-                  <span className="block text-base font-black text-emerald-400">{selectedModel.stats.speed}</span>
-                  <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Velocidade</span>
-                </div>
-                <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
-                  <span className="block text-base font-black text-[#f0134d]">{selectedModel.stats.seo}</span>
-                  <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">SEO</span>
-                </div>
-                <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
-                  <span className="block text-base font-black text-[#25D366]">✓</span>
-                  <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Google Maps</span>
+                {/* Tag overlay */}
+                <div className="absolute top-2.5 right-2.5 bg-black/85 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#f0134d] uppercase border border-[#f0134d]/30 pointer-events-none">
+                  {selectedModel.tag}
                 </div>
               </div>
-            </div>
 
-            {/* ── Fixed CTA at bottom ── */}
-            <div className="px-4 py-4 border-t border-white/8 bg-[#0a0a0a] shrink-0">
-              <a
-                href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(selectedModel.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gold-premium-btn w-full"
-              >
-                <span className="whitespace-nowrap text-sm font-black">Quero este modelo</span>
-                <ArrowRight size={14} className="stroke-[3] shrink-0" />
-              </a>
+              <div className="px-4 py-5">
+                {/* Title */}
+                <h3 className="text-xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
+                  {selectedModel.niche}
+                </h3>
+
+                {/* Highlight tag */}
+                <div className="inline-block px-2.5 py-1 rounded-full bg-[#f0134d]/10 text-[10px] font-black text-[#f0134d] border border-[#f0134d]/20 mb-3">
+                  {selectedModel.highlight}
+                </div>
+
+                {/* Description */}
+                <p className="text-[12px] text-neutral-400 font-semibold leading-relaxed mb-4">
+                  {selectedModel.persuasionDesc}
+                </p>
+
+                {/* Stats */}
+                <div className="flex gap-3 mb-5">
+                  <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
+                    <span className="block text-base font-black text-emerald-400">{selectedModel.stats.speed}</span>
+                    <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Velocidade</span>
+                  </div>
+                  <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
+                    <span className="block text-base font-black text-[#f0134d]">{selectedModel.stats.seo}</span>
+                    <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">SEO</span>
+                  </div>
+                  <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
+                    <span className="block text-base font-black text-[#25D366]">✓</span>
+                    <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Google Maps</span>
+                  </div>
+                </div>
+
+                {/* CTA inside scrollable area too (so it's always visible) */}
+                <a
+                  href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(selectedModel.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gold-premium-btn w-full"
+                >
+                  <span className="whitespace-nowrap text-sm font-black">Quero este modelo</span>
+                  <ArrowRight size={14} className="stroke-[3] shrink-0" />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

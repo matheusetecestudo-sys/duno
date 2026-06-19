@@ -4,76 +4,76 @@ import { useState } from "react";
 
 const NICHES = [
   { 
-    niche: "Odontologia", 
-    subtitle: "Clínicas & Consultórios — site premium com agendamento direto de consultas, galeria de tratamentos e botão de WhatsApp flutuante.",
-    desc: "Personalizamos este modelo completo com as suas fotos, logomarca e procedimentos clínicos em até 48 horas.", 
-    img: "/images/clinica de estetica.png",
+    niche: "Clínica de Estética", 
+    subtitle: "Clínicas de Estética & Spas — página premium com depoimentos em carrossel, tratamentos e portfólio de antes/depois.",
+    persuasionDesc: "Ter um site premium para sua Clínica de Estética é o diferencial para atrair clientes de alto padrão. O modelo conta com galerias elegantes para expor procedimentos (como toxina botulínica, preenchimentos e tratamentos corporais), depoimentos de clientes satisfeitos que geram segurança e um botão de agendamento rápido integrado ao WhatsApp, transformando visitas em consultas agendadas instantaneamente.", 
+    img: "/images/clinica de estetica.webp",
     stats: { speed: "99", seo: "100" },
-    tag: "Dentistas",
-    highlight: "🦷 Com agendamento, WhatsApp integrado e Google Maps"
-  },
-  { 
-    niche: "Veterinário", 
-    subtitle: "Clínicas Pet & Hospitais — site de alta conversão para tutores agendarem consultas, banhos e exames 24h por dia.",
-    desc: "Layout dócil e corporativo que adaptamos em até 48 horas para passar total segurança e autoridade para sua clínica veterinária.", 
-    img: "/images/clinica de nutrição.png",
-    stats: { speed: "98", seo: "100" },
-    tag: "Veterinários",
-    highlight: "🐾 Com agendamento, WhatsApp integrado e Google Maps"
-  },
-  { 
-    niche: "Estética", 
-    subtitle: "Clínicas de Estética & Spas — página premium com depoimentos em carrossel, tratamentos, portfólio de antes/depois.",
-    desc: "Design clean focado em captar contatos de pessoas interessadas em procedimentos estéticos e tratamentos corporais.", 
-    img: "/images/clinica odontologica.png",
-    stats: { speed: "100", seo: "100" },
     tag: "Estética",
-    highlight: "✂️ Com agendamento, WhatsApp integrado e Google Maps"
+    highlight: "✨ Com antes e depois, WhatsApp integrado e galeria de tratamentos"
   },
   { 
-    niche: "Academia", 
-    subtitle: "Studios, CrossFit & Academias — página com grade de horários, chamada rápida de matrícula e contato direto.",
-    desc: "Design dinâmico e enérgico que customizamos para o seu método de treinamento físico, crossfit ou studio funcional.", 
-    img: "/images/clinica veterinaria.png",
-    stats: { speed: "99", seo: "98" },
-    tag: "Fitness",
-    highlight: "💪 Com agendamento, WhatsApp integrado e Google Maps"
-  },
-  { 
-    niche: "Advocacia", 
-    subtitle: "Escritórios Jurídicos — design de grande seriedade destacando especialidades e formulário de consulta rápida.",
-    desc: "Um design extremamente refinado e estruturado que adaptamos com rapidez para transmitir máxima credibilidade em sua cidade.", 
-    img: "/images/dedetizadora (2).png",
-    stats: { speed: "100", seo: "100" },
-    tag: "Direito",
-    highlight: "⚖️ Com agendamento, WhatsApp integrado e Google Maps"
-  },
-  { 
-    niche: "Restaurante", 
-    subtitle: "Gourmet & Bistrô — página para mostrar cardápio digital, reservas automáticas e botão de disk delivery.",
-    desc: "Layout sofisticado que destaca pratos principais, horário de funcionamento e rota GPS para clientes chegarem sem erro.", 
-    img: "/images/psicologo.png",
-    stats: { speed: "97", seo: "100" },
-    tag: "Gastronomia",
-    highlight: "🍽️ Com agendamento, WhatsApp integrado e Google Maps"
-  },
-  { 
-    niche: "Psicologia", 
-    subtitle: "Clínicas & Consultórios de Psicologia — site acolhedor com agendamento online de sessões e formulário de contato.",
-    desc: "Design empático e profissional, personalizado com seu CRP, especialidades, horários e modo de atendimento presencial ou online.", 
-    img: "/images/salao de beleza.png",
+    niche: "Clínica de Nutrição", 
+    subtitle: "Nutricionistas & Nutrólogos — página moderna focada em bem-estar, programas nutricionais e captação de consultas particulares.",
+    persuasionDesc: "Sua autoridade como profissional de saúde merece uma presença online à altura. Este modelo destaca seus planos de acompanhamento, sua abordagem clínica, depoimentos de pacientes que alcançaram resultados e uma agenda simplificada. Ideal para nutricionistas e nutrólogos que buscam qualificar seus contatos e preencher a agenda de consultas particulares de forma automática.", 
+    img: "/images/clinica de nutrição.webp",
     stats: { speed: "98", seo: "100" },
-    tag: "Saúde Mental",
-    highlight: "🧠 Com agendamento de sessões e WhatsApp integrado"
+    tag: "Nutrição",
+    highlight: "🍏 Com agendamento de consultas, depoimentos e programas"
   },
   { 
-    niche: "Arquitetura", 
-    subtitle: "Escritórios & Ateliês de Arquitetura — portfólio premium com galeria de projetos e formulário de contato exclusivo.",
-    desc: "Apresentação sofisticada dos seus projetos mais impactantes, com galeria de fotos em alta definição e chamada para orçamento pelo WhatsApp.", 
-    img: "/images/vidracaria.png",
+    niche: "Clínica Odontológica", 
+    subtitle: "Clínicas & Consultórios Odontológicos — site premium com agendamento de consultas, especialidades e FAQ clínico.",
+    persuasionDesc: "Pacientes buscam segurança e profissionalismo ao escolher um dentista. Este site foi projetado com uma interface clean e institucional que transmite total credibilidade. Conta com seções estruturadas para expor especialidades (implantes, clareamento, ortodontia), respostas a dúvidas frequentes (FAQ) e chamadas de ação diretas para o agendamento de avaliações pelo WhatsApp.", 
+    img: "/images/clinica odontologica.webp",
+    stats: { speed: "100", seo: "100" },
+    tag: "Odontologia",
+    highlight: "🦷 Com agendamento direto, FAQ de dúvidas e WhatsApp"
+  },
+  { 
+    niche: "Clínica Veterinária", 
+    subtitle: "Clínicas Pet & Hospitais Veterinários — alta conversão para agendamentos, banho e tosa, exames e emergências 24h.",
+    persuasionDesc: "Facilite o contato de tutores de pets nos momentos que eles mais precisam. Com um design acolhedor e focado em experiência móvel rápida, este site destaca seu canal de emergência 24h, serviços prestados (consultas, exames, vacinas), equipe médica e localização fácil com integração de mapas, garantindo a tranquilidade que os tutores buscam ao escolher sua clínica.", 
+    img: "/images/clinica veterinaria.webp",
+    stats: { speed: "99", seo: "98" },
+    tag: "Veterinária",
+    highlight: "🐾 Com canal de emergência, banho e tosa, e mapas"
+  },
+  { 
+    niche: "Dedetizadora", 
+    subtitle: "Dedetização & Controle de Pragas — página de conversão imediata, botões de ligação rápidos e selos de conformidade ANVISA.",
+    persuasionDesc: "Serviços de dedetização e controle de pragas exigem conversão imediata, pois o cliente geralmente tem uma urgência. Este modelo foi otimizado para celulares com botões de ligação e WhatsApp em destaque máximo. Apresenta de forma clara suas certificações da ANVISA, métodos de segurança e garantia de serviço, aumentando a taxa de fechamento de orçamentos rápidos.", 
+    img: "/images/dedetizadora (2).webp",
+    stats: { speed: "100", seo: "100" },
+    tag: "Serviços",
+    highlight: "🛡️ Com botões de orçamento rápido, ligação e ANVISA"
+  },
+  { 
+    niche: "Psicólogo", 
+    subtitle: "Consultórios de Psicologia & Terapeutas — design ético e acolhedor, agendamento de sessões presenciais ou online.",
+    persuasionDesc: "Um ambiente digital acolhedor e profissional é fundamental para que pacientes se sintam confortáveis para dar o primeiro passo. Este modelo é desenhado de acordo com os critérios do conselho, destacando sua formação, abordagens (como TCC, psicanálise), áreas de atendimento (ansiedade, depression, casal) e um canal prático e discreto para agendamento de consultas presenciais ou online.", 
+    img: "/images/psicologo.webp",
+    stats: { speed: "97", seo: "100" },
+    tag: "Psicologia",
+    highlight: "🧠 Com agendamento de sessões (online/presencial) e ética"
+  },
+  { 
+    niche: "Salão de Beleza", 
+    subtitle: "Salões, Barbearias & Cabeleireiros — vitrine dos melhores trabalhos, tabela de preços e agendamento de horários.",
+    persuasionDesc: "Sua arte visual e a transformação das suas clientes merecem o melhor destaque. Este modelo possui uma galeria moderna integrada para fotos de cortes, colorações, penteados e manicure, além de uma tabela de preços clara e depoimentos. É a ferramenta perfeita para converter seguidoras do Instagram em clientes assíduas do salão.", 
+    img: "/images/salao de beleza.webp",
+    stats: { speed: "98", seo: "100" },
+    tag: "Beleza",
+    highlight: "💇‍♀️ Com tabela de preços, galeria de cortes e agendamento"
+  },
+  { 
+    niche: "Vidraçaria", 
+    subtitle: "Vidraçarias & Serralherias — portfólio de projetos instalados (box, espelhos, janelas) e formulário de orçamento.",
+    persuasionDesc: "Apresente seus projetos de envidraçamento, boxes de banheiro, espelhos e esquadrias de forma profissional e sofisticada. Este modelo conta com galerias de fotos de alta definição que mostram a qualidade do seu acabamento. Possui também um formulário de solicitação de orçamento rápido por WhatsApp, agilizando o contato comercial e o fechamento de novas vendas na sua região.", 
+    img: "/images/vidracaria.webp",
     stats: { speed: "99", seo: "100" },
-    tag: "Arquitetura",
-    highlight: "🏛️ Com galeria de projetos e formulário de orçamento"
+    tag: "Vidros",
+    highlight: "🪟 Com galeria de projetos e orçamento rápido"
   }
 ];
 
@@ -106,13 +106,7 @@ export default function Portfolio() {
           Nossos modelos já foram validados e trazem clientes de verdade. Passe o mouse ou o dedo para rolar e ver o site completo.
         </p>
 
-        {/* Urgency banner */}
-        <div className="inline-flex items-center gap-3 bg-[#ef4444]/15 border border-[#ef4444]/30 rounded-2xl px-5 py-4 max-w-2xl mx-auto mb-16 shadow-lg shadow-[#ef4444]/5 text-center">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ef4444] animate-ping shrink-0" />
-          <span className="text-xs sm:text-sm font-bold text-white tracking-wide">
-            ⚠️ Limitamos a apenas <strong className="text-[#ef4444]">1 cliente por nicho em cada bairro</strong> para não concorrer no Google Maps. Garantimos exclusividade local.
-          </span>
-        </div>
+
 
         {/* Grid of cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 text-left">
@@ -199,7 +193,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex flex-col items-center bg-black/98 backdrop-blur-2xl overflow-y-auto py-6 px-4"
+            className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/98 backdrop-blur-2xl py-6 px-4"
             onClick={() => setLightboxImg(null)}
           >
             {/* Close bar */}
@@ -215,9 +209,9 @@ export default function Portfolio() {
               </button>
             </div>
 
-            {/* Full image */}
+            {/* Full image scrollable container */}
             <div
-              className="w-full max-w-3xl rounded-[20px] overflow-hidden border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.2)]"
+              className="w-full max-w-3xl h-[70vh] rounded-[20px] overflow-y-auto border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.2)] bg-black/50 scroll-smooth"
               onClick={e => e.stopPropagation()}
             >
               <img
@@ -228,7 +222,9 @@ export default function Portfolio() {
               />
             </div>
 
-            <p className="text-white/30 text-xs mt-4 shrink-0">Clique fora para fechar</p>
+            <p className="text-white/40 text-xs mt-4 shrink-0 font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5 select-none pointer-events-none">
+              ↕️ Role para cima ou para baixo para ver o modelo completo
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -294,12 +290,16 @@ export default function Portfolio() {
                       </button>
                     </div>
 
-                    <h3 className="text-3xl font-black uppercase tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
+                    <h3 className="text-3xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
                       {selectedModel.niche}
                     </h3>
 
-                    <p className="text-white text-xs font-extrabold leading-relaxed mb-6 bg-white/[0.03] p-3.5 rounded-xl border border-white/5">
-                      {selectedModel.subtitle}
+                    <div className="px-3.5 py-1.5 rounded-lg bg-[#e91e8c]/10 text-[9px] font-black text-[#e91e8c] border border-[#e91e8c]/20 mb-5 inline-block uppercase tracking-wider">
+                      {selectedModel.highlight}
+                    </div>
+
+                    <p className="text-neutral-300 text-xs font-semibold leading-relaxed mb-6 bg-white/[0.02] p-4.5 rounded-[16px] border border-white/5 shadow-inner">
+                      {selectedModel.persuasionDesc}
                     </p>
 
                     <div className="space-y-3.5 mb-6">

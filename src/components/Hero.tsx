@@ -82,14 +82,14 @@ export default function Hero() {
             </a>
             <button 
               onClick={() => {
-                const element = document.getElementById('vantagens');
+                const element = document.getElementById('modelos');
                 if (element) {
                   element.scrollIntoView({ behavior: "smooth" });
                 }
               }}
               className="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-black text-white hover:text-[#f0134d] hover:border-[#f0134d] uppercase tracking-wider text-center border-2 border-white/20 hover:border-white/40 transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md shrink-0 cursor-pointer flex items-center justify-center gap-2 group whitespace-nowrap"
             >
-              <span>Ver vantagens</span>
+              <span>Modelos de Sites</span>
               <ArrowRight size={15} className="text-white transition-transform group-hover:translate-x-1 shrink-0" />
             </button>
           </motion.div>

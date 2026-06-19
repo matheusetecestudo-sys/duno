@@ -37,7 +37,9 @@ import {
   TrendingUp,
   DollarSign,
   Menu,
-  Package
+  Package,
+  Eye,
+  ZoomIn
 } from "lucide-react";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./Icons";
@@ -61,76 +63,76 @@ interface NicheItem {
 
 const MOBILE_NICHES: NicheItem[] = [
   { 
-    niche: "Odontologia", 
-    subtitle: "Clínicas & Consultórios — site premium",
-    desc: "Personalizamos com suas fotos, logomarca e procedimentos clínicos em até 48 horas.", 
-    img: "/images/nicho_1.png",
+    niche: "Clínica de Estética", 
+    subtitle: "Clínicas de Estética & Spas — página premium",
+    persuasionDesc: "Ter um site premium para sua Clínica de Estética é o diferencial para atrair clientes de alto padrão. O modelo conta com galerias elegantes para expor procedimentos (como toxina botulínica, preenchimentos e tratamentos corporais), depoimentos de clientes satisfeitos que geram segurança e um botão de agendamento rápido integrado ao WhatsApp, transformando visitas em consultas agendadas instantaneamente.", 
+    img: "/images/clinica de estetica.webp",
     stats: { speed: "99", seo: "100" },
-    tag: "Dentistas",
-    highlight: "🦷 Agendamento e WhatsApp integrado"
-  },
-  { 
-    niche: "Veterinário", 
-    subtitle: "Clínicas Pet & Hospitais — alta conversão",
-    desc: "Layout dócil e corporativo para passar total segurança para sua clínica em até 48 horas.", 
-    img: "/images/nicho_2.png",
-    stats: { speed: "98", seo: "100" },
-    tag: "Veterinários",
-    highlight: "🐾 Agendamento e WhatsApp"
-  },
-  { 
-    niche: "Estética", 
-    subtitle: "Clínicas de Estética & Spas",
-    desc: "Design clean focado em captar contatos interessados em procedimentos estéticos.", 
-    img: "/images/nicho_3.png",
-    stats: { speed: "100", seo: "100" },
     tag: "Estética",
-    highlight: "✂️ Portfólio de antes e depois"
+    highlight: "✨ Antes e depois e WhatsApp integrado"
   },
   { 
-    niche: "Academia", 
-    subtitle: "Studios, CrossFit & Academias",
-    desc: "Design dinâmico e enérgico que customizamos para o seu método de treinamento físico.", 
-    img: "/images/nicho_4.png",
-    stats: { speed: "99", seo: "98" },
-    tag: "Fitness",
-    highlight: "💪 Chamada de matrícula rápida"
-  },
-  { 
-    niche: "Advocacia", 
-    subtitle: "Escritórios Jurídicos",
-    desc: "Um design extremamente refinado para transmitir máxima credibilidade em sua cidade.", 
-    img: "/images/nicho_5.png",
-    stats: { speed: "100", seo: "100" },
-    tag: "Direito",
-    highlight: "⚖️ Destaque de especialidades"
-  },
-  { 
-    niche: "Restaurante", 
-    subtitle: "Gourmet & Bistrô — página otimizada",
-    desc: "Layout sofisticado que destaca pratos, reservas automáticas e disk delivery.", 
-    img: "/images/nicho_6.png",
-    stats: { speed: "97", seo: "100" },
-    tag: "Gastronomia",
-    highlight: "🍽️ Cardápio e rota GPS guiados"
-  },
-  { 
-    niche: "Psicologia", 
-    subtitle: "Clínicas & Consultórios de Psicologia",
-    desc: "Design empático e profissional, personalizado com seu CRP, especialidades e horários de atendimento.", 
-    img: "/images/nicho_7.png",
+    niche: "Clínica de Nutrição", 
+    subtitle: "Nutricionistas & Nutrólogos — página moderna",
+    persuasionDesc: "Sua autoridade como profissional de saúde merece uma presença online à altura. Este modelo destaca seus planos de acompanhamento, sua abordagem clínica, depoimentos de pacientes que alcançaram resultados e uma agenda simplificada. Ideal para nutricionistas e nutrólogos que buscam qualificar seus contatos e preencher a agenda de consultas particulares de forma automática.", 
+    img: "/images/clinica de nutrição.webp",
     stats: { speed: "98", seo: "100" },
-    tag: "Saúde Mental",
-    highlight: "🧠 Agendamento de sessões e WhatsApp"
+    tag: "Nutrição",
+    highlight: "🍏 Agendamento e depoimentos"
   },
   { 
-    niche: "Arquitetura", 
-    subtitle: "Escritórios & Ateliês de Arquitetura",
-    desc: "Apresentação sofisticada dos seus projetos com galeria de fotos e chamada para orçamento pelo WhatsApp.", 
-    img: "/images/nicho_8.png",
+    niche: "Clínica Odontológica", 
+    subtitle: "Clínicas & Consultórios Odontológicos",
+    persuasionDesc: "Pacientes buscam segurança e profissionalismo ao escolher um dentista. Este site foi projetado com uma interface clean e institucional que transmite total credibilidade. Conta com seções estruturadas para expor especialidades (implantes, clareamento, ortodontia), respostas a dúvidas frequentes (FAQ) e chamadas de ação diretas para o agendamento de avaliações pelo WhatsApp.", 
+    img: "/images/clinica odontologica.webp",
+    stats: { speed: "100", seo: "100" },
+    tag: "Odontologia",
+    highlight: "🦷 Agendamento direto e FAQ clínico"
+  },
+  { 
+    niche: "Clínica Veterinária", 
+    subtitle: "Clínicas Pet & Hospitais Veterinários",
+    persuasionDesc: "Facilite o contato de tutores de pets nos momentos que eles mais precisam. Com um design acolhedor e focado em experiência móvel rápida, este site destaca seu canal de emergência 24h, serviços prestados (consultas, exames, vacinas), equipe médica e localização fácil com integração de mapas, garantindo a tranquilidade que os tutores buscam ao escolher sua clínica.", 
+    img: "/images/clinica veterinaria.webp",
+    stats: { speed: "99", seo: "98" },
+    tag: "Veterinária",
+    highlight: "🐾 Emergência 24h e banho e tosa"
+  },
+  { 
+    niche: "Dedetizadora", 
+    subtitle: "Dedetização & Controle de Pragas",
+    persuasionDesc: "Serviços de dedetização e controle de pragas exigem conversão imediata, pois o cliente geralmente tem uma urgência. Este modelo foi otimizado para celulares com botões de ligação e WhatsApp em destaque máximo. Apresenta de forma clara suas certificações da ANVISA, métodos de segurança e garantia de serviço, aumentando a taxa de fechamento de orçamentos rápidos.", 
+    img: "/images/dedetizadora (2).webp",
+    stats: { speed: "100", seo: "100" },
+    tag: "Serviços",
+    highlight: "🛡️ Orçamento rápido e ANVISA"
+  },
+  { 
+    niche: "Psicólogo", 
+    subtitle: "Consultórios de Psicologia & Terapeutas",
+    persuasionDesc: "Um ambiente digital acolhedor e profissional é fundamental para que pacientes se sintam confortáveis para dar o primeiro passo. Este modelo é desenhado de acordo com os critérios do conselho, destacando sua formação, abordagens (como TCC, psicanálise), áreas de atendimento (ansiedade, depressão, casal) e um canal prático e discreto para agendamento de consultas presenciais ou online.", 
+    img: "/images/psicologo.webp",
+    stats: { speed: "97", seo: "100" },
+    tag: "Psicologia",
+    highlight: "🧠 Agendamento e ética profissional"
+  },
+  { 
+    niche: "Salão de Beleza", 
+    subtitle: "Salões, Barbearias & Cabeleireiros",
+    persuasionDesc: "Sua arte visual e a transformação das suas clientes merecem o melhor destaque. Este modelo possui uma galeria moderna integrada para fotos de cortes, colorações, penteados e manicure, além de uma tabela de preços clara e depoimentos. É a ferramenta perfeita para converter seguidoras do Instagram em clientes assíduas do salão.", 
+    img: "/images/salao de beleza.webp",
+    stats: { speed: "98", seo: "100" },
+    tag: "Beleza",
+    highlight: "💇‍♀️ Preços, galeria e agendamento"
+  },
+  { 
+    niche: "Vidraçaria", 
+    subtitle: "Vidraçarias & Serralherias",
+    persuasionDesc: "Apresente seus projetos de envidraçamento, boxes de banheiro, espelhos e esquadrias de forma profissional e sofisticada. Este modelo conta com galerias de fotos de alta definição que mostram a qualidade do seu acabamento. Possui também um formulário de solicitação de orçamento rápido por WhatsApp, agilizando o contato comercial e o fechamento de novas vendas na sua região.", 
+    img: "/images/vidracaria.webp",
     stats: { speed: "99", seo: "100" },
-    tag: "Arquitetura",
-    highlight: "🏛️ Galeria de projetos e orçamento"
+    tag: "Vidros",
+    highlight: "🪟 Projetos (box, espelhos) e orçamento"
   }
 ];
 
@@ -167,6 +169,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   const [selectedModel, setSelectedModel] = useState<NicheItem | null>(null);
   const [isCompExpanded, setIsCompExpanded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
+  const [lightboxNiche, setLightboxNiche] = useState<string>("");
   
   const priceRef = useRef<HTMLDivElement>(null);
 
@@ -367,11 +371,11 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             <ArrowRight size={15} />
           </a>
           <button
-            onClick={() => scrollToMobile("beneficios-mobile")}
+            onClick={() => scrollToMobile("modelos-carrossel")}
             className="w-full h-[52px] rounded-full text-[13px] font-black text-white hover:text-[#f0134d] uppercase tracking-widest border-2 border-white/20 bg-black/45 backdrop-blur-sm active:bg-white/5 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
             style={{ minHeight: "48px" }}
           >
-            <span className="text-white whitespace-nowrap font-black">Ver vantagens</span>
+            <span className="text-white whitespace-nowrap font-black">Modelos de Sites</span>
             <ArrowRight size={15} className="text-white bg-transparent shrink-0" />
           </button>
         </div>
@@ -909,7 +913,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               >
                 {/* Card containing ONLY the image viewport */}
                 <div 
-                  onClick={() => setSelectedModel(item)}
+                  onClick={() => {
+                    setLightboxImg(item.img);
+                    setLightboxNiche(item.niche);
+                  }}
                   className="w-full h-[300px] rounded-[20px] bg-[#000000] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg transition-all duration-300"
                 >
                   <img 
@@ -921,20 +928,32 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                     referrerPolicy="no-referrer"
                   />
                   
+                  {/* Zoom overlay for touch/active */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 active:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
+                      <ZoomIn size={13} className="stroke-[3]" />
+                      <span>Ver maior</span>
+                    </div>
+                  </div>
+
                   {/* Tag overlay */}
                   <div className="absolute top-2.5 right-2.5 bg-black/85 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#f0134d] uppercase border border-[#f0134d]/30 pointer-events-none">
                     {item.tag}
                   </div>
                 </div>
 
-                {/* Niche details and Novo badge below card image */}
+                {/* Niche details and Detalhes button below card image */}
                 <div className="flex items-center justify-between mt-1 px-1">
                   <h3 className="text-base font-black text-white uppercase tracking-tight">
                     {item.niche}
                   </h3>
-                  <span className="px-2.5 py-0.5 rounded bg-[#e10270]/10 text-[9px] font-black text-[#e10270] uppercase border border-[#e10270]/20 tracking-wider">
-                    Novo
-                  </span>
+                  <button
+                    onClick={() => setSelectedModel(item)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e10270]/10 border border-[#e10270]/25 text-[10px] font-black text-[#e10270] uppercase tracking-wider active:bg-[#e10270]/20 cursor-pointer"
+                  >
+                    <Eye size={10} className="stroke-[3]" />
+                    Detalhes
+                  </button>
                 </div>
               </div>
             ))}
@@ -1453,8 +1472,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 {selectedModel.highlight}
               </div>
 
-              <p className="text-[13px] text-neutral-300 font-semibold leading-relaxed mb-6">
-                Layout de grande autoridade adaptável para seu consultório em 48h.
+              <p className="text-[12px] text-neutral-300 font-semibold leading-relaxed mb-6 bg-white/[0.03] p-3.5 rounded-xl border border-white/5 shadow-inner">
+                {selectedModel.persuasionDesc}
               </p>
 
               {/* Highlights score */}
@@ -1480,6 +1499,49 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 <ArrowRight size={12} className="stroke-[3] shrink-0" />
               </a>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── LIGHTBOX MOBILE ── */}
+      <AnimatePresence>
+        {lightboxImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[2000] flex flex-col items-center justify-center bg-black/98 backdrop-blur-md py-6 px-4"
+            onClick={() => setLightboxImg(null)}
+          >
+            {/* Close bar */}
+            <div className="w-full max-w-[340px] flex items-center justify-between mb-4 shrink-0" onClick={e => e.stopPropagation()}>
+              <span className="text-white font-black uppercase tracking-widest text-xs">
+                {lightboxNiche}
+              </span>
+              <button
+                onClick={() => setLightboxImg(null)}
+                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white cursor-pointer"
+              >
+                <X size={16} />
+              </button>
+            </div>
+
+            {/* Scrollable image */}
+            <div
+              className="w-full max-w-[340px] h-[65vh] rounded-2xl overflow-y-auto border border-[#f0134d]/20 shadow-2xl bg-black/50 scroll-smooth"
+              onClick={e => e.stopPropagation()}
+            >
+              <img
+                src={lightboxImg}
+                alt={lightboxNiche}
+                className="w-full h-auto block"
+                draggable={false}
+              />
+            </div>
+
+            <p className="text-white/40 text-[10px] mt-4 shrink-0 font-bold uppercase tracking-wider animate-pulse text-center select-none pointer-events-none">
+              ↕️ Deslize para cima ou para baixo para ver o modelo completo
+            </p>
           </motion.div>
         )}
       </AnimatePresence>

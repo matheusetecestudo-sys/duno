@@ -20,7 +20,7 @@ export default function App() {
   useEffect(() => {
     const checkViewport = () => {
       // Handles 430px + some responsive leeway to guarantee 100% of mobiles receive the rewritten layout
-      setIsMobile(window.innerWidth <= 480);
+      setIsMobile(window.innerWidth <= 768);
     };
     checkViewport();
     window.addEventListener("resize", checkViewport);
@@ -33,7 +33,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white selection:bg-[#e91e8c]/30 selection:text-white">
+    <div className="min-h-screen bg-[#000000] text-white selection:bg-[#e91e8c]/30 selection:text-white overflow-x-hidden">
       {isMobile ? (
         <div className="min-h-screen bg-[#000000] text-white flex flex-col items-center overflow-x-hidden w-full">
           <MobileVersion 

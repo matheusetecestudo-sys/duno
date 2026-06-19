@@ -25,7 +25,6 @@
   }
 
   body {
-    background-color: #000000 !important;
     color: #ffffff;
     font-family: "Montserrat", sans-serif !important;
     @apply antialiased selection:bg-[#e91e8c]/30 overflow-x-hidden;

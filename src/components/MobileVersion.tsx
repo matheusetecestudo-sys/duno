@@ -206,7 +206,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       {/* ----------------------------------------------------------------------
           NAVBAR MOBILE (includes emergency countdown bar above)
           ---------------------------------------------------------------------- */}
-      <div className="fixed top-0 left-0 right-0 z-[999] max-w-[430px] mx-auto">
+      <div className="fixed top-0 left-0 w-full max-w-[430px] mx-auto z-[999]">
         {/* Home header */}
         <div className="h-[64px] bg-[#000000] backdrop-blur-md border-b border-[#f0134d]/20 px-4 flex items-center justify-between relative">
           <button 

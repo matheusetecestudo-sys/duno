@@ -171,6 +171,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [lightboxNiche, setLightboxNiche] = useState<string>("");
+  const [panningIndex, setPanningIndex] = useState<number | null>(null);
   
   const priceRef = useRef<HTMLDivElement>(null);
 
@@ -914,25 +915,47 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 {/* Card containing ONLY the image viewport */}
                 <div 
                   onClick={() => {
-                    setLightboxImg(item.img);
-                    setLightboxNiche(item.niche);
+                    if (panningIndex === i) {
+                      // Second tap: open lightbox
+                      setLightboxImg(item.img);
+                      setLightboxNiche(item.niche);
+                      setPanningIndex(null);
+                    } else {
+                      // First tap: start pan animation
+                      setPanningIndex(i);
+                    }
                   }}
-                  className="w-full h-[300px] rounded-[20px] bg-[#000000] border-2 border-[#e10270] overflow-hidden relative cursor-pointer group/img shadow-lg transition-all duration-300"
+                  className="w-full h-[300px] rounded-[20px] bg-[#000000] border-2 border-[#e10270] overflow-hidden relative cursor-pointer shadow-lg transition-all duration-300"
                 >
                   <img 
                     src={item.img} 
                     alt={item.niche} 
-                    className="w-full absolute top-0 left-0 transition-transform duration-[6s] ease-in-out origin-top group-hover/img:translate-y-[calc(-100%+300px)] active:translate-y-[calc(-100%+300px)]"
+                    className={`w-full absolute top-0 left-0 origin-top transition-transform ease-in-out ${
+                      panningIndex === i
+                        ? 'translate-y-[calc(-100%+300px)] duration-[6s]'
+                        : 'translate-y-0 duration-500'
+                    }`}
                     style={{ height: 'auto' }}
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                   
-                  {/* Zoom overlay for touch/active */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 active:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
+                  {/* Overlay hint */}
+                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-black/40 backdrop-blur-[1px] pointer-events-none ${
+                    panningIndex === i ? 'opacity-100' : 'opacity-0'
+                  }`}>
                     <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
                       <ZoomIn size={13} className="stroke-[3]" />
-                      <span>Ver maior</span>
+                      <span>Toque para ampliar</span>
+                    </div>
+                  </div>
+
+                  {/* Initial hint overlay (before first tap) */}
+                  <div className={`absolute inset-0 flex items-end pb-3 justify-center transition-opacity duration-300 pointer-events-none ${
+                    panningIndex === i ? 'opacity-0' : 'opacity-100'
+                  }`}>
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 border border-white/10 text-white text-[9px] font-black uppercase tracking-widest">
+                      <span>👆 Toque para rolar</span>
                     </div>
                   </div>
 

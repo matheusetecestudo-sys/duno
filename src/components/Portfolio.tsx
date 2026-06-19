@@ -320,7 +320,7 @@ export default function Portfolio() {
 
                   <div className="space-y-3 pt-4 border-t border-white/5">
                     <a
-                      href={`https://wa.me/5511992876219?text=Olá!%20Adorei%20o%20modelo%20da%20Duno%20para%20${selectedModel.niche},%20quero%20esse%20para%20mim.`}
+                      href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(selectedModel.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="gold-premium-btn w-full text-xs sm:text-sm"

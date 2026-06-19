@@ -54,7 +54,7 @@ import Counter from "./Counter";
 interface NicheItem {
   niche: string;
   subtitle: string;
-  desc: string;
+  persuasionDesc: string;
   img: string;
   stats: { speed: string; seo: string };
   tag: string;
@@ -1515,7 +1515,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             {/* ── Fixed CTA at bottom ── */}
             <div className="px-4 py-4 border-t border-white/8 bg-[#0a0a0a] shrink-0">
               <a
-                href={`https://wa.me/5511992876219?text=Olá!%20Gostei%20do%20modelo%20para%20${selectedModel.niche}%20e%20quero%20este%20para%20minha%20empresa.`}
+                href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(selectedModel.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gold-premium-btn w-full"

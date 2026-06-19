@@ -64,75 +64,75 @@ interface NicheItem {
 const MOBILE_NICHES: NicheItem[] = [
   { 
     niche: "Clínica de Estética", 
-    subtitle: "Clínicas de Estética & Spas — página premium",
-    persuasionDesc: "Ter um site premium para sua Clínica de Estética é o diferencial para atrair clientes de alto padrão. O modelo conta com galerias elegantes para expor procedimentos (como toxina botulínica, preenchimentos e tratamentos corporais), depoimentos de clientes satisfeitos que geram segurança e um botão de agendamento rápido integrado ao WhatsApp, transformando visitas em consultas agendadas instantaneamente.", 
+    subtitle: "Clínicas de Estética & Spas",
+    persuasionDesc: "Site premium com galerias de antes/depois e agendamento via WhatsApp para converter visitantes em clientes instantaneamente.", 
     img: "/images/clinica de estetica.webp",
     stats: { speed: "99", seo: "100" },
     tag: "Estética",
-    highlight: "✨ Antes e depois e WhatsApp integrado"
+    highlight: "✨ Antes e depois + WhatsApp"
   },
   { 
     niche: "Clínica de Nutrição", 
-    subtitle: "Nutricionistas & Nutrólogos — página moderna",
-    persuasionDesc: "Sua autoridade como profissional de saúde merece uma presença online à altura. Este modelo destaca seus planos de acompanhamento, sua abordagem clínica, depoimentos de pacientes que alcançaram resultados e uma agenda simplificada. Ideal para nutricionistas e nutrólogos que buscam qualificar seus contatos e preencher a agenda de consultas particulares de forma automática.", 
+    subtitle: "Nutricionistas & Nutrólogos",
+    persuasionDesc: "Layout moderno para atrair consultas particulares, com depoimentos de pacientes e programas nutricionais em destaque.", 
     img: "/images/clinica de nutrição.webp",
     stats: { speed: "98", seo: "100" },
     tag: "Nutrição",
-    highlight: "🍏 Agendamento e depoimentos"
+    highlight: "🍏 Agendamento + depoimentos"
   },
   { 
     niche: "Clínica Odontológica", 
     subtitle: "Clínicas & Consultórios Odontológicos",
-    persuasionDesc: "Pacientes buscam segurança e profissionalismo ao escolher um dentista. Este site foi projetado com uma interface clean e institucional que transmite total credibilidade. Conta com seções estruturadas para expor especialidades (implantes, clareamento, ortodontia), respostas a dúvidas frequentes (FAQ) e chamadas de ação diretas para o agendamento de avaliações pelo WhatsApp.", 
+    persuasionDesc: "Transmita credibilidade com agendamento integrado, especialidades visíveis e FAQ clínico que reduz dúvidas dos pacientes.", 
     img: "/images/clinica odontologica.webp",
     stats: { speed: "100", seo: "100" },
     tag: "Odontologia",
-    highlight: "🦷 Agendamento direto e FAQ clínico"
+    highlight: "🦷 Agendamento + FAQ clínico"
   },
   { 
     niche: "Clínica Veterinária", 
     subtitle: "Clínicas Pet & Hospitais Veterinários",
-    persuasionDesc: "Facilite o contato de tutores de pets nos momentos que eles mais precisam. Com um design acolhedor e focado em experiência móvel rápida, este site destaca seu canal de emergência 24h, serviços prestados (consultas, exames, vacinas), equipe médica e localização fácil com integração de mapas, garantindo a tranquilidade que os tutores buscam ao escolher sua clínica.", 
+    persuasionDesc: "Canal de emergência 24h, agendamentos de banho/tosa e mapas integrados para tranquilizar tutores de pets.", 
     img: "/images/clinica veterinaria.webp",
     stats: { speed: "99", seo: "98" },
     tag: "Veterinária",
-    highlight: "🐾 Emergência 24h e banho e tosa"
+    highlight: "🐾 Emergência 24h + banho e tosa"
   },
   { 
     niche: "Dedetizadora", 
     subtitle: "Dedetização & Controle de Pragas",
-    persuasionDesc: "Serviços de dedetização e controle de pragas exigem conversão imediata, pois o cliente geralmente tem uma urgência. Este modelo foi otimizado para celulares com botões de ligação e WhatsApp em destaque máximo. Apresenta de forma clara suas certificações da ANVISA, métodos de segurança e garantia de serviço, aumentando a taxa de fechamento de orçamentos rápidos.", 
+    persuasionDesc: "Botões de ligação e WhatsApp em destaque máximo, selos ANVISA e orçamento imediato para fechar mais contratos.", 
     img: "/images/dedetizadora (2).webp",
     stats: { speed: "100", seo: "100" },
     tag: "Serviços",
-    highlight: "🛡️ Orçamento rápido e ANVISA"
+    highlight: "🛡️ Orçamento rápido + ANVISA"
   },
   { 
     niche: "Psicólogo", 
     subtitle: "Consultórios de Psicologia & Terapeutas",
-    persuasionDesc: "Um ambiente digital acolhedor e profissional é fundamental para que pacientes se sintam confortáveis para dar o primeiro passo. Este modelo é desenhado de acordo com os critérios do conselho, destacando sua formação, abordagens (como TCC, psicanálise), áreas de atendimento (ansiedade, depressão, casal) e um canal prático e discreto para agendamento de consultas presenciais ou online.", 
+    persuasionDesc: "Ambiente digital acolhedor para agendamento presencial ou online, com design ético que incentiva o primeiro contato.", 
     img: "/images/psicologo.webp",
     stats: { speed: "97", seo: "100" },
     tag: "Psicologia",
-    highlight: "🧠 Agendamento e ética profissional"
+    highlight: "🧠 Sessões online/presencial"
   },
   { 
     niche: "Salão de Beleza", 
     subtitle: "Salões, Barbearias & Cabeleireiros",
-    persuasionDesc: "Sua arte visual e a transformação das suas clientes merecem o melhor destaque. Este modelo possui uma galeria moderna integrada para fotos de cortes, colorações, penteados e manicure, além de uma tabela de preços clara e depoimentos. É a ferramenta perfeita para converter seguidoras do Instagram em clientes assíduas do salão.", 
+    persuasionDesc: "Galeria de cortes, tabela de preços e agendamento online para converter seguidores em clientes assíduos.", 
     img: "/images/salao de beleza.webp",
     stats: { speed: "98", seo: "100" },
     tag: "Beleza",
-    highlight: "💇‍♀️ Preços, galeria e agendamento"
+    highlight: "💇‍♀️ Preços + galeria + agendamento"
   },
   { 
     niche: "Vidraçaria", 
     subtitle: "Vidraçarias & Serralherias",
-    persuasionDesc: "Apresente seus projetos de envidraçamento, boxes de banheiro, espelhos e esquadrias de forma profissional e sofisticada. Este modelo conta com galerias de fotos de alta definição que mostram a qualidade do seu acabamento. Possui também um formulário de solicitação de orçamento rápido por WhatsApp, agilizando o contato comercial e o fechamento de novas vendas na sua região.", 
+    persuasionDesc: "Portfólio de projetos em alta resolução (box, espelhos, janelas) com orçamento rápido direto no WhatsApp.", 
     img: "/images/vidracaria.webp",
     stats: { speed: "99", seo: "100" },
     tag: "Vidros",
-    highlight: "🪟 Projetos (box, espelhos) e orçamento"
+    highlight: "🪟 Projetos + orçamento rápido"
   }
 ];
 
@@ -297,7 +297,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                     <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Agência Online ativa</span>
                   </div>
                   <a
-                    href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
+                    href="https://wa.me/5511992876219?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[9px] font-black uppercase tracking-widest text-[#f0134d] hover:underline"
@@ -361,7 +361,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         {/* 4. CTAs Blocks */}
         <div className="relative z-10 w-full max-w-[340px] flex flex-col gap-3 px-1.5 pb-2 text-center items-center">
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+            href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full"
@@ -966,7 +966,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             Deseja outro segmento? Customizamos para seu nicho local gratuitamente.
           </p>
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Não%20achei%20minha%20profissão%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%2520meu%252520segmento."
+            href="https://wa.me/5511992876219?text=Olá!%20Não%20achei%20minha%20profissão%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%2520meu%252520segmento."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn !h-11 !text-[11px] !px-5"
@@ -1082,7 +1082,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               </ul>
 
               <a
-                href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+                href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gold-premium-btn w-full text-xs"
@@ -1198,7 +1198,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
           {/* Bottom Stickyable Action Trigger */}
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+            href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full max-w-sm mx-auto"
@@ -1281,7 +1281,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         <div className="mt-8">
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Li%20o%20FAQ%20da%2520Duno%2520mas%2520ainda%2520tenho%2520uma%2520duvida%2520especifica."
+            href="https://wa.me/5511992876219?text=Olá!%20Li%20o%20FAQ%20da%2520Duno%2520mas%2520ainda%2520tenho%2520uma%2520duvida%2520especifica."
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-4.5 rounded-xl border border-[#25D366] bg-[#25D366]/10 text-white hover:bg-[#25D366]/20 text-xs font-black uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
@@ -1370,7 +1370,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           </p>
 
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+            href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full max-w-[300px] mx-auto text-xs sm:text-sm"
@@ -1414,7 +1414,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         {/* Contacts details */}
         <div className="space-y-2 mb-10 text-xs font-bold text-neutral-500">
           <p className="text-white text-sm">contato@duno.com.br</p>
-          <p className="text-white text-base font-black">+55 (11) 99999-9999</p>
+          <p className="text-white text-base font-black">+55 (11) 99287-6219</p>
           <p>São Paulo, BR</p>
         </div>
 
@@ -1433,72 +1433,97 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
       </footer>
 
       {/* ----------------------------------------------------------------------
-          IMMERSIVE DETAIL MODAL PANEL
+          DETAIL MODAL PANEL
           ---------------------------------------------------------------------- */}
       <AnimatePresence>
         {selectedModel && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
-            onClick={() => setSelectedModel(null)}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", damping: 28, stiffness: 300 }}
+            className="fixed inset-0 z-[1100] flex flex-col bg-[#0a0a0a]"
           >
-            <motion.div
-              initial={{ scale: 0.9, y: 15, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 15, opacity: 0 }}
-              className="relative w-full max-w-[340px] bg-[#000000] border border-[#f0134d]/30 rounded-2xl overflow-hidden shadow-2xl p-6 text-left"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header */}
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-[9px] font-black text-[#f0134d] uppercase tracking-widest">Nicho verificado</span>
-                <button 
-                  onClick={() => setSelectedModel(null)} 
-                  className="w-7 h-7 bg-white/5 rounded-full flex items-center justify-center text-white/60 focus:outline-none"
-                >
-                  <X size={15} />
-                </button>
+            {/* ── Top bar: voltar ── */}
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/8 shrink-0 bg-[#0a0a0a]">
+              <button
+                onClick={() => setSelectedModel(null)}
+                className="flex items-center gap-2 text-white/70 active:text-white transition-colors cursor-pointer"
+              >
+                <ArrowRight size={16} className="rotate-180 stroke-[2.5]" />
+                <span className="text-[13px] font-black uppercase tracking-wider">Voltar</span>
+              </button>
+              <div className="flex-1" />
+              <span className="text-[9px] font-black text-[#f0134d] uppercase tracking-widest">Modelo</span>
+            </div>
+
+            {/* ── Scrollable content ── */}
+            <div className="flex-1 overflow-y-auto px-4 py-5">
+              {/* Niche image preview */}
+              <div
+                className="w-full h-[200px] rounded-2xl overflow-hidden border border-[#f0134d]/20 mb-4 relative cursor-pointer"
+                onClick={() => {
+                  setLightboxImg(selectedModel.img);
+                  setLightboxNiche(selectedModel.niche);
+                  setSelectedModel(null);
+                }}
+              >
+                <img
+                  src={selectedModel.img}
+                  alt={selectedModel.niche}
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 flex items-end p-3 bg-gradient-to-t from-black/80 to-transparent">
+                  <span className="text-[9px] font-black text-white/60 uppercase tracking-widest flex items-center gap-1">
+                    <ZoomIn size={10} /> Toque para ver o site completo
+                  </span>
+                </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
+              <h3 className="text-xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
                 {selectedModel.niche}
               </h3>
 
-              {/* Tag and Subtitle highlighted */}
-              <div className="px-3 py-1.5 rounded bg-[#f0134d]/10 text-[11px] font-black text-[#f0134d] border border-[#f0134d]/20 mb-4 inline-block">
+              {/* Highlight tag */}
+              <div className="inline-block px-2.5 py-1 rounded-full bg-[#f0134d]/10 text-[10px] font-black text-[#f0134d] border border-[#f0134d]/20 mb-3">
                 {selectedModel.highlight}
               </div>
 
-              <p className="text-[12px] text-neutral-300 font-semibold leading-relaxed mb-6 bg-white/[0.03] p-3.5 rounded-xl border border-white/5 shadow-inner">
+              {/* Description */}
+              <p className="text-[12px] text-neutral-400 font-semibold leading-relaxed mb-4">
                 {selectedModel.persuasionDesc}
               </p>
 
-              {/* Highlights score */}
-              <div className="space-y-2.5 mb-6 text-xs font-bold border-y border-white/5 py-4">
-                <div className="flex justify-between">
-                  <span className="text-neutral-500">Velocidade 4G</span>
-                  <span className="text-emerald-500 font-extrabold flex items-center gap-1">100/100 EXCELENTE</span>
+              {/* Stats */}
+              <div className="flex gap-3 mb-5">
+                <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
+                  <span className="block text-base font-black text-emerald-400">{selectedModel.stats.speed}</span>
+                  <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Velocidade</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-neutral-500">Filtro Local Google Maps</span>
-                  <span className="text-[#25D366] font-extrabold">PRONTO ATIVO</span>
+                <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
+                  <span className="block text-base font-black text-[#f0134d]">{selectedModel.stats.seo}</span>
+                  <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">SEO</span>
+                </div>
+                <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
+                  <span className="block text-base font-black text-[#25D366]">✓</span>
+                  <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Google Maps</span>
                 </div>
               </div>
+            </div>
 
-              {/* CTA trigger inside details */}
+            {/* ── Fixed CTA at bottom ── */}
+            <div className="px-4 py-4 border-t border-white/8 bg-[#0a0a0a] shrink-0">
               <a
-                href={`https://wa.me/5511999999999?text=Olá!%20Gostei%20do%20modelo%20para%20${selectedModel.niche}%20e%20quero%20esse%20para%20minha%20clínica.`}
+                href={`https://wa.me/5511992876219?text=Olá!%20Gostei%20do%20modelo%20para%20${selectedModel.niche}%20e%20quero%20este%20para%20minha%20empresa.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="gold-premium-btn w-full text-xs"
+                className="gold-premium-btn w-full"
               >
-                <span className="whitespace-nowrap">Quero este modelo</span>
-                <ArrowRight size={12} className="stroke-[3] shrink-0" />
+                <span className="whitespace-nowrap text-sm font-black">Quero este modelo</span>
+                <ArrowRight size={14} className="stroke-[3] shrink-0" />
               </a>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

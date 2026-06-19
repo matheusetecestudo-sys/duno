@@ -6,7 +6,7 @@ const NICHES = [
   { 
     niche: "Clínica de Estética", 
     subtitle: "Clínicas de Estética & Spas — página premium com depoimentos em carrossel, tratamentos e portfólio de antes/depois.",
-    persuasionDesc: "Ter um site premium para sua Clínica de Estética é o diferencial para atrair clientes de alto padrão. O modelo conta com galerias elegantes para expor procedimentos (como toxina botulínica, preenchimentos e tratamentos corporais), depoimentos de clientes satisfeitos que geram segurança e um botão de agendamento rápido integrado ao WhatsApp, transformando visitas em consultas agendadas instantaneamente.", 
+    persuasionDesc: "Site de alto padrão com galerias de antes/depois e agendamento pelo WhatsApp para converter visitantes em clientes de forma instantânea.", 
     img: "/images/clinica de estetica.webp",
     stats: { speed: "99", seo: "100" },
     tag: "Estética",
@@ -15,7 +15,7 @@ const NICHES = [
   { 
     niche: "Clínica de Nutrição", 
     subtitle: "Nutricionistas & Nutrólogos — página moderna focada em bem-estar, programas nutricionais e captação de consultas particulares.",
-    persuasionDesc: "Sua autoridade como profissional de saúde merece uma presença online à altura. Este modelo destaca seus planos de acompanhamento, sua abordagem clínica, depoimentos de pacientes que alcançaram resultados e uma agenda simplificada. Ideal para nutricionistas e nutrólogos que buscam qualificar seus contatos e preencher a agenda de consultas particulares de forma automática.", 
+    persuasionDesc: "Layout moderno focado em bem-estar e programas nutricionais, estruturado para atrair consultas particulares.", 
     img: "/images/clinica de nutrição.webp",
     stats: { speed: "98", seo: "100" },
     tag: "Nutrição",
@@ -24,7 +24,7 @@ const NICHES = [
   { 
     niche: "Clínica Odontológica", 
     subtitle: "Clínicas & Consultórios Odontológicos — site premium com agendamento de consultas, especialidades e FAQ clínico.",
-    persuasionDesc: "Pacientes buscam segurança e profissionalismo ao escolher um dentista. Este site foi projetado com uma interface clean e institucional que transmite total credibilidade. Conta com seções estruturadas para expor especialidades (implantes, clareamento, ortodontia), respostas a dúvidas frequentes (FAQ) e chamadas de ação diretas para o agendamento de avaliações pelo WhatsApp.", 
+    persuasionDesc: "Transmita total credibilidade com agendamento integrado, visualização de especialidades e FAQ clínico completo.", 
     img: "/images/clinica odontologica.webp",
     stats: { speed: "100", seo: "100" },
     tag: "Odontologia",
@@ -33,7 +33,7 @@ const NICHES = [
   { 
     niche: "Clínica Veterinária", 
     subtitle: "Clínicas Pet & Hospitais Veterinários — alta conversão para agendamentos, banho e tosa, exames e emergências 24h.",
-    persuasionDesc: "Facilite o contato de tutores de pets nos momentos que eles mais precisam. Com um design acolhedor e focado em experiência móvel rápida, este site destaca seu canal de emergência 24h, serviços prestados (consultas, exames, vacinas), equipe médica e localização fácil com integração de mapas, garantindo a tranquilidade que os tutores buscam ao escolher sua clínica.", 
+    persuasionDesc: "Experiência móvel rápida com canal de emergência 24h, agendamentos de banho/tosa e integração de mapas.", 
     img: "/images/clinica veterinaria.webp",
     stats: { speed: "99", seo: "98" },
     tag: "Veterinária",
@@ -42,7 +42,7 @@ const NICHES = [
   { 
     niche: "Dedetizadora", 
     subtitle: "Dedetização & Controle de Pragas — página de conversão imediata, botões de ligação rápidos e selos de conformidade ANVISA.",
-    persuasionDesc: "Serviços de dedetização e controle de pragas exigem conversão imediata, pois o cliente geralmente tem uma urgência. Este modelo foi otimizado para celulares com botões de ligação e WhatsApp em destaque máximo. Apresenta de forma clara suas certificações da ANVISA, métodos de segurança e garantia de serviço, aumentando a taxa de fechamento de orçamentos rápidos.", 
+    persuasionDesc: "Otimizado para conversão imediata de urgência com botões de ligação rápidos, selos ANVISA e orçamentos via WhatsApp.", 
     img: "/images/dedetizadora (2).webp",
     stats: { speed: "100", seo: "100" },
     tag: "Serviços",
@@ -51,7 +51,7 @@ const NICHES = [
   { 
     niche: "Psicólogo", 
     subtitle: "Consultórios de Psicologia & Terapeutas — design ético e acolhedor, agendamento de sessões presenciais ou online.",
-    persuasionDesc: "Um ambiente digital acolhedor e profissional é fundamental para que pacientes se sintam confortáveis para dar o primeiro passo. Este modelo é desenhado de acordo com os critérios do conselho, destacando sua formação, abordagens (como TCC, psicanálise), áreas de atendimento (ansiedade, depression, casal) e um canal prático e discreto para agendamento de consultas presenciais ou online.", 
+    persuasionDesc: "Ambiente digital ético e acolhedor estruturado para agendar consultas presenciais ou online com facilidade.", 
     img: "/images/psicologo.webp",
     stats: { speed: "97", seo: "100" },
     tag: "Psicologia",
@@ -60,7 +60,7 @@ const NICHES = [
   { 
     niche: "Salão de Beleza", 
     subtitle: "Salões, Barbearias & Cabeleireiros — vitrine dos melhores trabalhos, tabela de preços e agendamento de horários.",
-    persuasionDesc: "Sua arte visual e a transformação das suas clientes merecem o melhor destaque. Este modelo possui uma galeria moderna integrada para fotos de cortes, colorações, penteados e manicure, além de uma tabela de preços clara e depoimentos. É a ferramenta perfeita para converter seguidoras do Instagram em clientes assíduas do salão.", 
+    persuasionDesc: "A vitrine digital perfeita para expor seus melhores cortes, tabela de preços e marcação de horários com a equipe.", 
     img: "/images/salao de beleza.webp",
     stats: { speed: "98", seo: "100" },
     tag: "Beleza",
@@ -69,7 +69,7 @@ const NICHES = [
   { 
     niche: "Vidraçaria", 
     subtitle: "Vidraçarias & Serralherias — portfólio de projetos instalados (box, espelhos, janelas) e formulário de orçamento.",
-    persuasionDesc: "Apresente seus projetos de envidraçamento, boxes de banheiro, espelhos e esquadrias de forma profissional e sofisticada. Este modelo conta com galerias de fotos de alta definição que mostram a qualidade do seu acabamento. Possui também um formulário de solicitação de orçamento rápido por WhatsApp, agilizando o contato comercial e o fechamento de novas vendas na sua região.", 
+    persuasionDesc: "Exponha seus projetos de box e espelhos em alta resolução com canal de orçamento rápido por WhatsApp.", 
     img: "/images/vidracaria.webp",
     stats: { speed: "99", seo: "100" },
     tag: "Vidros",
@@ -174,7 +174,7 @@ export default function Portfolio() {
             Não encontrou seu segmento? Fale conosco — criamos para qualquer nicho.
           </p>
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Não%20encontrei%20meu%20nicho%20nos%20modelos%20prontos%20e%20gostaria%20de%20um%20personalizado."
+            href="https://wa.me/5511992876219?text=Olá!%20Não%20encontrei%20meu%20nicho%20nos%20modelos%20prontos%20e%20gostaria%20de%20um%20personalizado."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn !h-11 !text-xs !px-5"
@@ -320,7 +320,7 @@ export default function Portfolio() {
 
                   <div className="space-y-3 pt-4 border-t border-white/5">
                     <a
-                      href={`https://wa.me/5511999999999?text=Olá!%20Adorei%20o%20modelo%20da%20Duno%20para%20${selectedModel.niche},%20quero%20esse%20para%20mim.`}
+                      href={`https://wa.me/5511992876219?text=Olá!%20Adorei%20o%20modelo%20da%20Duno%20para%20${selectedModel.niche},%20quero%20esse%20para%20mim.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="gold-premium-btn w-full text-xs sm:text-sm"

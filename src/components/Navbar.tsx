@@ -67,7 +67,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-4">
           <a
-            href="https://wa.me/5511999999999?text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20quero%20saber%20mais%20sobre%20a%20locação%20de%20site."
+            href="https://wa.me/5511992876219?text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20quero%20saber%20mais%20sobre%20a%20locação%20de%20site."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn !h-11 !text-xs !px-5 flex items-center justify-center gap-2"

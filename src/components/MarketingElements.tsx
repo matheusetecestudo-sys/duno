@@ -169,7 +169,7 @@ export function Offer() {
 
           {/* High Urgency CTA Button */}
           <a 
-            href="https://wa.me/5511999999999?text=Olá!%20Fiquei%20interessado%20na%20locação%20de%20site%20da%20Duno%20por%20R$197/mês,%20quero%20começar."
+            href="https://wa.me/5511992876219?text=Olá!%20Fiquei%20interessado%20na%20locação%20de%20site%20da%20Duno%20por%20R$197/mês,%20quero%20começar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full text-xs sm:text-sm"
@@ -356,7 +356,7 @@ export function FinalCTA() {
           </p>
           
           <a 
-            href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20reservar%20a%20vaga%20do%20meu%20nicho."
+            href="https://wa.me/5511992876219?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20reservar%20a%20vaga%20do%20meu%20nicho."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full sm:w-auto max-w-md mx-auto"
@@ -432,7 +432,7 @@ export function Footer() {
             <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] inline-block">Contato</h4>
             <ul className="space-y-3 text-xs font-bold text-[#a0a0a0]">
                <li className="hover:text-white transition-colors cursor-pointer text-left">contato@duno.com.br</li>
-               <li className="text-white text-sm text-left font-black">+55 (11) 99999-9999</li>
+               <li className="text-white text-sm text-left font-black">+55 (11) 99287-6219</li>
                <li className="text-[#606060] font-semibold text-left">São Paulo, BR</li>
             </ul>
           </div>
@@ -477,7 +477,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
       <div className="absolute inset-x-0 inset-y-0 w-full h-full rounded-full bg-[#25D366]/20 animate-ping pointer-events-none z-0" />
 
       <motion.a
-        href="https://wa.me/5511999999999?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
+        href="https://wa.me/5511992876219?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.8 }}

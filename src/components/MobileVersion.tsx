@@ -201,7 +201,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
   }, [onPriceInView]);
 
   return (
-    <div className="w-full max-w-[430px] mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative" style={{ contain: 'layout' }}>
+    <div className="w-full max-w-full mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative" style={{ contain: 'layout' }}>
       
       {/* ----------------------------------------------------------------------
           NAVBAR MOBILE (includes emergency countdown bar above)

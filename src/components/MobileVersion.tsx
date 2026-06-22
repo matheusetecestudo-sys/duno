@@ -1461,8 +1461,8 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           >
             {/* Modal Card */}
             <div 
-              className="w-full max-w-[340px] bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-              style={{ height: '70vh' }}
+              className="bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              style={{ width: '90vw', height: '90vh' }}
               onClick={e => e.stopPropagation()}
             >
               {/* Header */}

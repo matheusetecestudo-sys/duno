@@ -152,17 +152,19 @@ export default function Portfolio() {
               </div>
 
               {/* Name + buttons row */}
-              <div className="flex items-center justify-between px-1">
-                <h3 className="text-lg font-black text-white uppercase tracking-tight">
+              <div className="flex items-center justify-between px-1 gap-2">
+                <h3 className="text-[15px] font-black text-white uppercase tracking-tight truncate">
                   {item.niche}
                 </h3>
-                <button
-                  onClick={() => setSelectedModel(item)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e10270]/10 border border-[#e10270]/25 text-[10px] font-black text-[#e10270] uppercase tracking-wider hover:bg-[#e10270]/20 transition-all"
+                <a
+                  href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(item.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-[10px] font-black text-black uppercase tracking-wider transition-all duration-300 shrink-0 shadow-[0_0_12px_rgba(37,211,102,0.15)] hover:shadow-[0_0_18px_rgba(37,211,102,0.35)]"
                 >
-                  <Eye size={10} className="stroke-[3]" />
-                  Detalhes
-                </button>
+                  <span>Quero este</span>
+                  <ArrowRight size={10} className="stroke-[3]" />
+                </a>
               </div>
             </motion.div>
           ))}
@@ -211,7 +213,7 @@ export default function Portfolio() {
 
             {/* Full image scrollable container */}
             <div
-              className="w-full max-w-3xl h-[70vh] rounded-[20px] overflow-y-auto border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.2)] bg-black/50 scroll-smooth"
+              className="w-full max-w-3xl h-[70vh] rounded-[20px] overflow-y-auto border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.25)] bg-black/50 scroll-smooth"
               onClick={e => e.stopPropagation()}
             >
               <img
@@ -225,114 +227,6 @@ export default function Portfolio() {
             <p className="text-white/40 text-xs mt-4 shrink-0 font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5 select-none pointer-events-none">
               ↕️ Role para cima ou para baixo para ver o modelo completo
             </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* ── DETAILS MODAL ── */}
-      <AnimatePresence>
-        {selectedModel && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl"
-            onClick={() => setSelectedModel(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 20, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.95, y: 20, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 350 }}
-              className="relative w-full max-w-4xl lg:max-w-5xl bg-[#000000] border-2 border-[#e91e8c]/30 rounded-[20px] overflow-hidden shadow-[0_25px_80px_rgba(233,30,140,0.25)] max-h-[90vh] overflow-y-auto select-none"
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12">
-
-                {/* Left: image preview — click to lightbox */}
-                <div
-                  className="lg:col-span-8 relative aspect-video lg:aspect-auto overflow-hidden bg-black border-r border-[#2a2a2a] flex items-center justify-center cursor-zoom-in"
-                  onClick={() => openLightbox(selectedModel)}
-                >
-                  <img
-                    src={selectedModel.img}
-                    alt={selectedModel.niche}
-                    className="w-full h-full object-cover opacity-90 p-4 rounded-[20px]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Zoom hint */}
-                  <div className="absolute top-6 right-6 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 border border-white/10 text-[9px] font-black text-white/60 tracking-widest uppercase backdrop-blur-sm pointer-events-none">
-                    <ZoomIn size={10} /> Ver completo
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 flex flex-wrap gap-2.5">
-                    <span className="px-3.5 py-1.5 rounded-lg bg-black/85 border border-[#e91e8c]/30 backdrop-blur-md text-[9px] font-black text-[#e91e8c] tracking-widest uppercase flex items-center gap-1.5">
-                      <Sparkles size={11} className="stroke-[3] text-[#e91e8c]" />
-                      Imagens Inclusas de Alta Conversão
-                    </span>
-                    <span className="px-3.5 py-1.5 rounded-lg bg-black/80 border border-white/10 backdrop-blur-md text-[9px] font-black text-white/80 tracking-widest uppercase">
-                      Estética Extraordinária
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right: info */}
-                <div className="lg:col-span-4 p-8 lg:p-10 flex flex-col justify-between bg-[#000000] text-left border-t border-[#2a2a2a] lg:border-t-0">
-                  <div>
-                    <div className="flex justify-between items-center mb-8">
-                      <span className="text-[9px] font-black text-[#e91e8c] uppercase tracking-[0.25em]">MODELO DO SEU NICHO</span>
-                      <button
-                        onClick={() => setSelectedModel(null)}
-                        className="w-8 h-8 rounded-full bg-white/5 hover:bg-[#e91e8c]/20 hover:text-[#e91e8c] flex items-center justify-center text-white/60 transition-all cursor-pointer"
-                      >
-                        <X size={16} className="stroke-[2.5]" />
-                      </button>
-                    </div>
-
-                    <h3 className="text-3xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] w-fit">
-                      {selectedModel.niche}
-                    </h3>
-
-                    <div className="px-3.5 py-1.5 rounded-lg bg-[#e91e8c]/10 text-[9px] font-black text-[#e91e8c] border border-[#e91e8c]/20 mb-5 inline-block uppercase tracking-wider">
-                      {selectedModel.highlight}
-                    </div>
-
-                    <p className="text-neutral-300 text-xs font-semibold leading-relaxed mb-6 bg-white/[0.02] p-4.5 rounded-[16px] border border-white/5 shadow-inner">
-                      {selectedModel.persuasionDesc}
-                    </p>
-
-                    <div className="space-y-3.5 mb-6">
-                      <div className="flex justify-between items-center py-2 border-b border-white/5 text-[11px] font-bold">
-                        <span className="text-white/40 uppercase tracking-widest">Mobile Adaptado</span>
-                        <span className="text-[#25D366] font-black flex items-center gap-1"><CheckCircle2 size={13} strokeWidth={2.5} /> SIM</span>
-                      </div>
-                      <div className="flex justify-between items-center py-2 border-b border-white/5 text-[11px] font-bold">
-                        <span className="text-white/40 uppercase tracking-widest">Velocidade Computador</span>
-                        <span className="text-white bg-[#e91e8c] px-2 py-0.5 rounded text-[10px] font-black shadow-sm">{selectedModel.stats.speed}/100</span>
-                      </div>
-                      <div className="flex justify-between items-center py-2 border-b border-white/5 text-[11px] font-bold">
-                        <span className="text-white/40 uppercase tracking-widest">Otimização SEO Local</span>
-                        <span className="text-white text-[10px] font-black">{selectedModel.stats.seo}/100</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 pt-4 border-t border-white/5">
-                    <a
-                      href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(selectedModel.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="gold-premium-btn w-full text-xs sm:text-sm"
-                    >
-                      <span className="whitespace-nowrap">Quero esse modelo</span>
-                      <ArrowRight size={14} className="stroke-[3] shrink-0" />
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

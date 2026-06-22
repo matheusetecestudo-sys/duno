@@ -901,7 +901,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-8 max-w-[320px] mx-auto px-5">
-          Deslize com o polegar para explorar. Toque para abrir detalhes e demonstração direta.
+          Passe o dedo para rolar e ver o site completo. Toque para ampliar.
         </p>
 
         {/* 1x8 Grid of Niche Cards */}
@@ -915,47 +915,34 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 {/* Card containing ONLY the image viewport */}
                 <div 
                   onClick={() => {
-                    if (panningIndex === i) {
-                      // Second tap: open lightbox
-                      setLightboxImg(item.img);
-                      setLightboxNiche(item.niche);
-                      setPanningIndex(null);
-                    } else {
-                      // First tap: start pan animation
-                      setPanningIndex(i);
-                    }
+                    setLightboxImg(item.img);
+                    setLightboxNiche(item.niche);
                   }}
+                  onMouseEnter={() => setPanningIndex(i)}
+                  onMouseLeave={() => setPanningIndex(null)}
+                  onTouchStart={() => setPanningIndex(i)}
+                  onTouchEnd={() => setPanningIndex(null)}
+                  onTouchCancel={() => setPanningIndex(null)}
                   className="w-full h-[300px] rounded-[20px] bg-[#000000] border-2 border-[#e10270] overflow-hidden relative cursor-pointer shadow-lg transition-all duration-300"
                 >
                   <img 
                     src={item.img} 
                     alt={item.niche} 
-                    className={`w-full absolute top-0 left-0 origin-top transition-transform ease-in-out ${
-                      panningIndex === i
-                        ? 'translate-y-[calc(-100%+300px)] duration-[6s]'
-                        : 'translate-y-0 duration-500'
-                    }`}
-                    style={{ height: 'auto' }}
+                    className="w-full absolute top-0 left-0 origin-top transition-transform ease-in-out"
+                    style={{
+                      height: 'auto',
+                      transitionDuration: panningIndex === i ? '5s' : '1s',
+                      transform: panningIndex === i ? 'translateY(calc(-100% + 300px))' : 'translateY(0)',
+                    }}
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                   
                   {/* Overlay hint */}
-                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-black/40 backdrop-blur-[1px] pointer-events-none ${
-                    panningIndex === i ? 'opacity-100' : 'opacity-0'
-                  }`}>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
                     <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
                       <ZoomIn size={13} className="stroke-[3]" />
-                      <span>Toque para ampliar</span>
-                    </div>
-                  </div>
-
-                  {/* Initial hint overlay (before first tap) */}
-                  <div className={`absolute inset-0 flex items-end pb-3 justify-center transition-opacity duration-300 pointer-events-none ${
-                    panningIndex === i ? 'opacity-0' : 'opacity-100'
-                  }`}>
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 border border-white/10 text-white text-[9px] font-black uppercase tracking-widest">
-                      <span>👆 Toque para rolar</span>
+                      <span>Ver maior</span>
                     </div>
                   </div>
 
@@ -965,26 +952,25 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   </div>
                 </div>
 
-                {/* Niche details and Detalhes button below card image */}
-                <div className="flex items-center justify-between mt-1 px-1">
-                  <h3 className="text-base font-black text-white uppercase tracking-tight">
+                {/* Niche details and WhatsApp button below card image */}
+                <div className="flex items-center justify-between mt-1 px-1 gap-2">
+                  <h3 className="text-base font-black text-white uppercase tracking-tight truncate">
                     {item.niche}
                   </h3>
-                  <button
-                    onClick={() => setSelectedModel(item)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e10270]/10 border border-[#e10270]/25 text-[10px] font-black text-[#e10270] uppercase tracking-wider active:bg-[#e10270]/20 cursor-pointer"
+                  <a
+                    href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(item.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#25D366] active:bg-[#20ba5a] text-[10px] font-black text-black uppercase tracking-wider transition-all duration-300 shrink-0 shadow-[0_0_12px_rgba(37,211,102,0.15)] active:shadow-[0_0_18px_rgba(37,211,102,0.35)]"
                   >
-                    <Eye size={10} className="stroke-[3]" />
-                    Detalhes
-                  </button>
+                    <span>Quero este</span>
+                    <ArrowRight size={10} className="stroke-[3]" />
+                  </a>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Segment customized request box */}
-        <div className="mt-8 mx-5 p-5 border border-white/5 bg-neutral-950 rounded-xl text-center">
+        </div>        <div className="mt-8 mx-5 p-5 border border-white/5 bg-neutral-950 rounded-xl text-center">
           <p className="text-xs text-neutral-400 font-bold mb-3.5">
             Deseja outro segmento? Customizamos para seu nicho local gratuitamente.
           </p>
@@ -1455,124 +1441,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </div>
       </footer>
 
-      {/* ----------------------------------------------------------------------
-          DETAIL MODAL PANEL — bottom sheet style
-          ---------------------------------------------------------------------- */}
-      <AnimatePresence>
-        {selectedModel && (
-          <>
-            {/* Dark backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[1099] bg-black/80 backdrop-blur-sm"
-              onClick={() => setSelectedModel(null)}
-            />
 
-            {/* Bottom sheet */}
-            <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 z-[1100] bg-[#0a0a0a] rounded-t-[24px] overflow-hidden"
-              style={{ maxHeight: '92vh' }}
-            >
-              {/* Drag handle */}
-              <div className="flex justify-center pt-3 pb-1">
-                <div className="w-10 h-1 rounded-full bg-white/20" />
-              </div>
-
-              {/* Top bar: voltar + label */}
-              <div className="flex items-center gap-3 px-4 py-3 border-b border-white/8">
-                <button
-                  onClick={() => setSelectedModel(null)}
-                  className="flex items-center gap-2 text-white/70 active:text-white transition-colors cursor-pointer"
-                >
-                  <ArrowRight size={16} className="rotate-180 stroke-[2.5]" />
-                  <span className="text-[13px] font-black uppercase tracking-wider">Voltar</span>
-                </button>
-                <div className="flex-1" />
-                <span className="text-[9px] font-black text-[#f0134d] uppercase tracking-widest">Modelo</span>
-              </div>
-
-              {/* Scrollable content */}
-              <div className="overflow-y-auto" style={{ maxHeight: 'calc(92vh - 90px)' }}>
-                {/* Auto-panning image */}
-                <div
-                  className="w-full overflow-hidden relative cursor-pointer bg-black"
-                  style={{ height: '52vw', maxHeight: '260px', minHeight: '160px' }}
-                  onClick={() => {
-                    setLightboxImg(selectedModel.img);
-                    setLightboxNiche(selectedModel.niche);
-                    setSelectedModel(null);
-                  }}
-                >
-                  <img
-                    src={selectedModel.img}
-                    alt={selectedModel.niche}
-                    className="w-full absolute top-0 left-0 origin-top"
-                    style={{ height: 'auto', animation: 'modalPan 8s ease-in-out forwards' }}
-                  />
-                  <div className="absolute inset-0 flex items-end p-3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
-                    <span className="text-[9px] font-black text-white/60 uppercase tracking-widest flex items-center gap-1">
-                      <ZoomIn size={10} /> Toque para ver o site completo
-                    </span>
-                  </div>
-                  <div className="absolute top-2.5 right-2.5 bg-black/85 px-2 py-0.5 rounded text-[9px] font-extrabold text-[#f0134d] uppercase border border-[#f0134d]/30 pointer-events-none">
-                    {selectedModel.tag}
-                  </div>
-                </div>
-
-                <div className="px-4 pt-4 pb-6">
-                  {/* Title */}
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
-                    {selectedModel.niche}
-                  </h3>
-
-                  {/* Highlight */}
-                  <div className="inline-block px-2.5 py-1 rounded-full bg-[#f0134d]/10 text-[10px] font-black text-[#f0134d] border border-[#f0134d]/20 mb-3">
-                    {selectedModel.highlight}
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-[12px] text-neutral-400 font-semibold leading-relaxed mb-4">
-                    {selectedModel.persuasionDesc}
-                  </p>
-
-                  {/* Stats */}
-                  <div className="flex gap-3 mb-5">
-                    <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
-                      <span className="block text-base font-black text-emerald-400">{selectedModel.stats.speed}</span>
-                      <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Velocidade</span>
-                    </div>
-                    <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
-                      <span className="block text-base font-black text-[#f0134d]">{selectedModel.stats.seo}</span>
-                      <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">SEO</span>
-                    </div>
-                    <div className="flex-1 bg-white/[0.03] rounded-xl p-3 border border-white/5 text-center">
-                      <span className="block text-base font-black text-[#25D366]">✓</span>
-                      <span className="text-[9px] font-black text-neutral-500 uppercase tracking-wider">Google Maps</span>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <a
-                    href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(selectedModel.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="gold-premium-btn w-full"
-                  >
-                    <span className="whitespace-nowrap text-sm font-black">Quero este modelo</span>
-                    <ArrowRight size={14} className="stroke-[3] shrink-0" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
 
       {/* ── LIGHTBOX MOBILE ── */}
       <AnimatePresence>

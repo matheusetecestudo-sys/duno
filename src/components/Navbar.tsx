@@ -32,15 +32,15 @@ export default function Navbar() {
   const navItems = ["Como Funciona", "Modelos", "Vantagens", "Depoimentos", "FAQ"];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <motion.div 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`flex items-center justify-between px-6 md:px-12 h-[70px] transition-all duration-300 ${
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`w-full max-w-7xl h-[64px] rounded-full border bg-black/85 backdrop-blur-md flex items-center justify-between px-6 md:px-8 shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-300 pointer-events-auto ${
           scrolled 
-            ? "bg-[#000000] backdrop-blur-[20px] border-b border-[#e91e8c]/30 shadow-[0_10px_30px_rgba(0,0,0,0.8)]" 
-            : "bg-black/40 border-b border-white/5"
+            ? "border-[#e91e8c]/30 shadow-[0_15px_40px_rgba(233,30,140,0.15)] scale-[0.98]" 
+            : "border-white/10 scale-100"
         }`}
       >
         <div className="flex items-center">
@@ -93,7 +93,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-[100%] left-4 right-4 bg-[#000000] backdrop-blur-3xl border border-white/10 rounded-[24px] mt-2 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 pointer-events-auto"
+            className="lg:hidden absolute top-[76px] left-4 right-4 bg-[#000000] backdrop-blur-3xl border border-white/10 rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 pointer-events-auto"
           >
             <div className="flex flex-col p-6 gap-2">
               {navItems.map((item) => (

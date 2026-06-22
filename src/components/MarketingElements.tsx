@@ -1,6 +1,6 @@
 import { Logo } from "./Logo";
 import { Plus, Minus, ArrowRight, ShieldCheck, Heart, Landmark, Check, Users, MessageSquare, Star, Quote } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { WhatsAppIcon } from "./Icons";
 import Counter from "./Counter";
@@ -467,9 +467,20 @@ export function Footer() {
 
 // WHATSAPP FLOAT BUTTON
 export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolean }) {
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobileScreen(window.innerWidth < 640);
+    };
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   return (
     <div
-      className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center`}
+      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center`}
       style={{ pointerEvents: hideOnMobile ? "none" : "auto" }}
     >
       {/* Radiant Pulsing Rings for extreme attention */}
@@ -483,7 +494,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ 
           opacity: hideOnMobile ? 0 : 1, 
-          scale: hideOnMobile ? 0.8 : 1.1, // slightly larger standard size for attention
+          scale: hideOnMobile ? 0.8 : (isMobileScreen ? 0.9 : 1.1), // slightly smaller on mobile
           y: [0, -4, 0],
         }}
         whileHover={{ scale: 1.18 }}
@@ -498,10 +509,10 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
             ease: "easeInOut"
           }
         }}
-        className={`relative z-10 flex items-center justify-center p-3.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#1ebd5d] to-[#25D366] text-white shadow-[0_12px_40px_rgba(37,211,102,0.55)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
+        className={`relative z-10 flex items-center justify-center p-2.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#1ebd5d] to-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
         aria-label="Fale conosco no WhatsApp"
       >
-        <WhatsAppIcon size={31} className="text-white shrink-0 drop-shadow-md animate-pulse" />
+        <WhatsAppIcon size={isMobileScreen ? 20 : 31} className="text-white shrink-0 drop-shadow-md animate-pulse" />
         <span className="max-w-0 overflow-hidden group-hover:max-w-[200px] transition-all duration-300 ease-in-out font-black uppercase text-[11px] sm:text-[12px] tracking-widest text-white whitespace-nowrap ml-0 group-hover:ml-2.5">
           Fale Conosco
         </span>

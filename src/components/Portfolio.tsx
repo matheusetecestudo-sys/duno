@@ -251,7 +251,7 @@ export default function Portfolio() {
 
                 {/* Left: image preview — click to lightbox */}
                 <div
-                  className="lg:col-span-8 relative aspect-video lg:aspect-auto lg:h-[500px] overflow-hidden bg-black border-r border-[#2a2a2a] flex items-center justify-center cursor-zoom-in"
+                  className="lg:col-span-8 relative aspect-video lg:aspect-auto overflow-hidden bg-black border-r border-[#2a2a2a] flex items-center justify-center cursor-zoom-in"
                   onClick={() => openLightbox(selectedModel)}
                 >
                   <img
@@ -278,7 +278,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Right: info */}
-                <div className="lg:col-span-4 p-8 lg:p-10 flex flex-col justify-between h-auto lg:h-[500px] bg-[#000000] text-left border-t border-[#2a2a2a] lg:border-t-0">
+                <div className="lg:col-span-4 p-8 lg:p-10 flex flex-col justify-between bg-[#000000] text-left border-t border-[#2a2a2a] lg:border-t-0">
                   <div>
                     <div className="flex justify-between items-center mb-8">
                       <span className="text-[9px] font-black text-[#e91e8c] uppercase tracking-[0.25em]">MODELO DO SEU NICHO</span>

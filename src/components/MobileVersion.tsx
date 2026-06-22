@@ -901,7 +901,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
         </h2>
         
         <p className="text-[14px] text-neutral-400 font-semibold text-center mb-8 max-w-[320px] mx-auto px-5">
-          Passe o dedo para rolar e ver o site completo. Toque para ampliar.
+          Passe o dedo para rolar e toque na imagem para visualizar melhor o site completo.
         </p>
 
         {/* 1x8 Grid of Niche Cards */}
@@ -942,8 +942,14 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[1px] pointer-events-none">
                     <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#e91e8c] to-[#7c3aed] text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
                       <ZoomIn size={13} className="stroke-[3]" />
-                      <span>Ver maior</span>
+                      <span>Ver completo</span>
                     </div>
+                  </div>
+
+                  {/* Direct info label overlay */}
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/85 backdrop-blur-xs px-3 py-1 rounded-full text-[9px] font-black text-white/95 uppercase border border-white/10 flex items-center gap-1 shadow-md pointer-events-none whitespace-nowrap">
+                    <ZoomIn size={10} className="stroke-[3] text-[#e91e8c]" />
+                    <span>Toque para visualizar melhor</span>
                   </div>
 
                   {/* Tag overlay */}
@@ -961,10 +967,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                     href={`https://wa.me/5511992876219?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Duno%20e%20me%20interessei%20pelo%20modelo%20de%20site%20para%20*${encodeURIComponent(item.niche)}*.%20Quero%20saber%20mais%20e%20come%C3%A7ar!`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#25D366] active:bg-[#20ba5a] text-[10px] font-black text-black uppercase tracking-wider transition-all duration-300 shrink-0 shadow-[0_0_12px_rgba(37,211,102,0.15)] active:shadow-[0_0_18px_rgba(37,211,102,0.35)]"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e10270]/10 border border-[#e10270]/25 text-[10px] font-black text-[#e10270] uppercase tracking-wider active:bg-[#e10270]/20 cursor-pointer shrink-0"
                   >
-                    <span>Quero este</span>
                     <ArrowRight size={10} className="stroke-[3]" />
+                    <span>Saiba mais</span>
                   </a>
                 </div>
               </div>
@@ -1454,7 +1460,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             onClick={() => setLightboxImg(null)}
           >
             {/* Close bar */}
-            <div className="w-full max-w-[340px] flex items-center justify-between mb-4 shrink-0" onClick={e => e.stopPropagation()}>
+            <div className="w-full max-w-[95%] flex items-center justify-between mb-4 shrink-0" onClick={e => e.stopPropagation()}>
               <span className="text-white font-black uppercase tracking-widest text-xs">
                 {lightboxNiche}
               </span>
@@ -1466,9 +1472,9 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               </button>
             </div>
 
-            {/* Scrollable image */}
+            {/* Scrollable image - maximized to fill mobile screens */}
             <div
-              className="w-full max-w-[340px] h-[65vh] rounded-2xl overflow-y-auto border border-[#f0134d]/20 shadow-2xl bg-black/50 scroll-smooth"
+              className="w-full max-w-[95%] h-[82vh] rounded-2xl overflow-y-auto border border-[#f0134d]/20 shadow-2xl bg-black/50 scroll-smooth"
               onClick={e => e.stopPropagation()}
             >
               <img

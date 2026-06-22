@@ -1456,7 +1456,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[2000] flex flex-col items-center justify-center bg-black/98 backdrop-blur-md py-6 px-4"
+            className="fixed inset-0 z-[2000] flex flex-col items-center justify-start bg-black/98 backdrop-blur-md pt-12 pb-6 px-4"
             onClick={() => setLightboxImg(null)}
           >
             {/* Close bar */}
@@ -1472,9 +1472,9 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               </button>
             </div>
 
-            {/* Scrollable image - maximized to fill mobile screens */}
+            {/* Scrollable image - maximized to fill mobile screens using flex-1 */}
             <div
-              className="w-full max-w-[95%] h-[82vh] rounded-2xl overflow-y-auto border border-[#f0134d]/20 shadow-2xl bg-black/50 scroll-smooth"
+              className="flex-1 w-full max-w-[95%] rounded-2xl overflow-y-auto border border-[#f0134d]/20 shadow-2xl bg-black/50 scroll-smooth"
               onClick={e => e.stopPropagation()}
             >
               <img

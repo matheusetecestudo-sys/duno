@@ -199,7 +199,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/98 backdrop-blur-2xl py-6 px-4"
+            className="fixed inset-0 z-[70] flex flex-col items-center justify-start bg-black/98 backdrop-blur-2xl pt-12 pb-6 px-4"
             onClick={() => setLightboxImg(null)}
           >
             {/* Close bar */}
@@ -215,9 +215,9 @@ export default function Portfolio() {
               </button>
             </div>
 
-            {/* Full image scrollable container - expanded sizes */}
+            {/* Full image scrollable container - expanded sizes using flex-1 */}
             <div
-              className="w-full max-w-5xl h-[85vh] rounded-[20px] overflow-y-auto border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.25)] bg-black/50 scroll-smooth"
+              className="flex-1 w-full max-w-5xl rounded-[20px] overflow-y-auto border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.25)] bg-black/50 scroll-smooth"
               onClick={e => e.stopPropagation()}
             >
               <img

@@ -960,7 +960,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
                 {/* Niche details and WhatsApp button below card image */}
                 <div className="flex items-center justify-between mt-1 px-1 gap-2">
-                  <h3 className="text-base font-black text-white uppercase tracking-tight">
+                  <h3 className="text-[13px] font-black text-white uppercase tracking-tight">
                     {item.niche}
                   </h3>
                   <a

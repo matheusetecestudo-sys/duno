@@ -157,7 +157,7 @@ export default function Portfolio() {
 
               {/* Name + buttons row */}
               <div className="flex items-center justify-between px-1 gap-2">
-                <h3 className="text-[15px] font-black text-white uppercase tracking-tight">
+                <h3 className="text-[13px] font-black text-white uppercase tracking-tight">
                   {item.niche}
                 </h3>
                 <a

@@ -1478,12 +1478,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 </button>
               </div>
 
-              {/* Scrollable Image Area */}
-              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
+              {/* Scrollable Image Area with horizontal and vertical native scrolling */}
+              <div className="flex-1 overflow-auto bg-black scroll-smooth">
                 <img
                   src={lightboxImg}
                   alt={lightboxNiche}
-                  className="w-full h-auto block"
+                  className="max-w-none h-auto block"
+                  style={{ width: '960px' }}
                   draggable={false}
                 />
               </div>
@@ -1491,7 +1492,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
               {/* Footer hint */}
               <div className="px-4 py-2 bg-neutral-950 border-t border-white/5 text-center shrink-0">
                 <p className="text-white/40 text-[9px] font-black uppercase tracking-widest animate-pulse">
-                  ↕️ Deslize para ver o site completo
+                  ↕️↔️ Arraste para os lados e para baixo para ler tudo
                 </p>
               </div>
             </div>

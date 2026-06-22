@@ -960,7 +960,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
                 {/* Niche details and WhatsApp button below card image */}
                 <div className="flex items-center justify-between mt-1 px-1 gap-2">
-                  <h3 className="text-base font-black text-white uppercase tracking-tight truncate">
+                  <h3 className="text-base font-black text-white uppercase tracking-tight">
                     {item.niche}
                   </h3>
                   <a
@@ -1190,15 +1190,15 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           <ul className="space-y-3 text-left mb-8 px-1">
             {[
               "Hospedagem inclusa de alta resposta AWS",
-              "Manutenção técnica completa sem preocupações",
-              "Alterações ilimitadas inclusas no plano",
-              "Certificado de segurança SSL criptografado incluso",
-              "Zero contrato de fidelidade ou multas de cancelamento",
-              "Suporte imediato de elite feito direto pelo WhatsApp"
-            ].map((benefit, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-xs font-bold text-white">
-                <Check className="text-[#25D366] shrink-0 mt-0.5 stroke-[3] w-4 h-4" />
-                <span>{benefit}</span>
+              "Alterações de texto e fotos quando quiser",
+              "Carregamento mobile de alta performance",
+              "Integrado ao seu WhatsApp oficial",
+              "Sem multas de cancelamento ou contrato",
+              "Otimização para SEO local (Google Maps)"
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2.5 text-xs text-white font-bold leading-tight">
+                <Check size={14} className="text-[#25D366] shrink-0 mt-0.5 stroke-[3]" />
+                <span>{item}</span>
               </li>
             ))}
           </ul>
@@ -1456,38 +1456,45 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[2000] flex flex-col items-center justify-start bg-black/98 backdrop-blur-md pt-12 pb-6 px-4"
+            className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
             onClick={() => setLightboxImg(null)}
           >
-            {/* Close bar */}
-            <div className="w-full max-w-[95%] flex items-center justify-between mb-4 shrink-0" onClick={e => e.stopPropagation()}>
-              <span className="text-white font-black uppercase tracking-widest text-xs">
-                {lightboxNiche}
-              </span>
-              <button
-                onClick={() => setLightboxImg(null)}
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white cursor-pointer"
-              >
-                <X size={16} />
-              </button>
-            </div>
-
-            {/* Scrollable image - maximized to fill mobile screens using flex-1 */}
-            <div
-              className="flex-1 w-full max-w-[95%] rounded-2xl overflow-y-auto border border-[#f0134d]/20 shadow-2xl bg-black/50 scroll-smooth"
+            {/* Modal Card */}
+            <div 
+              className="w-full max-w-[340px] bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              style={{ height: '70vh' }}
               onClick={e => e.stopPropagation()}
             >
-              <img
-                src={lightboxImg}
-                alt={lightboxNiche}
-                className="w-full h-auto block"
-                draggable={false}
-              />
-            </div>
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0c0c0c] shrink-0">
+                <span className="text-white font-black uppercase tracking-widest text-[11px]">
+                  {lightboxNiche}
+                </span>
+                <button
+                  onClick={() => setLightboxImg(null)}
+                  className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
+                >
+                  <X size={14} className="stroke-[2.5]" />
+                </button>
+              </div>
 
-            <p className="text-white/40 text-[10px] mt-4 shrink-0 font-bold uppercase tracking-wider animate-pulse text-center select-none pointer-events-none">
-              ↕️ Deslize para cima ou para baixo para ver o modelo completo
-            </p>
+              {/* Scrollable Image Area */}
+              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
+                <img
+                  src={lightboxImg}
+                  alt={lightboxNiche}
+                  className="w-full h-auto block"
+                  draggable={false}
+                />
+              </div>
+
+              {/* Footer hint */}
+              <div className="px-4 py-2 bg-neutral-950 border-t border-white/5 text-center shrink-0">
+                <p className="text-white/40 text-[9px] font-black uppercase tracking-widest animate-pulse">
+                  ↕️ Deslize para ver o site completo
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

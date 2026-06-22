@@ -157,7 +157,7 @@ export default function Portfolio() {
 
               {/* Name + buttons row */}
               <div className="flex items-center justify-between px-1 gap-2">
-                <h3 className="text-[15px] font-black text-white uppercase tracking-tight truncate">
+                <h3 className="text-[15px] font-black text-white uppercase tracking-tight">
                   {item.niche}
                 </h3>
                 <a
@@ -199,38 +199,45 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex flex-col items-center justify-start bg-black/98 backdrop-blur-2xl pt-12 pb-6 px-4"
+            className="fixed inset-0 z-[70] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
             onClick={() => setLightboxImg(null)}
           >
-            {/* Close bar */}
-            <div className="w-full max-w-5xl flex items-center justify-between mb-4 shrink-0" onClick={e => e.stopPropagation()}>
-              <span className="text-white font-black uppercase tracking-widest text-sm">
-                {lightboxNiche}
-              </span>
-              <button
-                onClick={() => setLightboxImg(null)}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#e91e8c]/30 flex items-center justify-center text-white transition-all cursor-pointer"
-              >
-                <X size={18} className="stroke-[2.5]" />
-              </button>
-            </div>
-
-            {/* Full image scrollable container - expanded sizes using flex-1 */}
-            <div
-              className="flex-1 w-full max-w-5xl rounded-[20px] overflow-y-auto border border-[#e91e8c]/20 shadow-[0_0_60px_rgba(233,30,140,0.25)] bg-black/50 scroll-smooth"
+            {/* Modal Card */}
+            <div 
+              className="w-full max-w-4xl bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
+              style={{ height: '80vh' }}
               onClick={e => e.stopPropagation()}
             >
-              <img
-                src={lightboxImg}
-                alt={lightboxNiche}
-                className="w-full h-auto block"
-                draggable={false}
-              />
-            </div>
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-[#0c0c0c] shrink-0">
+                <span className="text-white font-black uppercase tracking-widest text-xs">
+                  {lightboxNiche}
+                </span>
+                <button
+                  onClick={() => setLightboxImg(null)}
+                  className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
+                >
+                  <X size={16} className="stroke-[2.5]" />
+                </button>
+              </div>
 
-            <p className="text-white/40 text-xs mt-4 shrink-0 font-bold uppercase tracking-wider animate-pulse flex items-center gap-1.5 select-none pointer-events-none">
-              ↕️ Role para cima ou para baixo para ver o modelo completo
-            </p>
+              {/* Scrollable Image Area */}
+              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
+                <img
+                  src={lightboxImg}
+                  alt={lightboxNiche}
+                  className="w-full h-auto block"
+                  draggable={false}
+                />
+              </div>
+
+              {/* Footer hint */}
+              <div className="px-6 py-3 bg-neutral-950 border-t border-white/5 text-center shrink-0">
+                <p className="text-white/40 text-xs font-black uppercase tracking-wider animate-pulse">
+                  ↕️ Role para cima ou para baixo para ver o modelo completo
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

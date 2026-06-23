@@ -474,8 +474,7 @@ export function Footer() {
 export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolean }) {
   return (
     <div
-      className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center`}
-      style={{ pointerEvents: hideOnMobile ? "none" : "auto" }}
+      className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center transition-all duration-300 ${hideOnMobile ? 'opacity-0 pointer-events-none translate-y-4' : 'opacity-100 translate-y-0 pointer-events-auto'}`}
     >
       {/* Radiant Pulsing Rings for extreme attention */}
       <div className="absolute inset-x-0 inset-y-0 w-full h-full rounded-full bg-[#25D366]/30 animate-pulse scale-125 pointer-events-none z-0" />
@@ -487,8 +486,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ 
-          opacity: hideOnMobile ? 0 : 1, 
-          scale: hideOnMobile ? 0.8 : 1.1, // slightly larger standard size for attention
+          scale: 1.1, // slightly larger standard size for attention
           y: [0, -4, 0],
         }}
         whileHover={{ scale: 1.18 }}

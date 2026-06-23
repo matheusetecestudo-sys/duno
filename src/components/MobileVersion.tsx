@@ -37,9 +37,10 @@ import {
   TrendingUp,
   DollarSign,
   Menu,
-  Package,
+  Package, 
   Eye,
-  ZoomIn
+  ZoomIn,
+  ZoomOut
 } from "lucide-react";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./Icons";
@@ -173,8 +174,22 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [lightboxNiche, setLightboxNiche] = useState<string>("");
   const [panningIndex, setPanningIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
   
   const priceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (lightboxImg) {
+      document.body.style.overflow = 'hidden';
+      setIsZoomed(false);
+    } else {
+      document.body.style.overflow = '';
+      setIsZoomed(false);
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightboxImg]);
 
   // Smooth scroll helper
   const scrollToMobile = (id: string) => {
@@ -204,7 +219,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
 
 
   return (
-    <div className="w-full max-w-full mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative" style={{ contain: 'layout' }}>
+    <div className="w-full max-w-full mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative">
       
       {/* ----------------------------------------------------------------------
           NAVBAR MOBILE (floating professional design)
@@ -1491,23 +1506,31 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
                 <span className="text-white font-black uppercase tracking-widest text-[11px]">
                   {lightboxNiche}
                 </span>
-                <button
-                  onClick={() => {
-                    setLightboxImg(null);
-                    onLightboxChange?.(false);
-                  }}
-                  className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
-                >
-                  <X size={14} className="stroke-[2.5]" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setIsZoomed(!isZoomed)}
+                    className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
+                  >
+                    {isZoomed ? <ZoomOut size={14} className="stroke-[2.5]" /> : <ZoomIn size={14} className="stroke-[2.5]" />}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setLightboxImg(null);
+                      onLightboxChange?.(false);
+                    }}
+                    className="w-7 h-7 rounded-full bg-[#f0134d]/20 hover:bg-[#f0134d]/40 active:bg-[#f0134d]/60 flex items-center justify-center text-[#f0134d] hover:text-white cursor-pointer transition-colors"
+                  >
+                    <X size={14} className="stroke-[2.5]" />
+                  </button>
+                </div>
               </div>
 
               {/* Scrollable Image Area */}
-              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
+              <div className={`flex-1 overflow-auto bg-black scroll-smooth ${isZoomed ? 'items-start' : ''}`}>
                 <img
                   src={lightboxImg}
                   alt={lightboxNiche}
-                  className="w-full h-auto block"
+                  className={`${isZoomed ? 'w-[200%] max-w-none' : 'w-full'} h-auto block transition-all duration-300 origin-top`}
                   draggable={false}
                 />
               </div>

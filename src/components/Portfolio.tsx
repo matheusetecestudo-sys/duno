@@ -34,7 +34,7 @@ const NICHES = [
     niche: "Clínica Veterinária", 
     subtitle: "Clínicas Pet & Hospitais Veterinários — alta conversão para agendamentos, banho e tosa, exames e emergências 24h.",
     persuasionDesc: "Experiência móvel rápida com canal de emergência 24h, agendamentos de banho/tosa e integração de mapas.", 
-    img: "/images/clinica veterinaria.webp",
+    img: "/images/clinica veterinaria02.png",
     stats: { speed: "99", seo: "98" },
     tag: "Veterinária",
     highlight: "🐾 Com canal de emergência, banho e tosa, e mapas"

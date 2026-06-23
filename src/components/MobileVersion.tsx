@@ -94,7 +94,7 @@ const MOBILE_NICHES: NicheItem[] = [
     niche: "Clínica Veterinária", 
     subtitle: "Clínicas Pet & Hospitais Veterinários",
     persuasionDesc: "Canal de emergência 24h, agendamentos de banho/tosa e mapas integrados para tranquilizar tutores de pets.", 
-    img: "/images/clinica veterinaria.webp",
+    img: "/images/clinica veterinaria02.png",
     stats: { speed: "99", seo: "98" },
     tag: "Veterinária",
     highlight: "🐾 Emergência 24h + banho e tosa"

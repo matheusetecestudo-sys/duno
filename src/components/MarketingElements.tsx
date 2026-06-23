@@ -486,6 +486,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ 
+          opacity: 1,
           scale: 1.1, // slightly larger standard size for attention
           y: [0, -4, 0],
         }}

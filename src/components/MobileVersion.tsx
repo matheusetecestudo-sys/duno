@@ -267,7 +267,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute top-[64px] inset-x-0 bg-[#000000]/95 border border-[#e91e8c]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-4 shadow-[0_25px_60px_rgba(233,30,140,0.15)] rounded-[24px] pointer-events-auto overflow-y-auto max-h-[80vh]"
+                className="absolute top-[64px] inset-x-0 bg-[#000000]/95 border border-[#e91e8c]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-4 shadow-[0_25px_60px_rgba(233,30,140,0.15)] rounded-[24px] pointer-events-auto"
               >
                 <div className="flex flex-col gap-1 mb-2">
                   <span className="text-[10px] font-black uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
@@ -296,21 +296,6 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
                       <ArrowRight size={14} className="text-[#f0134d] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </button>
                   ))}
-                </div>
-
-                <div className="bg-[#000000] border border-white/5 p-4 rounded-xl flex items-center justify-between mt-1">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-                    <span className="text-[9px] font-black uppercase tracking-wider text-neutral-400">Agência Online ativa</span>
-                  </div>
-                  <a
-                    href="https://wa.me/5511992876219?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[9px] font-black uppercase tracking-widest text-[#f0134d] hover:underline"
-                  >
-                    Contato imediato →
-                  </a>
                 </div>
               </motion.div>
             </>

@@ -440,8 +440,8 @@ export function Footer() {
             <h4 className="font-black mb-8 text-[11px] uppercase tracking-[0.2em] text-white">Contato</h4>
             <ul className="space-y-4">
                <li>
-                 <a href="mailto:contato@duno.com.br" className="text-[13px] font-semibold text-[#808080] hover:text-white transition-colors">
-                   contato@duno.com.br
+                 <a href="mailto:contato.duno@gmail.com" className="text-[13px] font-semibold text-[#808080] hover:text-white transition-colors">
+                   contato.duno@gmail.com
                  </a>
                </li>
                <li>
@@ -449,7 +449,6 @@ export function Footer() {
                    +55 (11) 99287-6219
                  </a>
                </li>
-               <li className="text-[13px] font-medium text-[#606060]">São Paulo, BR</li>
             </ul>
           </div>
 
@@ -470,7 +469,7 @@ export function Footer() {
               © {new Date().getFullYear()} DUNO DIGITAL
             </p>
             <p className="text-[10px] font-medium text-[#505050]">
-              DUNO TECNOLOGIA LTDA · CNPJ: 45.182.903/0001-89 · Av. Paulista, 1000 - Bela Vista - São Paulo / SP
+              Todos os direitos reservados.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] text-[#606060]">

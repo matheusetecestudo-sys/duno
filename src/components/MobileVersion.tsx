@@ -1441,9 +1441,8 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
 
         {/* Contacts details */}
         <div className="flex flex-col items-center gap-2 mb-12">
-          <a href="mailto:contato@duno.com.br" className="text-white/80 text-sm font-medium">contato@duno.com.br</a>
+          <a href="mailto:contato.duno@gmail.com" className="text-white/80 text-sm font-medium">contato.duno@gmail.com</a>
           <a href="https://wa.me/5511992876219" className="text-white text-base font-black">+55 (11) 99287-6219</a>
-          <span className="text-[#606060] text-xs font-medium mt-1">São Paulo, BR</span>
         </div>
 
         {/* CNPJ and Legal disclaimer details */}
@@ -1452,7 +1451,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
             © {new Date().getFullYear()} DUNO DIGITAL
           </p>
           <p className="text-[9px] font-medium text-[#505050] max-w-xs leading-relaxed">
-            DUNO TECNOLOGIA LTDA · CNPJ: 45.182.903/0001-89<br/>Av. Paulista, 1000 - Bela Vista - SP
+            Todos os direitos reservados.
           </p>
           <div className="flex gap-6 mt-2 text-[10px] font-black uppercase tracking-wider text-[#606060]">
             <a href="#" className="hover:text-white">Termos de Uso</a>

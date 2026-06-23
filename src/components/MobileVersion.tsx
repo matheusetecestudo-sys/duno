@@ -200,20 +200,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
     return () => observer.disconnect();
   }, [onPriceInView]);
 
-  // Lock body scroll when lightbox is open
-  useEffect(() => {
-    if (lightboxImg) {
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100vh";
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.height = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.height = "";
-    };
-  }, [lightboxImg]);
+
 
   return (
     <div className="w-full max-w-full mx-auto bg-[#000000] text-white overflow-x-hidden font-sans border-x border-neutral-900 relative" style={{ contain: 'layout' }}>
@@ -1471,47 +1458,43 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 touch-none"
+            className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
             onClick={() => setLightboxImg(null)}
           >
-            {/* Premium Gradient Border Wrapper */}
+            {/* Modal Card */}
             <div 
-              className="p-[1px] bg-gradient-to-br from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] rounded-[24px] shadow-[0_20px_50px_rgba(233,30,140,0.35)]"
-              style={{ width: '90vw', height: '90vh' }}
+              className="w-full max-w-[340px] bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              style={{ height: '80vh' }}
               onClick={e => e.stopPropagation()}
             >
-              {/* Modal Card */}
-              <div className="w-full h-full bg-[#050505] rounded-[23px] overflow-hidden flex flex-col">
-                {/* Header */}
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-[#050505] shrink-0">
-                  <span className="font-black uppercase tracking-widest text-[11px] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
-                    {lightboxNiche}
-                  </span>
-                  <button
-                    onClick={() => setLightboxImg(null)}
-                    className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
-                  >
-                    <X size={14} className="stroke-[2.5]" />
-                  </button>
-                </div>
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0c0c0c] shrink-0">
+                <span className="text-white font-black uppercase tracking-widest text-[11px]">
+                  {lightboxNiche}
+                </span>
+                <button
+                  onClick={() => setLightboxImg(null)}
+                  className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
+                >
+                  <X size={14} className="stroke-[2.5]" />
+                </button>
+              </div>
 
-                {/* Scrollable Image Area with horizontal and vertical native scrolling */}
-                <div className="flex-1 overflow-auto bg-black scroll-smooth hide-scrollbar touch-auto">
-                  <img
-                    src={lightboxImg}
-                    alt={lightboxNiche}
-                    className="max-w-none h-auto block"
-                    style={{ width: '960px' }}
-                    draggable={false}
-                  />
-                </div>
+              {/* Scrollable Image Area */}
+              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
+                <img
+                  src={lightboxImg}
+                  alt={lightboxNiche}
+                  className="w-full h-auto block"
+                  draggable={false}
+                />
+              </div>
 
-                {/* Footer hint */}
-                <div className="px-4 py-3 bg-[#050505] border-t border-white/10 text-center shrink-0 flex items-center justify-center">
-                  <p className="text-white/40 text-[8px] font-black uppercase tracking-widest leading-relaxed max-w-[70%] mx-auto animate-pulse">
-                    ↕️↔️ Arraste para os lados e para baixo para ler tudo
-                  </p>
-                </div>
+              {/* Footer hint */}
+              <div className="px-4 py-2 bg-neutral-950 border-t border-white/5 text-center shrink-0">
+                <p className="text-white/40 text-[9px] font-black uppercase tracking-widest animate-pulse">
+                  ↕️ Deslize para ver o site completo
+                </p>
               </div>
             </div>
           </motion.div>

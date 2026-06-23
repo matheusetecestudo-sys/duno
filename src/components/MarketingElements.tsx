@@ -376,12 +376,17 @@ export function FinalCTA() {
 // FOOTER
 export function Footer() {
   const scrollTo = (id: string) => {
+    if (id === "Início") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const sectionMap: Record<string, string> = {
       "como funciona": "como-funciona",
-      "portfólio": "modelos",
-      "benefícios": "vantagens",
+      "modelos": "modelos",
+      "vantagens": "vantagens",
       "depoimentos": "depoimentos",
-      "preço": "preco"
+      "preço": "preco",
+      "faq": "faq"
     };
     
     const elementId = sectionMap[id.toLowerCase()] || id.toLowerCase().replace(/ /g, "-");
@@ -415,7 +420,7 @@ export function Footer() {
           <div className="md:col-span-2 md:col-start-6">
             <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] inline-block">Navegação</h4>
             <ul className="space-y-3">
-               {["Como funciona", "Portfólio", "Benefícios", "Depoimentos", "Preço"].map(item => (
+               {["Início", "Como funciona", "Vantagens", "Modelos", "Depoimentos", "Preço", "FAQ"].map(item => (
                  <li key={item}>
                    <button 
                      onClick={() => scrollTo(item)}
@@ -498,7 +503,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
             ease: "easeInOut"
           }
         }}
-        className={`relative z-10 flex items-center justify-center p-3.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#1ebd5d] to-[#25D366] text-white shadow-[0_12px_40px_rgba(37,211,102,0.55)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
+        className={`relative z-10 flex items-center justify-center p-3.5 sm:p-4 rounded-full bg-[#25D366]/80 backdrop-blur-md text-white shadow-[0_12px_40px_rgba(37,211,102,0.55)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
         aria-label="Fale conosco no WhatsApp"
       >
         <WhatsAppIcon size={31} className="text-white shrink-0 drop-shadow-md animate-pulse" />

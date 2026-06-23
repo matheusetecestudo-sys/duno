@@ -77,7 +77,11 @@ const NICHES = [
   }
 ];
 
-export default function Portfolio() {
+interface PortfolioProps {
+  onLightboxChange?: (isOpen: boolean) => void;
+}
+
+export default function Portfolio({ onLightboxChange }: PortfolioProps) {
   const [panningIndex, setPanningIndex] = useState<number | null>(null);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [lightboxNiche, setLightboxNiche] = useState<string>("");
@@ -86,6 +90,12 @@ export default function Portfolio() {
   const openLightbox = (item: typeof NICHES[0]) => {
     setLightboxImg(item.img);
     setLightboxNiche(item.niche);
+    onLightboxChange?.(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImg(null);
+    onLightboxChange?.(false);
   };
 
   return (
@@ -200,7 +210,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[70] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
-            onClick={() => setLightboxImg(null)}
+            onClick={closeLightbox}
           >
             {/* Modal Card */}
             <div 
@@ -214,7 +224,7 @@ export default function Portfolio() {
                   {lightboxNiche}
                 </span>
                 <button
-                  onClick={() => setLightboxImg(null)}
+                  onClick={closeLightbox}
                   className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
                 >
                   <X size={16} className="stroke-[2.5]" />

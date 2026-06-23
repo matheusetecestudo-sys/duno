@@ -16,6 +16,7 @@ const SocialProof = lazy(() => import("./components/MarketingElements").then(m =
 export default function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [priceInView, setPriceInView] = useState(false);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -38,8 +39,9 @@ export default function App() {
         <div className="min-h-screen bg-[#000000] text-white flex flex-col items-center overflow-x-hidden w-full">
           <MobileVersion 
             onPriceInView={(visible) => setPriceInView(visible)} 
+            onLightboxChange={setIsLightboxOpen}
           />
-          <WhatsAppButton hideOnMobile={false} />
+          <WhatsAppButton hideOnMobile={isLightboxOpen} />
         </div>
       ) : (
         <>
@@ -82,7 +84,7 @@ export default function App() {
             {/* Seção 8: Modelos / escolha seu nicho */}
             <RevealSection id="modelos">
               <Suspense fallback={<PortfolioSkeleton />}>
-                <Portfolio />
+                <Portfolio onLightboxChange={setIsLightboxOpen} />
               </Suspense>
             </RevealSection>
     
@@ -121,7 +123,7 @@ export default function App() {
     
           {/* Seção 15: Footer e WhatsApp flutuante */}
           <Footer />
-          <WhatsAppButton />
+          <WhatsAppButton hideOnMobile={isLightboxOpen} />
         </>
       )}
     </div>

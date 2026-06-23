@@ -17,6 +17,11 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (id: string) => {
+    if (id === "Início") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsOpen(false);
+      return;
+    }
     const formattedId = id
       .toLowerCase()
       .normalize("NFD")
@@ -29,7 +34,7 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  const navItems = ["Como Funciona", "Modelos", "Vantagens", "Depoimentos", "FAQ"];
+  const navItems = ["Início", "Como Funciona", "Vantagens", "Modelos", "Depoimentos", "Preço", "FAQ"];
 
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">

@@ -159,9 +159,10 @@ const CHATS = [
 
 interface MobileVersionProps {
   onPriceInView?: (visible: boolean) => void;
+  onLightboxChange?: (isOpen: boolean) => void;
 }
 
-export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
+export default function MobileVersion({ onPriceInView, onLightboxChange }: MobileVersionProps) {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -264,10 +265,13 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                 
                 <div className="grid grid-cols-1 gap-2.5 border-t border-white/5 pt-4">
                   {[
-                    { number: "01", label: "Como Funciona", target: "como-funciona-mobile", badge: "48 Horas", desc: "Seu site pronto em tempo recorde" },
-                    { number: "02", label: "Vantagens", target: "beneficios-mobile", badge: "Alta Conversão", desc: "Por que nos escolher faz a diferença" },
-                    { number: "03", label: "Modelos", target: "modelos-carrossel", badge: "Seu Nicho", desc: "Layouts validados para vendas" },
-                    { number: "04", label: "FAQ", target: "faq-mobile", badge: "Suporte", desc: "Tire todas as suas dúvidas" },
+                    { number: "01", label: "Início", target: "hero", badge: "Topo", desc: "Voltar ao topo do site" },
+                    { number: "02", label: "Como Funciona", target: "como-funciona-mobile", badge: "48 Horas", desc: "Seu site pronto em tempo recorde" },
+                    { number: "03", label: "Vantagens", target: "beneficios-mobile", badge: "Alta Conversão", desc: "Por que nos escolher faz a diferença" },
+                    { number: "04", label: "Modelos", target: "modelos-carrossel", badge: "Seu Nicho", desc: "Layouts validados para vendas" },
+                    { number: "05", label: "Depoimentos", target: "depoimentos-mobile", badge: "Reais", desc: "Clientes extremamente satisfeitos" },
+                    { number: "06", label: "Preço", target: "preco-mobile", badge: "Oferta", desc: "Nossa assinatura de elite" },
+                    { number: "07", label: "FAQ", target: "faq-mobile", badge: "Suporte", desc: "Tire todas as suas dúvidas" },
                   ].map((link, idx) => (
                     <button
                       key={idx}
@@ -318,6 +322,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
           HERO MOBILE
           ---------------------------------------------------------------------- */}
       <section
+        id="hero"
         className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#000000]"
         style={{ paddingTop: '95px', paddingBottom: '56px', paddingLeft: '20px', paddingRight: '20px' }}
       >
@@ -919,6 +924,7 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   onClick={() => {
                     setLightboxImg(item.img);
                     setLightboxNiche(item.niche);
+                    onLightboxChange?.(true);
                   }}
                   onMouseEnter={() => setPanningIndex(i)}
                   onMouseLeave={() => setPanningIndex(null)}
@@ -1421,11 +1427,22 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
 
         {/* Links Navigation Row */}
         <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center mb-10 text-xs font-black uppercase tracking-widest text-[#f0134d]">
-          {["Como funciona", "Preço", "Apoio"].map((tab) => (
-            <button key={tab} className="focus:outline-none" onClick={() => scrollToMobile(tab === "Como funciona" ? "como-funciona" : tab === "Preço" ? "preco-mobile" : "faq")}>
-              {tab}
-            </button>
-          ))}
+          {["Início", "Como funciona", "Vantagens", "Modelos", "Depoimentos", "Preço", "FAQ"].map((tab) => {
+             const targetMap: Record<string, string> = {
+               "Início": "hero",
+               "Como funciona": "como-funciona-mobile",
+               "Vantagens": "beneficios-mobile",
+               "Modelos": "modelos-carrossel",
+               "Depoimentos": "depoimentos-mobile",
+               "Preço": "preco-mobile",
+               "FAQ": "faq-mobile"
+             };
+             return (
+               <button key={tab} className="focus:outline-none" onClick={() => scrollToMobile(targetMap[tab])}>
+                 {tab}
+               </button>
+             );
+          })}
         </div>
 
         {/* Contacts details */}
@@ -1459,12 +1476,14 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
-            onClick={() => setLightboxImg(null)}
+            onClick={() => {
+              setLightboxImg(null);
+              onLightboxChange?.(false);
+            }}
           >
             {/* Modal Card */}
             <div 
-              className="w-full max-w-[340px] bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-              style={{ height: '80vh' }}
+              className="w-[90vw] h-[90vh] bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)] mx-auto"
               onClick={e => e.stopPropagation()}
             >
               {/* Header */}
@@ -1473,7 +1492,10 @@ export default function MobileVersion({ onPriceInView }: MobileVersionProps) {
                   {lightboxNiche}
                 </span>
                 <button
-                  onClick={() => setLightboxImg(null)}
+                  onClick={() => {
+                    setLightboxImg(null);
+                    onLightboxChange?.(false);
+                  }}
                   className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
                 >
                   <X size={14} className="stroke-[2.5]" />

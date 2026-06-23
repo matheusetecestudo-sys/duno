@@ -1076,11 +1076,12 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
               <ul className="space-y-3.5 mb-6">
                 {[
                   "Site no ar completo em 48h",
-                  "Sem taxas ocultas de adesão",
                   "Sem fidelidade de contrato",
                   "Alterações ilimitadas inclusas",
                   "Criptografia SSL de segurança",
-                  "Suporte total no WhatsApp"
+                  "Suporte total no WhatsApp",
+                  "Garantia de reembolso de 7 dias",
+                  "Com 1 ou 2 clientes já se paga"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-xs font-bold text-white">
                     <Check size={14} className="text-[#25D366] shrink-0 mt-0.5 stroke-[3]" />
@@ -1185,7 +1186,8 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
               "Hospedagem inclusa de alta resposta AWS",
               "Alterações de texto e fotos quando quiser",
               "Carregamento mobile de alta performance",
-              "Integrado ao seu WhatsApp oficial",
+              "Garantia de reembolso de 7 dias",
+              "Com 1 ou 2 clientes novos já se paga",
               "Sem multas de cancelamento ou contrato",
               "Otimização para SEO local (Google Maps)"
             ].map((item, i) => (
@@ -1197,11 +1199,19 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
           </ul>
 
           {/* Scarcity Note Container */}
-          <div className="bg-emerald-950/20 border border-emerald-500/20 p-4 rounded-xl text-left mb-6 flex items-start gap-2.5">
-            <span className="text-base text-emerald-500">★</span>
-            <p className="text-[11px] font-bold text-emerald-100 leading-normal">
-              Garanta o posicionamento digital da sua marca com a Duno. Deixe a parte técnica conosco e foque somente nas vendas.
-            </p>
+          <div className="bg-emerald-950/20 border border-emerald-500/20 p-4 rounded-xl text-left mb-6 flex flex-col gap-2">
+            <div className="flex items-start gap-2.5">
+              <span className="text-base text-emerald-500">★</span>
+              <p className="text-[11px] font-bold text-emerald-100 leading-normal">
+                Com apenas 1 ou 2 novos clientes trazidos pelo site por mês, o seu investimento já se paga por completo!
+              </p>
+            </div>
+            <div className="flex items-start gap-2.5 border-t border-emerald-500/10 pt-2">
+              <span className="text-base text-emerald-500">🛡️</span>
+              <p className="text-[11px] font-bold text-emerald-100 leading-normal">
+                Você tem 7 dias de garantia incondicional para testar. Se não gostar, basta solicitar o reembolso integral.
+              </p>
+            </div>
           </div>
 
           {/* Bottom Stickyable Action Trigger */}
@@ -1233,6 +1243,10 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
             {
               q: "Posso cancelar a qualquer momento?",
               a: "Sim! Não temos contrato mínimo, fidelidade ou multa de saída. Se quiser parar por qualquer motivo, basta pedir o encerramento do plano pelo WhatsApp."
+            },
+            {
+              q: "E se eu não gostar? Tem garantia?",
+              a: "Sim! Oferecemos 7 dias de garantia incondicional. Se não gostar, basta solicitar o reembolso integral pelo WhatsApp dentro deste prazo e devolvemos seu dinheiro."
             },
             {
               q: "Em quanto tempo fica pronto?",

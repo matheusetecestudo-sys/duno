@@ -120,9 +120,11 @@ export function Offer() {
     "Hospedagem inclusa de alta resposta AWS",
     "Manutenção técnica completa sem preocupações",
     "Alterações ilimitadas inclusas no plano",
-    "Certificado de segurança SSL criptografado incluso",
-    "Zero contrato de fidelidade ou multas de cancelamento",
-    "Suporte imediato de elite feito direto pelo WhatsApp"
+    "Certificado de segurança SSL incluso",
+    "Garantia de reembolso total em até 7 dias",
+    "Com 1 ou 2 novos clientes/mês o site já se paga",
+    "Zero fidelidade ou multas de cancelamento",
+    "Suporte imediato de elite pelo WhatsApp"
   ];
 
   return (
@@ -136,8 +138,8 @@ export function Offer() {
           por apenas <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] font-black"><Counter value={197} prefix="R$ " suffix="" /></span> por mês
         </h2>
         
-        <p className="text-[#a0a0a0] text-[17px] font-semibold max-w-xl mx-auto mb-12">
-          Sem taxas ocultas, sem preocupação com programação. Deixe tudo nas mãos de nossos engenheiros e mude quando quiser.
+        <p className="text-[#a0a0a0] text-[17px] font-semibold max-w-2xl mx-auto mb-12">
+          Sem preocupação com programação. <span className="text-white">Com apenas 1 ou 2 novos clientes por mês o site já se paga!</span> Além disso, você tem <span className="text-[#e91e8c]">7 dias para pedir reembolso</span> se não gostar.
         </p>
         
         <div className="pink-card shadow-2xl !p-8 !sm:p-12 relative !overflow-visible">
@@ -179,7 +181,7 @@ export function Offer() {
           </a>
           
           <p className="mt-6 text-[#606060] text-xs font-bold uppercase tracking-wider">
-            Sem fidelidade de longo prazo. Suporte e alterações inclusos direto via WhatsApp.
+            Garantia de reembolso de 7 dias · Com 1 ou 2 novos clientes por mês o site já se paga · Sem fidelidade
           </p>
         </div>
       </div>
@@ -203,6 +205,10 @@ export function FAQ() {
     { 
       q: "Existe algum período de fidelidade?", 
       a: "De forma alguma! Acreditamos no nosso serviço e na satisfação dos nossos assinantes. Você pode cancelar a mensalidade a qualquer momento que desejar, sem multas contratuais, sem letras miúdas ou taxas ocultas de rescisão." 
+    },
+    {
+      q: "E se eu não gostar? Tenho alguma garantia?",
+      a: "Com certeza! Oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você decidir que o site não atende às suas expectativas, basta solicitar o reembolso integral pelo WhatsApp dentro desse prazo e devolveremos 100% do seu dinheiro."
     },
     { 
       q: "Como funciona a hospedagem inclusa?", 

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, X, Sparkles, Eye, CheckCircle2, ZoomIn } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, X, Sparkles, Eye, CheckCircle2, ZoomIn, ZoomOut } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const NICHES = [
   { 
@@ -85,6 +85,20 @@ export default function Portfolio({ onLightboxChange }: PortfolioProps) {
   const [panningIndex, setPanningIndex] = useState<number | null>(null);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [lightboxNiche, setLightboxNiche] = useState<string>("");
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  useEffect(() => {
+    if (lightboxImg) {
+      document.body.style.overflow = 'hidden';
+      setIsZoomed(false);
+    } else {
+      document.body.style.overflow = '';
+      setIsZoomed(false);
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightboxImg]);
   const [selectedModel, setSelectedModel] = useState<typeof NICHES[0] | null>(null);
 
   const openLightbox = (item: typeof NICHES[0]) => {
@@ -214,29 +228,36 @@ export default function Portfolio({ onLightboxChange }: PortfolioProps) {
           >
             {/* Modal Card */}
             <div 
-              className="w-full max-w-4xl bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
-              style={{ height: '80vh' }}
+              className="w-[90vw] h-[90vh] bg-[#0c0c0c] border border-white/10 rounded-[24px] overflow-hidden flex flex-col shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
               onClick={e => e.stopPropagation()}
             >
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-[#0c0c0c] shrink-0">
-                <span className="text-white font-black uppercase tracking-widest text-xs">
+                <span className="text-[13px] font-black uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
                   {lightboxNiche}
                 </span>
-                <button
-                  onClick={closeLightbox}
-                  className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
-                >
-                  <X size={16} className="stroke-[2.5]" />
-                </button>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setIsZoomed(!isZoomed)}
+                    className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
+                  >
+                    {isZoomed ? <ZoomOut size={16} className="stroke-[2.5]" /> : <ZoomIn size={16} className="stroke-[2.5]" />}
+                  </button>
+                  <button
+                    onClick={closeLightbox}
+                    className="w-9 h-9 rounded-full bg-[#f0134d]/20 hover:bg-[#f0134d]/40 active:bg-[#f0134d]/60 flex items-center justify-center text-[#f0134d] hover:text-white cursor-pointer transition-colors"
+                  >
+                    <X size={16} className="stroke-[2.5]" />
+                  </button>
+                </div>
               </div>
 
               {/* Scrollable Image Area */}
-              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
+              <div className={`flex-1 overflow-auto bg-black scroll-smooth ${isZoomed ? 'items-start' : ''}`}>
                 <img
                   src={lightboxImg}
                   alt={lightboxNiche}
-                  className="w-full h-auto block"
+                  className={`${isZoomed ? 'w-[200%] max-w-none' : 'w-full'} h-auto block transition-all duration-300 origin-top mx-auto`}
                   draggable={false}
                 />
               </div>

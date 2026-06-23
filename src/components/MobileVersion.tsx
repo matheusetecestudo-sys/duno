@@ -267,48 +267,33 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute top-[64px] inset-x-0 bg-[#000000]/95 border border-white/10 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)] rounded-[24px] pointer-events-auto"
+                className="absolute top-[64px] inset-x-0 bg-[#000000]/95 border border-[#e91e8c]/20 backdrop-blur-2xl z-[998] p-6 flex flex-col gap-4 shadow-[0_25px_60px_rgba(233,30,140,0.15)] rounded-[24px] pointer-events-auto overflow-y-auto max-h-[80vh]"
               >
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 mb-2">
                   <span className="text-[10px] font-black uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
-                    Navegação Exclusiva
+                    Navegação
                   </span>
-                  <p className="text-xs text-neutral-400 font-semibold">
-                    Selecione uma seção para navegar com fluidez:
-                  </p>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-2.5 border-t border-white/5 pt-4">
+                <div className="flex flex-col">
                   {[
-                    { number: "01", label: "Início", target: "hero", badge: "Topo", desc: "Voltar ao topo do site" },
-                    { number: "02", label: "Como Funciona", target: "como-funciona-mobile", badge: "48 Horas", desc: "Seu site pronto em tempo recorde" },
-                    { number: "03", label: "Vantagens", target: "beneficios-mobile", badge: "Alta Conversão", desc: "Por que nos escolher faz a diferença" },
-                    { number: "04", label: "Modelos", target: "modelos-carrossel", badge: "Seu Nicho", desc: "Layouts validados para vendas" },
-                    { number: "05", label: "Depoimentos", target: "depoimentos-mobile", badge: "Reais", desc: "Clientes extremamente satisfeitos" },
-                    { number: "06", label: "Preço", target: "preco-mobile", badge: "Oferta", desc: "Nossa assinatura de elite" },
-                    { number: "07", label: "FAQ", target: "faq-mobile", badge: "Suporte", desc: "Tire todas as suas dúvidas" },
+                    { label: "Início", target: "hero" },
+                    { label: "Como Funciona", target: "como-funciona-mobile" },
+                    { label: "Vantagens", target: "beneficios-mobile" },
+                    { label: "Modelos", target: "modelos-carrossel" },
+                    { label: "Depoimentos", target: "depoimentos-mobile" },
+                    { label: "Preço", target: "preco-mobile" },
+                    { label: "FAQ", target: "faq-mobile" },
                   ].map((link, idx) => (
                     <button
                       key={idx}
                       onClick={() => scrollToMobile(link.target)}
-                      className="w-full flex items-center justify-between p-3 rounded-xl bg-white/[0.01] border border-white/5 text-left text-[13px] font-black text-white hover:text-[#f0134d] active:bg-[#f0134d]/5 transition-all uppercase tracking-wide group outline-none"
+                      className="group flex items-center justify-between text-left py-4 border-b border-white/5 last:border-0"
                     >
-                      <div className="flex items-center gap-3.5">
-                        <span className="text-xs font-mono font-bold text-[#f0134d]">
-                          {link.number}
-                        </span>
-                        <div className="flex flex-col">
-                          <span className="font-black text-white group-hover:text-[#f0134d] transition-colors leading-none mb-1">
-                            {link.label}
-                          </span>
-                          <span className="text-[9px] text-neutral-500 font-medium lowercase tracking-normal leading-none">
-                            {link.desc}
-                          </span>
-                        </div>
-                      </div>
-                      <span className="text-[8px] font-bold px-2 py-0.5 rounded bg-white/5 text-neutral-400 group-hover:bg-[#f0134d]/10 group-hover:text-[#f0134d] transition-colors font-mono">
-                        {link.badge}
+                      <span className="text-white text-sm sm:text-base font-black uppercase tracking-[0.2em] group-hover:text-[#e91e8c] transition-colors">
+                        {link.label}
                       </span>
+                      <ArrowRight size={18} className="text-[#f0134d] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </button>
                   ))}
                 </div>
@@ -1503,7 +1488,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
             >
               {/* Header */}
               <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0c0c0c] shrink-0">
-                <span className="text-white font-black uppercase tracking-widest text-[11px]">
+                <span className="text-[11px] font-black uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
                   {lightboxNiche}
                 </span>
                 <div className="flex items-center gap-2">

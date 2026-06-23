@@ -501,7 +501,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
             ease: "easeInOut"
           }
         }}
-        className={`relative z-10 flex items-center justify-center p-3.5 sm:p-4 rounded-full bg-[#25D366]/80 backdrop-blur-md text-white shadow-[0_12px_40px_rgba(37,211,102,0.55)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
+        className={`relative z-10 flex items-center justify-center p-3.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#1ebd5d] to-[#25D366] text-white shadow-[0_12px_40px_rgba(37,211,102,0.55)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
         aria-label="Fale conosco no WhatsApp"
       >
         <WhatsAppIcon size={31} className="text-white shrink-0 drop-shadow-md animate-pulse" />

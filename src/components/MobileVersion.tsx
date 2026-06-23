@@ -1403,15 +1403,24 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
       {/* ----------------------------------------------------------------------
           RODAPÉ MOBILE
           ---------------------------------------------------------------------- */}
-      <footer className="py-12 px-5 bg-[#000000] border-t-2 border-[#f0134d] text-center">
-        <Logo size="sm" className="justify-center mb-6" />
-        
-        <p className="text-xs text-neutral-400 font-semibold leading-relaxed mb-6 max-w-[320px] mx-auto">
-          Sediada no Brasil, a Duno é especializada em construir landing pages de alta resposta para médicos, consultórios e prestadores de serviços por assinatura mensal.
+      <footer className="pt-20 pb-28 px-6 text-center border-t border-white/5 bg-[#000000] relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-[#e91e8c]/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <Logo className="mx-auto mb-8" size="sm" />
+        <p className="text-[#a0a0a0] mb-12 font-medium leading-relaxed text-xs max-w-sm mx-auto">
+          Sediada no Brasil, a Duno é especializada em construir landing pages de alta conversão para médicos, clínicas e consultórios.
         </p>
 
+        {/* Status */}
+        <div className="flex items-center justify-center gap-2 mb-12">
+          <div className="inline-flex items-center gap-2.5 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+             <div className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+             <span className="text-[10px] font-black uppercase tracking-widest text-[#10b981]">Agência Online</span>
+          </div>
+        </div>
+
         {/* Links Navigation Row */}
-        <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center mb-10 text-xs font-black uppercase tracking-widest text-[#f0134d]">
+        <div className="flex flex-wrap gap-x-6 gap-y-4 justify-center mb-12">
           {["Início", "Como funciona", "Vantagens", "Modelos", "Depoimentos", "Preço", "FAQ"].map((tab) => {
              const targetMap: Record<string, string> = {
                "Início": "hero",
@@ -1423,7 +1432,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
                "FAQ": "faq-mobile"
              };
              return (
-               <button key={tab} className="focus:outline-none" onClick={() => scrollToMobile(targetMap[tab])}>
+               <button key={tab} className="text-[11px] font-bold uppercase tracking-widest text-[#606060] hover:text-[#e91e8c]" onClick={() => scrollToMobile(targetMap[tab])}>
                  {tab}
                </button>
              );
@@ -1431,22 +1440,23 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
         </div>
 
         {/* Contacts details */}
-        <div className="space-y-2 mb-10 text-xs font-bold text-neutral-500">
-          <p className="text-white text-sm">contato@duno.com.br</p>
-          <p className="text-white text-base font-black">+55 (11) 99287-6219</p>
-          <p>São Paulo, BR</p>
+        <div className="flex flex-col items-center gap-2 mb-12">
+          <a href="mailto:contato@duno.com.br" className="text-white/80 text-sm font-medium">contato@duno.com.br</a>
+          <a href="https://wa.me/5511992876219" className="text-white text-base font-black">+55 (11) 99287-6219</a>
+          <span className="text-[#606060] text-xs font-medium mt-1">São Paulo, BR</span>
         </div>
 
         {/* CNPJ and Legal disclaimer details */}
-        <div className="pt-6 border-t border-white/5 space-y-2 text-[10px] text-neutral-600 font-medium">
-          <p className="font-extrabold uppercase">© {new Date().getFullYear()} DUNO DIGITAL · LOCAL DE ELITE</p>
-          <p className="leading-relaxed">
-            DUNO TECNOLOGIA LTDA · CNPJ: 45.182.903/0001-89 · Av. Paulista, 1000 - Bela Vista - São Paulo / SP
+        <div className="pt-8 border-t border-white/10 flex flex-col items-center gap-4">
+          <p className="text-[11px] font-black uppercase tracking-[0.15em] text-[#e91e8c]">
+            © {new Date().getFullYear()} DUNO DIGITAL
           </p>
-          <div className="flex gap-4 justify-center text-[9px] font-black uppercase tracking-wider text-neutral-500">
-            <span>Termos de Uso</span>
-            <span className="w-1 h-1 rounded-full bg-neutral-700 my-auto" />
-            <span>Privacidade</span>
+          <p className="text-[9px] font-medium text-[#505050] max-w-xs leading-relaxed">
+            DUNO TECNOLOGIA LTDA · CNPJ: 45.182.903/0001-89<br/>Av. Paulista, 1000 - Bela Vista - SP
+          </p>
+          <div className="flex gap-6 mt-2 text-[10px] font-black uppercase tracking-wider text-[#606060]">
+            <a href="#" className="hover:text-white">Termos de Uso</a>
+            <a href="#" className="hover:text-white">Privacidade</a>
           </div>
         </div>
       </footer>

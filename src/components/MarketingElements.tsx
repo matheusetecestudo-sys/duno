@@ -397,34 +397,36 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-20 px-6 border-t-2 border-[#f0134d] bg-[#000000] relative overflow-hidden select-none">
+    <footer className="pt-24 pb-12 px-6 border-t border-white/5 bg-[#000000] relative overflow-hidden select-none">
       {/* Decorative Glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#e91e8c]/3 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#e91e8c]/5 blur-[150px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10 text-left">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-          <div className="md:col-span-4 max-w-sm">
-             <Logo className="mb-6" size="sm" />
-             <p className="text-[#a0a0a0] mb-8 font-semibold leading-relaxed text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-8 lg:gap-x-12 mb-20">
+          {/* Brand Info */}
+          <div className="md:col-span-5 lg:col-span-4 flex flex-col items-start">
+             <Logo className="mb-8" size="md" />
+             <p className="text-[#a0a0a0] mb-8 font-medium leading-relaxed text-sm max-w-sm">
                Sediada no Brasil, a Duno é especializada em construir landing pages de alta resposta e conversão para médicos, clínicas, consultórios e prestadores de serviços de elite.
              </p>
-             <div className="flex gap-6">
+             <div className="flex gap-6 mt-auto">
                {['Instagram', 'WhatsApp', 'E-mail'].map(social => (
-                 <a key={social} href="#" className="text-xs uppercase tracking-[0.2em] font-black text-white/40 hover:text-[#e91e8c] transition-all">
+                 <a key={social} href="#" className="text-[10px] uppercase tracking-[0.2em] font-black text-white/50 hover:text-[#e91e8c] transition-all">
                    {social}
                  </a>
                ))}
              </div>
           </div>
 
-          <div className="md:col-span-2 md:col-start-6">
-            <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] inline-block">Navegação</h4>
-            <ul className="space-y-3">
+          {/* Navegação */}
+          <div className="md:col-span-2 lg:col-start-7">
+            <h4 className="font-black mb-8 text-[11px] uppercase tracking-[0.2em] text-white">Navegação</h4>
+            <ul className="space-y-4">
                {["Início", "Como funciona", "Vantagens", "Modelos", "Depoimentos", "Preço", "FAQ"].map(item => (
                  <li key={item}>
                    <button 
                      onClick={() => scrollTo(item)}
-                     className="text-xs font-bold text-[#a0a0a0] hover:text-[#e91e8c] cursor-pointer transition-all hover:translate-x-1"
+                     className="text-[13px] font-semibold text-[#808080] hover:text-white cursor-pointer transition-all hover:translate-x-1"
                    >
                      {item}
                    </button>
@@ -433,36 +435,47 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-3 md:col-start-8">
-            <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] inline-block">Contato</h4>
-            <ul className="space-y-3 text-xs font-bold text-[#a0a0a0]">
-               <li className="hover:text-white transition-colors cursor-pointer text-left">contato@duno.com.br</li>
-               <li className="text-white text-sm text-left font-black">+55 (11) 99287-6219</li>
-               <li className="text-[#606060] font-semibold text-left">São Paulo, BR</li>
+          {/* Contato */}
+          <div className="md:col-span-3 lg:col-span-2">
+            <h4 className="font-black mb-8 text-[11px] uppercase tracking-[0.2em] text-white">Contato</h4>
+            <ul className="space-y-4">
+               <li>
+                 <a href="mailto:contato@duno.com.br" className="text-[13px] font-semibold text-[#808080] hover:text-white transition-colors">
+                   contato@duno.com.br
+                 </a>
+               </li>
+               <li>
+                 <a href="https://wa.me/5511992876219" target="_blank" rel="noopener noreferrer" className="text-[14px] font-black text-white hover:text-[#e91e8c] transition-colors">
+                   +55 (11) 99287-6219
+                 </a>
+               </li>
+               <li className="text-[13px] font-medium text-[#606060]">São Paulo, BR</li>
             </ul>
           </div>
 
-          <div className="md:col-span-2 md:col-start-11">
-            <h4 className="font-black mb-6 text-[11px] uppercase tracking-[0.2em] bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd] inline-block">Status</h4>
-            <div className="flex items-center gap-2">
-               <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.6)]" />
-               <span className="text-[10px] font-black uppercase tracking-widest text-[#10b981]">Agência Online</span>
+          {/* Status */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className="font-black mb-8 text-[11px] uppercase tracking-[0.2em] text-white">Status</h4>
+            <div className="inline-flex items-center gap-2.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+               <div className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+               <span className="text-[10px] font-black uppercase tracking-widest text-[#10b981]">Online</span>
             </div>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-left">
-            <p className="text-[10px] font-black uppercase tracking-[0.15em] text-[#606060] mb-1.5">
-              © {new Date().getFullYear()} DUNO DIGITAL · LOCAL DE ELITE
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pr-0 md:pr-24">
+          <div className="flex flex-col gap-2">
+            <p className="text-[11px] font-black uppercase tracking-[0.15em] text-[#e91e8c]">
+              © {new Date().getFullYear()} DUNO DIGITAL
             </p>
-            <p className="text-[9px] font-bold text-[#404040]">
+            <p className="text-[10px] font-medium text-[#505050]">
               DUNO TECNOLOGIA LTDA · CNPJ: 45.182.903/0001-89 · Av. Paulista, 1000 - Bela Vista - São Paulo / SP
             </p>
           </div>
-          <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.25em] text-[#606060]">
-            <span className="hover:text-white cursor-pointer transition-colors">Termos de Uso</span>
-            <span className="hover:text-white cursor-pointer transition-colors">Privacidade</span>
+          <div className="flex flex-wrap items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] text-[#606060]">
+            <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
+            <a href="#" className="hover:text-white transition-colors">Privacidade</a>
           </div>
         </div>
       </div>

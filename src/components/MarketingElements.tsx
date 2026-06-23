@@ -504,8 +504,8 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
         className={`relative z-10 flex items-center justify-center p-3.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#1ebd5d] to-[#25D366] text-white shadow-[0_12px_40px_rgba(37,211,102,0.55)] border-2 border-white/20 hover:border-white/40 group cursor-pointer`}
         aria-label="Fale conosco no WhatsApp"
       >
-        <WhatsAppIcon size={31} className="text-white shrink-0 drop-shadow-md animate-pulse" />
-        <span className="max-w-0 overflow-hidden group-hover:max-w-[200px] transition-all duration-300 ease-in-out font-black uppercase text-[11px] sm:text-[12px] tracking-widest text-white whitespace-nowrap ml-0 group-hover:ml-2.5">
+        <WhatsAppIcon size={31} className="text-white fill-white shrink-0 drop-shadow-md relative z-20" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-[200px] transition-all duration-300 ease-in-out font-black uppercase text-[11px] sm:text-[12px] tracking-widest text-white whitespace-nowrap ml-0 group-hover:ml-2.5 relative z-20">
           Fale Conosco
         </span>
       </motion.a>

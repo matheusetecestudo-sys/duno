@@ -59,7 +59,7 @@ export default function Navbar() {
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className="relative px-3 py-2 text-[13px] font-black uppercase tracking-[0.1em] text-white/80 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#f0134d] hover:via-[#e91e8c] hover:to-[#9b1fbd] transition-all cursor-pointer whitespace-nowrap group"
+              className="relative px-2.5 py-1.5 text-[11px] font-black uppercase tracking-[0.1em] text-white/80 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#f0134d] hover:via-[#e91e8c] hover:to-[#9b1fbd] transition-all cursor-pointer whitespace-nowrap group"
             >
               {item}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-[#f0134d] to-[#9b1fbd] group-hover:w-full transition-all duration-300 rounded-full opacity-0 group-hover:opacity-100" />

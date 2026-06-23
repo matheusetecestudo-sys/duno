@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, X, Sparkles, Eye, CheckCircle2, ZoomIn, ZoomOut } from "lucide-react";
+import { ArrowRight, X, Sparkles, Eye, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const NICHES = [
@@ -85,15 +85,12 @@ export default function Portfolio({ onLightboxChange }: PortfolioProps) {
   const [panningIndex, setPanningIndex] = useState<number | null>(null);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [lightboxNiche, setLightboxNiche] = useState<string>("");
-  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     if (lightboxImg) {
       document.body.style.overflow = 'hidden';
-      setIsZoomed(false);
     } else {
       document.body.style.overflow = '';
-      setIsZoomed(false);
     }
     return () => {
       document.body.style.overflow = '';
@@ -238,12 +235,6 @@ export default function Portfolio({ onLightboxChange }: PortfolioProps) {
                 </span>
                 <div className="flex items-center gap-3">
                   <button
-                    onClick={() => setIsZoomed(!isZoomed)}
-                    className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 flex items-center justify-center text-white/80 hover:text-white cursor-pointer transition-colors"
-                  >
-                    {isZoomed ? <ZoomOut size={16} className="stroke-[2.5]" /> : <ZoomIn size={16} className="stroke-[2.5]" />}
-                  </button>
-                  <button
                     onClick={closeLightbox}
                     className="w-9 h-9 rounded-full bg-[#f0134d]/20 hover:bg-[#f0134d]/40 active:bg-[#f0134d]/60 flex items-center justify-center text-[#f0134d] hover:text-white cursor-pointer transition-colors"
                   >
@@ -253,18 +244,18 @@ export default function Portfolio({ onLightboxChange }: PortfolioProps) {
               </div>
 
               {/* Scrollable Image Area */}
-              <div className={`flex-1 overflow-auto bg-black scroll-smooth ${isZoomed ? 'items-start' : ''}`}>
+              <div className="flex-1 overflow-y-auto bg-black scroll-smooth">
                 <img
                   src={lightboxImg}
                   alt={lightboxNiche}
-                  className={`${isZoomed ? 'w-[200%] max-w-none' : 'w-full'} h-auto block transition-all duration-300 origin-top mx-auto`}
+                  className="w-full h-auto block mx-auto"
                   draggable={false}
                 />
               </div>
 
               {/* Footer hint */}
-              <div className="px-6 py-3 bg-neutral-950 border-t border-white/5 text-center shrink-0">
-                <p className="text-white/40 text-xs font-black uppercase tracking-wider animate-pulse">
+              <div className="px-6 py-3 bg-neutral-950 border-t border-[#f0134d]/20 text-center shrink-0">
+                <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest animate-pulse bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
                   ↕️ Role para cima ou para baixo para ver o modelo completo
                 </p>
               </div>

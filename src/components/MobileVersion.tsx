@@ -288,12 +288,12 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
                     <button
                       key={idx}
                       onClick={() => scrollToMobile(link.target)}
-                      className="group flex items-center justify-between text-left py-4 border-b border-white/5 last:border-0"
+                      className="group flex items-center justify-between text-left py-2.5 border-b border-white/5 last:border-0"
                     >
-                      <span className="text-white text-sm sm:text-base font-black uppercase tracking-[0.2em] group-hover:text-[#e91e8c] transition-colors">
+                      <span className="text-white text-[10px] sm:text-[11px] font-black uppercase tracking-widest group-hover:text-[#e91e8c] transition-colors">
                         {link.label}
                       </span>
-                      <ArrowRight size={18} className="text-[#f0134d] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight size={14} className="text-[#f0134d] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </button>
                   ))}
                 </div>
@@ -1521,8 +1521,8 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
               </div>
 
               {/* Footer hint */}
-              <div className="px-4 py-2 bg-neutral-950 border-t border-white/5 text-center shrink-0">
-                <p className="text-white/40 text-[9px] font-black uppercase tracking-widest animate-pulse">
+              <div className="px-4 py-2 bg-neutral-950 border-t border-[#f0134d]/20 text-center shrink-0">
+                <p className="text-[9px] font-black uppercase tracking-widest animate-pulse bg-clip-text text-transparent bg-gradient-to-r from-[#f0134d] via-[#e91e8c] to-[#9b1fbd]">
                   ↕️ Deslize para ver o site completo
                 </p>
               </div>

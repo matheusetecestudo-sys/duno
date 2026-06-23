@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, X, Sparkles, Eye, CheckCircle2 } from "lucide-react";
+import { ArrowRight, X, Sparkles, Eye, CheckCircle2, ZoomIn } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const NICHES = [

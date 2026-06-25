@@ -201,7 +201,7 @@ export default function Portfolio({ onLightboxChange }: PortfolioProps) {
             Não encontrou seu segmento? Fale conosco — criamos para qualquer nicho.
           </p>
           <a
-            href="https://wa.me/5511992876219?text=Olá!%20Não%20encontrei%20meu%20nicho%20nos%20modelos%20prontos%20e%20gostaria%20de%20um%20personalizado."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20N%C3%A3o%20encontrei%20meu%20nicho%20nos%20modelos%20prontos%20e%20gostaria%20de%20um%20personalizado."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn !h-11 !text-xs !px-5"

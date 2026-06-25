@@ -171,7 +171,7 @@ export function Offer() {
 
           {/* High Urgency CTA Button */}
           <a 
-            href="https://wa.me/5511992876219?text=Olá!%20Fiquei%20interessado%20na%20locação%20de%20site%20da%20Duno%20por%20R$197/mês,%20quero%20começar."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Fiquei%20interessado%20na%20loca%C3%A7%C3%A3o%20de%20site%20da%20Duno%20por%20R%24197%2Fm%C3%AAs%2C%20quero%20come%C3%A7ar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full text-xs sm:text-sm"
@@ -362,7 +362,7 @@ export function FinalCTA() {
           </p>
           
           <a 
-            href="https://wa.me/5511992876219?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20reservar%20a%20vaga%20do%20meu%20nicho."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Falei%20no%20site%20da%20Duno%20e%20gostaria%20de%20reservar%20a%20vaga%20do%20meu%20nicho."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full sm:w-auto max-w-md mx-auto"
@@ -499,7 +499,7 @@ export function WhatsAppButton({ hideOnMobile = false }: { hideOnMobile?: boolea
       <div className="absolute inset-x-0 inset-y-0 w-full h-full rounded-full bg-[#25D366]/20 animate-ping pointer-events-none z-0" />
 
       <motion.a
-        href="https://wa.me/5511992876219?text=Olá!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
+        href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Falei%20no%20site%20da%20Duno%20e%20quero%20um%20site%20profissional."
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.8 }}

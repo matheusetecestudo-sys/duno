@@ -354,7 +354,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
         {/* 4. CTAs Blocks */}
         <div className="relative z-10 w-full max-w-[340px] flex flex-col gap-3 px-1.5 pb-2 text-center items-center">
           <a
-            href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Li%20os%20detalhes%20da%20assinatura%20do%20site%20Duno%20e%20quero%20come%C3%A7ar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full"
@@ -974,7 +974,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
             Deseja outro segmento? Customizamos para seu nicho local gratuitamente.
           </p>
           <a
-            href="https://wa.me/5511992876219?text=Olá!%20Não%20achei%20minha%20profissão%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%2520meu%252520segmento."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20N%C3%A3o%20achei%20minha%20profiss%C3%A3o%20nos%20modelos%20e%20gostaria%20de%20consultar%20sobre%20meu%20segmento."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn !h-11 !text-[11px] !px-5"
@@ -1091,7 +1091,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
               </ul>
 
               <a
-                href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+                href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Li%20os%20detalhes%20da%20assinatura%20do%20site%20Duno%20e%20quero%20come%C3%A7ar."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gold-premium-btn w-full text-xs"
@@ -1216,7 +1216,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
 
           {/* Bottom Stickyable Action Trigger */}
           <a
-            href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Li%20os%20detalhes%20da%20assinatura%20do%20site%20Duno%20e%20quero%20come%C3%A7ar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full max-w-sm mx-auto"
@@ -1303,7 +1303,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
 
         <div className="mt-8">
           <a
-            href="https://wa.me/5511992876219?text=Olá!%20Li%20o%20FAQ%20da%2520Duno%2520mas%2520ainda%2520tenho%2520uma%2520duvida%2520especifica."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Li%20o%20FAQ%20da%20Duno%20mas%20ainda%20tenho%20uma%20d%C3%BAvida%20espec%C3%ADfica."
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-4.5 rounded-xl border border-[#25D366] bg-[#25D366]/10 text-white hover:bg-[#25D366]/20 text-xs font-black uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
@@ -1392,7 +1392,7 @@ export default function MobileVersion({ onPriceInView, onLightboxChange }: Mobil
           </p>
 
           <a
-            href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+            href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Li%20os%20detalhes%20da%20assinatura%20do%20site%20Duno%20e%20quero%20come%C3%A7ar."
             target="_blank"
             rel="noopener noreferrer"
             className="gold-premium-btn w-full max-w-[300px] mx-auto text-xs sm:text-sm"

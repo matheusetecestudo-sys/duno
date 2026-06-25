@@ -72,7 +72,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 w-full sm:w-auto"
           >
             <a 
-              href="https://wa.me/5511992876219?text=Olá!%20Li%2520os%2520detalhes%2520da%252520assinatura%252520do%252520site%252520Duno%2520e%2520quero%2520começar."
+              href="https://wa.me/5511992876219?text=Ol%C3%A1!%20Li%20os%20detalhes%20da%20assinatura%20do%20site%20Duno%20e%20quero%20come%C3%A7ar."
               target="_blank"
               rel="noopener noreferrer"
               className="gold-premium-btn w-full sm:w-auto"
